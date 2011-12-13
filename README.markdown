@@ -25,6 +25,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 * Fixed a bug with URLs that contain pound signs (#) that aren't part of hashes and ampersands (&) that aren't part of querystrings. Yes, this was needed.
 * Standardized the way the class constructors work so that a constructor with no arguments requires you to call the Load() function while a constructor with arguments does not.
 * Help documentation available.
+
 ### 0.5 beta - 8/18/2011
 * Project name change from LibWowArmory to LibWowAPI.
 * Support for BNET authentication.
@@ -36,54 +37,63 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 * The library now sends the X-Library and X-LibraryURL headers identifying itself to Blizzard as LibWowAPI and linking to this project. You can optionally send the X-Application and X-ApplicationURL headers - set via the shared/static properties Application and ApplicationURL - to identify your application.
 * The JSON is now available by using the Data property.
 * Will start providing binaries in addition to the source code.
+
 ### 0.4.1 beta - 8/13/2011
 * Added better exception handling using the new BlizzardAPIException class.
+
 ### 0.4 beta - 8/12/2011
 * Json.NET updated to version 4.0r2
 * All old Armory classes have been removed, and many new API classes have been added.
 * Improved caching, along with adjusting the cache time and adding the ability to manually clear the cache.
+
 ### 0.3 beta - 6/14/2010
 * Solution upgraded to Visual Studio 2010:
-** Many properties have been converted to the new shorthand properties
-** Many changes recommended by the built-in code analyzer, including a switch from generic Lists to generic Collections
+ * Many properties have been converted to the new shorthand properties
+ * Many changes recommended by the built-in code analyzer, including a switch from generic Lists to generic Collections
 * Json.NET updated to version 3.5r7
 * Many classes have been refactored into different namespaces to make the code tree easier to navigate
 * Three new classes:
-** ItemTooltip - The information contained within an item's tooltip. Thanks to Lukan Schwigtenberg for his contribution!
-** AchievementStrings - A class used by CharacterFeed to get the available achievement category names IDs.
-** CharacterFeed - Returns a filterable feed of a character's recent achievements, achievement criteria, boss kills, loot received, and talent respecs. Note that Blizzard hasn't implemented respecs just yet.
+ * ItemTooltip - The information contained within an item's tooltip. Thanks to Lukan Schwigtenberg for his contribution!
+ * AchievementStrings - A class used by CharacterFeed to get the available achievement category names IDs.
+ * CharacterFeed - Returns a filterable feed of a character's recent achievements, achievement criteria, boss kills, loot received, and talent respecs. Note that Blizzard hasn't implemented respecs just yet.
+
 ### 0.2.3 beta - 2/16/2010
 * Updated Dungeon class to work with the current Armory, providing more information for the class
+
 ### 0.2.2 beta - 2/15/2010
 * Updated to work with Json.Net 3.5r6.
 * Updated all current classes for the wowarmory.com changes made on January 13th.
+
 ### 0.2.1 beta - 9/8/2009
 * Added the new TranslationFor and FactionRestriction properties to the ItemInfo class to handle new armory information identifying items as being for a single faction.
+
 ### 0.2 beta - 8/30/2009
 * Fixed various changes to the Armory XML files, especially when it comes to Character Talents.
 * Added character reputation, character calendar, character achievements, and character statistics functions.
+
 ### 0.1 beta - 12/18/2008
 * Initial version.
 
 ## Planned versions
+
 ### 1.0.1
 * New:
-** Added the TransmogItem property to items in the Character Profile.  See the Character.TooltipParams.TransmogItem property.
-** Added a flag to determine if the pet is the currently selected pet.  See the Character.Pet.Selected property.
-** Added pet talents parsing to the Character Profile.  See the Character.Pet.Talents property.
-** Added Portuguese language support for North American and European realms.
-** Added the IsModified property.  See the WowAPIData.IsModified property.
-** Caching is now optional.  See the WowAPIData.CacheResults property.
-** API request timeout is now configurable, defaulting to 10 seconds.  See the WowAPIData.Timeout property.
-** Moved from CodePlex to Github.
+ * Added the TransmogItem property to items in the Character Profile.  See the Character.TooltipParams.TransmogItem property.
+ * Added a flag to determine if the pet is the currently selected pet.  See the Character.Pet.Selected property.
+ * Added pet talents parsing to the Character Profile.  See the Character.Pet.Talents property.
+ * Added Portuguese language support for North American and European realms.
+ * Added the IsModified property.  See the WowAPIData.IsModified property.
+ * Caching is now optional.  See the WowAPIData.CacheResults property.
+ * API request timeout is now configurable, defaulting to 10 seconds.  See the WowAPIData.Timeout property.
+ * Moved from CodePlex to Github.
 * Fixes:
-** Setting the IsModifiedSince date for a request that has not been modified since that date will no longer crash.
-** Chinese realm requests now return the correct URL.
-** Blizzard errors for GZIPped requests will no longer crash.
-** When retrieving an arena team, the list of member will be set to null if there are no members.
+ * Setting the IsModifiedSince date for a request that has not been modified since that date will no longer crash.
+ * Chinese realm requests now return the correct URL.
+ * Blizzard errors for GZIPped requests will no longer crash.
+ * When retrieving an arena team, the list of member will be set to null if there are no members.
 * Planned:
-** Upgrade to latest Json.Net version.
-** Better inheritance model for IfModifiedSince and Options properties.
+ * Upgrade to latest Json.Net version.
+ * Better inheritance model for IfModifiedSince and Options properties.
 
 ## Classes
 
