@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F1A13B1-446E-4D70-AF44-23B207DC898C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>roncliProductions.LibWowAPI</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>On</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>roncliProductions.LibWowAPI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>..\..\..\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>roncliProductions.LibWowAPI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>..\..\..\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auction\clsAuction.vb" />
+    <Compile Include="Auction\clsAuctionData.vb" />
+    <Compile Include="Auction\clsAuctionFilesOptions.vb" />
+    <Compile Include="Auction\clsAuctionFiles.vb" />
+    <Compile Include="Auction\clsAuctionHouse.vb" />
+    <Compile Include="Auction\clsAuctions.vb" />
+    <Compile Include="Auction\clsAuctionDataOptions.vb" />
+    <Compile Include="Auction\clsFile.vb" />
+    <Compile Include="Auction\clsRealm.vb" />
+    <Compile Include="Auction\Schema\auction.vb" />
+    <Compile Include="Auction\Schema\auctionHouse.vb" />
+    <Compile Include="Auction\Schema\auctions.vb" />
+    <Compile Include="Auction\Schema\file.vb" />
+    <Compile Include="Auction\Schema\files.vb" />
+    <Compile Include="Auction\Schema\realm.vb" />
+    <Compile Include="Character\clsAchievement.vb" />
+    <Compile Include="Character\clsAchievements.vb" />
+    <Compile Include="Character\clsAppearance.vb" />
+    <Compile Include="Character\clsArenaTeam.vb" />
+    <Compile Include="Character\clsBattleground.vb" />
+    <Compile Include="Character\clsBoss.vb" />
+    <Compile Include="Character\clsCharacter.vb" />
+    <Compile Include="Character\clsCharacterProfile.vb" />
+    <Compile Include="Character\clsCharacterProfileOptions.vb" />
+    <Compile Include="Character\clsCriteria.vb" />
+    <Compile Include="Character\clsEmblem.vb" />
+    <Compile Include="Character\clsGlyph.vb" />
+    <Compile Include="Character\clsGlyphs.vb" />
+    <Compile Include="Character\clsGuild.vb" />
+    <Compile Include="Character\clsInstance.vb" />
+    <Compile Include="Character\clsItem.vb" />
+    <Compile Include="Character\clsItems.vb" />
+    <Compile Include="Character\clsPet.vb" />
+    <Compile Include="Character\clsProfession.vb" />
+    <Compile Include="Character\clsProfessions.vb" />
+    <Compile Include="Character\clsProgression.vb" />
+    <Compile Include="Character\clsPvP.vb" />
+    <Compile Include="Character\clsRatedBattlegrounds.vb" />
+    <Compile Include="Character\clsReputation.vb" />
+    <Compile Include="Character\clsStats.vb" />
+    <Compile Include="Character\clsTalent.vb" />
+    <Compile Include="Character\clsTitle.vb" />
+    <Compile Include="Character\clsTooltipParams.vb" />
+    <Compile Include="Character\clsTree.vb" />
+    <Compile Include="Character\Schema\achievements.vb" />
+    <Compile Include="Character\Schema\appearance.vb" />
+    <Compile Include="Character\Schema\arenaTeam.vb" />
+    <Compile Include="Character\Schema\battleground.vb" />
+    <Compile Include="Character\Schema\boss.vb" />
+    <Compile Include="Character\Schema\character.vb" />
+    <Compile Include="Character\Schema\glyph.vb" />
+    <Compile Include="Character\Schema\glyphs.vb" />
+    <Compile Include="Character\Schema\instance.vb" />
+    <Compile Include="Character\Schema\item.vb" />
+    <Compile Include="Character\Schema\emblem.vb" />
+    <Compile Include="Character\Schema\guild.vb" />
+    <Compile Include="Character\Schema\items.vb" />
+    <Compile Include="Character\Schema\pet.vb" />
+    <Compile Include="Character\Schema\professions.vb" />
+    <Compile Include="Character\Schema\profession.vb" />
+    <Compile Include="Character\Schema\progression.vb" />
+    <Compile Include="Character\Schema\pvp.vb" />
+    <Compile Include="Character\Schema\ratedBattlegrounds.vb" />
+    <Compile Include="Character\Schema\reputation.vb" />
+    <Compile Include="Character\Schema\stats.vb" />
+    <Compile Include="Character\Schema\talent.vb" />
+    <Compile Include="Character\Schema\title.vb" />
+    <Compile Include="Character\Schema\tooltipParams.vb" />
+    <Compile Include="Character\Schema\tree.vb" />
+    <Compile Include="clsBlizzardAPIError.vb" />
+    <Compile Include="clsBlizzardAPIException.vb" />
+    <Compile Include="clsCache.vb" />
+    <Compile Include="clsLibWowAPIException.vb" />
+    <Compile Include="clsURIQueryStringCollection.vb" />
+    <Compile Include="clsWowAPIData.vb" />
+    <Compile Include="Data\Battlegroups\clsBattlegroup.vb" />
+    <Compile Include="Data\Battlegroups\clsBattlegroups.vb" />
+    <Compile Include="Data\Battlegroups\Schema\battlegroup.vb" />
+    <Compile Include="Data\Battlegroups\Schema\battlegroups.vb" />
+    <Compile Include="Data\CharacterAchievements\clsCategory.vb" />
+    <Compile Include="Data\CharacterAchievements\clsAchievement.vb" />
+    <Compile Include="Data\CharacterAchievements\clsCharacterAchievements.vb" />
+    <Compile Include="Data\CharacterAchievements\clsRewardItem.vb" />
+    <Compile Include="Data\CharacterClasses\clsClass.vb" />
+    <Compile Include="Data\CharacterClasses\clsCharacterClasses.vb" />
+    <Compile Include="Data\CharacterRaces\clsCharacterRaces.vb" />
+    <Compile Include="Data\CharacterRaces\clsRace.vb" />
+    <Compile Include="Data\GuildAchievements\clsAchievement.vb" />
+    <Compile Include="Data\GuildAchievements\clsCategory.vb" />
+    <Compile Include="Data\GuildAchievements\clsGuildAchievements.vb" />
+    <Compile Include="Data\GuildAchievements\clsRewardItem.vb" />
+    <Compile Include="Item\clsBonus.vb" />
+    <Compile Include="Item\clsBonusStats.vb" />
+    <Compile Include="Item\clsBoundZone.vb" />
+    <Compile Include="Item\clsDamage.vb" />
+    <Compile Include="Item\clsGemInfo.vb" />
+    <Compile Include="Item\clsItemSource.vb" />
+    <Compile Include="Item\clsItemSpell.vb" />
+    <Compile Include="Item\clsRequiredAbility.vb" />
+    <Compile Include="Item\clsSpell.vb" />
+    <Compile Include="Item\clsWeaponInfo.vb" />
+    <Compile Include="Item\Schema\bonus.vb" />
+    <Compile Include="Item\Schema\boundZone.vb" />
+    <Compile Include="Item\Schema\damage.vb" />
+    <Compile Include="Item\Schema\gemInfo.vb" />
+    <Compile Include="Item\Schema\itemSource.vb" />
+    <Compile Include="Item\Schema\requiredAbility.vb" />
+    <Compile Include="Item\Schema\socket.vb" />
+    <Compile Include="Item\Schema\socketInfo.vb" />
+    <Compile Include="Item\Schema\type.vb" />
+    <Compile Include="Item\Schema\weaponInfo.vb" />
+    <Compile Include="Data\GuildRewards\clsAchievement.vb" />
+    <Compile Include="Data\GuildPerks\clsGuildPerks.vb" />
+    <Compile Include="Data\GuildPerks\clsPerk.vb" />
+    <Compile Include="Data\GuildPerks\clsSpell.vb" />
+    <Compile Include="Data\GuildRewards\clsGuildRewards.vb" />
+    <Compile Include="Data\GuildRewards\clsRewardItem.vb" />
+    <Compile Include="Data\GuildRewards\clsReward.vb" />
+    <Compile Include="Data\ItemClasses\clsClass.vb" />
+    <Compile Include="Data\ItemClasses\clsItemClasses.vb" />
+    <Compile Include="Data\CharacterAchievements\Schema\achievements.vb" />
+    <Compile Include="Data\CharacterAchievements\Schema\category.vb" />
+    <Compile Include="Data\CharacterAchievements\Schema\achievement.vb" />
+    <Compile Include="Data\CharacterAchievements\Schema\rewardItem.vb" />
+    <Compile Include="Data\CharacterAchievements\Schema\tooltipParams.vb" />
+    <Compile Include="Data\CharacterClasses\Schema\class.vb" />
+    <Compile Include="Data\CharacterClasses\Schema\classes.vb" />
+    <Compile Include="Data\CharacterRaces\Schema\race.vb" />
+    <Compile Include="Data\CharacterRaces\Schema\races.vb" />
+    <Compile Include="Data\GuildAchievements\Schema\achievements.vb" />
+    <Compile Include="Data\GuildAchievements\Schema\category.vb" />
+    <Compile Include="Data\GuildAchievements\Schema\achievement.vb" />
+    <Compile Include="Data\GuildAchievements\Schema\rewardItem.vb" />
+    <Compile Include="Data\GuildAchievements\Schema\tooltipParams.vb" />
+    <Compile Include="Data\GuildPerks\Schema\perk.vb" />
+    <Compile Include="Data\GuildPerks\Schema\perks.vb" />
+    <Compile Include="Data\GuildPerks\Schema\spell.vb" />
+    <Compile Include="Data\GuildRewards\Schema\achievement.vb" />
+    <Compile Include="Data\GuildRewards\Schema\item.vb" />
+    <Compile Include="Data\GuildRewards\Schema\reward.vb" />
+    <Compile Include="Data\GuildRewards\Schema\rewards.vb" />
+    <Compile Include="Data\GuildRewards\Schema\tooltipParams.vb" />
+    <Compile Include="Data\ItemClasses\Schema\class.vb" />
+    <Compile Include="Data\ItemClasses\Schema\classes.vb" />
+    <Compile Include="Guild\clsAchievement.vb" />
+    <Compile Include="Guild\clsAchievements.vb" />
+    <Compile Include="Guild\clsCharacter.vb" />
+    <Compile Include="Guild\clsCriteria.vb" />
+    <Compile Include="Guild\clsEmblem.vb" />
+    <Compile Include="Guild\clsGuild.vb" />
+    <Compile Include="Guild\clsGuildProfile.vb" />
+    <Compile Include="Guild\clsGuildProfileOptions.vb" />
+    <Compile Include="Guild\clsMember.vb" />
+    <Compile Include="Guild\Schema\achievements.vb" />
+    <Compile Include="Guild\Schema\character.vb" />
+    <Compile Include="Guild\Schema\emblem.vb" />
+    <Compile Include="Guild\Schema\guild.vb" />
+    <Compile Include="Guild\Schema\member.vb" />
+    <Compile Include="Item\clsItem.vb" />
+    <Compile Include="Item\clsItemLookup.vb" />
+    <Compile Include="Item\clsItemLookupOptions.vb" />
+    <Compile Include="Item\Schema\bonusStats.vb" />
+    <Compile Include="Item\Schema\item.vb" />
+    <Compile Include="Item\Schema\itemSpell.vb" />
+    <Compile Include="Item\Schema\spell.vb" />
+    <Compile Include="modExtensions.vb" />
+    <Compile Include="modInternationalization.vb" />
+    <Compile Include="modEnums.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="NamespaceDoc.vb" />
+    <Compile Include="PvP\clsArenaLadder.vb" />
+    <Compile Include="PvP\clsArenaLadderOptions.vb" />
+    <Compile Include="PvP\Schema\arenateam.vb" />
+    <Compile Include="PvP\Schema\character.vb" />
+    <Compile Include="PvP\Schema\ladder.vb" />
+    <Compile Include="PvP\Schema\member.vb" />
+    <Compile Include="PvP\clsArenaTeam.vb" />
+    <Compile Include="PvP\clsArenaTeamOptions.vb" />
+    <Compile Include="PvP\clsCharacter.vb" />
+    <Compile Include="PvP\clsMember.vb" />
+    <Compile Include="PvP\clsTeam.vb" />
+    <Compile Include="Quest\clsQuestLookupOptions.vb" />
+    <Compile Include="Quest\clsQuest.vb" />
+    <Compile Include="Quest\clsQuestLookup.vb" />
+    <Compile Include="Quest\Schema\quest.vb" />
+    <Compile Include="Realm\clsRealm.vb" />
+    <Compile Include="Realm\clsRealmStatus.vb" />
+    <Compile Include="Realm\clsRealmStatusOptions.vb" />
+    <Compile Include="Realm\Schema\realm.vb" />
+    <Compile Include="Realm\Schema\realms.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

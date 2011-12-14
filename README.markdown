@@ -1,5 +1,5 @@
 # LibWowAPI
-### Version 1.0.1 - 2011-12-14
+### Version 1.0.1 - Released 12/14/2011
 
 LibWowAPI is a library for the .NET framework that interfaces with the Blizzard World of Warcraft API. The [Blizzard World of Warcraft API](http://blizzard.github.com/api-wow-docs) is an online API that interfaces with World of Warcraft.
 
@@ -11,6 +11,23 @@ Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
 
 ## Version History
+
+### 1.0.1 - 12/14/2011
+* New:
+ * Removed Json.NET dependancy.  LibWowAPI is now a standalone library, using System.Runtime.Serialization.Json to deserialize the JSON received from the Blizzard WoW API.
+ * Added the TransmogItem property to items in the Character Profile.  See the Character.TooltipParams.TransmogItem property.
+ * Added a flag to determine if the pet is the currently selected pet.  See the Character.Pet.Selected property.
+ * Added pet talents parsing to the Character Profile.  See the Character.Pet.Talents property.
+ * Added Portuguese language support for North American and European realms.
+ * Added the IsModified property.  See the WowAPIData.IsModified property.
+ * Caching is now optional.  See the WowAPIData.CacheResults property.
+ * API request timeout is now configurable, defaulting to 10 seconds.  See the WowAPIData.Timeout property.
+ * Moved from CodePlex to Github.
+* Fixes:
+ * Setting the IsModifiedSince date for a request that has not been modified since that date will no longer crash.
+ * Chinese realm requests now return the correct URL.
+ * Blizzard errors for GZIPped requests will no longer crash.
+ * When retrieving an arena team, the list of member will be set to null if there are no members.
 
 ### 1.0 - 8/27/2011
 * Implemented gzip compression.
@@ -72,24 +89,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 ## Planned versions
 
-### 1.0.1
-* New:
- * Removed Json.NET dependancy.  LibWowAPI is now a standalone library, using System.Runtime.Serialization.Json to deserialize the JSON received from the Blizzard WoW API.
- * Added the TransmogItem property to items in the Character Profile.  See the Character.TooltipParams.TransmogItem property.
- * Added a flag to determine if the pet is the currently selected pet.  See the Character.Pet.Selected property.
- * Added pet talents parsing to the Character Profile.  See the Character.Pet.Talents property.
- * Added Portuguese language support for North American and European realms.
- * Added the IsModified property.  See the WowAPIData.IsModified property.
- * Caching is now optional.  See the WowAPIData.CacheResults property.
- * API request timeout is now configurable, defaulting to 10 seconds.  See the WowAPIData.Timeout property.
- * Moved from CodePlex to Github.
-* Fixes:
- * Setting the IsModifiedSince date for a request that has not been modified since that date will no longer crash.
- * Chinese realm requests now return the correct URL.
- * Blizzard errors for GZIPped requests will no longer crash.
- * When retrieving an arena team, the list of member will be set to null if there are no members.
-* Planned:
- * Better inheritance model for IfModifiedSince and Options properties.
+None at this time.
 
 ## Classes
 
