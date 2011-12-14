@@ -14,7 +14,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 ### 1.0.1 - 12/14/2011
 * New:
- * Removed Json.NET dependancy.  LibWowAPI is now a standalone library, using System.Runtime.Serialization.Json to deserialize the JSON received from the Blizzard WoW API.
+ * Removed Json.NET dependency.  LibWowAPI is now a standalone library, using System.Runtime.Serialization.Json to deserialize the JSON received from the Blizzard WoW API.
  * Added the TransmogItem property to items in the Character Profile.  See the Character.TooltipParams.TransmogItem property.
  * Added a flag to determine if the pet is the currently selected pet.  See the Character.Pet.Selected property.
  * Added pet talents parsing to the Character Profile.  See the Character.Pet.Talents property.
