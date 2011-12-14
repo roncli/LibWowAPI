@@ -9,7 +9,7 @@ Licensed under the [LGPL 2.1](http://www.gnu.org/licenses/lgpl-2.1.html).
 
 ## Requirements
 
-* Json.Net 4.0r2 - A free JSON library for .NET.  See the [Getting Started](https://github.com/roncli/LibWowAPI/wiki/Getting-Started) guide for more details.
+* As of version 1.0.1, this is a standalone .NET library.  Json.NET is no longer required to use the library.
 
 ## Usage
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
@@ -78,6 +78,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 ### 1.0.1
 * New:
+ * Removed Json.NET dependancy.  LibWowAPI is now a standalone library, using System.Runtime.Serialization.Json to deserialize the JSON received from the Blizzard WoW API.
  * Added the TransmogItem property to items in the Character Profile.  See the Character.TooltipParams.TransmogItem property.
  * Added a flag to determine if the pet is the currently selected pet.  See the Character.Pet.Selected property.
  * Added pet talents parsing to the Character Profile.  See the Character.Pet.Talents property.
@@ -92,7 +93,6 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Blizzard errors for GZIPped requests will no longer crash.
  * When retrieving an arena team, the list of member will be set to null if there are no members.
 * Planned:
- * Upgrade to latest Json.Net version.
  * Better inheritance model for IfModifiedSince and Options properties.
 
 ## Classes
