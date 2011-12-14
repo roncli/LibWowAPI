@@ -1,15 +1,11 @@
 # LibWowAPI
-### Version 1.0.1 - 2011-12-13
+### Version 1.0.1 - 2011-12-14
 
 LibWowAPI is a library for the .NET framework that interfaces with the Blizzard World of Warcraft API. The [Blizzard World of Warcraft API](http://blizzard.github.com/api-wow-docs) is an online API that interfaces with World of Warcraft.
 
 (c)2008-2011 [Ronald M. Clifford](mailto:roncli@roncli.com)
 
-Licensed under the [LGPL 2.1](http://www.gnu.org/licenses/lgpl-2.1.html).
-
-## Requirements
-
-* As of version 1.0.1, this is a standalone .NET library.  Json.NET is no longer required to use the library.
+Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 
 ## Usage
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
