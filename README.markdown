@@ -27,7 +27,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Setting the IsModifiedSince date for a request that has not been modified since that date will no longer crash.
  * Chinese realm requests now return the correct URL.
  * Blizzard errors for GZIPped requests will no longer crash.
- * When retrieving an arena team, the list of member will be set to null if there are no members.
+ * When retrieving an arena team, the list of members will be set to null if there are no members.
 
 ### 1.0 - 8/27/2011
 * Implemented gzip compression.
