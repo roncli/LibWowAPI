@@ -4,6 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9CDA2775-6107-4BA1-AB37-8B0192E3B907}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
+		README.markdown = README.markdown
 		README.txt = README.txt
 	EndProjectSection
 EndProject

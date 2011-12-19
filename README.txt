@@ -1,5 +1,5 @@
 LibWowAPI
-Version 1.0.1
+Version 1.0.2
 by Ronald M. Clifford (roncli@roncli.com)
 
 This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.

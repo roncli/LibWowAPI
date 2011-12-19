@@ -34,7 +34,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets or sets the Icon field.</value>
         ''' <returns>Returns a path leading to the item's icon on the server.</returns>
-        ''' <remarks>The icon is stored on the server under the path http://<i>Base URL</i>/wow/icoins/<i>size</i>/<i>Icon</i>.jpg.  The Base URL is <i>region</i>.media.blizzard.com, except in China, where it is content.battlenet.com.cn.  The size can be one of 18, 36, or 56.</remarks>
+        ''' <remarks>The icon is stored on the server under the path http://<i>Base URL</i>/wow/icons/<i>size</i>/<i>Icon</i>.jpg.  The Base URL is <i>region</i>.media.blizzard.com, except in China, where it is content.battlenet.com.cn.  The size can be one of 18, 36, or 56.</remarks>
         Public Property Icon As String
 
         ''' <summary>

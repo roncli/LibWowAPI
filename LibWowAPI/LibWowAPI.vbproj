@@ -46,7 +46,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>roncliProductions.LibWowAPI.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
-    <CodeAnalysisRuleSet>..\..\..\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\..\..\svn\ronclipro\trunk\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -262,6 +262,10 @@
     <Compile Include="Realm\clsRealmStatusOptions.vb" />
     <Compile Include="Realm\Schema\realm.vb" />
     <Compile Include="Realm\Schema\realms.vb" />
+    <Compile Include="Recipe\clsRecipeLookup.vb" />
+    <Compile Include="Recipe\clsRecipe.vb" />
+    <Compile Include="Recipe\clsRecipeLookupOptions.vb" />
+    <Compile Include="Recipe\Schema\recipe.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">

@@ -23,6 +23,7 @@ Imports roncliProductions.LibWowAPI.Item
 Imports roncliProductions.LibWowAPI.PvP
 Imports roncliProductions.LibWowAPI.Quest
 Imports roncliProductions.LibWowAPI.Realm
+Imports roncliProductions.LibWowAPI.Recipe
 
 <Assembly: CLSCompliant(True)> 
 
@@ -60,6 +61,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("17 - Item Lookup")
                 Console.WriteLine("18 - Quest Lookup")
                 Console.WriteLine("19 - Realm Status")
+                Console.WriteLine("20 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -104,6 +106,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             QuestLookupDemo()
                         Case 19
                             RealmStatusDemo()
+                        Case 20
+                            RecipeLookupDemo()
                     End Select
                     Console.Clear()
                 Else
@@ -1949,6 +1953,45 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.ReadKey(True)
         End Sub
 
+        Public Sub RecipeLookupDemo()
+            Console.Clear()
+            Console.WriteLine("Recipe Lookup Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables
+            Dim intRecipeID As Integer
+
+            ' Next, get the recipe ID.
+            Do
+                Console.WriteLine("Please enter the ID number of the recipe you wish to lookup.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
+                If Integer.TryParse(strResponse, intRecipeID) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the Recipe.
+            Dim rRecipe As New RecipeLookup(intRecipeID)
+
+            ' Show the recipe.
+            Console.Clear()
+            If rRecipe.CacheHit.HasValue AndAlso rRecipe.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            Console.WriteLine("{0} - ID: {1}", rRecipe.Recipe.Name, rRecipe.Recipe.RecipeID)
+            Console.WriteLine("Profession: {0}", rRecipe.Recipe.Profession)
+            Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
     End Module
 
 End Namespace
