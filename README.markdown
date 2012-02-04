@@ -114,6 +114,7 @@ The following classes are provided:
 * PvP.ArenaTeam
 * Quest.QuestLookup
 * Realms.RealmStatus
+* Recipe.RecipeLookup
 
 ## Demo
 
