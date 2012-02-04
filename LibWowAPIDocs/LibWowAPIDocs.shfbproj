@@ -33,6 +33,7 @@
       <DocumentationSource sourceFile="..\LibWowAPI\LibWowAPI.vbproj" xmlns="" />
     </DocumentationSources>
     <SyntaxFilters>CSharp, VisualBasic</SyntaxFilters>
+    <HelpFileVersion>1.0.2.0</HelpFileVersion>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in
        order for Visual Studio to perform the build.  The others are optional
