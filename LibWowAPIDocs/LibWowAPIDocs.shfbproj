@@ -19,7 +19,7 @@
     <HtmlHelpName>LibWowAPI</HtmlHelpName>
     <Language>en-US</Language>
     <HelpFileFormat>HtmlHelp1, MSHelpViewer, Website</HelpFileFormat>
-    <CopyrightText>Copyright &amp;#169%3b2008-2011 roncli Productions</CopyrightText>
+    <CopyrightText>Copyright &amp;#169%3b2008-2012 roncli Productions</CopyrightText>
     <FeedbackEMailAddress>roncli%40roncli.com</FeedbackEMailAddress>
     <FeedbackEMailLinkText>Ronald M. Clifford</FeedbackEMailLinkText>
     <HelpTitle>LibWowAPI</HelpTitle>
@@ -33,7 +33,7 @@
       <DocumentationSource sourceFile="..\LibWowAPI\LibWowAPI.vbproj" xmlns="" />
     </DocumentationSources>
     <SyntaxFilters>CSharp, VisualBasic</SyntaxFilters>
-    <HelpFileVersion>1.0.2.0</HelpFileVersion>
+    <HelpFileVersion>1.0.3.0</HelpFileVersion>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in
        order for Visual Studio to perform the build.  The others are optional

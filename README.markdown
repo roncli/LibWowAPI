@@ -1,5 +1,5 @@
 # LibWowAPI
-### Version 1.0.2 - Released 12/19/2011
+### Version 1.0.3 - Released 4/20/2012
 
 LibWowAPI is a library for the .NET framework that interfaces with the Blizzard World of Warcraft API. The [Blizzard World of Warcraft API](http://blizzard.github.com/api-wow-docs) is an online API that interfaces with World of Warcraft.
 
@@ -11,6 +11,10 @@ Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
 
 ## Version History
+
+### 1.0.3 - 4/20/2012
+* Added new rated battleground ladder class.
+* Added new data to the realm status class.
 
 ### 1.0.2 - 12/19/2011
 * Added new recipe lookup class.
