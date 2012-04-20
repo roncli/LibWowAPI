@@ -29,7 +29,7 @@ Namespace roncliProductions.LibWowAPI.PvP
     '''
     '''     public class ArenaLadderClass {
     ''' 
-    '''         public Collection(Of Team) GetTeams(string battlegroup, int size, int teams) {
+    '''         public Collection&lt;Team&gt; GetTeams(string battlegroup, int size, int teams) {
     '''             ArenaLadder ladder = new ArenaLadder();
     '''             ladder.Options.Battlegroup = battlegroup;
     '''             ladder.Options.TeamSize = size;
@@ -66,7 +66,7 @@ Namespace roncliProductions.LibWowAPI.PvP
     Public NotInheritable Class ArenaLadder
         Inherits WowAPIData
 
-        Private lLadder As New Schema.ladder
+        Private atlLadder As New Schema.arenaTeamLadder
 
 #Region "WowAPIData Overrides"
 
@@ -102,14 +102,14 @@ Namespace roncliProductions.LibWowAPI.PvP
             End If
             Try
                 Using msJSON As New MemoryStream(Unicode.GetBytes(Data))
-                    lLadder = CType(New DataContractJsonSerializer(GetType(Schema.ladder)).ReadObject(msJSON), Schema.ladder)
+                    atlLadder = CType(New DataContractJsonSerializer(GetType(Schema.arenaTeamLadder)).ReadObject(msJSON), Schema.arenaTeamLadder)
                 End Using
             Catch sex As SerializationException
                 Throw New LibWowAPIException("The data returned by the Armory is invalid.", sex)
             End Try
 
             colTeams = (
-                From t In lLadder.arenateam
+                From t In atlLadder.arenateam
                 Select New Team(
                     t.realm,
                     t.ranking,

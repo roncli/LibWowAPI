@@ -29,7 +29,7 @@ Namespace roncliProductions.LibWowAPI.Internationalization
         Korea
 
         ''' <summary>
-        ''' China, battlenet.com.cn.
+        ''' China, www.battlenet.com.cn.
         ''' </summary>
         ''' <remarks></remarks>
         China

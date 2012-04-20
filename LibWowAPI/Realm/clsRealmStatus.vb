@@ -30,7 +30,7 @@ Namespace roncliProductions.LibWowAPI.Realm
     '''
     '''     public class RealmStatusClass {
     ''' 
-    '''         public Collection(Of Realm) GetRealmStatus(string realm) {
+    '''         public Collection&lt;Realm&gt; GetRealmStatus(string realm) {
     '''             RealmStatus status = new RealmStatus();
     '''             status.Options.Realms.Add(realm);
     '''             status.Load();

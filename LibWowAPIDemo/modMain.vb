@@ -60,8 +60,9 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("16 - Item Classes")
                 Console.WriteLine("17 - Item Lookup")
                 Console.WriteLine("18 - Quest Lookup")
-                Console.WriteLine("19 - Realm Status")
-                Console.WriteLine("20 - Recipe Lookup")
+                Console.WriteLine("19 - Rated Battlegroup Ladder")
+                Console.WriteLine("20 - Realm Status")
+                Console.WriteLine("21 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -105,8 +106,10 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 18
                             QuestLookupDemo()
                         Case 19
-                            RealmStatusDemo()
+                            RatedBattlegroundLadderDemo()
                         Case 20
+                            RealmStatusDemo()
+                        Case 19
                             RecipeLookupDemo()
                     End Select
                     Console.Clear()
@@ -1903,6 +1906,34 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("{0} - ID: {1} - Category: {2} - Level: {3}", qQuest.Quest.Title, qQuest.Quest.ID, qQuest.Quest.Category, qQuest.Quest.Level)
             Console.WriteLine("Required level: {0} - Suggested party members: {1}", qQuest.Quest.RequiredLevel, qQuest.Quest.SuggestedPartyMembers)
             Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub RatedBattlegroundLadderDemo()
+            Console.Clear()
+            Console.WriteLine("Rated Battlegroup Ladder Demo")
+            Console.WriteLine()
+
+            ' Perform the rated battleground ladder lookup.
+            Dim rblLadder As New RatedBattlegroundLadder()
+            rblLadder.Load()
+
+            ' Show the character.
+            If rblLadder.CacheHit.HasValue AndAlso rblLadder.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            For Each bgRecord In rblLadder.Characters
+                Console.WriteLine("{0}) {1} - {2} - Battlegroup: {3}", bgRecord.Rank, bgRecord.Character.Name, bgRecord.Realm.Name, bgRecord.Battlegroup.Name)
+                Console.WriteLine("  Level {0} {1} {2} {3}", bgRecord.Character.Level, bgRecord.Character.Gender, bgRecord.Character.Race.Name, bgRecord.Character.Class.Name)
+                Console.WriteLine("  Achievement Points: {0}", bgRecord.Character.AchievementPoints)
+                Console.WriteLine("  Rating: {0}", bgRecord.Rating)
+                Console.WriteLine("  Record: {0}-{1} ({2} played)", bgRecord.Wins, bgRecord.Losses, bgRecord.Played)
+                Console.WriteLine()
+            Next
 
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)
