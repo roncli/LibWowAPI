@@ -10,9 +10,11 @@ Namespace roncliProductions.LibWowAPI.Realm.Schema
     <DataContract()> Friend Class realm
 
         <DataMember()> Public Property type As String
-        <DataMember()> Public Property queue As Boolean
-        <DataMember()> Public Property status As Boolean
         <DataMember()> Public Property population As String
+        <DataMember()> Public Property queue As Boolean
+        <DataMember()> Public Property wintergrasp As pvpZone
+        <DataMember(name:="tol-barad")> Public Property tolBarad As pvpZone
+        <DataMember()> Public Property status As Boolean
         <DataMember()> Public Property name As String
         <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property slug As String

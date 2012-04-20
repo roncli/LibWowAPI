@@ -22,6 +22,14 @@ Namespace roncliProductions.LibWowAPI.Realm
         Public Property Type As RealmType
 
         ''' <summary>
+        ''' The population of the realm.
+        ''' </summary>
+        ''' <value>This property gets or sets the Population field.</value>
+        ''' <returns>Returns the population of the realm.</returns>
+        ''' <remarks>This represents the population of the realm.  This is one of "low", "medium", or "high", </remarks>
+        Public Property Population As String
+
+        ''' <summary>
         ''' Indicates if there is a queue to get into the realm.
         ''' </summary>
         ''' <value>This property gets or sets the Queue field.</value>
@@ -30,20 +38,28 @@ Namespace roncliProductions.LibWowAPI.Realm
         Public Property Queue As Boolean
 
         ''' <summary>
+        ''' Details about the current PvP status of Wintergrasp.
+        ''' </summary>
+        ''' <value>This property gets or sets the Wintergrasp field.</value>
+        ''' <returns>Returns details about the current PvP status of Wintergrasp.</returns>
+        ''' <remarks>This is a <see cref="PvpZone" /> object that contains details about the current PvP status of Wintergrasp.</remarks>
+        Public Property Wintergrasp As PvpZone
+
+        ''' <summary>
+        ''' Details about the current PvP status of Tol Barad.
+        ''' </summary>
+        ''' <value>This property gets or sets the TolBarad field.</value>
+        ''' <returns>Returns details about the current PvP status of Tol Barad.</returns>
+        ''' <remarks>This is a <see cref="PvpZone" /> object that contains details about the current PvP status of Tol Barad.</remarks>
+        Public Property TolBarad As PvpZone
+
+        ''' <summary>
         ''' Indicates if the realm is online or not.
         ''' </summary>
         ''' <value>This property gets or sets the Status field.</value>
         ''' <returns>Returns a boolean that indicates if the realm is online or not.</returns>
         ''' <remarks>This indicates if the realm is online or not.</remarks>
         Public Property Status As Boolean
-
-        ''' <summary>
-        ''' The population of the realm.
-        ''' </summary>
-        ''' <value>This property gets or sets the Population field.</value>
-        ''' <returns>Returns the population of the realm.</returns>
-        ''' <remarks>This represents the population of the realm.  This is one of "low", "medium", or "high", </remarks>
-        Public Property Population As String
 
         ''' <summary>
         ''' The name of the realm.
@@ -69,11 +85,13 @@ Namespace roncliProductions.LibWowAPI.Realm
         ''' <remarks>This represents Blizzard's internal name for the realm.</remarks>
         Public Property Slug As String
 
-        Friend Sub New(rtType As RealmType, blnQueue As Boolean, blnStatus As Boolean, strPopulation As String, strName As String, strBattlegroup As String, strSlug As String)
+        Friend Sub New(rtType As RealmType, strPopulation As String, blnQueue As Boolean, pzWintergrasp As PvpZone, pzTolBarad As PvpZone, blnStatus As Boolean, strName As String, strBattlegroup As String, strSlug As String)
             Type = rtType
-            Queue = blnQueue
-            Status = blnStatus
             Population = strPopulation
+            Queue = blnQueue
+            Wintergrasp = pzWintergrasp
+            TolBarad = pzTolBarad
+            Status = blnStatus
             Name = strName
             Battlegroup = strBattlegroup
             Slug = strSlug

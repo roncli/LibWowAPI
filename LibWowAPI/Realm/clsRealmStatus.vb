@@ -12,6 +12,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
 Namespace roncliProductions.LibWowAPI.Realm
@@ -119,7 +120,27 @@ Namespace roncliProductions.LibWowAPI.Realm
             End Try
             colRealms = (
                 From r In rRealms.realms
-                Select New Realm(r.type.GetRealmType(), r.queue, r.status, r.population, r.name, r.battlegroup, r.slug)
+                Select New Realm(
+                    r.type.GetRealmType(),
+                    r.population,
+                    r.queue,
+                    New PvpZone(
+                        r.wintergrasp.area,
+                        CType(r.wintergrasp.controllingFaction, Side),
+                        r.wintergrasp.status,
+                        r.wintergrasp.next.BlizzardTimestampToUTC()
+                        ),
+                    New PvpZone(
+                        r.tolBarad.area,
+                        CType(r.tolBarad.controllingFaction, Side),
+                        r.tolBarad.status,
+                        r.tolBarad.next.BlizzardTimestampToUTC()
+                        ),
+                    r.status,
+                    r.name,
+                    r.battlegroup,
+                    r.slug
+                    )
                 ).ToCollection()
         End Sub
 

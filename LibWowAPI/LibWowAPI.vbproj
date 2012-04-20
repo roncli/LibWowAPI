@@ -56,7 +56,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>roncliProductions.LibWowAPI.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
-    <CodeAnalysisRuleSet>..\..\..\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\..\..\svn\ronclipro\trunk\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -257,9 +257,11 @@
     <Compile Include="Quest\clsQuest.vb" />
     <Compile Include="Quest\clsQuestLookup.vb" />
     <Compile Include="Quest\Schema\quest.vb" />
+    <Compile Include="Realm\clsPvpZone.vb" />
     <Compile Include="Realm\clsRealm.vb" />
     <Compile Include="Realm\clsRealmStatus.vb" />
     <Compile Include="Realm\clsRealmStatusOptions.vb" />
+    <Compile Include="Realm\Schema\pvpZone.vb" />
     <Compile Include="Realm\Schema\realm.vb" />
     <Compile Include="Realm\Schema\realms.vb" />
     <Compile Include="Recipe\clsRecipeLookup.vb" />
