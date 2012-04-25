@@ -270,6 +270,8 @@ Namespace roncliProductions.LibWowAPIDemo
             Dim strBattlegroup As String
             Dim intTeamSize As Integer
             Dim intTeams As Integer
+            Dim intPage As Integer
+            Dim blnAscending As New Boolean?
 
             ' Next, get the battlegroup.
             Do
@@ -329,14 +331,64 @@ Namespace roncliProductions.LibWowAPIDemo
                 End If
             Loop
 
+            ' Next, get the page number to return.
+            Do
+                Console.WriteLine("Please enter the page number to return.")
+                Console.WriteLine("  Or press enter to default.")
+                Console.Write(">")
+                Dim strPage = Console.ReadLine
+
+                If String.IsNullOrWhiteSpace(strPage) Then
+                    Exit Do
+                End If
+
+                If Integer.TryParse(strPage, intPage) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("You must enter a valid page number to return.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Next, get whether to return results ascending or descending.
+            Do
+                Console.WriteLine("Select the sort order to use.")
+                Console.WriteLine("0 - Default (Ascending)")
+                Console.WriteLine("1 - Ascending")
+                Console.WriteLine("2 - Descending")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                Dim intResponse As Integer
+                If Integer.TryParse(strResponse, intResponse) Then
+                    Select Case intResponse
+                        Case 0
+                            Exit Do
+                        Case 1
+                            blnAscending = True
+                            Exit Do
+                        Case 2
+                            blnAscending = False
+                            Exit Do
+                        Case Else
+                            Console.WriteLine("Invalid response.")
+                            Console.WriteLine()
+                    End Select
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
             ' Perform the arena ladder lookup.
             Dim alLadder As New ArenaLadder()
             alLadder.Options.Battlegroup = strBattlegroup
             alLadder.Options.TeamSize = intTeamSize
             alLadder.Options.Teams = intTeams
+            alLadder.Options.Page = intPage
+            alLadder.Options.Ascending = blnAscending
             alLadder.Load()
 
-            ' Show the arena team.
+            ' Show the arena teams.
             Console.Clear()
             If alLadder.CacheHit.HasValue AndAlso alLadder.CacheHit.Value Then
                 Console.WriteLine("Cache hit!")
@@ -737,6 +789,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             Console.WriteLine("{0} - {1} - Level {2} {3} {4} {5}", cpCharacter.Character.Realm, cpCharacter.Character.Name, cpCharacter.Character.Level, cpCharacter.Character.Gender, cpCharacter.Character.Race.Name, cpCharacter.Character.Class.Name)
+            Console.WriteLine("Battlegroup: {0}", cpCharacter.Character.Battlegroup)
             Console.WriteLine("Last updated: {0:M/d/yyyy h:mm:ss tt}", cpCharacter.Character.LastModified.ToLocalTime())
             Console.WriteLine("Achievement points: {0}", cpCharacter.Character.AchievementPoints)
             Console.WriteLine("Thumbnail: {0}", cpCharacter.Character.Thumbnail)
@@ -1597,6 +1650,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             Console.WriteLine("{0} - {1} - {2} - Level {3}", gpGuild.Guild.Realm, gpGuild.Guild.Side, gpGuild.Guild.Name, gpGuild.Guild.Level)
+            Console.WriteLine("Battlegroup: {0}", gpGuild.Guild.Battlegroup)
             Console.WriteLine("Last updated: {0:M/d/yyyy h:mm:ss tt}", gpGuild.Guild.LastModified.ToLocalTime())
             Console.WriteLine("Guild Achievement Points: {0}", gpGuild.Guild.AchievementPoints)
             Console.WriteLine("Guild Emblem:")
@@ -1858,6 +1912,9 @@ Namespace roncliProductions.LibWowAPIDemo
                 For Each strSocket In iItem.Item.Sockets
                     Console.WriteLine("  {0}", strSocket)
                 Next
+                If iItem.Item.SocketBonus IsNot Nothing Then
+                    Console.WriteLine("  Bonus: {0}", iItem.Item.SocketBonus)
+                End If
             End If
             If iItem.Item.ItemSource IsNot Nothing Then
                 Console.WriteLine("Source: {0} - ID: {1}", iItem.Item.ItemSource.SourceType, iItem.Item.ItemSource.SourceID)
@@ -1916,11 +1973,86 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("Rated Battlegroup Ladder Demo")
             Console.WriteLine()
 
+            Dim intCharacters As Integer
+            Dim intPage As Integer
+            Dim blnAscending As New Boolean?
+
+            ' First, get the number of characters to return.
+            Do
+                Console.WriteLine("Please enter the number of characters to return.")
+                Console.WriteLine("  Or press enter to default.")
+                Console.Write(">")
+                Dim strTeams = Console.ReadLine
+
+                If String.IsNullOrWhiteSpace(strTeams) Then
+                    Exit Do
+                End If
+
+                If Integer.TryParse(strTeams, intCharacters) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("You must enter a valid number of characters to return.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Next, get the page number to return.
+            Do
+                Console.WriteLine("Please enter the page number to return.")
+                Console.WriteLine("  Or press enter to default.")
+                Console.Write(">")
+                Dim strPage = Console.ReadLine
+
+                If String.IsNullOrWhiteSpace(strPage) Then
+                    Exit Do
+                End If
+
+                If Integer.TryParse(strPage, intPage) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("You must enter a valid page number to return.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Next, get whether to return results ascending or descending.
+            Do
+                Console.WriteLine("Select the sort order to use.")
+                Console.WriteLine("0 - Default (Ascending)")
+                Console.WriteLine("1 - Ascending")
+                Console.WriteLine("2 - Descending")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                Dim intResponse As Integer
+                If Integer.TryParse(strResponse, intResponse) Then
+                    Select Case intResponse
+                        Case 0
+                            Exit Do
+                        Case 1
+                            blnAscending = True
+                            Exit Do
+                        Case 2
+                            blnAscending = False
+                            Exit Do
+                        Case Else
+                            Console.WriteLine("Invalid response.")
+                            Console.WriteLine()
+                    End Select
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
             ' Perform the rated battleground ladder lookup.
             Dim rblLadder As New RatedBattlegroundLadder()
+            rblLadder.Options.Characters = intCharacters
+            rblLadder.Options.Page = intPage
+            rblLadder.Options.Ascending = blnAscending
             rblLadder.Load()
 
-            ' Show the character.
+            ' Show the characters.
+            Console.Clear()
             If rblLadder.CacheHit.HasValue AndAlso rblLadder.CacheHit.Value Then
                 Console.WriteLine("Cache hit!")
                 Console.WriteLine()

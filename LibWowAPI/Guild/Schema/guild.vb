@@ -12,6 +12,7 @@ Namespace roncliProductions.LibWowAPI.Guild.Schema
         <DataMember()> Public Property lastModified As Long
         <DataMember()> Public Property name As String
         <DataMember()> Public Property realm As String
+        <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property level As Integer
         <DataMember()> Public Property side As Integer
         <DataMember()> Public Property achievementPoints As Integer

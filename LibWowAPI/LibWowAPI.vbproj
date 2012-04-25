@@ -247,6 +247,7 @@
     <Compile Include="PvP\clsBattlegroundRecord.vb" />
     <Compile Include="PvP\clsBattlegroup.vb" />
     <Compile Include="PvP\clsRatedBattlegroundLadder.vb" />
+    <Compile Include="PvP\clsRatedBattlegroundLadderOptions.vb" />
     <Compile Include="PvP\Schema\arenateam.vb" />
     <Compile Include="PvP\Schema\battlegroup.vb" />
     <Compile Include="PvP\Schema\bgRecord.vb" />

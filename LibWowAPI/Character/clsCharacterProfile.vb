@@ -117,6 +117,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 cpCharacter.lastModified.BlizzardTimestampToUTC(),
                 cpCharacter.name,
                 cpCharacter.realm,
+                cpCharacter.battlegroup,
                 cpCharacter.class.GetClass(),
                 cpCharacter.race.GetRace(),
                 CType(cpCharacter.gender, Gender),

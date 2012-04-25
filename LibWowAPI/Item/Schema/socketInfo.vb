@@ -10,6 +10,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
     <DataContract()> Friend Class socketInfo
 
         <DataMember()> Public Property sockets As socket()
+        <DataMember()> Public Property socketBonus As String
 
     End Class
 

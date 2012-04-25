@@ -12,6 +12,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property lastModified As Long
         <DataMember()> Public Property name As String
         <DataMember()> Public Property realm As String
+        <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property [class] As Integer
         <DataMember()> Public Property race As Integer
         <DataMember()> Public Property gender As Integer

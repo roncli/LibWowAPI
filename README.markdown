@@ -1,5 +1,5 @@
 # LibWowAPI
-### Version 1.0.3 - Released 4/20/2012
+### Version 1.0.4 - Released 4/25/2012
 
 LibWowAPI is a library for the .NET framework that interfaces with the Blizzard World of Warcraft API. The [Blizzard World of Warcraft API](http://blizzard.github.com/api-wow-docs) is an online API that interfaces with World of Warcraft.
 
@@ -11,6 +11,14 @@ Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
 
 ## Version History
+
+### 1.0.4 - 4/25/2012
+* Added PvpZoneStatus enumeration to describe a realm's PvP zone status, and updated the realm status lookup accordingly.
+* Added item socket bonus to the item lookup.
+* Added page number and sort order to the arena ladder lookup.
+* Added number of characters, page number, and sort order to the rated battleground ladder lookup.
+* Added battlegroup to the character profile lookup.
+* Added battlegroup to the guild profile lookup.
 
 ### 1.0.3 - 4/20/2012
 * Added new rated battleground ladder class.

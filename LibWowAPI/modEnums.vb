@@ -1286,4 +1286,36 @@ Namespace roncliProductions.LibWowAPI.Enums
         VeryLong = 4
     End Enum
 
+    ''' <summary>
+    ''' An enumeration to describe the current status of a PvP zone.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum PvpZoneStatus
+        Unknown = -1
+
+        ''' <summary>
+        ''' The zone is currently idle.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Idle = 0
+
+        ''' <summary>
+        ''' The zone is currently populating, accepting players for the next battle.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Populating = 1
+
+        ''' <summary>
+        ''' The zone is currently undergoing an active battle.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Active = 2
+
+        ''' <summary>
+        ''' The zone just recently concluded a battle.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Concluding = 3
+    End Enum
+
 End Namespace

@@ -115,6 +115,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                 gpGuild.lastModified.BlizzardTimestampToUTC(),
                 gpGuild.name,
                 gpGuild.realm,
+                gpGuild.battlegroup,
                 gpGuild.level,
                 CType(gpGuild.side, Side),
                 gpGuild.achievementPoints,

@@ -41,6 +41,14 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Realm As String
 
         ''' <summary>
+        ''' The battleground the character's realm is in.
+        ''' </summary>
+        ''' <value>This property gets or sets the Battlegroup field.</value>
+        ''' <returns>Returns the battleground the character's realm is in.</returns>
+        ''' <remarks>This represents the battleground the character's realm is in.</remarks>
+        Public Property Battlegroup As String
+
+        ''' <summary>
         ''' The character's class.
         ''' </summary>
         ''' <value>This property gets or sets the Class field.</value>
@@ -243,10 +251,11 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, gGuild As Guild, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pPets As Collection(Of Pet), tTalents As Collection(Of Talent), aAppearance As Appearance, intMounts As Collection(Of Integer), intCompanions As Collection(Of Integer), pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer))
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, gGuild As Guild, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pPets As Collection(Of Pet), tTalents As Collection(Of Talent), aAppearance As Appearance, intMounts As Collection(Of Integer), intCompanions As Collection(Of Integer), pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
+            Battlegroup = strBattlegroup
             [Class] = cClass
             Race = rRace
             Gender = gGender

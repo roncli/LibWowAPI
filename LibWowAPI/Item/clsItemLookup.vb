@@ -212,6 +212,7 @@ Namespace roncliProductions.LibWowAPI.Item
                         Select s.type
                         ).ToCollection()
                     ),
+                If(ilItem.socketInfo Is Nothing, Nothing, ilItem.socketInfo.socketBonus),
                 If(ilItem.itemSource Is Nothing, Nothing,
                     New ItemSource(
                         ilItem.itemSource.sourceId,

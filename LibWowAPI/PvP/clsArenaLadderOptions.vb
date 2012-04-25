@@ -8,7 +8,7 @@ Namespace roncliProductions.LibWowAPI.PvP
     ''' <summary>
     ''' A class that defines options for the arena ladder lookup.
     ''' </summary>
-    ''' <remarks>This class allows you to define the battlegroup, teamsize, and number of teams to lookup on an arena ladder. There is no need to create an instance of this class, as the <see cref="ArenaLadder.Options" /> property automatically does so for you.</remarks>
+    ''' <remarks>This class allows you to define the battlegroup, team size, number of teams, the page number, and sort order to lookup on an arena ladder. There is no need to create an instance of this class, as the <see cref="ArenaLadder.Options" /> property automatically does so for you.</remarks>
     Public Class ArenaLadderOptions
 
         ''' <summary>
@@ -34,6 +34,22 @@ Namespace roncliProductions.LibWowAPI.PvP
         ''' <returns>Returns the number of teams to return.</returns>
         ''' <remarks>This property allows you to set the number of teams to return on the ladder, up to 2000.  Defaults to 50.</remarks>
         Public Property Teams As Integer
+
+        ''' <summary>
+        ''' The page number to return.
+        ''' </summary>
+        ''' <value>This property gets or sets the Page field.</value>
+        ''' <returns>Returns the page number to return.</returns>
+        ''' <remarks>This property allows you to set the page number of results to return.  Defaults to 1.</remarks>
+        Public Property Page As Integer
+
+        ''' <summary>
+        ''' A boolean indicating whether to return results in ascending or descending order.
+        ''' </summary>
+        ''' <value>This property gets or sets the Ascending field.</value>
+        ''' <returns>Returns a boolean indicating whether to return results in ascending or descending order.</returns>
+        ''' <remarks>This property is a <see cref="System.Nullable(Of Boolean)" /> of <see cref="Boolean" /> that, when set to false, returns teams in descending ranking.  Defaults to True.</remarks>
+        Public Property Ascending As New Boolean?
 
         Friend Sub New()
         End Sub

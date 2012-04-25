@@ -29,11 +29,13 @@ Namespace roncliProductions.LibWowAPI.PvP
     '''
     '''     public class ArenaLadderClass {
     ''' 
-    '''         public Collection&lt;Team&gt; GetTeams(string battlegroup, int size, int teams) {
+    '''         public Collection&lt;Team&gt; GetTeams(string battlegroup, int size, int teams, int page, bool ascending) {
     '''             ArenaLadder ladder = new ArenaLadder();
     '''             ladder.Options.Battlegroup = battlegroup;
     '''             ladder.Options.TeamSize = size;
     '''             ladder.Options.Teams = teams;
+    '''             ladder.Options.Page = page;
+    '''             ladder.Options.Ascending = ascending;
     '''             ladder.Load();
     '''             return ladder.Teams;
     '''         }
@@ -49,11 +51,13 @@ Namespace roncliProductions.LibWowAPI.PvP
     ''' 
     '''     Public Class ArenaLadderClass
     ''' 
-    '''         Public Function GetTeams(battlegroup As String, size As Integer, teams as Integer) As Collection(Of Team)
+    '''         Public Function GetTeams(battlegroup As String, size As Integer, teams As Integer, page As Integer, ascending As Boolean) As Collection(Of Team)
     '''             Dim ladder As New ArenaLadder()
     '''             ladder.Options.Battlegroup = battlegroup
     '''             ladder.Options.TeamSize = size
     '''             ladder.Options.Teams = teams
+    '''             ladder.Options.Page = page
+    '''             ladder.Options.Ascending = ascending
     '''             ladder.Load()
     '''             Return ladder.Teams
     '''         End Function
@@ -78,13 +82,19 @@ Namespace roncliProductions.LibWowAPI.PvP
                 If Options.Teams > 0 Then
                     QueryString.Add("size", Options.Teams.ToString(CultureInfo.InvariantCulture))
                 End If
+                If Options.Page > 0 Then
+                    QueryString.Add("page", Options.Page.ToString(CultureInfo.InvariantCulture))
+                End If
+                If Options.Ascending.HasValue Then
+                    QueryString.Add("asc", If(Options.Ascending.Value, "true", "false"))
+                End If
                 Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/pvp/arena/{0}/{1}v{1}", Options.Battlegroup, Options.TeamSize), UriKind.Relative)
             End Get
         End Property
 
         Protected Overrides ReadOnly Property CacheKey As String
             Get
-                Return String.Format(CultureInfo.InvariantCulture, "LibWowAPI.ArenaLadder.{0}.{1}.{2}", Options.Battlegroup, Options.TeamSize, Options.Teams)
+                Return String.Format(CultureInfo.InvariantCulture, "LibWowAPI.ArenaLadder.{0}.{1}.{2}.{3}.{4}", Options.Battlegroup, Options.TeamSize, Options.Teams, Options.Page, If(Options.Ascending.HasValue, Options.Ascending.Value, True))
             End Get
         End Property
 

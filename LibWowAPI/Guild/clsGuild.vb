@@ -39,6 +39,14 @@ Namespace roncliProductions.LibWowAPI.Guild
         Public Property Realm As String
 
         ''' <summary>
+        ''' The battleground the guild's realm is in.
+        ''' </summary>
+        ''' <value>This property gets or sets the Battlegroup field.</value>
+        ''' <returns>Returns the battleground the guild's realm is in.</returns>
+        ''' <remarks>This represents the battleground the guild's realm is in.</remarks>
+        Public Property Battlegroup As String
+
+        ''' <summary>
         ''' The level of the guild.
         ''' </summary>
         ''' <value>This property gets or sets the Level field.</value>
@@ -91,10 +99,11 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <remarks>The <see cref="Emblem" /> class holds information on how to construct the guild's emblem.</remarks>
         Public Property Emblem As Emblem
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, intLevel As Integer, sSide As Side, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem)
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, sSide As Side, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem)
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
+            Battlegroup = strBattlegroup
             Level = intLevel
             Side = sSide
             AchievementPoints = intAchievementPoints

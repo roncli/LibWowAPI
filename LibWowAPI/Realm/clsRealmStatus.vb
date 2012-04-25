@@ -127,13 +127,13 @@ Namespace roncliProductions.LibWowAPI.Realm
                     New PvpZone(
                         r.wintergrasp.area,
                         CType(r.wintergrasp.controllingFaction, Side),
-                        r.wintergrasp.status,
+                        CType(r.wintergrasp.status, PvpZoneStatus),
                         r.wintergrasp.next.BlizzardTimestampToUTC()
                         ),
                     New PvpZone(
                         r.tolBarad.area,
                         CType(r.tolBarad.controllingFaction, Side),
-                        r.tolBarad.status,
+                        CType(r.tolBarad.status, PvpZoneStatus),
                         r.tolBarad.next.BlizzardTimestampToUTC()
                         ),
                     r.status,
