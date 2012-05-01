@@ -211,12 +211,12 @@ Namespace roncliProductions.LibWowAPI.Item
         Public Property ItemLevel As Integer
 
         ''' <summary>
-        ''' The ID number of the set this item belongs to.
+        ''' Information about the item set.
         ''' </summary>
         ''' <value>This property gets or sets the ItemSet field.</value>
-        ''' <returns>Returns the ID number of the set this item belongs to.</returns>
-        ''' <remarks>Currently, there is no way to find out any data about an item set.</remarks>
-        Public Property ItemSet As Integer
+        ''' <returns>Returns information about the item set.</returns>
+        ''' <remarks>This is a <see cref="ItemSet" /> object that represents information about the item set.  This returns null if this item is not part of a set.</remarks>
+        Public Property ItemSet As ItemSet
 
         ''' <summary>
         ''' The maximum number of these items you may have at one time.
@@ -351,7 +351,7 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This determines if the item is auctionable.</remarks>
         Public Property IsAuctionable As Boolean
 
-        Friend Sub New(intID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, bsBonusStats As Collection(Of BonusStats), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, intItemSubClass As Integer, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, intItemSet As Integer, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean)
+        Friend Sub New(intID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, bsBonusStats As Collection(Of BonusStats), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, intItemSubClass As Integer, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean)
             ID = intID
             DisenchantingSkillRank = intDisenchantingSkillRank
             Description = strDescription
@@ -373,7 +373,7 @@ Namespace roncliProductions.LibWowAPI.Item
             InventoryType = itInventoryType
             Equippable = blnEquippable
             ItemLevel = intItemLevel
-            ItemSet = intItemSet
+            ItemSet = isItemSet
             MaxCount = intMaxCount
             MaxDurability = intMaxDurability
             RequiredFactionID = intRequiredFactionID

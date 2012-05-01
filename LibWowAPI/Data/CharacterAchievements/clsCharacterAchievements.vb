@@ -135,7 +135,17 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                                 a.rewardItem.icon,
                                                 CType(a.rewardItem.quality, Quality)
                                                 )
-                                            )
+                                            ),
+                                        a.icon,
+                                        If(a.criteria Is Nothing, Nothing,
+                                            (
+                                                From cr In a.criteria
+                                                Select New Criteria(
+                                                    cr.id,
+                                                    cr.description
+                                                   )
+                                               ).ToCollection()
+                                           )
                                         )
                                     ).ToCollection()
                                 )
@@ -157,6 +167,16 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                     a.rewardItem.icon,
                                     CType(a.rewardItem.quality, Quality)
                                     )
+                                ),
+                            a.icon,
+                            If(a.criteria Is Nothing, Nothing,
+                                (
+                                    From cr In a.criteria
+                                    Select New Criteria(
+                                        cr.id,
+                                        cr.description
+                                        )
+                                    ).ToCollection()
                                 )
                             )
                         ).ToCollection()

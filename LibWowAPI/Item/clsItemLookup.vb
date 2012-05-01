@@ -152,7 +152,8 @@ Namespace roncliProductions.LibWowAPI.Item
                                 ),
                             s.nCharges,
                             s.consumable,
-                            s.categoryId
+                            s.categoryId,
+                            s.trigger.GetItemSpellTrigger()
                             )
                         ).ToCollection()
                     ),
@@ -189,7 +190,21 @@ Namespace roncliProductions.LibWowAPI.Item
                 CType(ilItem.inventoryType, InventoryType),
                 ilItem.equippable,
                 ilItem.itemLevel,
-                ilItem.itemSet,
+                If(ilItem.itemSet Is Nothing, Nothing,
+                   New ItemSet(
+                       ilItem.itemSet.id,
+                       ilItem.itemSet.name,
+                       If(ilItem.itemSet.setBonuses Is Nothing, Nothing,
+                           (
+                               From sb In ilItem.itemSet.setBonuses
+                               Select New SetBonus(
+                                   sb.description,
+                                   sb.threshold
+                                   )
+                               ).ToCollection()
+                           )
+                       )
+                   ),
                 ilItem.maxCount,
                 ilItem.maxDurability,
                 ilItem.minFactionId,

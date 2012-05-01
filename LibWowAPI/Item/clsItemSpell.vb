@@ -3,6 +3,8 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports roncliProductions.LibWowAPI.Enums
+
 Namespace roncliProductions.LibWowAPI.Item
 
     ''' <summary>
@@ -51,12 +53,21 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This represents the spell category ID number.</remarks>
         Public Property CategoryID As Integer
 
-        Friend Sub New(intSpellID As Integer, sSpell As Spell, intCharges As Integer, blnConsumable As Boolean, intCategoryID As Integer)
+        ''' <summary>
+        ''' How the spell is triggered.
+        ''' </summary>
+        ''' <value>This property gets or sets the Trigger field.</value>
+        ''' <returns>Returns how the spell is triggered.</returns>
+        ''' <remarks>This is a <see cref="Enums.ItemSpellTrigger" /> enumeration that represents how the spell is triggered.</remarks>
+        Public Property Trigger As ItemSpellTrigger
+
+        Friend Sub New(intSpellID As Integer, sSpell As Spell, intCharges As Integer, blnConsumable As Boolean, intCategoryID As Integer, istTrigger As ItemSpellTrigger)
             SpellID = intSpellID
             Spell = sSpell
             Charges = intCharges
             Consumable = blnConsumable
             CategoryID = intCategoryID
+            Trigger = istTrigger
         End Sub
 
     End Class

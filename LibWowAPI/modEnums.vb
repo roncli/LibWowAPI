@@ -1318,4 +1318,24 @@ Namespace roncliProductions.LibWowAPI.Enums
         Concluding = 3
     End Enum
 
+    ''' <summary>
+    ''' An enumeration to describe how an item spell is proced.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum ItemSpellTrigger
+        Unknown = -1
+
+        ''' <summary>
+        ''' The item spell is proced passively.
+        ''' </summary>
+        ''' <remarks></remarks>
+        OnEquip = 0
+
+        ''' <summary>
+        ''' The item spell is proced on use.
+        ''' </summary>
+        ''' <remarks></remarks>
+        OnUse = 1
+    End Enum
+
 End Namespace

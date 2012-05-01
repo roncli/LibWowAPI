@@ -30,7 +30,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property inventoryType As Integer
         <DataMember()> Public Property equippable As Boolean
         <DataMember()> Public Property itemLevel As Integer
-        <DataMember()> Public Property itemSet As Integer
+        <DataMember()> Public Property itemSet As itemSet
         <DataMember()> Public Property maxCount As Integer
         <DataMember()> Public Property maxDurability As Integer
         <DataMember()> Public Property minFactionId As Integer

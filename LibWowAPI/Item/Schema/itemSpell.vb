@@ -14,6 +14,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property nCharges As Integer
         <DataMember()> Public Property consumable As Boolean
         <DataMember()> Public Property categoryId As Integer
+        <DataMember()> Public Property trigger As String
 
     End Class
 

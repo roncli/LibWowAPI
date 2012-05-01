@@ -183,6 +183,17 @@ Namespace roncliProductions.LibWowAPI.Extensions
             End If
         End Function
 
+        <Extension()> Friend Function GetItemSpellTrigger(strTrigger As String) As ItemSpellTrigger
+            Select Case strTrigger.ToUpperInvariant()
+                Case "ON_USE"
+                    Return ItemSpellTrigger.OnUse
+                Case "ON_EQUIP"
+                    Return ItemSpellTrigger.OnEquip
+                Case Else
+                    Return ItemSpellTrigger.Unknown
+            End Select
+        End Function
+
     End Module
 
 End Namespace

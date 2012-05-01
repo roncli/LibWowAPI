@@ -15,6 +15,8 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements.Schema
         <DataMember()> Public Property description As String
         <DataMember()> Public Property reward As String
         <DataMember()> Public Property rewardItem As rewardItem
+        <DataMember()> Public Property icon As String
+        <DataMember()> Public Property criteria As criteria()
 
     End Class
 

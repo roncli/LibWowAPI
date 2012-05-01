@@ -616,6 +616,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("{0} - Category ID {1}", cCategory.Name, cCategory.ID)
                 For Each aAchievement In cCategory.Achievements
                     Console.WriteLine("  {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                    Console.WriteLine("    Icon: {0}", aAchievement.Icon)
                     Console.WriteLine("    {0}", aAchievement.Description)
                     If Not String.IsNullOrWhiteSpace(aAchievement.Reward) Then
                         Console.WriteLine("    {0}", aAchievement.Reward)
@@ -623,18 +624,29 @@ Namespace roncliProductions.LibWowAPIDemo
                     If aAchievement.RewardItem IsNot Nothing Then
                         Console.WriteLine("      {0} - ID: {1} - Quality: {2}", aAchievement.RewardItem.Name, aAchievement.RewardItem.ID, aAchievement.RewardItem.Quality)
                     End If
+                    If aAchievement.Criteria IsNot Nothing Then
+                        For Each cCriteria In aAchievement.Criteria
+                            Console.WriteLine("    - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                        Next
+                    End If
                 Next
                 If cCategory.Categories IsNot Nothing Then
                     For Each cSubCategory In cCategory.Categories
                         Console.WriteLine("  {0} - Category ID {1}", cSubCategory.Name, cSubCategory.ID)
                         For Each aAchievement In cSubCategory.Achievements
                             Console.WriteLine("    {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                            Console.WriteLine("      Icon: {0}", aAchievement.Icon)
                             Console.WriteLine("      {0}", aAchievement.Description)
                             If Not String.IsNullOrWhiteSpace(aAchievement.Reward) Then
                                 Console.WriteLine("      {0}", aAchievement.Reward)
                             End If
                             If aAchievement.RewardItem IsNot Nothing Then
                                 Console.WriteLine("        {0} - ID: {1} - Quality: {2}", aAchievement.RewardItem.Name, aAchievement.RewardItem.ID, aAchievement.RewardItem.Quality)
+                            End If
+                            If aAchievement.Criteria IsNot Nothing Then
+                                For Each cCriteria In aAchievement.Criteria
+                                    Console.WriteLine("      - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                                Next
                             End If
                         Next
                     Next
@@ -1838,6 +1850,9 @@ Namespace roncliProductions.LibWowAPIDemo
                     If isSpell.Charges > 0 Then
                         Console.WriteLine("    {0} Charges", isSpell.Charges)
                     End If
+                    If isSpell.Trigger <> Enums.ItemSpellTrigger.Unknown Then
+                        Console.WriteLine("    Proced {0}", isSpell.Trigger)
+                    End If
                 Next
             End If
             If iItem.Item.DisenchantingSkillRank > 0 Then
@@ -1882,8 +1897,13 @@ Namespace roncliProductions.LibWowAPIDemo
             If iItem.Item.ItemLevel > 0 Then
                 Console.WriteLine("Item Level: {0}", iItem.Item.ItemLevel)
             End If
-            If iItem.Item.ItemSet > 0 Then
-                Console.WriteLine("Item Set ID: {0}", iItem.Item.ItemSet)
+            If iItem.Item.ItemSet IsNot Nothing Then
+                Console.WriteLine("Item Set: {0}", iItem.Item.ItemSet.Name)
+                If iItem.Item.ItemSet.SetBonuses IsNot Nothing Then
+                    For Each setBonus In iItem.Item.ItemSet.SetBonuses
+                        Console.WriteLine("  ({0}) {1}", setBonus.Threshold, setBonus.Description)
+                    Next
+                End If
             End If
             If iItem.Item.MaxCount > 0 Then
                 Console.WriteLine("Unique ({0})", iItem.Item.MaxCount)
