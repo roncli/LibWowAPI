@@ -128,14 +128,25 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                         a.points,
                                         a.description,
                                         a.reward,
-                                        If(a.rewardItem Is Nothing, Nothing,
+                                        If(a.rewardItems Is Nothing, Nothing,
                                             New RewardItem(
-                                                a.rewardItem.id,
-                                                a.rewardItem.name,
-                                                a.rewardItem.icon,
-                                                CType(a.rewardItem.quality, Quality)
+                                                a.rewardItems.id,
+                                                a.rewardItems.name,
+                                                a.rewardItems.icon,
+                                                CType(a.rewardItems.quality, Quality)
                                                 )
-                                            )
+                                            ),
+                                        a.icon,
+                                        (
+                                            From cr In a.criteria
+                                            Select New Criteria(
+                                                cr.id,
+                                                cr.description,
+                                                cr.orderIndex,
+                                                cr.max
+                                                )
+                                            ).ToCollection(),
+                                        a.accountWide
                                         )
                                     ).ToCollection()
                                 )
@@ -150,14 +161,25 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                             a.points,
                             a.description,
                             a.reward,
-                            If(a.rewardItem Is Nothing, Nothing,
+                            If(a.rewardItems Is Nothing, Nothing,
                                 New RewardItem(
-                                    a.rewardItem.id,
-                                    a.rewardItem.name,
-                                    a.rewardItem.icon,
-                                    CType(a.rewardItem.quality, Quality)
+                                    a.rewardItems.id,
+                                    a.rewardItems.name,
+                                    a.rewardItems.icon,
+                                    CType(a.rewardItems.quality, Quality)
                                     )
-                                )
+                                ),
+                            a.icon,
+                            (
+                                From cr In a.criteria
+                                Select New Criteria(
+                                    cr.id,
+                                    cr.description,
+                                    cr.orderIndex,
+                                    cr.max
+                                    )
+                                ).ToCollection(),
+                            a.accountWide
                             )
                         ).ToCollection()
                     )

@@ -82,7 +82,15 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
             End Get
         End Property
 
-        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItem As RewardItem, strIcon As String, cCriteria As Collection(Of Criteria))
+        ''' <summary>
+        ''' Determines whether the achievement is account-wide.
+        ''' </summary>
+        ''' <value>This property gets or sets the AccountWide field.</value>
+        ''' <returns>Returns whether the achievement is account-wide.</returns>
+        ''' <remarks>This represents whether the achievement is account-wide.</remarks>
+        Public Property AccountWide As Boolean
+
+        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItem As RewardItem, strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean)
             ID = intID
             Title = strTitle
             Points = intPoints
@@ -91,6 +99,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
             RewardItem = riRewardItem
             Icon = strIcon
             colCriteria = cCriteria
+            AccountWide = blnAccountWide
         End Sub
 
     End Class

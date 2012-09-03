@@ -147,6 +147,14 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>When set to true, the API will return the character's completed quests.</remarks>
         Public Property Quests As Boolean = False
 
+        ''' <summary>
+        ''' Determines whether to retrieve the character's feed.
+        ''' </summary>
+        ''' <value>This property gets or sets the Feed field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's feed.</returns>
+        ''' <remarks>When set to true, the API will return the character's feed.</remarks>
+        Public Property Feed As Boolean = False
+
         Friend Sub New()
         End Sub
 

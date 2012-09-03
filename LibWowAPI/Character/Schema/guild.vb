@@ -11,6 +11,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
 
         <DataMember()> Public Property name As String
         <DataMember()> Public Property realm As String
+        <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property level As Integer
         <DataMember()> Public Property members As Integer
         <DataMember()> Public Property achievementPoints As Integer

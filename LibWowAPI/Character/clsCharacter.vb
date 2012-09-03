@@ -97,6 +97,14 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Thumbnail As String
 
         ''' <summary>
+        ''' The string that identifies the class in the official talent calculator.
+        ''' </summary>
+        ''' <value>This property gets or sets the CalcClass field.</value>
+        ''' <returns>Returns the string that identifies the class in the official talent calculator.</returns>
+        ''' <remarks>This is the first character in the first field of the parameter for the talent calculator.</remarks>
+        Public Property CalcClass As String
+
+        ''' <summary>
         ''' The character's guild.
         ''' </summary>
         ''' <value>This property gets or sets the Guild field.</value>
@@ -175,14 +183,14 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Private colTalents As Collection(Of Talent)
+        Private colTalents As Collection(Of TalentSpec)
         ''' <summary>
         ''' The character's talents and glyphs.
         ''' </summary>
         ''' <value>This property gets the Talents field.</value>
         ''' <returns>Returns the character's talents and glyphs.</returns>
         ''' <remarks>If the <see cref="CharacterProfileOptions.Talents" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of Talent)" /> of <see cref="Talent" /> will be available, containing information about the character's talent specs.</remarks>
-        Public ReadOnly Property Talents As Collection(Of Talent)
+        Public ReadOnly Property Talents As Collection(Of TalentSpec)
             Get
                 Return colTalents
             End Get
@@ -251,7 +259,20 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, gGuild As Guild, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pPets As Collection(Of Pet), tTalents As Collection(Of Talent), aAppearance As Appearance, intMounts As Collection(Of Integer), intCompanions As Collection(Of Integer), pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer))
+        Private colFeed As Collection(Of FeedItem)
+        ''' <summary>
+        ''' The character's feed.
+        ''' </summary>
+        ''' <value>This property gets the Feed field.</value>
+        ''' <returns>Returns the character's feed.</returns>
+        ''' <remarks>If the <see cref="CharacterProfileOptions.Feed" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of FeedItem)" /> of <see cref="FeedItem" /> will be available, containing the character's feed.</remarks>
+        Public ReadOnly Property Feed As Collection(Of FeedItem)
+            Get
+                Return colFeed
+            End Get
+        End Property
+
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, gGuild As Guild, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pPets As Collection(Of Pet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, intMounts As Collection(Of Integer), intCompanions As Collection(Of Integer), pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -262,6 +283,7 @@ Namespace roncliProductions.LibWowAPI.Character
             Level = intLevel
             AchievementPoints = intAchievementPoints
             Thumbnail = strThumbnail
+            CalcClass = strCalcClass
             Guild = gGuild
             Items = iItems
             Stats = sStats
@@ -277,6 +299,7 @@ Namespace roncliProductions.LibWowAPI.Character
             Progression = pProgression
             PvP = pPvP
             colQuests = intQuests
+            colFeed = fiFeed
         End Sub
 
     End Class

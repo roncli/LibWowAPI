@@ -16,8 +16,9 @@ Namespace roncliProductions.LibWowAPI.Realm.Schema
         <DataMember(name:="tol-barad")> Public Property tolBarad As pvpZone
         <DataMember()> Public Property status As Boolean
         <DataMember()> Public Property name As String
-        <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property slug As String
+        <DataMember()> Public Property battlegroup As String
+        <DataMember()> Public Property locale As String
 
     End Class
 

@@ -13,7 +13,8 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property creature As Integer
         <DataMember()> Public Property selected As Boolean
         <DataMember()> Public Property slot As Integer
-        <DataMember()> Public Property talents As talent
+        <DataMember()> Public Property spec As spec
+        <DataMember()> Public Property calcSpec As String
 
     End Class
 

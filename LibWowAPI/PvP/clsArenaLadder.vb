@@ -141,12 +141,25 @@ Namespace roncliProductions.LibWowAPI.PvP
                          New Character(
                              m.character.name,
                              m.character.realm,
+                             m.character.battlegroup,
                              m.character.class.GetClass(),
                              m.character.race.GetRace(),
                              CType(m.character.gender, Gender),
                              m.character.level,
                              m.character.achievementPoints,
-                             m.character.thumbnail
+                             m.character.thumbnail,
+                             If(
+                                 m.character.spec Is Nothing, Nothing, (
+                                     New Spec(
+                                         m.character.spec.name,
+                                         m.character.spec.role,
+                                         m.character.spec.backgroundImage,
+                                         m.character.spec.icon,
+                                         m.character.spec.description,
+                                         m.character.spec.order
+                                         )
+                                     )
+                                 )
                              ),
                          m.rank,
                          m.gamesPlayed,

@@ -14,7 +14,10 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements.Schema
         <DataMember()> Public Property points As Integer
         <DataMember()> Public Property description As String
         <DataMember()> Public Property reward As String
-        <DataMember()> Public Property rewardItem As rewardItem
+        <DataMember()> Public Property rewardItems As rewardItem
+        <DataMember()> Public Property icon As String
+        <DataMember()> Public Property criteria As criteria()
+        <DataMember()> Public Property accountWide As Boolean
 
     End Class
 

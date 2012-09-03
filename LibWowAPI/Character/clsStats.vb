@@ -278,12 +278,20 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property BlockRating As Integer
 
         ''' <summary>
+        ''' The character's percentage resilience.
+        ''' </summary>
+        ''' <value>This property gets or sets the PvpResilience field.</value>
+        ''' <returns>Returns the character's percentage resilience.</returns>
+        ''' <remarks>This represents the character's percentage resilience.</remarks>
+        Public Property PvpResilience As Double
+
+        ''' <summary>
         ''' The character's resilience rating.
         ''' </summary>
-        ''' <value>This property gets or sets the Resil field.</value>
+        ''' <value>This property gets or sets the PvpResilienceRating field.</value>
         ''' <returns>Returns the character's resilience rating.</returns>
         ''' <remarks>This represents the amount of resilience rating the character has.</remarks>
-        Public Property Resil As Integer
+        Public Property PvpResilienceRating As Integer
 
         ''' <summary>
         ''' The minimum damage the character does with the main hand weapon.
@@ -323,7 +331,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <value>This property gets or sets the MainHandExpertise field.</value>
         ''' <returns>Returns the character's main hand weapon expertise.</returns>
         ''' <remarks>This represents the character's main hand weapon expertise.</remarks>
-        Public Property MainHandExpertise As Integer
+        Public Property MainHandExpertise As Double
 
         ''' <summary>
         ''' The minimum damage the character does with the off hand weapon.
@@ -363,7 +371,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <value>This property gets or sets the OffHandExpertise field.</value>
         ''' <returns>Returns the character's off hand weapon expertise.</returns>
         ''' <remarks>This represents the character's off hand weapon expertise.</remarks>
-        Public Property OffHandExpertise As Integer
+        Public Property OffHandExpertise As Double
 
         ''' <summary>
         ''' The minimum damage the character does with the ranged weapon.
@@ -429,7 +437,23 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This represents the character's ranged hit rating.</remarks>
         Public Property RangedHitRating As Integer
 
-        Friend Sub New(intHealth As Integer, ptPowerType As PowerType, intPower As Integer, intStr As Integer, intAgi As Integer, intSta As Integer, intInt As Integer, intSpr As Integer, intAttackPower As Integer, intRangedAttackPower As Integer, dblMastery As Double, intMasteryRating As Integer, dblCrit As Double, intCritRating As Integer, dblHitPercent As Double, intHitRating As Integer, intHasteRating As Integer, intExpertiseRating As Integer, intSpellPower As Integer, intSpellPen As Integer, dblSpellCrit As Double, intSpellCritRating As Integer, dblSpellHitPercent As Double, intSpellHitRating As Integer, dblMana5 As Double, dblMana5Combat As Double, intArmor As Integer, dblDodge As Double, intDodgeRating As Integer, dblParry As Double, intParryRating As Integer, dblBlock As Double, intBlockRating As Integer, intResil As Integer, dblMainHandDmgMin As Double, dblMainHandDmgMax As Double, dblMainHandSpeed As Double, dblMainHandDps As Double, intMainHandExpertise As Integer, dblOffHandDmgMin As Double, dblOffHandDmgMax As Double, dblOffHandSpeed As Double, dblOffHandDps As Double, intOffHandExpertise As Integer, dblRangedDmgMin As Double, dblRangedDmgMax As Double, dblRangedSpeed As Double, dblRangedDps As Double, dblRangedCrit As Double, intRangedCritRating As Integer, dblRangedHitPercent As Double, intRangedHitRating As Integer)
+        ''' <summary>
+        ''' The character's percentage PvP power.
+        ''' </summary>
+        ''' <value>This property gets or sets the PvpPower field.</value>
+        ''' <returns>Returns the character's percentage PvP power.</returns>
+        ''' <remarks>This represents the character's percentage PvP power.</remarks>
+        Public Property PvpPower As Double
+
+        ''' <summary>
+        ''' The character's PvP power rating.
+        ''' </summary>
+        ''' <value>This property gets or sets the PvpPowerRating field.</value>
+        ''' <returns>Returns the character's PvP power rating.</returns>
+        ''' <remarks>This represents the character's PvP power rating.</remarks>
+        Public Property PvpPowerRating As Integer
+
+        Friend Sub New(intHealth As Integer, ptPowerType As PowerType, intPower As Integer, intStr As Integer, intAgi As Integer, intSta As Integer, intInt As Integer, intSpr As Integer, intAttackPower As Integer, intRangedAttackPower As Integer, dblMastery As Double, intMasteryRating As Integer, dblCrit As Double, intCritRating As Integer, dblHitPercent As Double, intHitRating As Integer, intHasteRating As Integer, intExpertiseRating As Integer, intSpellPower As Integer, intSpellPen As Integer, dblSpellCrit As Double, intSpellCritRating As Integer, dblSpellHitPercent As Double, intSpellHitRating As Integer, dblMana5 As Double, dblMana5Combat As Double, intArmor As Integer, dblDodge As Double, intDodgeRating As Integer, dblParry As Double, intParryRating As Integer, dblBlock As Double, intBlockRating As Integer, dblPvpResilience As Double, intPvpResilienceRating As Integer, dblMainHandDmgMin As Double, dblMainHandDmgMax As Double, dblMainHandSpeed As Double, dblMainHandDps As Double, dblMainHandExpertise As Double, dblOffHandDmgMin As Double, dblOffHandDmgMax As Double, dblOffHandSpeed As Double, dblOffHandDps As Double, dblOffHandExpertise As Double, dblRangedDmgMin As Double, dblRangedDmgMax As Double, dblRangedSpeed As Double, dblRangedDps As Double, dblRangedCrit As Double, intRangedCritRating As Integer, dblRangedHitPercent As Double, intRangedHitRating As Integer, dblPvpPower As Double, intPvpPowerRating As Integer)
             Health = intHealth
             PowerType = ptPowerType
             Power = intPower
@@ -463,17 +487,18 @@ Namespace roncliProductions.LibWowAPI.Character
             ParryRating = intParryRating
             Block = dblBlock
             BlockRating = intBlockRating
-            Resil = intResil
+            PvpResilience = dblPvpResilience
+            PvpResilienceRating = intPvpResilienceRating
             MainHandDmgMin = dblMainHandDmgMin
             MainHandDmgMax = dblMainHandDmgMax
             MainHandSpeed = dblMainHandSpeed
             MainHandDps = dblMainHandDps
-            MainHandExpertise = intMainHandExpertise
+            MainHandExpertise = dblMainHandExpertise
             OffHandDmgMin = dblOffHandDmgMin
             OffHandDmgMax = dblOffHandDmgMax
             OffHandSpeed = dblOffHandSpeed
             OffHandDps = dblOffHandDps
-            OffHandExpertise = intOffHandExpertise
+            OffHandExpertise = dblOffHandExpertise
             RangedDmgMin = dblRangedDmgMin
             RangedDmgMax = dblRangedDmgMax
             RangedSpeed = dblRangedSpeed
@@ -482,6 +507,8 @@ Namespace roncliProductions.LibWowAPI.Character
             RangedCritRating = intRangedCritRating
             RangedHitPercent = dblRangedHitPercent
             RangedHitRating = intRangedHitRating
+            PvpPower = dblPvpPower
+            PvpPowerRating = intPvpPowerRating
         End Sub
 
     End Class

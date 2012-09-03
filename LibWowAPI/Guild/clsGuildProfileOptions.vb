@@ -31,7 +31,7 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' Determines whether to retrieve the list of members in the guild upon guild lookup.
         ''' </summary>
         ''' <value>This property gets or sets the Members field.</value>
-        ''' <returns>Returns a boolean that determins whether to retrieve the list of members in the guild upon guild lookup.</returns>
+        ''' <returns>Returns a boolean that determines whether to retrieve the list of members in the guild upon guild lookup.</returns>
         ''' <remarks>When set to true, the API will return a list of the guild's members.</remarks>
         Public Property Members As Boolean = False
 
@@ -39,9 +39,17 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' Determines whether to retrieve the guild's achievements upon guild lookup.
         ''' </summary>
         ''' <value>This property gets or sets the Achievements field.</value>
-        ''' <returns>Returns a boolean that determins whether to retrieve the guild's achievements upon guild lookup.</returns>
+        ''' <returns>Returns a boolean that determines whether to retrieve the guild's achievements upon guild lookup.</returns>
         ''' <remarks>When set to true, the API will return information about the guild's completed guild achievements and guild achievement criteria.</remarks>
         Public Property Achievements As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the guild's news feed upon guild lookup.
+        ''' </summary>
+        ''' <value>This property gets or sets the News field.</value>
+        ''' <returns>Returns a boolean that determines</returns>
+        ''' <remarks></remarks>
+        Public Property News As Boolean = False
 
         Friend Sub New()
         End Sub

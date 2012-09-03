@@ -29,7 +29,6 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property trinket2 As item
         <DataMember()> Public Property mainHand As item
         <DataMember()> Public Property offHand As item
-        <DataMember()> Public Property ranged As item
 
     End Class
 

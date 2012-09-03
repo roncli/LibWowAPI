@@ -42,17 +42,18 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property parryRating As Integer
         <DataMember()> Public Property block As Double
         <DataMember()> Public Property blockRating As Integer
-        <DataMember()> Public Property resil As Integer
+        <DataMember()> Public Property pvpResilience As Double
+        <DataMember()> Public Property pvpResilienceRating As Integer
         <DataMember()> Public Property mainHandDmgMin As Double
         <DataMember()> Public Property mainHandDmgMax As Double
         <DataMember()> Public Property mainHandSpeed As Double
         <DataMember()> Public Property mainHandDps As Double
-        <DataMember()> Public Property mainHandExpertise As Integer
+        <DataMember()> Public Property mainHandExpertise As Double
         <DataMember()> Public Property offHandDmgMin As Double
         <DataMember()> Public Property offHandDmgMax As Double
         <DataMember()> Public Property offHandSpeed As Double
         <DataMember()> Public Property offHandDps As Double
-        <DataMember()> Public Property offHandExpertise As Integer
+        <DataMember()> Public Property offHandExpertise As Double
         <DataMember()> Public Property rangedDmgMin As Double
         <DataMember()> Public Property rangedDmgMax As Double
         <DataMember()> Public Property rangedSpeed As Double
@@ -61,6 +62,8 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property rangedCritRating As Integer
         <DataMember()> Public Property rangedHitPercent As Double
         <DataMember()> Public Property rangedHitRating As Integer
+        <DataMember()> Public Property pvpPower As Double
+        <DataMember()> Public Property pvpPowerRating As Integer
 
     End Class
 

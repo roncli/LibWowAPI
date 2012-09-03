@@ -115,6 +115,8 @@ Namespace roncliProductions.LibWowAPI.Extensions
                     Return Side.Alliance
                 Case "horde"
                     Return Side.Horde
+                Case "neutral"
+                    Return Side.Neutral
                 Case Else
                     Return Side.Unknown
             End Select

@@ -19,6 +19,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property level As Integer
         <DataMember()> Public Property achievementPoints As Integer
         <DataMember()> Public Property thumbnail As String
+        <DataMember()> Public Property calcClass As String
         <DataMember()> Public Property guild As guild
         <DataMember()> Public Property items As items
         <DataMember()> Public Property stats As stats
@@ -27,13 +28,14 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property titles As title()
         <DataMember()> Public Property achievements As achievements
         <DataMember()> Public Property pets As pet()
-        <DataMember()> Public Property talents As talent()
+        <DataMember()> Public Property talents As talentSpec()
         <DataMember()> Public Property appearance As appearance
         <DataMember()> Public Property mounts As Integer()
         <DataMember()> Public Property companions As Integer()
         <DataMember()> Public Property progression As progression
         <DataMember()> Public Property pvp As pvp
         <DataMember()> Public Property quests As Integer()
+        <DataMember()> Public Property feed As feed()
 
     End Class
 

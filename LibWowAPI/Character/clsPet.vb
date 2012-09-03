@@ -31,7 +31,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' Determines if the current combat pet is the character's active pet.
         ''' </summary>
         ''' <value>This property gets or sets the Selected field.</value>
-        ''' <returns>Returns a boolean that determins if the current combat pet is the character's active pet.</returns>
+        ''' <returns>Returns a boolean that determines if the current combat pet is the character's active pet.</returns>
         ''' <remarks>This determines if the current combat pet is the character's active pet.</remarks>
         Public Property Selected As Boolean
 
@@ -44,19 +44,28 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Slot As Integer
 
         ''' <summary>
-        ''' The pet's talent spec.
+        ''' The pet's spec.
         ''' </summary>
-        ''' <value>This property gets or sets the Talents field.</value>
-        ''' <returns>Returns the pet's talent spec.</returns>
-        ''' <remarks>This represents the pet's talent spec.  This is only available if the <see cref="Selected" /> property is true.</remarks>
-        Public Property Talents As Talent
+        ''' <value>This property gets or sets the Spec field.</value>
+        ''' <returns>Returns the pet's spec.</returns>
+        ''' <remarks>This represents the pet's spec.  This is not always available.</remarks>
+        Public Property Spec As Spec
 
-        Friend Sub New(strName As String, intCreature As Integer, blnSelected As Boolean, intSlot As Integer, tTalents As Talent)
+        ''' <summary>
+        ''' The string that identifies the pet's spec in the official talent calculator.
+        ''' </summary>
+        ''' <value>This property gets or sets the CalcClass field.</value>
+        ''' <returns>Returns the string that identifies the pet's spec in the official talent calculator.</returns>
+        ''' <remarks>This is the optional third character in the first field of the parameter for the talent calculator.</remarks>
+        Public Property CalcSpec As String
+
+        Friend Sub New(strName As String, intCreature As Integer, blnSelected As Boolean, intSlot As Integer, sSpec As Spec, strCalcSpec As String)
             Name = strName
             Creature = intCreature
             Selected = blnSelected
             Slot = intSlot
-            Talents = tTalents
+            Spec = sSpec
+            CalcSpec = strCalcSpec
         End Sub
 
     End Class

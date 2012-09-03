@@ -8,8 +8,8 @@ Namespace roncliProductions.LibWowAPI.Character
     ''' <summary>
     ''' A class containing information about a completed achievement.
     ''' </summary>
-    ''' <remarks>This class contains the achievement <see cref="Achievement.ID" /> number and the <see cref="Achievement.Timestamp" /> the achievement was completed.  Use the <see cref="Data.CharacterAchievements.CharacterAchievements" /> class to get more detailed information about the achievement.</remarks>
-    Public Class Achievement
+    ''' <remarks>This class contains the achievement <see cref="CompletedAchievement.ID" /> number and the <see cref="CompletedAchievement.Timestamp" /> the achievement was completed.  Use the <see cref="Data.CharacterAchievements.CharacterAchievements" /> class to get more detailed information about the achievement.</remarks>
+    Public Class CompletedAchievement
 
         ''' <summary>
         ''' The ID number of the achievement.

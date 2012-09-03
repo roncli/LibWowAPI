@@ -11,12 +11,14 @@ Namespace roncliProductions.LibWowAPI.Guild.Schema
 
         <DataMember()> Public Property name As String
         <DataMember()> Public Property realm As String
+        <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property [class] As Integer
         <DataMember()> Public Property race As Integer
         <DataMember()> Public Property gender As Integer
         <DataMember()> Public Property level As Integer
         <DataMember()> Public Property achievementPoints As Integer
         <DataMember()> Public Property thumbnail As String
+        <DataMember()> Public Property spec As spec
 
     End Class
 

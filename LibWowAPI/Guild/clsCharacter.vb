@@ -32,6 +32,14 @@ Namespace roncliProductions.LibWowAPI.Guild
         Public Property Realm As String
 
         ''' <summary>
+        ''' The battlegroup the character resides on.
+        ''' </summary>
+        ''' <value>This property gets or sets the Battlegroup field.</value>
+        ''' <returns>Returns the battlegroup the character resides on.</returns>
+        ''' <remarks>The character's battlegroup is reprsented here.</remarks>
+        Public Property Battlegroup As String
+
+        ''' <summary>
         ''' The character's class.
         ''' </summary>
         ''' <value>This property gets or sets the Class field.</value>
@@ -79,15 +87,25 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <remarks>Blizzard generates thumbnails of characters on a regular basis.  These are located under the directory http://<i>Base URL</i>/static-render/<i>region</i>/  For example, for US characters, the Base URL is "us.battle.net", and the region is "us".</remarks>
         Public Property Thumbnail As String
 
-        Friend Sub New(strName As String, strRealm As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String)
+        ''' <summary>
+        ''' Information about the character's talent spec.
+        ''' </summary>
+        ''' <value>This property gets or sets the Spec field.</value>
+        ''' <returns>Returns information about the character's talent spec.</returns>
+        ''' <remarks>This is a <see cref="Spec" /> object which represents information about the character's talent spec.</remarks>
+        Public Property Spec As Spec
+
+        Friend Sub New(strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, sSpec As Spec)
             Name = strName
             Realm = strRealm
+            Battlegroup = strBattlegroup
             [Class] = cClass
             Race = rRace
             Gender = gGender
             Level = intLevel
             AchievementPoints = intAchievementPoints
             Thumbnail = strThumbnail
+            Spec = sSpec
         End Sub
 
     End Class

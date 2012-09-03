@@ -70,6 +70,14 @@ Namespace roncliProductions.LibWowAPI.Realm
         Public Property Name As String
 
         ''' <summary>
+        ''' Blizzard's internal name for the realm.
+        ''' </summary>
+        ''' <value>This property gets or sets the Slug field.</value>
+        ''' <returns>Returns Blizzard's internal name for the realm.</returns>
+        ''' <remarks>This represents Blizzard's internal name for the realm.</remarks>
+        Public Property Slug As String
+
+        ''' <summary>
         ''' The name of the battlegroup the realm is in.
         ''' </summary>
         ''' <value>This property gets or sets the Battlegroup field.</value>
@@ -78,14 +86,14 @@ Namespace roncliProductions.LibWowAPI.Realm
         Public Property Battlegroup As String
 
         ''' <summary>
-        ''' Blizzard's internal name for the realm.
+        ''' The locale of the realm.
         ''' </summary>
-        ''' <value>This property gets or sets the Slug field.</value>
-        ''' <returns>Returns Blizzard's internal name for the realm.</returns>
-        ''' <remarks>This represents Blizzard's internal name for the realm.</remarks>
-        Public Property Slug As String
+        ''' <value>This property gets or sets the Locale field.</value>
+        ''' <returns>Returns the locale of the realm.</returns>
+        ''' <remarks>This represents the locale of the realm.</remarks>
+        Public Property Locale As String
 
-        Friend Sub New(rtType As RealmType, strPopulation As String, blnQueue As Boolean, pzWintergrasp As PvpZone, pzTolBarad As PvpZone, blnStatus As Boolean, strName As String, strBattlegroup As String, strSlug As String)
+        Friend Sub New(rtType As RealmType, strPopulation As String, blnQueue As Boolean, pzWintergrasp As PvpZone, pzTolBarad As PvpZone, blnStatus As Boolean, strName As String, strSlug As String, strBattlegroup As String, strLocale As String)
             Type = rtType
             Population = strPopulation
             Queue = blnQueue
@@ -93,8 +101,9 @@ Namespace roncliProductions.LibWowAPI.Realm
             TolBarad = pzTolBarad
             Status = blnStatus
             Name = strName
-            Battlegroup = strBattlegroup
             Slug = strSlug
+            Battlegroup = strBattlegroup
+            Locale = strLocale
         End Sub
 
     End Class

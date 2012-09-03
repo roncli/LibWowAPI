@@ -124,10 +124,12 @@ Namespace roncliProductions.LibWowAPI.Character
                 cpCharacter.level,
                 cpCharacter.achievementPoints,
                 cpCharacter.thumbnail,
+                cpCharacter.calcClass,
                 If(cpCharacter.guild Is Nothing, Nothing,
                     New Guild(
                         cpCharacter.guild.name,
                         cpCharacter.guild.realm,
+                        cpCharacter.guild.battlegroup,
                         cpCharacter.guild.level,
                         cpCharacter.guild.members,
                         cpCharacter.guild.achievementPoints,
@@ -467,24 +469,6 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.offHand.tooltipParams.transmogItem
                                     )
                                 )
-                            ),
-                        If(cpCharacter.items.ranged Is Nothing, Nothing,
-                            New Item(
-                                cpCharacter.items.ranged.id,
-                                cpCharacter.items.ranged.name,
-                                cpCharacter.items.ranged.icon,
-                                CType(cpCharacter.items.ranged.quality, Quality),
-                                New TooltipParams(
-                                    GetGems(cpCharacter.items.ranged.tooltipParams.gem0, cpCharacter.items.ranged.tooltipParams.gem1, cpCharacter.items.ranged.tooltipParams.gem2),
-                                    cpCharacter.items.ranged.tooltipParams.suffix,
-                                    cpCharacter.items.ranged.tooltipParams.seed,
-                                    cpCharacter.items.ranged.tooltipParams.enchant,
-                                    cpCharacter.items.ranged.tooltipParams.extraSocket,
-                                    If(cpCharacter.items.ranged.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.ranged.tooltipParams.set.ToCollection()),
-                                    cpCharacter.items.ranged.tooltipParams.reforge,
-                                    cpCharacter.items.ranged.tooltipParams.transmogItem
-                                    )
-                                )
                             )
                         )
                     ),
@@ -523,7 +507,8 @@ Namespace roncliProductions.LibWowAPI.Character
                         cpCharacter.stats.parryRating,
                         cpCharacter.stats.block,
                         cpCharacter.stats.blockRating,
-                        cpCharacter.stats.resil,
+                        cpCharacter.stats.pvpResilience,
+                        cpCharacter.stats.pvpResilienceRating,
                         cpCharacter.stats.mainHandDmgMin,
                         cpCharacter.stats.mainHandDmgMax,
                         cpCharacter.stats.mainHandSpeed,
@@ -541,7 +526,9 @@ Namespace roncliProductions.LibWowAPI.Character
                         cpCharacter.stats.rangedCrit,
                         cpCharacter.stats.rangedCritRating,
                         cpCharacter.stats.rangedHitPercent,
-                        cpCharacter.stats.rangedHitRating
+                        cpCharacter.stats.rangedHitRating,
+                        cpCharacter.stats.pvpPower,
+                        cpCharacter.stats.pvpPowerRating
                         )
                     ),
                 If(cpCharacter.professions Is Nothing, Nothing,
@@ -596,75 +583,42 @@ Namespace roncliProductions.LibWowAPI.Character
                         p.creature,
                         p.selected,
                         p.slot,
-                        If(p.talents Is Nothing, Nothing,
-                            New Talent(
-                                p.talents.selected,
-                                p.talents.name,
-                                p.talents.icon,
-                                p.talents.build,
-                                (
-                                    From t In p.talents.trees
-                                    Select New Tree(
-                                        t.points,
-                                        t.total
-                                        )
-                                    ).ToCollection(),
-                                New Glyphs(
-                                    (
-                                        From g In p.talents.glyphs.prime
-                                        Select New Glyph(
-                                            g.glyph,
-                                            g.item,
-                                            g.name,
-                                            g.icon
-                                            )
-                                        ).ToCollection(),
-                                    (
-                                        From g In p.talents.glyphs.major
-                                        Select New Glyph(
-                                            g.glyph,
-                                            g.item,
-                                            g.name,
-                                            g.icon
-                                            )
-                                        ).ToCollection(),
-                                    (
-                                        From g In p.talents.glyphs.minor
-                                        Select New Glyph(
-                                            g.glyph,
-                                            g.item,
-                                            g.name,
-                                            g.icon
-                                            )
-                                        ).ToCollection()
-                                    )
+                        If(p.spec Is Nothing, Nothing,
+                            New Spec(
+                                p.spec.name,
+                                p.spec.role,
+                                p.spec.backgroundImage,
+                                p.spec.icon,
+                                p.spec.description,
+                                p.spec.order
                                 )
-                            )
+                            ),
+                        p.calcSpec
                         )
                     ).ToCollection()
                 ),
                 If(cpCharacter.talents Is Nothing, Nothing,
                     (From t In cpCharacter.talents
-                     Select New Talent(
+                     Select New TalentSpec(
                          t.selected,
-                         t.name,
-                         t.icon,
-                         t.build,
-                         (From tr In t.trees
-                          Select New Tree(
-                              tr.points,
-                              tr.total
+                         (From tal In t.talents
+                          Select New Talent(
+                              tal.tier,
+                              tal.column,
+                              New Spell(
+                                  tal.spell.id,
+                                  tal.spell.name,
+                                  tal.spell.subtext,
+                                  tal.spell.icon,
+                                  tal.spell.description,
+                                  tal.spell.range,
+                                  tal.spell.powerCost,
+                                  tal.spell.castTime,
+                                  tal.spell.cooldown
+                                  )
                               )
                           ).ToCollection(),
                          New Glyphs(
-                             (From g In t.glyphs.prime
-                              Select New Glyph(
-                                  g.glyph,
-                                  g.item,
-                                  g.name,
-                                  g.icon
-                                  )
-                              ).ToCollection(),
                              (From g In t.glyphs.major
                               Select New Glyph(
                                   g.glyph,
@@ -681,19 +635,30 @@ Namespace roncliProductions.LibWowAPI.Character
                                   g.icon
                                   )
                               ).ToCollection()
-                             )
+                             ),
+                         New Spec(
+                             t.spec.name,
+                             t.spec.role,
+                             t.spec.backgroundImage,
+                             t.spec.icon,
+                             t.spec.description,
+                             t.spec.order
+                             ),
+                         t.calcTalent,
+                         t.calcSpec,
+                         t.calcGlyph
                          )
                      ).ToCollection()
                     ),
                 If(cpCharacter.appearance Is Nothing, Nothing,
                     New Appearance(
-                        cpCharacter.appearance.faceVariation,
-                        cpCharacter.appearance.skinColor,
-                        cpCharacter.appearance.hairVariation,
-                        cpCharacter.appearance.hairColor,
-                        cpCharacter.appearance.featureVariation,
-                        cpCharacter.appearance.showHelm,
-                        cpCharacter.appearance.showCloak
+                cpCharacter.appearance.faceVariation,
+                cpCharacter.appearance.skinColor,
+                cpCharacter.appearance.hairVariation,
+                cpCharacter.appearance.hairColor,
+                cpCharacter.appearance.featureVariation,
+                cpCharacter.appearance.showHelm,
+                cpCharacter.appearance.showCloak
                         )
                     ),
                 If(cpCharacter.mounts Is Nothing, Nothing, cpCharacter.mounts.ToCollection()),
@@ -741,7 +706,12 @@ Namespace roncliProductions.LibWowAPI.Character
                        cpCharacter.pvp.totalHonorableKills
                        )
                    ),
-                If(cpCharacter.quests Is Nothing, Nothing, cpCharacter.quests.ToCollection())
+                If(cpCharacter.quests Is Nothing, Nothing, cpCharacter.quests.ToCollection()),
+                If(cpCharacter.feed Is Nothing, Nothing,
+                   (From f In cpCharacter.feed
+                    Select CreateFeedItem(f)
+                       ).ToCollection()
+                   )
                 )
         End Sub
 
@@ -794,6 +764,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 If Options.Progression Then lstFields.Add("progression")
                 If Options.PvP Then lstFields.Add("pvp")
                 If Options.Quests Then lstFields.Add("quests")
+                If Options.Feed Then lstFields.Add("feed")
                 Return String.Join(",", lstFields)
             End Get
         End Property
@@ -838,20 +809,20 @@ Namespace roncliProductions.LibWowAPI.Character
         End Function
 
         Private Shared Function SetAchievements(aAchievements As Schema.achievements) As Achievements
-            Dim colAchievements As New Collection(Of Achievement)
+            Dim colAchievements As New Collection(Of CompletedAchievement)
             Dim enumAchievement = aAchievements.achievementsCompleted.GetEnumerator()
             Dim enumAchievementTimestamp = aAchievements.achievementsCompletedTimestamp.GetEnumerator()
             While enumAchievement.MoveNext() And enumAchievementTimestamp.MoveNext()
-                colAchievements.Add(New Achievement(CInt(enumAchievement.Current), CLng(enumAchievementTimestamp.Current).BlizzardTimestampToUTC()))
+                colAchievements.Add(New CompletedAchievement(CInt(enumAchievement.Current), CLng(enumAchievementTimestamp.Current).BlizzardTimestampToUTC()))
             End While
 
-            Dim colCriteria As New Collection(Of Criteria)
+            Dim colCriteria As New Collection(Of CompletedCriteria)
             Dim enumCriteria = aAchievements.criteria.GetEnumerator()
             Dim enumCriteriaQuantity = aAchievements.criteriaQuantity.GetEnumerator()
             Dim enumCriteriaTimestamp = aAchievements.criteriaTimestamp.GetEnumerator()
             Dim enumCriteriaCreated = aAchievements.criteriaCreated.GetEnumerator()
             While enumCriteria.MoveNext() And enumCriteriaCreated.MoveNext() And enumCriteriaQuantity.MoveNext() And enumCriteriaTimestamp.MoveNext()
-                colCriteria.Add(New Criteria(
+                colCriteria.Add(New CompletedCriteria(
                                 CInt(enumCriteria.Current),
                                 CLng(enumCriteriaQuantity.Current),
                                 CLng(enumCriteriaTimestamp.Current).BlizzardTimestampToUTC(),
@@ -860,6 +831,106 @@ Namespace roncliProductions.LibWowAPI.Character
             End While
 
             Return New Achievements(colAchievements, colCriteria)
+        End Function
+
+        Private Shared Function CreateFeedItem(fFeed As Schema.feed) As FeedItem
+            Select Case fFeed.type.ToUpperInvariant()
+                Case "LOOT"
+                    Return New LootFeed(
+                        fFeed.timestamp.BlizzardTimestampToUTC(),
+                        fFeed.itemId
+                        )
+                Case "BOSSKILL"
+                    Return New BossKillFeed(
+                        fFeed.timestamp.BlizzardTimestampToUTC(),
+                        New FeedAchievement(
+                            fFeed.achievement.id,
+                            fFeed.achievement.title,
+                            fFeed.achievement.points,
+                            fFeed.achievement.description,
+                            fFeed.achievement.reward,
+                            (
+                                From ri In fFeed.achievement.rewardItems
+                                Select New RewardItem(
+                                    ri.id, ri.name, ri.icon, CType(ri.quality, Quality)
+                                    )
+                                ).ToCollection(),
+                            fFeed.achievement.icon,
+                            (
+                                From c In fFeed.achievement.criteria
+                                Select New FeedCriteria(
+                                    c.id,
+                                    c.description
+                                    )
+                                ).ToCollection()
+                            ),
+                        fFeed.featOfStrength,
+                        New FeedCriteria(
+                            fFeed.criteria.id,
+                            fFeed.criteria.description
+                            ),
+                        fFeed.quantity,
+                        fFeed.name
+                        )
+                Case "ACHIEVEMENT"
+                    Return New AchievementFeed(
+                        fFeed.timestamp.BlizzardTimestampToUTC(),
+                        New FeedAchievement(
+                            fFeed.achievement.id,
+                            fFeed.achievement.title,
+                            fFeed.achievement.points,
+                            fFeed.achievement.description,
+                            fFeed.achievement.reward,
+                            (
+                                From ri In fFeed.achievement.rewardItems
+                                Select New RewardItem(
+                                    ri.id, ri.name, ri.icon, CType(ri.quality, Quality)
+                                    )
+                                ).ToCollection(),
+                            fFeed.achievement.icon,
+                            (
+                                From c In fFeed.achievement.criteria
+                                Select New FeedCriteria(
+                                    c.id,
+                                    c.description
+                                    )
+                                ).ToCollection()
+                            ),
+                        fFeed.featOfStrength
+                        )
+                Case "CRITERIA"
+                    Return New CriteriaFeed(
+                        fFeed.timestamp.BlizzardTimestampToUTC(),
+                        New FeedAchievement(
+                            fFeed.achievement.id,
+                            fFeed.achievement.title,
+                            fFeed.achievement.points,
+                            fFeed.achievement.description,
+                            fFeed.achievement.reward,
+                            (
+                                From ri In fFeed.achievement.rewardItems
+                                Select New RewardItem(
+                                    ri.id, ri.name, ri.icon, CType(ri.quality, Quality)
+                                    )
+                                ).ToCollection(),
+                            fFeed.achievement.icon,
+                            (
+                                From c In fFeed.achievement.criteria
+                                Select New FeedCriteria(
+                                    c.id,
+                                    c.description
+                                    )
+                                ).ToCollection()
+                            ),
+                        fFeed.featOfStrength,
+                        New FeedCriteria(
+                            fFeed.criteria.id,
+                            fFeed.criteria.description
+                            )
+                        )
+                Case Else
+                    Return Nothing
+            End Select
         End Function
 
 #End Region

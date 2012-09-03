@@ -171,15 +171,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This is an <see cref="Item" /> object that contains details about the item.</remarks>
         Public Property OffHand As Item
 
-        ''' <summary>
-        ''' The item equipped in the ranged or relic slot.
-        ''' </summary>
-        ''' <value>This property gets or sets the Ranged field.</value>
-        ''' <returns>Returns the item equipped in the ranged or relic slot.</returns>
-        ''' <remarks>This is an <see cref="Item" /> object that contains details about the item.</remarks>
-        Public Property Ranged As Item
-
-        Friend Sub New(intAverageItemLevel As Integer, intAverageItemLevelEquipped As Integer, iHead As Item, iNeck As Item, iShoulder As Item, iBack As Item, iChest As Item, iShirt As Item, iTabard As Item, iWrist As Item, iHands As Item, iWaist As Item, iLegs As Item, iFeet As Item, iFinger1 As Item, iFinger2 As Item, iTrinket1 As Item, iTrinket2 As Item, iMainHand As Item, iOffHand As Item, iRanged As Item)
+        Friend Sub New(intAverageItemLevel As Integer, intAverageItemLevelEquipped As Integer, iHead As Item, iNeck As Item, iShoulder As Item, iBack As Item, iChest As Item, iShirt As Item, iTabard As Item, iWrist As Item, iHands As Item, iWaist As Item, iLegs As Item, iFeet As Item, iFinger1 As Item, iFinger2 As Item, iTrinket1 As Item, iTrinket2 As Item, iMainHand As Item, iOffHand As Item)
             AverageItemLevel = intAverageItemLevel
             AverageItemLevelEquipped = intAverageItemLevelEquipped
             Head = iHead
@@ -200,7 +192,6 @@ Namespace roncliProductions.LibWowAPI.Character
             Trinket2 = iTrinket2
             MainHand = iMainHand
             OffHand = iOffHand
-            Ranged = iRanged
         End Sub
 
     End Class

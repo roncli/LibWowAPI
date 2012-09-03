@@ -19,6 +19,7 @@ Namespace roncliProductions.LibWowAPI.Guild.Schema
         <DataMember()> Public Property achievements As achievements
         <DataMember()> Public Property members As member()
         <DataMember()> Public Property emblem As emblem
+        <DataMember()> Public Property news As news()
 
     End Class
 

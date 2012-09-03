@@ -3,6 +3,8 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports System.Collections.ObjectModel
+
 Namespace roncliProductions.LibWowAPI.Data.GuildRewards
 
     ''' <summary>
@@ -59,13 +61,45 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
         ''' <remarks>This is a <see cref="RewardItem" /> object that contains details about the item received for completing the guild achievement.</remarks>
         Public Property RewardItem As RewardItem
 
-        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItem As RewardItem)
+        ''' <summary>
+        ''' The icon of the achievement.
+        ''' </summary>
+        ''' <value>This property gets or sets the Icon field.</value>
+        ''' <returns>Returns the icon of the achievement.</returns>
+        ''' <remarks>The icon is stored on the server under the path http://<i>Base URL</i>/wow/icons/<i>size</i>/<i>Icon</i>.jpg.  The Base URL is <i>region</i>.media.blizzard.com, except in China, where it is content.battlenet.com.cn.  The size can be one of 18, 36, or 56.</remarks>
+        Public Property Icon As String
+
+        Private colCriteria As Collection(Of Criteria)
+        ''' <summary>
+        ''' The criteria required to complete the achievement.
+        ''' </summary>
+        ''' <value>This property gets the Criteria field.</value>
+        ''' <returns>Returns the criteria required to complete the achievement.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of Criteria)" /> of <see cref="Criteria" /> which represents a list of criteria required to complete the achievement.</remarks>
+        Public ReadOnly Property Criteria As Collection(Of Criteria)
+            Get
+                Return colCriteria
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Determines whether the achievement is account-wide.
+        ''' </summary>
+        ''' <value>This property gets or sets the AccountWide field.</value>
+        ''' <returns>Returns whether the achievement is account-wide.</returns>
+        ''' <remarks>This represents whether the achievement is account-wide.</remarks>
+        Public Property AccountWide As Boolean
+
+        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItem As RewardItem, strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean)
             ID = intID
             Title = strTitle
             Points = intPoints
             Description = strDescription
             Reward = strReward
             RewardItem = riRewardItem
+            Icon = strIcon
+            colCriteria = cCriteria
+            AccountWide = blnAccountWide
         End Sub
 
     End Class

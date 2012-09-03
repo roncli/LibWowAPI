@@ -7,10 +7,10 @@ Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.Character.Schema
 
-    <DataContract()> Friend Class tree
+    <DataContract()> Friend Class criteria
 
-        <DataMember()> Public Property points As String
-        <DataMember()> Public Property total As Integer
+        <DataMember()> Public Property id As Integer
+        <DataMember()> Public Property description As String
 
     End Class
 

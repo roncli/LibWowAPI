@@ -73,6 +73,7 @@ Namespace roncliProductions.LibWowAPI.Enums
         Unknown = -1
         Alliance = 0
         Horde = 1
+        Neutral = 2
     End Enum
 
     ''' <summary>
@@ -1168,7 +1169,7 @@ Namespace roncliProductions.LibWowAPI.Enums
         ''' This item is a relic.  Includes totems, idols, librams and relics.
         ''' </summary>
         ''' <remarks></remarks>
-        Relic = 28
+        <Obsolete("This inventory type is obsolete.")> Relic = 28
     End Enum
 
     ''' <summary>
@@ -1252,6 +1253,7 @@ Namespace roncliProductions.LibWowAPI.Enums
         ShadowResistance = 54
         NatureResistance = 55
         ArcaneResistance = 56
+        PvpPowerRating = 57
     End Enum
 
     ''' <summary>

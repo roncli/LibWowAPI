@@ -126,12 +126,23 @@ Namespace roncliProductions.LibWowAPI.Guild
                         New Character(
                             m.character.name,
                             m.character.realm,
+                            m.character.battlegroup,
                             m.character.class.GetClass(),
                             m.character.race.GetRace(),
                             CType(m.character.gender, Gender),
                             m.character.level,
                             m.character.achievementPoints,
-                            m.character.thumbnail
+                            m.character.thumbnail,
+                            If(
+                                m.character.spec Is Nothing, Nothing, New Spec(
+                                    m.character.spec.name,
+                                    m.character.spec.role,
+                                    m.character.spec.backgroundImage,
+                                    m.character.spec.icon,
+                                    m.character.spec.description,
+                                    m.character.spec.order
+                                    )
+                                )
                             ),
                         m.rank
                         )
@@ -143,7 +154,12 @@ Namespace roncliProductions.LibWowAPI.Guild
                     gpGuild.emblem.border,
                     gpGuild.emblem.borderColor.ArgbHexToColor(),
                     gpGuild.emblem.backgroundColor.ArgbHexToColor()
-                    )
+                    ),
+                If(gpGuild.news Is Nothing, Nothing,
+                   (From n In gpGuild.news
+                    Select CreateNewsItem(n)
+                       ).ToCollection()
+                   )
                 )
         End Sub
 
@@ -183,6 +199,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                 Dim lstFields As New List(Of String)
                 If Options.Members Then lstFields.Add("members")
                 If Options.Achievements Then lstFields.Add("achievements")
+                If Options.News Then lstFields.Add("news")
                 Return String.Join(",", lstFields)
             End Get
         End Property
@@ -216,30 +233,103 @@ Namespace roncliProductions.LibWowAPI.Guild
 
 #End Region
 
+#Region "Private"
+
         Private Shared Function SetAchievements(aAchievements As Schema.achievements) As Achievements
-            Dim colAchievements As New Collection(Of Achievement)
+            Dim colAchievements As New Collection(Of CompletedAchievement)
             Dim enumAchievement = aAchievements.achievementsCompleted.GetEnumerator()
             Dim enumAchievementTimestamp = aAchievements.achievementsCompletedTimestamp.GetEnumerator()
             While enumAchievement.MoveNext() And enumAchievementTimestamp.MoveNext()
-                colAchievements.Add(New Achievement(CInt(enumAchievement.Current), CLng(enumAchievementTimestamp.Current).BlizzardTimestampToUTC()))
+                colAchievements.Add(New CompletedAchievement(CInt(enumAchievement.Current), CLng(enumAchievementTimestamp.Current).BlizzardTimestampToUTC()))
             End While
 
-            Dim colCriteria As New Collection(Of Criteria)
+            Dim colCriteria As New Collection(Of CompletedCriteria)
             Dim enumCriteria = aAchievements.criteria.GetEnumerator()
             Dim enumCriteriaQuantity = aAchievements.criteriaQuantity.GetEnumerator()
             Dim enumCriteriaTimestamp = aAchievements.criteriaTimestamp.GetEnumerator()
             Dim enumCriteriaCreated = aAchievements.criteriaCreated.GetEnumerator()
             While enumCriteria.MoveNext() And enumCriteriaCreated.MoveNext() And enumCriteriaQuantity.MoveNext() And enumCriteriaTimestamp.MoveNext()
-                colCriteria.Add(New Criteria(
-                                CInt(enumCriteria.Current),
-                                CLng(enumCriteriaQuantity.Current),
-                                CLng(enumCriteriaTimestamp.Current).BlizzardTimestampToUTC(),
-                                CLng(enumCriteriaCreated.Current).BlizzardTimestampToUTC()
-                                ))
+                colCriteria.Add(
+                    New CompletedCriteria(
+                        CInt(enumCriteria.Current),
+                        CLng(enumCriteriaQuantity.Current),
+                        CLng(enumCriteriaTimestamp.Current).BlizzardTimestampToUTC(),
+                        CLng(enumCriteriaCreated.Current).BlizzardTimestampToUTC()
+                        )
+                    )
             End While
 
             Return New Achievements(colAchievements, colCriteria)
         End Function
+
+        Private Shared Function CreateNewsItem(nNews As Schema.news) As NewsItem
+            Select Case nNews.type.ToUpperInvariant()
+                Case "GUILDCREATED"
+                    Return New GuildCreatedNews(nNews.timestamp.BlizzardTimestampToUTC())
+                Case "ITEMLOOT"
+                    Return New ItemLootNews(nNews.timestamp.BlizzardTimestampToUTC(), nNews.character, nNews.itemId)
+                Case "ITEMPURCHASE"
+                    Return New ItemPurchaseNews(nNews.timestamp.BlizzardTimestampToUTC(), nNews.character, nNews.itemId)
+                Case "GUILDLEVEL"
+                    Return New GuildLevelNews(nNews.timestamp.BlizzardTimestampToUTC(), nNews.levelUp)
+                Case "GUILDACHIEVEMENT"
+                    Return New GuildAchievementNews(
+                        nNews.timestamp.BlizzardTimestampToUTC(),
+                        nNews.character,
+                        New NewsAchievement(
+                            nNews.achievement.id,
+                            nNews.achievement.title,
+                            nNews.achievement.points,
+                            nNews.achievement.description,
+                            nNews.achievement.reward,
+                            (
+                                From ri In nNews.achievement.rewardItems
+                                Select New RewardItem(
+                                    ri.id, ri.name, ri.icon, CType(ri.quality, Quality)
+                                    )
+                                ).ToCollection(),
+                            nNews.achievement.icon,
+                            (
+                                From c In nNews.achievement.criteria
+                                Select New NewsCriteria(
+                                    c.id,
+                                    c.description
+                                    )
+                                ).ToCollection()
+                            )
+                        )
+                Case "PLAYERACHIEVEMENT"
+                    Return New PlayerAchievementNews(
+                        nNews.timestamp.BlizzardTimestampToUTC(),
+                        nNews.character,
+                        New NewsAchievement(
+                            nNews.achievement.id,
+                            nNews.achievement.title,
+                            nNews.achievement.points,
+                            nNews.achievement.description,
+                            nNews.achievement.reward,
+                            (
+                                From ri In nNews.achievement.rewardItems
+                                Select New RewardItem(
+                                    ri.id, ri.name, ri.icon, CType(ri.quality, Quality)
+                                    )
+                                ).ToCollection(),
+                            nNews.achievement.icon,
+                            (
+                                From c In nNews.achievement.criteria
+                                Select New NewsCriteria(
+                                    c.id,
+                                    c.description
+                                    )
+                                ).ToCollection()
+                            )
+                        )
+                Case Else
+                    Return Nothing
+            End Select
+        End Function
+
+#End Region
 
 #End Region
 

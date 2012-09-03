@@ -9,12 +9,9 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
 
     <DataContract()> Friend Class talent
 
-        <DataMember()> Public Property selected As Boolean
-        <DataMember()> Public Property name As String
-        <DataMember()> Public Property icon As String
-        <DataMember()> Public Property build As String
-        <DataMember()> Public Property trees As tree()
-        <DataMember()> Public Property glyphs As glyphs
+        <DataMember()> Public Property tier As Integer
+        <DataMember()> Public Property column As Integer
+        <DataMember()> Public Property spell As spell
 
     End Class
 

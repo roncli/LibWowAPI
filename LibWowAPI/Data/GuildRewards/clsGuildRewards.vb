@@ -123,7 +123,18 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                                r.achievement.rewardItem.name,
                                r.achievement.rewardItem.icon,
                                CType(r.achievement.rewardItem.quality, Quality)
-                               )
+                               ),
+                           r.achievement.icon,
+                           (
+                               From c In r.achievement.criteria
+                               Select New Criteria(
+                                   c.id,
+                                   c.description,
+                                   c.orderIndex,
+                                   c.max
+                                   )
+                               ).ToCollection(),
+                           r.achievement.accountWide
                            )
                        ),
                    New RewardItem(

@@ -9,7 +9,6 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
 
     <DataContract()> Friend Class glyphs
 
-        <DataMember()> Public Property prime As glyph()
         <DataMember()> Public Property major As glyph()
         <DataMember()> Public Property minor As glyph()
 

@@ -10,21 +10,8 @@ Namespace roncliProductions.LibWowAPI.Character
     ''' <summary>
     ''' A class containing information about a character's glyphs.
     ''' </summary>
-    ''' <remarks>Glyphs are divided into three categories, <see cref="Glyphs.Prime" />, <see cref="Glyphs.Major" />, and <see cref="Glyphs.Minor" />.</remarks>
+    ''' <remarks>Glyphs are divided into two categories, <see cref="Glyphs.Major" /> and <see cref="Glyphs.Minor" />.</remarks>
     Public Class Glyphs
-
-        Private colPrime As Collection(Of Glyph)
-        ''' <summary>
-        ''' The character's prime glyphs.
-        ''' </summary>
-        ''' <value>This property gets the Prime field.</value>
-        ''' <returns>Returns the character's prime glyphs.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of Glyph)" /> of <see cref="Glyph" /> that represents the character's prime glyphs.</remarks>
-        Public ReadOnly Property Prime As Collection(Of Glyph)
-            Get
-                Return colPrime
-            End Get
-        End Property
 
         Private colMajor As Collection(Of Glyph)
         ''' <summary>
@@ -52,8 +39,7 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(gPrime As Collection(Of Glyph), gMajor As Collection(Of Glyph), gMinor As Collection(Of Glyph))
-            colPrime = gPrime
+        Friend Sub New(gMajor As Collection(Of Glyph), gMinor As Collection(Of Glyph))
             colMajor = gMajor
             colMinor = gMinor
         End Sub

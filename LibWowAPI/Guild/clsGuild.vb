@@ -99,7 +99,20 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <remarks>The <see cref="Emblem" /> class holds information on how to construct the guild's emblem.</remarks>
         Public Property Emblem As Emblem
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, sSide As Side, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem)
+        Private colNews As Collection(Of NewsItem)
+        ''' <summary>
+        ''' The guild's news feed.
+        ''' </summary>
+        ''' <value>This property gets the News field.</value>
+        ''' <returns>Returns the guild's news feed.</returns>
+        ''' <remarks>If the <see cref="GuildProfileOptions.News" /> property of the <see cref="GuildProfile.Options" /> property is set to true, a <see cref="Collection(Of NewsItem)" /> of <see cref="NewsItem" /> will be available, containing the guild's news feed.</remarks>
+        Public ReadOnly Property News As Collection(Of NewsItem)
+            Get
+                Return colNews
+            End Get
+        End Property
+
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, sSide As Side, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -110,6 +123,7 @@ Namespace roncliProductions.LibWowAPI.Guild
             Achievements = aAchievements
             lstMembers = mMembers
             Emblem = eEmblem
+            colNews = nNews
         End Sub
 
     End Class

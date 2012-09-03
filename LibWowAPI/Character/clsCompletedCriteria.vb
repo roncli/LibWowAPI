@@ -9,7 +9,7 @@ Namespace roncliProductions.LibWowAPI.Character
     ''' A class containing information about an achievement criteria.
     ''' </summary>
     ''' <remarks>This class contains various statistics about completed achievement criteria.</remarks>
-    Public Class Criteria
+    Public Class CompletedCriteria
 
         ''' <summary>
         ''' The ID number of the achievement criteria.
@@ -40,7 +40,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets or sets the Created field.</value>
         ''' <returns>Returns the date the achievement criteria was started.</returns>
-        ''' <remarks>This date is the time in UTC that the criteria was started.  This will be equal to the <see cref="Criteria.Timestamp" /> property if the required <see cref="Criteria.Quantity" /> is 1.</remarks>
+        ''' <remarks>This date is the time in UTC that the criteria was started.  This will be equal to the <see cref="CompletedCriteria.Timestamp" /> property if the required <see cref="CompletedCriteria.Quantity" /> is 1.</remarks>
         Public Property Created As Date
 
         Friend Sub New(intID As Integer, lngQuantity As Long, dtTimestamp As Date, dtCreated As Date)
