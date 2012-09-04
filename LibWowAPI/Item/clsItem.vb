@@ -149,18 +149,13 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is a <see cref="ItemClasses.[Class]" /> object that describes the item class.</remarks>
         Public Property ItemClass As ItemClasses.Class
 
-        Private Property intItemSubClass As Integer
         ''' <summary>
         ''' The subclass of the item.
         ''' </summary>
         ''' <value>This property gets the ItemSubClass field.</value>
         ''' <returns>Returns the subclass of the item.</returns>
-        ''' <remarks>This is a <see cref="Enums.ItemSubClass" /> enumeration that describes the item's subclass.</remarks>
-        Public ReadOnly Property ItemSubClass As ItemSubClass
-            Get
-                Return CType(100 * ItemClass.Class + intItemSubClass, ItemSubClass)
-            End Get
-        End Property
+        ''' <remarks>This is a <see cref="ItemClasses.Subclass" /> object that describes the item subclass.</remarks>
+        Public Property ItemSubClass As ItemClasses.Subclass
 
         ''' <summary>
         ''' The number of container slots on the item, if this is a container.
@@ -351,7 +346,23 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This determines if the item is auctionable.</remarks>
         Public Property IsAuctionable As Boolean
 
-        Friend Sub New(intID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, bsBonusStats As Collection(Of BonusStats), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, intItemSubClass As Integer, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean)
+        ''' <summary>
+        ''' The total amount of armor on the item from both base armor and bonus armor.
+        ''' </summary>
+        ''' <value>This property gets or sets the TotalArmor field.</value>
+        ''' <returns>Returns the total amount of armor on the item from both base armor and bonus armor.</returns>
+        ''' <remarks>This represents the total amount of armor on the item from both base armor and bonus armor.</remarks>
+        Public Property TotalArmor As Integer
+
+        ''' <summary>
+        ''' The ID number for the display information of this item.
+        ''' </summary>
+        ''' <value>This property gets or sets the DisplayInfoID field.</value>
+        ''' <returns>Returns the ID number for the display information of this item.</returns>
+        ''' <remarks>This is an internal identification number used by Blizzard to retrieve the information required to display the item.</remarks>
+        Public Property DisplayInfoID As Integer
+
+        Friend Sub New(intID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, bsBonusStats As Collection(Of BonusStats), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, sItemSubClass As ItemClasses.Subclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer)
             ID = intID
             DisenchantingSkillRank = intDisenchantingSkillRank
             Description = strDescription
@@ -366,7 +377,7 @@ Namespace roncliProductions.LibWowAPI.Item
             colItemSpells = isItemSpells
             BuyPrice = intBuyPrice
             ItemClass = cItemClass
-            Me.intItemSubClass = intItemSubClass
+            ItemSubClass = sItemSubClass
             ContainerSlots = intContainerSlots
             WeaponInfo = wiWeaponInfo
             GemInfo = giGemInfo
@@ -390,6 +401,8 @@ Namespace roncliProductions.LibWowAPI.Item
             BaseArmor = intBaseArmor
             HasSockets = blnHasSockets
             IsAuctionable = blnIsAuctionable
+            TotalArmor = intTotalArmor
+            DisplayInfoID = intDisplayInfoID
         End Sub
 
     End Class

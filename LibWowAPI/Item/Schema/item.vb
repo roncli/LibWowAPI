@@ -46,6 +46,8 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property baseArmor As Integer
         <DataMember()> Public Property hasSockets As Boolean
         <DataMember()> Public Property isAuctionable As Boolean
+        <DataMember()> Public Property armor As Integer
+        <DataMember()> Public Property displayInfoId As Integer
 
     End Class
 

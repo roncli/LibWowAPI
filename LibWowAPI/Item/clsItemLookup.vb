@@ -159,7 +159,7 @@ Namespace roncliProductions.LibWowAPI.Item
                     ),
                 ilItem.buyPrice,
                 ilItem.itemClass.GetItemClass(),
-                ilItem.itemSubClass,
+                ilItem.itemClass.GetItemSubclassForClass(ilItem.itemSubClass),
                 ilItem.containerSlots,
                 If(ilItem.weaponInfo Is Nothing, Nothing,
                     New WeaponInfo(
@@ -236,7 +236,9 @@ Namespace roncliProductions.LibWowAPI.Item
                     ),
                 ilItem.baseArmor,
                 ilItem.hasSockets,
-                ilItem.isAuctionable
+                ilItem.isAuctionable,
+                ilItem.armor,
+                ilItem.displayInfoId
                 )
         End Sub
 

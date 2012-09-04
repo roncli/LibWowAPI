@@ -7,11 +7,10 @@ Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.Data.ItemClasses.Schema
 
-    <DataContract()> Friend Class [class]
+    <DataContract()> Friend Class subclass
 
-        <DataMember()> Public Property [class] As Integer
+        <DataMember()> Public Property subclass As Integer
         <DataMember()> Public Property name As String
-        <DataMember()> Public Property subclasses As subclass()
 
     End Class
 
