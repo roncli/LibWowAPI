@@ -133,6 +133,22 @@ Namespace roncliProductions.LibWowAPI.Extensions
             End If
         End Function
 
+        <Extension()> Friend Function GetItemSubclassForClass(intItemClass As Integer, intItemSubclass As Integer) As ItemClasses.Subclass
+            Dim icItemClasses = New ItemClasses.ItemClasses()
+            icItemClasses.Load()
+            Dim varItemClass = icItemClasses.Classes.Where(Function(c) c.Class = intItemClass)
+            If varItemClass.Count = 0 Then
+                Return Nothing
+            Else
+                Dim varItemSubclass = varItemClass.First().Subclasses.Where(Function(s) s.Subclass = intItemSubclass)
+                If varItemSubclass.Count = 0 Then
+                    Return Nothing
+                Else
+                    Return varItemSubclass.First()
+                End If
+            End If
+        End Function
+
         <Extension()> Friend Function GetAuctionTimeLeft(strTimeLeft As String) As AuctionTimeLeft
             Select Case strTimeLeft
                 Case "SHORT"

@@ -106,7 +106,7 @@ Namespace roncliProductions.LibWowAPI.Data.ItemClasses
 
             colClasses = (
                 From c In icClasses.classes
-                Select New [Class](c.class, c.name)
+                Select New [Class](c.class, c.name, (From s In c.subclasses Select New Subclass(s.subclass, s.name)).ToCollection())
                 ).ToCollection()
         End Sub
 
