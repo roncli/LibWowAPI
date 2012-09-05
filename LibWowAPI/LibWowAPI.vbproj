@@ -181,6 +181,8 @@
     <Compile Include="Data\GuildAchievements\Schema\criteria.vb" />
     <Compile Include="Data\GuildRewards\clsCriteria.vb" />
     <Compile Include="Data\GuildRewards\Schema\criteria.vb" />
+    <Compile Include="Data\ItemClasses\clsSubclass.vb" />
+    <Compile Include="Data\ItemClasses\Schema\subclass.vb" />
     <Compile Include="Guild\clsNewsAchievement.vb" />
     <Compile Include="Guild\clsNewsCriteria.vb" />
     <Compile Include="Guild\clsGuildAchievementNews.vb" />

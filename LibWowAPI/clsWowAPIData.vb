@@ -293,7 +293,7 @@ Namespace roncliProductions.LibWowAPI
 
                 Dim hwrRequest = CType(HttpWebRequest.Create(uqsURI.ToURI()), HttpWebRequest)
                 If IfModifiedSince <> Date.MinValue Then
-                    hwrRequest.Headers.Add(HttpRequestHeader.LastModified, String.Format(CultureInfo.InvariantCulture, "{0:ddd, dd MMM yyyy hh:mm:ss} GMT", TimeZoneInfo.ConvertTimeToUtc(IfModifiedSince)))
+                    hwrRequest.Headers.Add(HttpRequestHeader.LastModified, String.Format(CultureInfo.InvariantCulture, "{0:ddd, dd MMM yyyy hh:mm:ss} GMT", IfModifiedSince))
                 End If
                 hwrRequest.Timeout = Timeout * 1000
 
