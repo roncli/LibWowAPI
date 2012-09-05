@@ -128,13 +128,16 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                         a.points,
                                         a.description,
                                         a.reward,
-                                        If(a.rewardItems Is Nothing, Nothing,
-                                            New RewardItem(
-                                                a.rewardItems.id,
-                                                a.rewardItems.name,
-                                                a.rewardItems.icon,
-                                                CType(a.rewardItems.quality, Quality)
-                                                )
+                                        If(
+                                            a.rewardItems Is Nothing, Nothing, (
+                                                From ri In a.rewardItems
+                                                Select New RewardItem(
+                                                    ri.id,
+                                                    ri.name,
+                                                    ri.icon,
+                                                    CType(ri.quality, Quality)
+                                                    )
+                                                ).ToCollection()
                                             ),
                                         a.icon,
                                         (
@@ -161,13 +164,16 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                             a.points,
                             a.description,
                             a.reward,
-                            If(a.rewardItems Is Nothing, Nothing,
-                                New RewardItem(
-                                    a.rewardItems.id,
-                                    a.rewardItems.name,
-                                    a.rewardItems.icon,
-                                    CType(a.rewardItems.quality, Quality)
-                                    )
+                            If(
+                                a.rewardItems Is Nothing, Nothing, (
+                                    From ri In a.rewardItems
+                                    Select New RewardItem(
+                                        ri.id,
+                                        ri.name,
+                                        ri.icon,
+                                        CType(ri.quality, Quality)
+                                        )
+                                    ).ToCollection()
                                 ),
                             a.icon,
                             (

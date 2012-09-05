@@ -404,7 +404,7 @@ Namespace roncliProductions.LibWowAPIDemo
 
                 Console.WriteLine("  Members:")
                 For Each mMember In atTeam.Members
-                    Console.WriteLine("    {0} - Level {1} {2} {3} {4}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name)
+                    Console.WriteLine("    {0} - Level {1} {2} {3} {4} {5}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name, If(mMember.Character.Spec Is Nothing, Nothing, mMember.Character.Spec.Name))
                     If mMember.Rank = 1 Then
                         Console.WriteLine("      Team Owner")
                     End If
@@ -500,7 +500,7 @@ Namespace roncliProductions.LibWowAPIDemo
 
             Console.WriteLine("Members:")
             For Each mMember In atTeam.Team.Members
-                Console.WriteLine("  {0} - Level {1} {2} {3} {4}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name)
+                Console.WriteLine("  {0} - Level {1} {2} {3} {4} {5}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name, If(mMember.Character.Spec Is Nothing, Nothing, mMember.Character.Spec.Name))
                 If mMember.Rank = 1 Then
                     Console.WriteLine("    Team Owner")
                 End If
@@ -605,7 +605,7 @@ Namespace roncliProductions.LibWowAPIDemo
             Dim caAchievements As New CharacterAchievements()
             caAchievements.Load()
 
-            ' Show the guild achievements.
+            ' Show the character achievements.
             Console.Clear()
             If caAchievements.CacheHit.HasValue AndAlso caAchievements.CacheHit.Value Then
                 Console.WriteLine("Cache hit!")
@@ -616,13 +616,18 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("{0} - Category ID {1}", cCategory.Name, cCategory.ID)
                 For Each aAchievement In cCategory.Achievements
                     Console.WriteLine("  {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                    If aAchievement.AccountWide Then
+                        Console.WriteLine("    Account-wide Achievement")
+                    End If
                     Console.WriteLine("    Icon: {0}", aAchievement.Icon)
                     Console.WriteLine("    {0}", aAchievement.Description)
                     If Not String.IsNullOrWhiteSpace(aAchievement.Reward) Then
                         Console.WriteLine("    {0}", aAchievement.Reward)
                     End If
-                    If aAchievement.RewardItem IsNot Nothing Then
-                        Console.WriteLine("      {0} - ID: {1} - Quality: {2}", aAchievement.RewardItem.Name, aAchievement.RewardItem.ID, aAchievement.RewardItem.Quality)
+                    If aAchievement.RewardItems IsNot Nothing Then
+                        For Each riItem In aAchievement.RewardItems
+                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                        Next
                     End If
                     If aAchievement.Criteria IsNot Nothing Then
                         For Each cCriteria In aAchievement.Criteria
@@ -635,13 +640,18 @@ Namespace roncliProductions.LibWowAPIDemo
                         Console.WriteLine("  {0} - Category ID {1}", cSubCategory.Name, cSubCategory.ID)
                         For Each aAchievement In cSubCategory.Achievements
                             Console.WriteLine("    {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                            If aAchievement.AccountWide Then
+                                Console.WriteLine("      Account-wide Achievement")
+                            End If
                             Console.WriteLine("      Icon: {0}", aAchievement.Icon)
                             Console.WriteLine("      {0}", aAchievement.Description)
                             If Not String.IsNullOrWhiteSpace(aAchievement.Reward) Then
                                 Console.WriteLine("      {0}", aAchievement.Reward)
                             End If
-                            If aAchievement.RewardItem IsNot Nothing Then
-                                Console.WriteLine("        {0} - ID: {1} - Quality: {2}", aAchievement.RewardItem.Name, aAchievement.RewardItem.ID, aAchievement.RewardItem.Quality)
+                            If aAchievement.RewardItems IsNot Nothing Then
+                                For Each riItem In aAchievement.RewardItems
+                                    Console.WriteLine("        {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                                Next
                             End If
                             If aAchievement.Criteria IsNot Nothing Then
                                 For Each cCriteria In aAchievement.Criteria
@@ -746,6 +756,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("13 - Include Progression - {0}", If(cpCharacter.Options.Progression, "Yes", "No"))
                 Console.WriteLine("14 - Include PvP - {0}", If(cpCharacter.Options.PvP, "Yes", "No"))
                 Console.WriteLine("15 - Include Quests - {0}", If(cpCharacter.Options.Quests, "Yes", "No"))
+                Console.WriteLine("16 - Include Feed - {0}", If(cpCharacter.Options.Feed, "Yes", "No"))
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -782,6 +793,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             cpCharacter.Options.PvP = Not cpCharacter.Options.PvP
                         Case 15
                             cpCharacter.Options.Quests = Not cpCharacter.Options.Quests
+                        Case 16
+                            cpCharacter.Options.Feed = Not cpCharacter.Options.Feed
                     End Select
                     Console.Clear()
                 Else
@@ -838,32 +851,31 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("  Dodge: {0:N2}% (Rating: {1})", cpCharacter.Character.Stats.Dodge, cpCharacter.Character.Stats.DodgeRating)
                 Console.WriteLine("  Parry: {0:N2}% (Rating: {1})", cpCharacter.Character.Stats.Parry, cpCharacter.Character.Stats.ParryRating)
                 Console.WriteLine("  Block: {0:N2}% (Rating: {1})", cpCharacter.Character.Stats.Block, cpCharacter.Character.Stats.BlockRating)
-                Console.WriteLine("  Resilience: {0}", cpCharacter.Character.Stats.Resil)
+                Console.WriteLine("  PvP Resilience: {0:N2}% (Rating: {1})", cpCharacter.Character.Stats.PvpResilience, cpCharacter.Character.Stats.PvpResilienceRating)
                 Console.WriteLine("  Main Hand: {0:N1}-{1:N1} Damage, {2:N2} Speed, {3:N2} DPS, {4} Expertise", cpCharacter.Character.Stats.MainHandDmgMin, cpCharacter.Character.Stats.MainHandDmgMax, cpCharacter.Character.Stats.MainHandSpeed, cpCharacter.Character.Stats.MainHandDps, cpCharacter.Character.Stats.MainHandExpertise)
                 Console.WriteLine("  Off Hand: {0:N1}-{1:N1} Damage, {2:N2} Speed, {3:N2} DPS, {4} Expertise", cpCharacter.Character.Stats.OffHandDmgMin, cpCharacter.Character.Stats.OffHandDmgMax, cpCharacter.Character.Stats.OffHandSpeed, cpCharacter.Character.Stats.OffHandDps, cpCharacter.Character.Stats.OffHandExpertise)
                 Console.WriteLine("  Ranged: {0:N1}-{1:N1} Damage, {2:N2} Speed, {3:N2} DPS", cpCharacter.Character.Stats.RangedDmgMin, cpCharacter.Character.Stats.RangedDmgMax, cpCharacter.Character.Stats.RangedSpeed, cpCharacter.Character.Stats.RangedDps)
                 Console.WriteLine("  Ranged Crit: {0:N2}% (Rating: {1})", cpCharacter.Character.Stats.RangedCrit, cpCharacter.Character.Stats.RangedCritRating)
                 Console.WriteLine("  Ranged Hit: {0:N2}% (Rating: {1})", cpCharacter.Character.Stats.RangedHitPercent, cpCharacter.Character.Stats.RangedHitRating)
+                Console.WriteLine("  PvP Power: {0:N2}% (Rating: {1})", cpCharacter.Character.Stats.PvpPower, cpCharacter.Character.Stats.PvpPowerRating)
                 Console.WriteLine()
             End If
 
             If cpCharacter.Character.Talents IsNot Nothing Then
                 Console.WriteLine("Talents:")
-                For Each tTalent In cpCharacter.Character.Talents
-                    Console.WriteLine("  {0} {1}/{2}/{3}{4}", tTalent.Name, tTalent.Trees(0).Total, tTalent.Trees(1).Total, tTalent.Trees(2).Total, If(tTalent.Selected, " - Selected", ""))
-                    Console.WriteLine("    Build: {0} {1} {2}", tTalent.Trees(0).Points, tTalent.Trees(1).Points, tTalent.Trees(2).Points)
-                    Console.WriteLine("    Glyphs:")
-                    Console.WriteLine("      Prime:")
-                    For Each gGlyph In tTalent.Glyphs.Prime
-                        Console.WriteLine("        {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
+                For Each tsTalent In cpCharacter.Character.Talents
+                    Console.WriteLine("  {0} - {1}", tsTalent.Spec.Name, tsTalent.Spec.Description)
+                    For Each tTalent In tsTalent.Talents
+                        Console.WriteLine("    {0} - Tier {1} - Column {2}", tTalent.Spell.Name, tTalent.Tier, tTalent.Column)
                     Next
-                    Console.WriteLine("      Major:")
-                    For Each gGlyph In tTalent.Glyphs.Major
-                        Console.WriteLine("        {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
+                    Console.WriteLine("  Glyphs:")
+                    Console.WriteLine("    Major:")
+                    For Each gGlyph In tsTalent.Glyphs.Major
+                        Console.WriteLine("      {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
                     Next
-                    Console.WriteLine("      Minor:")
-                    For Each gGlyph In tTalent.Glyphs.Minor
-                        Console.WriteLine("        {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
+                    Console.WriteLine("    Minor:")
+                    For Each gGlyph In tsTalent.Glyphs.Minor
+                        Console.WriteLine("      {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
                     Next
                 Next
                 Console.WriteLine()
@@ -1304,30 +1316,6 @@ Namespace roncliProductions.LibWowAPIDemo
                         Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.OffHand.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
                     End If
                 End If
-                If cpCharacter.Character.Items.Ranged IsNot Nothing Then
-                    Console.WriteLine("  Ranged: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Ranged.Name, cpCharacter.Character.Items.Ranged.ID, cpCharacter.Character.Items.Ranged.Quality)
-                    If cpCharacter.Character.Items.Ranged.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Ranged.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Ranged.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Ranged.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Ranged.TooltipParams.Suffix, cpCharacter.Character.Items.Ranged.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Ranged.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Ranged.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Ranged.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Ranged.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Ranged.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Ranged.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Ranged.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Ranged.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                End If
                 Console.WriteLine()
             End If
 
@@ -1394,24 +1382,9 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Pets:")
                 For Each pPet In cpCharacter.Character.Pets
                     Console.WriteLine("  {0} - Creature: {1} - Slot: {2}", pPet.Name, pPet.Creature, pPet.Slot)
-                    If pPet.Talents IsNot Nothing Then
-                        Console.WriteLine("  Talents:")
-                        Console.WriteLine("    {0} {1}/{2}/{3}{4}", pPet.Talents.Name, pPet.Talents.Trees(0).Total, pPet.Talents.Trees(1).Total, pPet.Talents.Trees(2).Total, If(pPet.Talents.Selected, " - Selected", ""))
-                        Console.WriteLine("      Build: {0} {1} {2}", pPet.Talents.Trees(0).Points, pPet.Talents.Trees(1).Points, pPet.Talents.Trees(2).Points)
-                        Console.WriteLine("      Glyphs:")
-                        Console.WriteLine("        Prime:")
-                        For Each gGlyph In pPet.Talents.Glyphs.Prime
-                            Console.WriteLine("          {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
-                        Next
-                        Console.WriteLine("        Major:")
-                        For Each gGlyph In pPet.Talents.Glyphs.Major
-                            Console.WriteLine("          {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
-                        Next
-                        Console.WriteLine("        Minor:")
-                        For Each gGlyph In pPet.Talents.Glyphs.Minor
-                            Console.WriteLine("          {0} - ID {1} - Item {2}", gGlyph.Name, gGlyph.Glyph, gGlyph.Item)
-                        Next
-                        Console.WriteLine()
+                    If pPet.Spec IsNot Nothing Then
+                        Console.WriteLine("    Spec:")
+                        Console.WriteLine("      {0} - {1}", pPet.Spec.Name, pPet.Spec.Role)
                     End If
                 Next
                 Console.WriteLine()
@@ -1465,6 +1438,26 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
+            If cpCharacter.Character.Feed IsNot Nothing Then
+                Console.WriteLine("Feed:")
+                For Each fiItem In cpCharacter.Character.Feed
+                    If TypeOf fiItem Is AchievementFeed Then
+                        Dim afItem = CType(fiItem, AchievementFeed)
+                        Console.WriteLine("  {0:M/d/yyyy} - Achievement: {1}", afItem.Date, afItem.Achievement.Title)
+                    ElseIf TypeOf fiItem Is BossKillFeed Then
+                        Dim bkfItem = CType(fiItem, BossKillFeed)
+                        Console.WriteLine("  {0:M/d/yyyy} - Boss Kill: {1}", bkfItem.Date, bkfItem.Name)
+                    ElseIf TypeOf fiItem Is CriteriaFeed Then
+                        Dim cfItem = CType(fiItem, CriteriaFeed)
+                        Console.WriteLine("  {0:M/d/yyyy} - Achievement Criteria: {1} for {2}", cfItem.Date, cfItem.Criteria.Description, cfItem.Achievement.Title)
+                    ElseIf TypeOf fiItem Is LootFeed Then
+                        Dim lfItem = CType(fiItem, LootFeed)
+                        Console.WriteLine("  {0:M/d/yyyy} - Loot: {1}", lfItem.Date, lfItem.ItemID)
+                    End If
+                Next
+                Console.WriteLine()
+            End If
+
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)
         End Sub
@@ -1514,11 +1507,21 @@ Namespace roncliProductions.LibWowAPIDemo
                 For Each aAchievement In cCategory.Achievements
                     Console.WriteLine("  {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
                     Console.WriteLine("    {0}", aAchievement.Description)
+                    If aAchievement.AccountWide Then
+                        Console.WriteLine("    Account-wide Achievement")
+                    End If
                     If Not String.IsNullOrWhiteSpace(aAchievement.Reward) Then
                         Console.WriteLine("    {0}", aAchievement.Reward)
                     End If
-                    If aAchievement.RewardItem IsNot Nothing Then
-                        Console.WriteLine("      {0} - ID: {1} - Quality: {2}", aAchievement.RewardItem.Name, aAchievement.RewardItem.ID, aAchievement.RewardItem.Quality)
+                    If aAchievement.RewardItems IsNot Nothing Then
+                        For Each riItem In aAchievement.RewardItems
+                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                        Next
+                    End If
+                    If aAchievement.Criteria IsNot Nothing Then
+                        For Each cCriteria In aAchievement.Criteria
+                            Console.WriteLine("    - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                        Next
                     End If
                 Next
                 If cCategory.Categories IsNot Nothing Then
@@ -1526,12 +1529,22 @@ Namespace roncliProductions.LibWowAPIDemo
                         Console.WriteLine("  {0} - Category ID {1}", cSubCategory.Name, cSubCategory.ID)
                         For Each aAchievement In cSubCategory.Achievements
                             Console.WriteLine("    {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                            If aAchievement.AccountWide Then
+                                Console.WriteLine("      Account-wide Achievement")
+                            End If
                             Console.WriteLine("      {0}", aAchievement.Description)
                             If Not String.IsNullOrWhiteSpace(aAchievement.Reward) Then
                                 Console.WriteLine("      {0}", aAchievement.Reward)
                             End If
-                            If aAchievement.RewardItem IsNot Nothing Then
-                                Console.WriteLine("        {0} - ID: {1} - Quality: {2}", aAchievement.RewardItem.Name, aAchievement.RewardItem.ID, aAchievement.RewardItem.Quality)
+                            If aAchievement.RewardItems IsNot Nothing Then
+                                For Each riItem In aAchievement.RewardItems
+                                    Console.WriteLine("        {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                                Next
+                            End If
+                            If aAchievement.Criteria IsNot Nothing Then
+                                For Each cCriteria In aAchievement.Criteria
+                                    Console.WriteLine("      - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                                Next
                             End If
                         Next
                     Next
@@ -1633,6 +1646,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("  Or press enter to perform the guild lookup.")
                 Console.WriteLine("1 - Include Guild Achievements - {0}", If(gpGuild.Options.Achievements, "Yes", "No"))
                 Console.WriteLine("2 - Include Members - {0}", If(gpGuild.Options.Members, "Yes", "No"))
+                Console.WriteLine("3 - Include News - {0}", If(gpGuild.Options.News, "Yes", "No"))
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -1643,6 +1657,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             gpGuild.Options.Achievements = Not gpGuild.Options.Achievements
                         Case 2
                             gpGuild.Options.Members = Not gpGuild.Options.Members
+                        Case 3
+                            gpGuild.Options.News = Not gpGuild.Options.News
                     End Select
                     Console.Clear()
                 Else
@@ -1689,7 +1705,33 @@ Namespace roncliProductions.LibWowAPIDemo
             If gpGuild.Guild.Members IsNot Nothing Then
                 Console.WriteLine("Members:")
                 For Each mMember In gpGuild.Guild.Members
-                    Console.WriteLine("  {0} - Level {1} {2} {3} {4} - Rank {5}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name, mMember.Rank)
+                    Console.WriteLine("  {0} - Level {1} {2} {3} {4} {5}- Rank {6}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name, If(mMember.Character.Spec Is Nothing, Nothing, mMember.Character.Spec.Name & " "), mMember.Rank)
+                Next
+                Console.WriteLine()
+            End If
+
+            If gpGuild.Guild.News IsNot Nothing Then
+                Console.WriteLine("News:")
+                For Each niItem In gpGuild.Guild.News
+                    If TypeOf niItem Is GuildAchievementNews Then
+                        Dim ganItem = CType(niItem, GuildAchievementNews)
+                        Console.WriteLine("  {0:M/d/yyyy} - Guild Achievement: {1}", ganItem.Date, ganItem.Achievement.Title)
+                    ElseIf TypeOf niItem Is GuildCreatedNews Then
+                        Dim gcnItem = CType(niItem, GuildCreatedNews)
+                        Console.WriteLine("  {0:M/d/yyyy} - Guild Created", gcnItem.Date)
+                    ElseIf TypeOf niItem Is GuildLevelNews Then
+                        Dim glnItem = CType(niItem, GuildLevelNews)
+                        Console.WriteLine("  {0:M/d/yyyy} - Guild Level: {1}", glnItem.Date, glnItem.LevelUp)
+                    ElseIf TypeOf niItem Is ItemLootNews Then
+                        Dim ilnItem = CType(niItem, ItemLootNews)
+                        Console.WriteLine("  {0:M/d/yyyy} - Item Looted: {1} by {2}", ilnItem.Date, ilnItem.ItemID, ilnItem.Character)
+                    ElseIf TypeOf niItem Is ItemPurchaseNews Then
+                        Dim ipnItem = CType(niItem, ItemPurchaseNews)
+                        Console.WriteLine("  {0:M/d/yyyy} - Item Purchased: {1} by {2}", ipnItem.Date, ipnItem.ItemID, ipnItem.Character)
+                    ElseIf TypeOf niItem Is PlayerAchievementNews Then
+                        Dim panItem = CType(niItem, PlayerAchievementNews)
+                        Console.WriteLine("  {0:M/d/yyyy} - Player Achievement: {1} by {2}", panItem.Date, panItem.Achievement.Title, panItem.Character)
+                    End If
                 Next
                 Console.WriteLine()
             End If
@@ -1726,6 +1768,22 @@ Namespace roncliProductions.LibWowAPIDemo
                 If rReward.Achievement IsNot Nothing Then
                     Console.WriteLine("Guild Achievement: {0} - ID: {1} - {2} Points", rReward.Achievement.Title, rReward.Achievement.ID, rReward.Achievement.Points)
                     Console.WriteLine("  {0}", rReward.Achievement.Description)
+                    If rReward.Achievement.AccountWide Then
+                        Console.WriteLine("    Account-wide Achievement")
+                    End If
+                    If Not String.IsNullOrWhiteSpace(rReward.Achievement.Reward) Then
+                        Console.WriteLine("    {0}", rReward.Achievement.Reward)
+                    End If
+                    If rReward.Achievement.RewardItems IsNot Nothing Then
+                        For Each riItem In rReward.Achievement.RewardItems
+                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                        Next
+                    End If
+                    If rReward.Achievement.Criteria IsNot Nothing Then
+                        For Each cCriteria In rReward.Achievement.Criteria
+                            Console.WriteLine("    - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                        Next
+                    End If
                 End If
                 Console.WriteLine()
             Next
@@ -1752,6 +1810,9 @@ Namespace roncliProductions.LibWowAPIDemo
 
             For Each cClass In icClasses.Classes
                 Console.WriteLine("{0}) {1}", cClass.Class, cClass.Name)
+                For Each sSubclass In cClass.Subclasses
+                    Console.WriteLine("  {0}) {1}", sSubclass.Subclass, sSubclass.Name)
+                Next
             Next
             Console.WriteLine()
 
@@ -1864,7 +1925,7 @@ Namespace roncliProductions.LibWowAPIDemo
             If iItem.Item.SellPrice > 0 Then
                 Console.WriteLine("Sell Price: {0}g{1}s{2}c", Math.Floor(iItem.Item.SellPrice / 10000), Math.Floor((iItem.Item.SellPrice / 100) Mod 100), iItem.Item.SellPrice Mod 100)
             End If
-            Console.WriteLine("Item class: {0} - Subclass: {1}", iItem.Item.ItemClass.Name, iItem.Item.ItemSubClass)
+            Console.WriteLine("Item class: {0} - Subclass: {1}", iItem.Item.ItemClass.Name, iItem.Item.ItemSubClass.Name)
             If iItem.Item.ContainerSlots > 0 Then
                 Console.WriteLine("Container slots: {0}", iItem.Item.ContainerSlots)
             End If
@@ -2080,7 +2141,7 @@ Namespace roncliProductions.LibWowAPIDemo
 
             For Each bgRecord In rblLadder.Characters
                 Console.WriteLine("{0}) {1} - {2} - Battlegroup: {3}", bgRecord.Rank, bgRecord.Character.Name, bgRecord.Realm.Name, bgRecord.Battlegroup.Name)
-                Console.WriteLine("  Level {0} {1} {2} {3}", bgRecord.Character.Level, bgRecord.Character.Gender, bgRecord.Character.Race.Name, bgRecord.Character.Class.Name)
+                Console.WriteLine("  Level {0} {1} {2} {3} {4}", bgRecord.Character.Level, bgRecord.Character.Gender, bgRecord.Character.Race.Name, bgRecord.Character.Class.Name, If(bgRecord.Character.Spec Is Nothing, Nothing, bgRecord.Character.Spec.Name))
                 Console.WriteLine("  Achievement Points: {0}", bgRecord.Character.AchievementPoints)
                 Console.WriteLine("  Rating: {0}", bgRecord.Rating)
                 Console.WriteLine("  Record: {0}-{1} ({2} played)", bgRecord.Wins, bgRecord.Losses, bgRecord.Played)
@@ -2127,7 +2188,7 @@ Namespace roncliProductions.LibWowAPIDemo
 
             For Each rRealm In rsStatus.Realms
                 Console.WriteLine("{0} - {1} - Battlegroup: {2}", rRealm.Name, rRealm.Type, rRealm.Battlegroup)
-                Console.WriteLine("Population: {0}", rRealm.Population)
+                Console.WriteLine("Population: {0} - Locale: {1}", rRealm.Population, rRealm.Locale)
                 Console.WriteLine("Status: {0} - Queue: {1}", If(rRealm.Status, "Online", "Offline"), If(rRealm.Queue, "Yes", "No"))
                 Console.WriteLine("Wintergrasp: {0} controlled, next battle at {1:h:mm:ss tt} GMT, Status: {2}", rRealm.Wintergrasp.ControllingFaction, rRealm.Wintergrasp.Next, rRealm.Wintergrasp.Status)
                 Console.WriteLine("Tol Barad: {0} controlled, next battle at {1:h:mm:ss tt} GMT, Status: {2}", rRealm.TolBarad.ControllingFaction, rRealm.TolBarad.Next, rRealm.TolBarad.Status)

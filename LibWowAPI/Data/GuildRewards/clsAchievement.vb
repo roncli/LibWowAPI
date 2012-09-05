@@ -53,13 +53,18 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
         ''' <remarks>This is the reward received for completing the guild achievement.  This is not localized.</remarks>
         Public Property Reward As String
 
+        Private colRewardItems As Collection(Of RewardItem)
         ''' <summary>
-        ''' The guild reward item offered by the guild achievement.
+        ''' The items obtained as a reward for completing the guild achievement.
         ''' </summary>
         ''' <value>This property gets or sets the RewardItem field.</value>
-        ''' <returns>Returns the item obtained as a reward for completing the guild achievement.</returns>
-        ''' <remarks>This is a <see cref="RewardItem" /> object that contains details about the item received for completing the guild achievement.</remarks>
-        Public Property RewardItem As RewardItem
+        ''' <returns>Returns the items obtained as a reward for completing the guild achievement.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of RewardItem)" /> of <see cref="RewardItem" /> that contains details about the items received for completing the guild achievement.</remarks>
+        Public ReadOnly Property RewardItems As Collection(Of RewardItem)
+            Get
+                Return colRewardItems
+            End Get
+        End Property
 
         ''' <summary>
         ''' The icon of the achievement.
@@ -90,13 +95,13 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
         ''' <remarks>This represents whether the achievement is account-wide.</remarks>
         Public Property AccountWide As Boolean
 
-        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItem As RewardItem, strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean)
+        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean)
             ID = intID
             Title = strTitle
             Points = intPoints
             Description = strDescription
             Reward = strReward
-            RewardItem = riRewardItem
+            colRewardItems = riRewardItems
             Icon = strIcon
             colCriteria = cCriteria
             AccountWide = blnAccountWide

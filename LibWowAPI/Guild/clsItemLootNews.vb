@@ -31,7 +31,7 @@ Namespace roncliProductions.LibWowAPI.Guild
         Friend Sub New(dtDate As Date, strCharacter As String, intItemID As Integer)
             [Date] = dtDate
             Character = strCharacter
-            ItemID = ItemID
+            ItemID = intItemID
         End Sub
 
     End Class

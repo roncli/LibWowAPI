@@ -111,40 +111,46 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                     r.minGuildLevel,
                     CType(r.minGuildRepLevel, Standing),
                     r.races.GetRaces(),
-                    If(r.achievement Is Nothing, Nothing,
-                       New Achievement(
-                           r.achievement.id,
-                           r.achievement.title,
-                           r.achievement.points,
-                           r.achievement.description,
-                           r.achievement.reward,
-                           New RewardItem(
-                               r.achievement.rewardItem.id,
-                               r.achievement.rewardItem.name,
-                               r.achievement.rewardItem.icon,
-                               CType(r.achievement.rewardItem.quality, Quality)
-                               ),
-                           r.achievement.icon,
-                           (
-                               From c In r.achievement.criteria
-                               Select New Criteria(
-                                   c.id,
-                                   c.description,
-                                   c.orderIndex,
-                                   c.max
-                                   )
-                               ).ToCollection(),
-                           r.achievement.accountWide
-                           )
-                       ),
-                   New RewardItem(
-                       r.item.id,
-                       r.item.name,
-                       r.item.icon,
-                       CType(r.item.quality, Quality)
-                       )
-                   )
-               ).ToCollection()
+                    If(
+                        r.achievement Is Nothing, Nothing,
+                        New Achievement(
+                            r.achievement.id,
+                            r.achievement.title,
+                            r.achievement.points,
+                            r.achievement.description,
+                            r.achievement.reward,
+                            If(
+                                r.achievement.rewardItems Is Nothing, Nothing, (
+                                    From ri In r.achievement.rewardItems
+                                    Select New RewardItem(
+                                        ri.id,
+                                        ri.name,
+                                        ri.icon,
+                                        CType(ri.quality, Quality)
+                                        )
+                                    ).ToCollection()
+                                ),
+                            r.achievement.icon,
+                            (
+                                From c In r.achievement.criteria
+                                Select New Criteria(
+                                    c.id,
+                                    c.description,
+                                    c.orderIndex,
+                                    c.max
+                                    )
+                                ).ToCollection(),
+                            r.achievement.accountWide
+                            )
+                        ),
+                    New RewardItem(
+                        r.item.id,
+                        r.item.name,
+                        r.item.icon,
+                        CType(r.item.quality, Quality)
+                        )
+                    )
+                ).ToCollection()
         End Sub
 
 #End Region
