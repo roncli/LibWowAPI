@@ -1,9 +1,9 @@
 # LibWowAPI
-### Version 1.0.4 - Released 4/25/2012
+### Version 1.1 - Released 9/5/2012
 
 LibWowAPI is a library for the .NET framework that interfaces with the Blizzard World of Warcraft API. The [Blizzard World of Warcraft API](http://blizzard.github.com/api-wow-docs) is an online API that interfaces with World of Warcraft.
 
-(c)2008-2011 [Ronald M. Clifford](mailto:roncli@roncli.com)
+(c)2008-2012 [Ronald M. Clifford](mailto:roncli@roncli.com)
 
 Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 
@@ -11,6 +11,29 @@ Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
 
 ## Version History
+
+### 1.1 - 9/5/2012
+* New:
+ * Upgraded solution and projects to Visual Studio 2012 and .NET 4.5.
+ * Added battlegroup across many different classes.
+ * Added character profile feed. (Character.Feed)
+ * Updated Resilience to PvpResilience and added PvpPower to character profile stats.  (Character.Stats)
+ * Character profile talents and pets revamped for patch 5.0.4. (Character.Talents and Character.Pets)
+ * Added guild profile news. (Guild.News)
+ * Added achievement criteria, account-wide achievements, and icons. (Data.CharacterAchievements, Data.GuildAchievements, and Data.GuildRewards)
+ * Added subclass info to item classes. (Data.ItemClasses)
+ * Added selected talent spec to guild profile members and PvP classes. (Guild.Members, PvP.ArenaLadder, PvP.ArenaTeam, and PvP.RatedBattlegroundLadder)
+ * Added total armor, display info, and item set info to item lookup. (Item.ItemLookup)
+ * Added rated battlegroup ladder. (PvP.RatedBattlegroundLadder)
+ * Added locale to realm status. (Realm.RealmStatus)
+ * Added Neutral faction (For Panderans who haven't chosen their faction yet.)
+Removed:
+ * Prime glyphs. (Removed with patch 5.0.4.)
+ * Ranged item slot. (Removed with patch 5.0.4.)
+ * Subclass enumeration. (Use the Data.ItemClasses class to retrieve subclass information.)
+Fixes:
+ * Removed old SVN bindings from solution.
+ * Fixed problems with IfModifiedSince related to Daylight Savings Time.
 
 ### 1.0.4 - 4/25/2012
 * Added PvpZoneStatus enumeration to describe a realm's PvP zone status, and updated the realm status lookup accordingly.
