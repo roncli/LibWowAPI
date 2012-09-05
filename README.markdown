@@ -27,11 +27,11 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added rated battlegroup ladder. (PvP.RatedBattlegroundLadder)
  * Added locale to realm status. (Realm.RealmStatus)
  * Added Neutral faction (For Panderans who haven't chosen their faction yet.)
-Removed:
+* Removed:
  * Prime glyphs. (Removed with patch 5.0.4.)
  * Ranged item slot. (Removed with patch 5.0.4.)
  * Subclass enumeration. (Use the Data.ItemClasses class to retrieve subclass information.)
-Fixes:
+* Fixes:
  * Removed old SVN bindings from solution.
  * Fixed problems with IfModifiedSince related to Daylight Savings Time.
 
