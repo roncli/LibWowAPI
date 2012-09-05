@@ -24,7 +24,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added subclass info to item classes. (Data.ItemClasses)
  * Added selected talent spec to guild profile members and PvP classes. (Guild.Members, PvP.ArenaLadder, PvP.ArenaTeam, and PvP.RatedBattlegroundLadder)
  * Added total armor, display info, and item set info to item lookup. (Item.ItemLookup)
- * Added rated battlegroup ladder. (PvP.RatedBattlegroundLadder)
+ * Added rated battleground ladder. (PvP.RatedBattlegroundLadder)
  * Added locale to realm status. (Realm.RealmStatus)
  * Added Neutral faction (For Panderans who haven't chosen their faction yet.)
 * Removed:
