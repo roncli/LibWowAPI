@@ -113,6 +113,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 Throw New LibWowAPIException("The data returned by the Armory is invalid.", sex)
             End Try
 
+            ' TODO: Add pets and petSlots
             cCharacter = New Character(
                 cpCharacter.lastModified.BlizzardTimestampToUTC(),
                 cpCharacter.name,
@@ -576,9 +577,9 @@ Namespace roncliProductions.LibWowAPI.Character
                      ).ToCollection()
                     ),
                 If(cpCharacter.achievements Is Nothing, Nothing, SetAchievements(cpCharacter.achievements)),
-                If(cpCharacter.pets Is Nothing, Nothing, (
-                    From p In cpCharacter.pets
-                    Select New Pet(
+                If(cpCharacter.hunterPets Is Nothing, Nothing, (
+                    From p In cpCharacter.hunterPets
+                    Select New HunterPet(
                         p.name,
                         p.creature,
                         p.selected,
@@ -636,13 +637,15 @@ Namespace roncliProductions.LibWowAPI.Character
                                   )
                               ).ToCollection()
                              ),
-                         New Spec(
-                             t.spec.name,
-                             t.spec.role,
-                             t.spec.backgroundImage,
-                             t.spec.icon,
-                             t.spec.description,
-                             t.spec.order
+                         If(
+                             t.spec Is Nothing, Nothing, New Spec(
+                                 t.spec.name,
+                                 t.spec.role,
+                                 t.spec.backgroundImage,
+                                 t.spec.icon,
+                                 t.spec.description,
+                                 t.spec.order
+                                 )
                              ),
                          t.calcTalent,
                          t.calcSpec,
@@ -652,17 +655,35 @@ Namespace roncliProductions.LibWowAPI.Character
                     ),
                 If(cpCharacter.appearance Is Nothing, Nothing,
                     New Appearance(
-                cpCharacter.appearance.faceVariation,
-                cpCharacter.appearance.skinColor,
-                cpCharacter.appearance.hairVariation,
-                cpCharacter.appearance.hairColor,
-                cpCharacter.appearance.featureVariation,
-                cpCharacter.appearance.showHelm,
-                cpCharacter.appearance.showCloak
+                        cpCharacter.appearance.faceVariation,
+                        cpCharacter.appearance.skinColor,
+                        cpCharacter.appearance.hairVariation,
+                        cpCharacter.appearance.hairColor,
+                        cpCharacter.appearance.featureVariation,
+                        cpCharacter.appearance.showHelm,
+                        cpCharacter.appearance.showCloak
                         )
                     ),
-                If(cpCharacter.mounts Is Nothing, Nothing, cpCharacter.mounts.ToCollection()),
-                If(cpCharacter.companions Is Nothing, Nothing, cpCharacter.companions.ToCollection()),
+                If(cpCharacter.mounts Is Nothing, Nothing, (
+                    New Mounts(
+                        cpCharacter.mounts.numCollected,
+                        cpCharacter.mounts.numNotCollected,
+                        (From m In cpCharacter.mounts.collected
+                         Select New Mount(
+                             m.name,
+                             m.spellId,
+                             m.creatureId,
+                             m.itemId,
+                             CType(m.qualityId, Quality),
+                             m.icon,
+                             m.isGround,
+                             m.isFlying,
+                             m.isAquatic,
+                             m.isJumping
+                             )
+                         ).ToCollection()
+                        )
+                    )),
                 If(cpCharacter.progression Is Nothing, Nothing,
                     New Progression(
                         (From r In cpCharacter.progression.raids
@@ -757,9 +778,10 @@ Namespace roncliProductions.LibWowAPI.Character
                 If Options.Titles Then lstFields.Add("titles")
                 If Options.Professions Then lstFields.Add("professions")
                 If Options.Appearance Then lstFields.Add("appearance")
-                If Options.Companions Then lstFields.Add("companions")
+                ' TODO: Add pets and petSlots
+                '                If Options.Companions Then lstFields.Add("companions")
                 If Options.Mounts Then lstFields.Add("mounts")
-                If Options.Pets Then lstFields.Add("pets")
+                If Options.HunterPets Then lstFields.Add("hunterPets")
                 If Options.Achievements Then lstFields.Add("achievements")
                 If Options.Progression Then lstFields.Add("progression")
                 If Options.PvP Then lstFields.Add("pvp")

@@ -170,16 +170,16 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>If the <see cref="CharacterProfileOptions.Achievements" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, an <see cref="Achievements" /> class will be available, containing information about the character's completed achievements and achievement criteria.</remarks>
         Public Property Achievements As Achievements
 
-        Private colPets As Collection(Of Pet)
+        Private colHunterPets As Collection(Of HunterPet)
         ''' <summary>
-        ''' A list of the character's combat pets.
+        ''' A list of the character's hunter pets.
         ''' </summary>
-        ''' <value>This property gets the Pets field.</value>
-        ''' <returns>Returns a list of the character's combat pets.</returns>
-        ''' <remarks>If the <see cref="CharacterProfileOptions.Pets" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of Pet)" /> of <see cref="Pet" /> will be available, containing information about the character's combat pets.</remarks>
-        Public ReadOnly Property Pets As Collection(Of Pet)
+        ''' <value>This property gets the HunterPets field.</value>
+        ''' <returns>Returns a list of the character's hunter pets.</returns>
+        ''' <remarks>If the <see cref="CharacterProfileOptions.HunterPets" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of HunterPet)" /> of <see cref="HunterPet" /> will be available, containing information about the character's hunter pets.</remarks>
+        Public ReadOnly Property HunterPets As Collection(Of HunterPet)
             Get
-                Return colPets
+                Return colHunterPets
             End Get
         End Property
 
@@ -204,31 +204,21 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>If the <see cref="CharacterProfileOptions.Appearance" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Appearance" /> class will be available, containing information about the character's appearance.</remarks>
         Public Property Appearance As Appearance
 
-        Private colMounts As Collection(Of Integer)
         ''' <summary>
         ''' A list of the character's mounts.
         ''' </summary>
         ''' <value>This property gets the Mounts field.</value>
         ''' <returns>Returns a list of the character's mounts.</returns>
-        ''' <remarks>If the <see cref="CharacterProfileOptions.Mounts" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of Integer)" /> of IDs will be available, containing a list of IDs that represent mounts.</remarks>
-        Public ReadOnly Property Mounts As Collection(Of Integer)
-            Get
-                Return colMounts
-            End Get
-        End Property
+        ''' <remarks>If the <see cref="CharacterProfileOptions.Mounts" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Mounts" /> class will be available, containing information about the character's mounts.</remarks>
+        Public Property Mounts As Mounts
 
-        Private colCompanions As Collection(Of Integer)
-        ''' <summary>
-        ''' A list of the character's companion pets.
-        ''' </summary>
-        ''' <value>This property gets the Companions field.</value>
-        ''' <returns>Returns a list of the character's companion pets.</returns>
-        ''' <remarks>If the <see cref="CharacterProfileOptions.Companions" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of Integer)" /> of IDs will be available, containing a list of IDs that represent companion pets.</remarks>
-        Public ReadOnly Property Companions As Collection(Of Integer)
-            Get
-                Return colCompanions
-            End Get
-        End Property
+        ' TODO: Add pets and petSlots
+        'Private colCompanions As Collection(Of Integer)
+        'Public ReadOnly Property Companions As Collection(Of Integer)
+        '    Get
+        '        Return colCompanions
+        '    End Get
+        'End Property
 
         ''' <summary>
         ''' The character's instance progression.
@@ -272,7 +262,7 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, gGuild As Guild, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pPets As Collection(Of Pet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, intMounts As Collection(Of Integer), intCompanions As Collection(Of Integer), pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, gGuild As Guild, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -291,11 +281,12 @@ Namespace roncliProductions.LibWowAPI.Character
             colReputation = rReputation
             colTitles = tTitles
             Achievements = aAchievements
-            colPets = pPets
+            colHunterPets = pHunterPets
             colTalents = tTalents
             Appearance = aAppearance
-            colMounts = intMounts
-            colCompanions = intCompanions
+            Mounts = mMounts
+            ' TODO: Add pets and petSolts
+            '            colCompanions = intCompanions
             Progression = pProgression
             PvP = pPvP
             colQuests = intQuests

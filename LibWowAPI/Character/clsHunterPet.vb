@@ -6,16 +6,16 @@
 Namespace roncliProductions.LibWowAPI.Character
 
     ''' <summary>
-    ''' A class containing information about a combat pet.
+    ''' A class containing information about a hunter pet.
     ''' </summary>
-    ''' <remarks>Combat pets will only be returned for hunters.</remarks>
-    Public Class Pet
+    ''' <remarks>Hunter pets will only be returned for hunters.</remarks>
+    Public Class HunterPet
 
         ''' <summary>
-        ''' The name of the combat pet.
+        ''' The name of the hunter pet.
         ''' </summary>
         ''' <value>This property gets or sets the Name field.</value>
-        ''' <returns>Returns the name of the combat pet.</returns>
+        ''' <returns>Returns the name of the hunter pet.</returns>
         ''' <remarks>This property is the name given to the pet by the owner.</remarks>
         Public Property Name As String
 
@@ -28,18 +28,18 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Creature As Integer
 
         ''' <summary>
-        ''' Determines if the current combat pet is the character's active pet.
+        ''' Determines if the current hunter pet is the character's active pet.
         ''' </summary>
         ''' <value>This property gets or sets the Selected field.</value>
-        ''' <returns>Returns a boolean that determines if the current combat pet is the character's active pet.</returns>
-        ''' <remarks>This determines if the current combat pet is the character's active pet.</remarks>
+        ''' <returns>Returns a boolean that determines if the current hunter pet is the character's active pet.</returns>
+        ''' <remarks>This determines if the current hunter pet is the character's active pet.</remarks>
         Public Property Selected As Boolean
 
         ''' <summary>
-        ''' The ID number of the slot the combat pet is using.
+        ''' The ID number of the slot the hunter pet is using.
         ''' </summary>
         ''' <value>This property gets or sets the Slot field.</value>
-        ''' <returns>Returns the ID number of the slot the combat pet is using.</returns>
+        ''' <returns>Returns the ID number of the slot the hunter pet is using.</returns>
         ''' <remarks>Hunters have a fixed number of slots in which to store pets.  This field represents which slot this pet uses.</remarks>
         Public Property Slot As Integer
 

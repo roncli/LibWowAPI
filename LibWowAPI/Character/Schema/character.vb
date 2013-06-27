@@ -27,11 +27,12 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property reputation As reputation()
         <DataMember()> Public Property titles As title()
         <DataMember()> Public Property achievements As achievements
-        <DataMember()> Public Property pets As pet()
+        <DataMember()> Public Property hunterPets As hunterPet()
         <DataMember()> Public Property talents As talentSpec()
         <DataMember()> Public Property appearance As appearance
-        <DataMember()> Public Property mounts As Integer()
-        <DataMember()> Public Property companions As Integer()
+        <DataMember()> Public Property mounts As mounts
+        ' TODO: Add pets and petSlots
+        '        <DataMember()> Public Property companions As Integer()
         <DataMember()> Public Property progression As progression
         <DataMember()> Public Property pvp As pvp
         <DataMember()> Public Property quests As Integer()

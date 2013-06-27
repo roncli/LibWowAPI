@@ -7,7 +7,7 @@ Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.Character.Schema
 
-    <DataContract()> Friend Class pet
+    <DataContract()> Friend Class hunterPet
 
         <DataMember()> Public Property name As String
         <DataMember()> Public Property creature As Integer

@@ -91,13 +91,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>When set to true, the API will return information about the character's appearance.</remarks>
         Public Property Appearance As Boolean = False
 
-        ''' <summary>
-        ''' Determines whether to retrieve the character's companion pets.
-        ''' </summary>
-        ''' <value>This property gets or sets the Companions field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's companion pets.</returns>
-        ''' <remarks>When set to true, the API will return the character's companion pets.</remarks>
-        Public Property Companions As Boolean = False
+        ' TODO: Add pets and petSlots
+        ' Public Property Companions As Boolean = False
 
         ''' <summary>
         ''' Determines whether to retrieve the character's mounts.
@@ -108,12 +103,12 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Mounts As Boolean = False
 
         ''' <summary>
-        ''' Determines whether to retrieve the character's combat pets.
+        ''' Determines whether to retrieve the character's hunter pets.
         ''' </summary>
-        ''' <value>This property gets or sets the Pets field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's combat pets.</returns>
-        ''' <remarks>When set to true, the API will return information about the character's combat pets.</remarks>
-        Public Property Pets As Boolean = False
+        ''' <value>This property gets or sets the HunterPets field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's hunter pets.</returns>
+        ''' <remarks>When set to true, the API will return information about the character's hunter pets.</remarks>
+        Public Property HunterPets As Boolean = False
 
         ''' <summary>
         ''' Determines whether to retrieve the character's completed achievements and achievement criteria.
