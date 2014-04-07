@@ -247,18 +247,20 @@ Namespace roncliProductions.LibWowAPI
 
         Private Shared Function GetLocale() As String
             Select Case Language
-                Case Language.Deutsch
-                    Return "de_DE"
-                Case Language.EnglishEU
-                    Return "en_EU"
                 Case Language.EspañolAL
                     Return "es_MX"
                 Case Language.PortuguêsAL
                     Return "pt_BR"
+                Case Language.Deutsch
+                    Return "de_DE"
+                Case Language.EnglishEU
+                    Return "en_GB"
                 Case Language.EspañolEU
                     Return "es_ES"
                 Case Language.Français
                     Return "fr_FR"
+                Case Language.Italiano
+                    Return "it_IT"
                 Case Language.PortuguêsEU
                     Return "pt_PT"
                 Case Language.Русский

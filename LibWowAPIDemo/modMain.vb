@@ -177,10 +177,11 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("4 - Spanish (Mexico)")
                 Console.WriteLine("5 - Spanish (Spain)")
                 Console.WriteLine("6 - French")
-                Console.WriteLine("7 - Russian")
-                Console.WriteLine("8 - Korean")
-                Console.WriteLine("9 - Chinese (Simplified)")
-                Console.WriteLine("10 - Chinese (Traditional)")
+                Console.WriteLine("7 - Italian")
+                Console.WriteLine("8 - Russian")
+                Console.WriteLine("9 - Korean")
+                Console.WriteLine("10 - Chinese (Simplified)")
+                Console.WriteLine("11 - Chinese (Traditional)")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 Dim intResponse As Integer
@@ -205,15 +206,18 @@ Namespace roncliProductions.LibWowAPIDemo
                             WowAPIData.Language = Language.Français
                             Exit Do
                         Case 7
-                            WowAPIData.Language = Language.Русский
+                            WowAPIData.Language = Language.Italiano
                             Exit Do
                         Case 8
-                            WowAPIData.Language = Language.한국어
+                            WowAPIData.Language = Language.Русский
                             Exit Do
                         Case 9
-                            WowAPIData.Language = Language.简体中文
+                            WowAPIData.Language = Language.한국어
                             Exit Do
                         Case 10
+                            WowAPIData.Language = Language.简体中文
+                            Exit Do
+                        Case 11
                             WowAPIData.Language = Language.繁體中文
                             Exit Do
                         Case Else

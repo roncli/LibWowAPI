@@ -47,18 +47,6 @@ Namespace roncliProductions.LibWowAPI.Internationalization
     ''' <remarks></remarks>
     Public Enum Language
         ''' <summary>
-        ''' German, de_de.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Deutsch
-
-        ''' <summary>
-        ''' European English, en_eu.
-        ''' </summary>
-        ''' <remarks></remarks>
-        EnglishEU
-
-        ''' <summary>
         ''' US English, en_us.
         ''' </summary>
         ''' <remarks></remarks>
@@ -77,6 +65,18 @@ Namespace roncliProductions.LibWowAPI.Internationalization
         PortuguêsAL
 
         ''' <summary>
+        ''' German, de_de.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Deutsch
+
+        ''' <summary>
+        ''' Great Britain English, en_gb.
+        ''' </summary>
+        ''' <remarks></remarks>
+        EnglishEU
+
+        ''' <summary>
         ''' Spanish, es_es.
         ''' </summary>
         ''' <remarks></remarks>
@@ -87,6 +87,12 @@ Namespace roncliProductions.LibWowAPI.Internationalization
         ''' </summary>
         ''' <remarks></remarks>
         Français
+
+        ''' <summary>
+        ''' Italian, it_it.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Italiano
 
         ''' <summary>
         ''' Portuguese, pt_pt.
