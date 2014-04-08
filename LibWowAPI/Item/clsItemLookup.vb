@@ -70,7 +70,7 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <summary>
         ''' The length of time the data should be cached for, defaulting to 30 days for item information.
         ''' </summary>
-        ''' <value>This property gets or sets CacheLength.</value>
+        ''' <value>This property gets or sets the CacheLength field.</value>
         ''' <returns>Returns the length of time the data should be cached for, defaulting to 30 days for item information.</returns>
         ''' <remarks>The CacheLength is a <see cref="TimeSpan" /> that determines how long an API request should be stored in the cache.  The default can be changed at any time before the <see cref="ItemLookup.Load" /> method is called.</remarks>
         Public Overrides Property CacheLength As New TimeSpan(30, 0, 0, 0)

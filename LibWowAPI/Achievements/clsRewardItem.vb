@@ -5,12 +5,12 @@
 
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
+Namespace roncliProductions.LibWowAPI.Achievements
 
     ''' <summary>
-    ''' A class containing information about a reward item from a guild achievement.
+    ''' A class containing information about a reward item from an achievement.
     ''' </summary>
-    ''' <remarks>This class contains some of the information about an item received as a reward from a guild achievement.</remarks>
+    ''' <remarks>This class contains some of the information about an item received as a reward from an achievement.</remarks>
     Public Class RewardItem
 
         ''' <summary>
@@ -45,11 +45,29 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
         ''' <remarks>This is a <see cref="Enums.Quality" /> enumeration that describes the quality of the item.</remarks>
         Public Property Quality As Quality
 
-        Friend Sub New(intID As Integer, strName As String, strIcon As String, qQuality As Quality)
+        ''' <summary>
+        ''' The item level of the item.
+        ''' </summary>
+        ''' <value>This property gets or sets the ItemLevel field.</value>
+        ''' <returns>Returns the item level of the item.</returns>
+        ''' <remarks>This is the item level of the item.</remarks>
+        Public Property ItemLevel As Integer
+
+        ''' <summary>
+        ''' The amount of armor on the item.
+        ''' </summary>
+        ''' <value>This property gets or sets the Armor field.</value>
+        ''' <returns>Returns the amount of armor on the item.</returns>
+        ''' <remarks>This is the amount of armor on the item.</remarks>
+        Public Property Armor As Integer
+
+        Friend Sub New(intID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, intArmor As Integer)
             ID = intID
             Name = strName
             Icon = strIcon
             Quality = qQuality
+            ItemLevel = intItemLevel
+            Armor = intArmor
         End Sub
 
     End Class

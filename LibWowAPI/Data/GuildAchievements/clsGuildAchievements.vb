@@ -10,6 +10,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Achievements
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
@@ -135,13 +136,16 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                                     ri.id,
                                                     ri.name,
                                                     ri.icon,
-                                                    CType(ri.quality, Quality)
+                                                    CType(ri.quality, Quality),
+                                                    ri.itemLevel,
+                                                    ri.armor
                                                     )
                                                 ).ToCollection()
                                             ),
                                         a.icon,
                                         (
                                             From cr In a.criteria
+                                            Order By cr.orderIndex
                                             Select New Criteria(
                                                 cr.id,
                                                 cr.description,
@@ -149,7 +153,8 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                                 cr.max
                                                 )
                                             ).ToCollection(),
-                                        a.accountWide
+                                        a.accountWide,
+                                        CType(a.factionId, Side)
                                         )
                                     ).ToCollection()
                                 )
@@ -171,13 +176,16 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                         ri.id,
                                         ri.name,
                                         ri.icon,
-                                        CType(ri.quality, Quality)
+                                        CType(ri.quality, Quality),
+                                        ri.itemLevel,
+                                        ri.armor
                                         )
                                     ).ToCollection()
                                 ),
                             a.icon,
                             (
                                 From cr In a.criteria
+                                Order By cr.orderIndex
                                 Select New Criteria(
                                     cr.id,
                                     cr.description,
@@ -185,7 +193,8 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                     cr.max
                                     )
                                 ).ToCollection(),
-                            a.accountWide
+                            a.accountWide,
+                            CType(a.factionId, Side)
                             )
                         ).ToCollection()
                     )

@@ -46,7 +46,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>roncliProductions.LibWowAPI.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
-    <CodeAnalysisRuleSet>..\..\..\..\svn\ronclipro\trunk\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\..\ronclipro\ronclipro\roncli Productions Standard Rule Set.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -70,6 +70,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Achievements\clsAchievementLookup.vb" />
+    <Compile Include="Achievements\clsAchievementLookupOptions.vb" />
     <Compile Include="Auction\clsAuction.vb" />
     <Compile Include="Auction\clsAuctionData.vb" />
     <Compile Include="Auction\clsAuctionFilesOptions.vb" />
@@ -169,22 +171,16 @@
     <Compile Include="Data\Battlegroups\clsBattlegroups.vb" />
     <Compile Include="Data\Battlegroups\Schema\battlegroup.vb" />
     <Compile Include="Data\Battlegroups\Schema\battlegroups.vb" />
-    <Compile Include="Data\CharacterAchievements\clsCategory.vb" />
-    <Compile Include="Data\CharacterAchievements\clsAchievement.vb" />
+    <Compile Include="Achievements\clsCategory.vb" />
+    <Compile Include="Achievements\clsAchievement.vb" />
     <Compile Include="Data\CharacterAchievements\clsCharacterAchievements.vb" />
-    <Compile Include="Data\CharacterAchievements\clsCriteria.vb" />
-    <Compile Include="Data\CharacterAchievements\clsRewardItem.vb" />
-    <Compile Include="Data\CharacterAchievements\Schema\criteria.vb" />
+    <Compile Include="Achievements\clsCriteria.vb" />
+    <Compile Include="Achievements\clsRewardItem.vb" />
     <Compile Include="Data\CharacterClasses\clsClass.vb" />
     <Compile Include="Data\CharacterClasses\clsCharacterClasses.vb" />
     <Compile Include="Data\CharacterRaces\clsCharacterRaces.vb" />
     <Compile Include="Data\CharacterRaces\clsRace.vb" />
-    <Compile Include="Data\GuildAchievements\clsAchievement.vb" />
-    <Compile Include="Data\GuildAchievements\clsCategory.vb" />
-    <Compile Include="Data\GuildAchievements\clsCriteria.vb" />
     <Compile Include="Data\GuildAchievements\clsGuildAchievements.vb" />
-    <Compile Include="Data\GuildAchievements\clsRewardItem.vb" />
-    <Compile Include="Data\GuildAchievements\Schema\criteria.vb" />
     <Compile Include="Data\GuildRewards\clsCriteria.vb" />
     <Compile Include="Data\GuildRewards\Schema\criteria.vb" />
     <Compile Include="Data\ItemClasses\clsSubclass.vb" />
@@ -239,20 +235,10 @@
     <Compile Include="Data\GuildRewards\clsReward.vb" />
     <Compile Include="Data\ItemClasses\clsClass.vb" />
     <Compile Include="Data\ItemClasses\clsItemClasses.vb" />
-    <Compile Include="Data\CharacterAchievements\Schema\achievements.vb" />
-    <Compile Include="Data\CharacterAchievements\Schema\category.vb" />
-    <Compile Include="Data\CharacterAchievements\Schema\achievement.vb" />
-    <Compile Include="Data\CharacterAchievements\Schema\rewardItem.vb" />
-    <Compile Include="Data\CharacterAchievements\Schema\tooltipParams.vb" />
     <Compile Include="Data\CharacterClasses\Schema\class.vb" />
     <Compile Include="Data\CharacterClasses\Schema\classes.vb" />
     <Compile Include="Data\CharacterRaces\Schema\race.vb" />
     <Compile Include="Data\CharacterRaces\Schema\races.vb" />
-    <Compile Include="Data\GuildAchievements\Schema\achievements.vb" />
-    <Compile Include="Data\GuildAchievements\Schema\category.vb" />
-    <Compile Include="Data\GuildAchievements\Schema\achievement.vb" />
-    <Compile Include="Data\GuildAchievements\Schema\rewardItem.vb" />
-    <Compile Include="Data\GuildAchievements\Schema\tooltipParams.vb" />
     <Compile Include="Data\GuildPerks\Schema\perk.vb" />
     <Compile Include="Data\GuildPerks\Schema\perks.vb" />
     <Compile Include="Data\GuildPerks\Schema\spell.vb" />
@@ -330,6 +316,13 @@
     <Compile Include="Recipe\clsRecipe.vb" />
     <Compile Include="Recipe\clsRecipeLookupOptions.vb" />
     <Compile Include="Recipe\Schema\recipe.vb" />
+    <Compile Include="Achievements\Schema\achievement.vb" />
+    <Compile Include="Achievements\Schema\achievements.vb" />
+    <Compile Include="Achievements\Schema\category.vb" />
+    <Compile Include="Achievements\Schema\criteria.vb" />
+    <Compile Include="Achievements\Schema\rewardItem.vb" />
+    <Compile Include="Achievements\Schema\stat.vb" />
+    <Compile Include="Achievements\Schema\tooltipParams.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">

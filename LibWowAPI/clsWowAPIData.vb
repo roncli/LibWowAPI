@@ -329,16 +329,27 @@ Namespace roncliProductions.LibWowAPI
                         Cache.Cache.Add(InternalCacheKey, Data, Nothing, Date.Now.Add(CacheLength), Caching.Cache.NoSlidingExpiration, Caching.CacheItemPriority.NotRemovable, Nothing)
                     End If
                 Catch wex As WebException
-                    If wex.Response Is Nothing Then Throw
+                    If wex.Response Is Nothing OrElse wex.Status <> WebExceptionStatus.ProtocolError Then Throw
 
                     Dim baeError As BlizzardAPIError = Nothing
+
+                    If Data Is Nothing Then
+                        Try
+                            Using srReader As New StreamReader(wex.Response.GetResponseStream())
+                                Data = srReader.ReadToEnd()
+                            End Using
+                        Catch
+                            ' TODO: Find a better way to resolve C1031 and handle exceptions here.
+                        End Try
+                    End If
 
                     If Data IsNot Nothing Then
                         Try
                             Using msJSON As New MemoryStream(Unicode.GetBytes(Data))
                                 baeError = CType(New DataContractJsonSerializer(GetType(BlizzardAPIError)).ReadObject(msJSON), BlizzardAPIError)
                             End Using
-                        Catch ex As Exception
+                        Catch
+                            ' TODO: Find a better way to resolve C1031 and handle exceptions here.
                         End Try
                     End If
 

@@ -5,7 +5,7 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Data.GuildAchievements.Schema
+Namespace roncliProductions.LibWowAPI.Achievements.Schema
 
     <DataContract()> Friend Class criteria
 

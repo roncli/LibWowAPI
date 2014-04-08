@@ -9,6 +9,7 @@ Imports System.Globalization
 Imports System.Linq
 Imports roncliProductions
 Imports roncliProductions.LibWowAPI
+Imports roncliProductions.LibWowAPI.Achievements
 Imports roncliProductions.LibWowAPI.Auction
 Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Data
@@ -45,24 +46,25 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("1 - Change Region")
                 Console.WriteLine("2 - Change Language")
                 Console.WriteLine("3 - Setup Authorization")
-                Console.WriteLine("4 - Arena Ladder")
-                Console.WriteLine("5 - Arena Team")
-                Console.WriteLine("6 - Auctions")
-                Console.WriteLine("7 - Battlegroups")
-                Console.WriteLine("8 - Character Achievements")
-                Console.WriteLine("9 - Character Classes")
-                Console.WriteLine("10 - Character Profile")
-                Console.WriteLine("11 - Character Races")
-                Console.WriteLine("12 - Guild Achievements")
-                Console.WriteLine("13 - Guild Perks")
-                Console.WriteLine("14 - Guild Profile")
-                Console.WriteLine("15 - Guild Rewards")
-                Console.WriteLine("16 - Item Classes")
-                Console.WriteLine("17 - Item Lookup")
-                Console.WriteLine("18 - Quest Lookup")
-                Console.WriteLine("19 - Rated Battlegroup Ladder")
-                Console.WriteLine("20 - Realm Status")
-                Console.WriteLine("21 - Recipe Lookup")
+                Console.WriteLine("4 - Achievement Lookup")
+                Console.WriteLine("5 - Arena Ladder")
+                Console.WriteLine("6 - Arena Team")
+                Console.WriteLine("7 - Auctions")
+                Console.WriteLine("8 - Battlegroups")
+                Console.WriteLine("9 - Character Achievements")
+                Console.WriteLine("10 - Character Classes")
+                Console.WriteLine("11 - Character Profile")
+                Console.WriteLine("12 - Character Races")
+                Console.WriteLine("13 - Guild Achievements")
+                Console.WriteLine("14 - Guild Perks")
+                Console.WriteLine("15 - Guild Profile")
+                Console.WriteLine("16 - Guild Rewards")
+                Console.WriteLine("17 - Item Classes")
+                Console.WriteLine("18 - Item Lookup")
+                Console.WriteLine("19 - Quest Lookup")
+                Console.WriteLine("20 - Rated Battlegroup Ladder")
+                Console.WriteLine("21 - Realm Status")
+                Console.WriteLine("22 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -76,40 +78,42 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 3
                             SetupAuthorization()
                         Case 4
-                            ArenaLadderDemo()
+                            AchievementLookupDemo()
                         Case 5
-                            ArenaTeamDemo()
+                            ArenaLadderDemo()
                         Case 6
-                            AuctionsDemo()
+                            ArenaTeamDemo()
                         Case 7
-                            BattlegroupsDemo()
+                            AuctionsDemo()
                         Case 8
-                            CharacterAchievementsDemo()
+                            BattlegroupsDemo()
                         Case 9
-                            CharacterClassesDemo()
+                            CharacterAchievementsDemo()
                         Case 10
-                            CharacterProfileDemo()
+                            CharacterClassesDemo()
                         Case 11
-                            CharacterRacesDemo()
+                            CharacterProfileDemo()
                         Case 12
-                            GuildAchievementsDemo()
+                            CharacterRacesDemo()
                         Case 13
-                            GuildPerksDemo()
+                            GuildAchievementsDemo()
                         Case 14
-                            GuildProfileDemo()
+                            GuildPerksDemo()
                         Case 15
-                            GuildRewardsDemo()
+                            GuildProfileDemo()
                         Case 16
-                            ItemClassesDemo()
+                            GuildRewardsDemo()
                         Case 17
-                            ItemLookupDemo()
+                            ItemClassesDemo()
                         Case 18
+                            ItemLookupDemo()
+                        Case 19
                             QuestLookupDemo()
-                        Case 19
-                            RatedBattlegroundLadderDemo()
                         Case 20
+                            RatedBattlegroundLadderDemo()
+                        Case 21
                             RealmStatusDemo()
-                        Case 19
+                        Case 22
                             RecipeLookupDemo()
                     End Select
                     Console.Clear()
@@ -263,6 +267,63 @@ Namespace roncliProductions.LibWowAPIDemo
                     Exit Do
                 End If
             Loop
+        End Sub
+
+        Public Sub AchievementLookupDemo()
+            Console.Clear()
+            Console.WriteLine("Achievement Lookup Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables
+            Dim intAchievementID As Integer
+
+            ' Next, get the item ID.
+            Do
+                Console.WriteLine("Please enter the ID number of the achievement you wish to lookup.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
+                If Integer.TryParse(strResponse, intAchievementID) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the Achievement.
+            Dim aAchievement As New AchievementLookup(intAchievementID)
+
+            ' Show the Achievement.
+            Console.Clear()
+            If aAchievement.CacheHit.HasValue AndAlso aAchievement.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            Console.WriteLine("{0} - ID {1} - Points: {2}", aAchievement.Achievement.Title, aAchievement.Achievement.ID, aAchievement.Achievement.Points)
+            If aAchievement.Achievement.AccountWide Then
+                Console.WriteLine("  Account-wide Achievement")
+            End If
+            Console.WriteLine("  Icon: {0}", aAchievement.Achievement.Icon)
+            Console.WriteLine("  {0}", aAchievement.Achievement.Description)
+            If Not String.IsNullOrWhiteSpace(aAchievement.Achievement.Reward) Then
+                Console.WriteLine("  {0}", aAchievement.Achievement.Reward)
+            End If
+            If aAchievement.Achievement.RewardItems IsNot Nothing Then
+                For Each riItem In aAchievement.Achievement.RewardItems
+                    Console.WriteLine("    {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                Next
+            End If
+            If aAchievement.Achievement.Criteria IsNot Nothing Then
+                For Each cCriteria In aAchievement.Achievement.Criteria
+                    Console.WriteLine("  - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                Next
+            End If
+            Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
         End Sub
 
         Public Sub ArenaLadderDemo()
@@ -1454,17 +1515,17 @@ Namespace roncliProductions.LibWowAPIDemo
             If cpCharacter.Character.Feed IsNot Nothing Then
                 Console.WriteLine("Feed:")
                 For Each fiItem In cpCharacter.Character.Feed
-                    If TypeOf fiItem Is AchievementFeed Then
-                        Dim afItem = CType(fiItem, AchievementFeed)
+                    Dim afItem = TryCast(fiItem, AchievementFeed)
+                    Dim bkfItem = TryCast(fiItem, BossKillFeed)
+                    Dim cfItem = TryCast(fiItem, CriteriaFeed)
+                    Dim lfItem = TryCast(fiItem, LootFeed)
+                    If fiItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Achievement: {1}", afItem.Date, afItem.Achievement.Title)
-                    ElseIf TypeOf fiItem Is BossKillFeed Then
-                        Dim bkfItem = CType(fiItem, BossKillFeed)
+                    ElseIf bkfItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Boss Kill: {1}", bkfItem.Date, bkfItem.Name)
-                    ElseIf TypeOf fiItem Is CriteriaFeed Then
-                        Dim cfItem = CType(fiItem, CriteriaFeed)
+                    ElseIf cfItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Achievement Criteria: {1} for {2}", cfItem.Date, cfItem.Criteria.Description, cfItem.Achievement.Title)
-                    ElseIf TypeOf fiItem Is LootFeed Then
-                        Dim lfItem = CType(fiItem, LootFeed)
+                    ElseIf lfItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Loot: {1}", lfItem.Date, lfItem.ItemID)
                     End If
                 Next
@@ -1726,23 +1787,23 @@ Namespace roncliProductions.LibWowAPIDemo
             If gpGuild.Guild.News IsNot Nothing Then
                 Console.WriteLine("News:")
                 For Each niItem In gpGuild.Guild.News
-                    If TypeOf niItem Is GuildAchievementNews Then
-                        Dim ganItem = CType(niItem, GuildAchievementNews)
+                    Dim ganItem = TryCast(niItem, GuildAchievementNews)
+                    Dim gcnItem = TryCast(niItem, GuildCreatedNews)
+                    Dim glnItem = TryCast(niItem, GuildLevelNews)
+                    Dim ilnItem = TryCast(niItem, ItemLootNews)
+                    Dim ipnItem = TryCast(niItem, ItemPurchaseNews)
+                    Dim panItem = TryCast(niItem, PlayerAchievementNews)
+                    If ganItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Guild Achievement: {1}", ganItem.Date, ganItem.Achievement.Title)
-                    ElseIf TypeOf niItem Is GuildCreatedNews Then
-                        Dim gcnItem = CType(niItem, GuildCreatedNews)
+                    ElseIf gcnItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Guild Created", gcnItem.Date)
-                    ElseIf TypeOf niItem Is GuildLevelNews Then
-                        Dim glnItem = CType(niItem, GuildLevelNews)
+                    ElseIf glnItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Guild Level: {1}", glnItem.Date, glnItem.LevelUp)
-                    ElseIf TypeOf niItem Is ItemLootNews Then
-                        Dim ilnItem = CType(niItem, ItemLootNews)
+                    ElseIf ilnItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Item Looted: {1} by {2}", ilnItem.Date, ilnItem.ItemID, ilnItem.Character)
-                    ElseIf TypeOf niItem Is ItemPurchaseNews Then
-                        Dim ipnItem = CType(niItem, ItemPurchaseNews)
+                    ElseIf ipnItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Item Purchased: {1} by {2}", ipnItem.Date, ipnItem.ItemID, ipnItem.Character)
-                    ElseIf TypeOf niItem Is PlayerAchievementNews Then
-                        Dim panItem = CType(niItem, PlayerAchievementNews)
+                    ElseIf panItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Player Achievement: {1} by {2}", panItem.Date, panItem.Achievement.Title, panItem.Character)
                     End If
                 Next

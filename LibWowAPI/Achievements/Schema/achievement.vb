@@ -5,7 +5,7 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Data.GuildAchievements.Schema
+Namespace roncliProductions.LibWowAPI.Achievements.Schema
 
     <DataContract()> Friend Class achievement
 
@@ -18,6 +18,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements.Schema
         <DataMember()> Public Property icon As String
         <DataMember()> Public Property criteria As criteria()
         <DataMember()> Public Property accountWide As Boolean
+        <DataMember()> Public Property factionId As Integer
 
     End Class
 

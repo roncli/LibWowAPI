@@ -3,9 +3,10 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports System.Collections.Generic
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Data.GuildAchievements.Schema
+Namespace roncliProductions.LibWowAPI.Achievements.Schema
 
     <DataContract()> Friend Class rewardItem
 
@@ -13,7 +14,10 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements.Schema
         <DataMember()> Public Property name As String
         <DataMember()> Public Property icon As String
         <DataMember()> Public Property quality As Integer
+        <DataMember()> Public Property itemLevel As Integer
         <DataMember()> Public Property tooltipParams As tooltipParams
+        <DataMember()> Public Property stats As List(Of stat)
+        <DataMember()> Public Property armor As Integer
 
     End Class
 
