@@ -12,10 +12,13 @@ Namespace roncliProductions.LibWowAPI.Auction.Schema
         <DataMember()> Public Property auc As Long
         <DataMember()> Public Property item As Integer
         <DataMember()> Public Property owner As String
+        <DataMember()> Public Property ownerRealm As String
         <DataMember()> Public Property bid As Long
         <DataMember()> Public Property buyout As Long
         <DataMember()> Public Property quantity As Integer
         <DataMember()> Public Property timeLeft As String
+        <DataMember()> Public Property rand As Integer
+        <DataMember()> Public Property seed As Long
 
     End Class
 

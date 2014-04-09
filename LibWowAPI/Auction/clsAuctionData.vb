@@ -137,19 +137,19 @@ Namespace roncliProductions.LibWowAPI.Auction
                         New AuctionHouse(
                             (
                                 From a In aAuctions.alliance.auctions
-                                Select New Auction(a.auc, a.item, a.owner, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft())
+                                Select New Auction(a.auc, a.item, a.owner, a.ownerRealm, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft(), a.rand, a.seed)
                                 ).ToCollection()
                             ),
                         New AuctionHouse(
                             (
                                 From a In aAuctions.horde.auctions
-                                Select New Auction(a.auc, a.item, a.owner, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft())
+                                Select New Auction(a.auc, a.item, a.owner, a.ownerRealm, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft(), a.rand, a.seed)
                                 ).ToCollection()
                             ),
                         New AuctionHouse(
                             (
                                 From a In aAuctions.neutral.auctions
-                                Select New Auction(a.auc, a.item, a.owner, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft())
+                                Select New Auction(a.auc, a.item, a.owner, a.ownerRealm, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft(), a.rand, a.seed)
                                 ).ToCollection()
                             )
                         )

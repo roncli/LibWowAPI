@@ -127,12 +127,23 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 ## Planned versions
 
-None at this time.
+### 1.2
+* New:
+ * Added Language.Italiano to send it_IT for Italian.
+ * Added achievement lookup. (Achievements.AchievementLookup)
+ * Added faction to achievements.
+ * Added ItemLevel and Armor to achievement reward items.
+ * Added OwnerRealm, Rand, and Seed values to the auction data.
+* Fixes:
+ * Language.EnglishEU now correctly sends en_GB.
+ * Refactored Data.CharacterAchievements and Data.GuildAchievements to use the objects in the Achievements namespace.
+ * Achievement criteria are now sorted by their OrderIndex property.
 
 ## Classes
 
 The following classes are provided:
 
+* Achievements.AchievementLookup
 * Auction.AuctionData
 * Character.CharacterProfile
 * Data.Battlegroups

@@ -38,6 +38,14 @@ Namespace roncliProductions.LibWowAPI.Auction
         Public Property Owner As String
 
         ''' <summary>
+        ''' The realm of the character who created the auction.
+        ''' </summary>
+        ''' <value>This property gets or sets the Realm field.</value>
+        ''' <returns>Returns the realm of the character who created the auction.</returns>
+        ''' <remarks>If for whatever reason the owner is unknown, this will return a string of 3 question marks "???".</remarks>
+        Public Property OwnerRealm As String
+
+        ''' <summary>
         ''' The auction's current bid in copper.
         ''' </summary>
         ''' <value>This property gets or sets the Bid field.</value>
@@ -69,14 +77,33 @@ Namespace roncliProductions.LibWowAPI.Auction
         ''' <remarks>This property is an <see cref="Enums.AuctionTimeLeft" /> enumeration that represents the estimated amount of time left before the auction expires.</remarks>
         Public Property TimeLeft As AuctionTimeLeft
 
-        Friend Sub New(lngID As Long, intItemID As Integer, strOwner As String, lngBid As Long, lngBuyout As Long, intQuantity As Integer, atlTimeLeft As AuctionTimeLeft)
+        ''' <summary>
+        ''' The item's Suffix ID.
+        ''' </summary>
+        ''' <value>This property gets or sets the SuffixID field.</value>
+        ''' <returns>Returns the item's Suffix ID.</returns>
+        ''' <remarks>This value represents the random enchantment on the item, or 0 if there is no random enchantment.</remarks>
+        Public Property SuffixID As Integer
+
+        ''' <summary>
+        ''' The item's Unique ID.
+        ''' </summary>
+        ''' <value>This property gets or sets the UniqueID field.</value>
+        ''' <returns>Returns the item's Unique ID.</returns>
+        ''' <remarks>This value contains information about the specific instance of the item.  Note that despite the name of the field, this field is not truly unique, and can have repeated values.</remarks>
+        Public Property UniqueID As Long
+
+        Friend Sub New(lngID As Long, intItemID As Integer, strOwner As String, strOwnerRealm As String, lngBid As Long, lngBuyout As Long, intQuantity As Integer, atlTimeLeft As AuctionTimeLeft, intSuffixID As Integer, intUniqueID As Long)
             ID = lngID
             ItemID = intItemID
             Owner = strOwner
+            OwnerRealm = strOwnerRealm
             Bid = lngBid
             Buyout = lngBuyout
             Quantity = intQuantity
             TimeLeft = atlTimeLeft
+            SuffixID = intSuffixID
+            UniqueID = intUniqueID
         End Sub
 
     End Class

@@ -3,7 +3,6 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
-Imports System.Collections.Generic
 Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.Achievements.Schema
@@ -16,7 +15,7 @@ Namespace roncliProductions.LibWowAPI.Achievements.Schema
         <DataMember()> Public Property quality As Integer
         <DataMember()> Public Property itemLevel As Integer
         <DataMember()> Public Property tooltipParams As tooltipParams
-        <DataMember()> Public Property stats As List(Of stat)
+        <DataMember()> Public Property stats As stat()
         <DataMember()> Public Property armor As Integer
 
     End Class

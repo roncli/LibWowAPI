@@ -616,18 +616,18 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Auctions for {0} - Slug {1}", aAuctions.Realm.Name, aAuctions.Realm.Slug)
                 Console.WriteLine("Alliance:")
                 For Each aAuction In aAuctions.Alliance.Auctions
-                    Console.WriteLine("  {0}) Item {1} x{2} - {3}", aAuction.ID, aAuction.ItemID, aAuction.Quantity, aAuction.TimeLeft)
-                    Console.WriteLine("    Seller: {0} Bid: {1}g{2}s{3}c Buyout: {4}g{5}s{6}c", aAuction.Owner, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
+                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
+                    Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
                 Next
                 Console.WriteLine("Horde:")
                 For Each aAuction In aAuctions.Horde.Auctions
-                    Console.WriteLine("  {0}) Item {1} x{2} - {3}", aAuction.ID, aAuction.ItemID, aAuction.Quantity, aAuction.TimeLeft)
-                    Console.WriteLine("    Seller: {0} Bid: {1}g{2}s{3}c Buyout: {4}g{5}s{6}c", aAuction.Owner, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
+                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
+                    Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
                 Next
                 Console.WriteLine("Neutral:")
                 For Each aAuction In aAuctions.Neutral.Auctions
-                    Console.WriteLine("  {0}) Item {1} x{2} - {3}", aAuction.ID, aAuction.ItemID, aAuction.Quantity, aAuction.TimeLeft)
-                    Console.WriteLine("    Seller: {0} Bid: {1}g{2}s{3}c Buyout: {4}g{5}s{6}c", aAuction.Owner, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
+                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
+                    Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
                 Next
             Next
             Console.WriteLine()

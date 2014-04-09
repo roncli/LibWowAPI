@@ -4,15 +4,11 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System
-Imports System.Collections.Generic
-Imports System.Collections.ObjectModel
 Imports System.Globalization
 Imports System.IO
-Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
-Imports roncliProductions.LibWowAPI.Extensions
 
 Namespace roncliProductions.LibWowAPI.Recipe
 

@@ -84,7 +84,7 @@ Namespace roncliProductions.LibWowAPI.Auction
 
             colFiles = (
                 From f In fFiles.files
-                Select New File(New Uri(New Uri(f.url).AbsolutePath, UriKind.Relative), f.lastModified.BlizzardTimestampToUTC())
+                Select New File(New Uri(f.url), f.lastModified.BlizzardTimestampToUTC())
                 ).ToCollection()
         End Sub
 
