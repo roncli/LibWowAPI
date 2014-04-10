@@ -3,7 +3,7 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
-Namespace roncliProductions.LibWowAPI.BattlePets
+Namespace roncliProductions.LibWowAPI.BattlePet
 
     ''' <summary>
     ''' A class that defines options for the battle pet ability lookup.

@@ -10,7 +10,7 @@ Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 
-Namespace roncliProductions.LibWowAPI.BattlePets
+Namespace roncliProductions.LibWowAPI.BattlePet
 
     ''' <summary>
     ''' A class that looks up information for a single battle pet ability from the Blizzard WoW API.

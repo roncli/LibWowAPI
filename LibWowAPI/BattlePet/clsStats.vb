@@ -6,7 +6,7 @@
 Imports System.Runtime.Serialization
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.BattlePets
+Namespace roncliProductions.LibWowAPI.BattlePet
 
     Public Class Stats
 

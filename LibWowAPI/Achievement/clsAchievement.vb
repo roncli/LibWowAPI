@@ -6,7 +6,7 @@
 Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.Achievements
+Namespace roncliProductions.LibWowAPI.Achievement
 
     ''' <summary>
     ''' A class containing information about an achievement.

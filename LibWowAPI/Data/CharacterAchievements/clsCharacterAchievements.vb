@@ -10,7 +10,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
-Imports roncliProductions.LibWowAPI.Achievements
+Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
@@ -123,7 +123,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                 sc.name,
                                 (
                                     From a In sc.achievements
-                                    Select New Achievement(
+                                    Select New Achievement.Achievement(
                                         a.id,
                                         a.title,
                                         a.points,
@@ -165,7 +165,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                     c.name,
                     (
                         From a In c.achievements
-                        Select New Achievement(
+                        Select New Achievement.Achievement(
                             a.id,
                             a.title,
                             a.points,

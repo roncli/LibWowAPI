@@ -11,7 +11,7 @@ Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.BattlePets
+Namespace roncliProductions.LibWowAPI.BattlePet
 
     ''' <summary>
     ''' A class that looks up information for a single battle pet's stats from the Blizzard WoW API.
@@ -20,7 +20,7 @@ Namespace roncliProductions.LibWowAPI.BattlePets
     ''' <example>
     ''' The following example demonstrates how to make a call to the API to retrieve a battle pet's stats.
     ''' <code>
-    ''' using roncliProductions.LibWowAPI.BattlePets;
+    ''' using roncliProductions.LibWowAPI.BattlePet;
     '''
     ''' namespace StatsExample {
     '''
@@ -38,7 +38,7 @@ Namespace roncliProductions.LibWowAPI.BattlePets
     ''' }
     ''' </code>
     ''' <code lang="vbnet">
-    ''' Imports roncliProductions.LibWowAPI.BattlePets
+    ''' Imports roncliProductions.LibWowAPI.BattlePet
     ''' 
     ''' Namespace StatsExample
     ''' 

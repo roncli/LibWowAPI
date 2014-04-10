@@ -5,7 +5,7 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.BattlePets.Schema
+Namespace roncliProductions.LibWowAPI.BattlePet.Schema
 
     <DataContract()> Friend Class speciesAbility
         Inherits ability

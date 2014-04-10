@@ -5,7 +5,7 @@
 
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.Achievements
+Namespace roncliProductions.LibWowAPI.Achievement
 
     ''' <summary>
     ''' A class containing information about a reward item from an achievement.

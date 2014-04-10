@@ -4,17 +4,15 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System
-Imports System.Collections.ObjectModel
 Imports System.Globalization
 Imports System.IO
 Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
-Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
-Namespace roncliProductions.LibWowAPI.BattlePets
+Namespace roncliProductions.LibWowAPI.BattlePet
 
     ''' <summary>
     ''' A class that looks up information for a single battle pet species from the Blizzard WoW API.

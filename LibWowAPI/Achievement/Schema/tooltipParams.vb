@@ -5,12 +5,10 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Achievements.Schema
+Namespace roncliProductions.LibWowAPI.Achievement.Schema
 
-    <DataContract()> Friend Class achievements
-
-        <DataMember()> Public Property achievements As category()
-
+    <DataContract()> Friend Class tooltipParams
+        ' This class is intentionally left blank.
     End Class
 
 End Namespace

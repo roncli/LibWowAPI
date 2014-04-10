@@ -5,7 +5,7 @@
 
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.BattlePets
+Namespace roncliProductions.LibWowAPI.BattlePet
 
     ''' <summary>
     ''' A class that defines options for the battle pet stats lookup.

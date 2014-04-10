@@ -13,7 +13,7 @@ Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
-Namespace roncliProductions.LibWowAPI.Achievements
+Namespace roncliProductions.LibWowAPI.Achievement
 
     ''' <summary>
     ''' A class that looks up achievement information for a single achievement from the Blizzard WoW API.
@@ -22,7 +22,7 @@ Namespace roncliProductions.LibWowAPI.Achievements
     ''' <example>
     ''' The following example demonstrates how to make a call to the API to retrieve an achievement.
     ''' <code>
-    ''' using roncliProductions.LibWowAPI.Achievements;
+    ''' using roncliProductions.LibWowAPI.Achievement;
     '''
     ''' namespace AchievementExample {
     '''
@@ -40,7 +40,7 @@ Namespace roncliProductions.LibWowAPI.Achievements
     ''' }
     ''' </code>
     ''' <code lang="vbnet">
-    ''' Imports roncliProductions.LibWowAPI.Achievements
+    ''' Imports roncliProductions.LibWowAPI.Achievement
     ''' 
     ''' Namespace AchievementExample
     ''' 

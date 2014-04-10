@@ -9,9 +9,9 @@ Imports System.Globalization
 Imports System.Linq
 Imports roncliProductions
 Imports roncliProductions.LibWowAPI
-Imports roncliProductions.LibWowAPI.Achievements
+Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Auction
-Imports roncliProductions.LibWowAPI.BattlePets
+Imports roncliProductions.LibWowAPI.BattlePet
 Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Data
 Imports roncliProductions.LibWowAPI.Data.Battlegroups

@@ -5,7 +5,7 @@
 
 Imports System.Collections.ObjectModel
 
-Namespace roncliProductions.LibWowAPI.Achievements
+Namespace roncliProductions.LibWowAPI.Achievement
 
     ''' <summary>
     ''' A class containing information about an achievement category.

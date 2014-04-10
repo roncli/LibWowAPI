@@ -5,7 +5,7 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.BattlePets
+Namespace roncliProductions.LibWowAPI.BattlePet
 
     Public Class Ability
 
