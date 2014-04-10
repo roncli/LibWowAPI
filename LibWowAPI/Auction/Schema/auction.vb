@@ -19,6 +19,10 @@ Namespace roncliProductions.LibWowAPI.Auction.Schema
         <DataMember()> Public Property timeLeft As String
         <DataMember()> Public Property rand As Integer
         <DataMember()> Public Property seed As Long
+        <DataMember()> Public Property petSpeciesId As Integer
+        <DataMember()> Public Property petBreedId As Integer
+        <DataMember()> Public Property petLevel As Integer
+        <DataMember()> Public Property petQualityId As Integer
 
     End Class
 

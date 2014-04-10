@@ -625,16 +625,25 @@ Namespace roncliProductions.LibWowAPIDemo
                 For Each aAuction In aAuctions.Alliance.Auctions
                     Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
                     Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
+                    If aAuction.PetSpeciesID <> 0 Then
+                        Console.WriteLine("    Pet Species: {0} - Level: {1} - Breed: {2} - Quality: {3}", aAuction.PetSpeciesID, aAuction.PetLevel, aAuction.PetBreed, aAuction.PetQuality)
+                    End If
                 Next
                 Console.WriteLine("Horde:")
                 For Each aAuction In aAuctions.Horde.Auctions
                     Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
                     Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
+                    If aAuction.PetSpeciesID <> 0 Then
+                        Console.WriteLine("    Pet Species: {0} - Level: {1} - Breed: {2} - Quality: {3}", aAuction.PetSpeciesID, aAuction.PetLevel, aAuction.PetBreed, aAuction.PetQuality)
+                    End If
                 Next
                 Console.WriteLine("Neutral:")
                 For Each aAuction In aAuctions.Neutral.Auctions
                     Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
                     Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
+                    If aAuction.PetSpeciesID <> 0 Then
+                        Console.WriteLine("    Pet Species: {0} - Level: {1} - Breed: {2} - Quality: {3}", aAuction.PetSpeciesID, aAuction.PetLevel, aAuction.PetBreed, aAuction.PetQuality)
+                    End If
                 Next
             Next
             Console.WriteLine()

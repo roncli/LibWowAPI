@@ -12,6 +12,7 @@ Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Extensions
+Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Auction
 
@@ -137,19 +138,64 @@ Namespace roncliProductions.LibWowAPI.Auction
                         New AuctionHouse(
                             (
                                 From a In aAuctions.alliance.auctions
-                                Select New Auction(a.auc, a.item, a.owner, a.ownerRealm, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft(), a.rand, a.seed)
+                                Select New Auction(
+                                    a.auc,
+                                    a.item,
+                                    a.owner,
+                                    a.ownerRealm,
+                                    a.bid,
+                                    a.buyout,
+                                    a.quantity,
+                                    a.timeLeft.GetAuctionTimeLeft(),
+                                    a.rand,
+                                    a.seed,
+                                    a.petSpeciesId,
+                                    CType(a.petBreedId, BattlePetBreed),
+                                    a.petLevel,
+                                    If(a.petSpeciesId = 0, Quality.Unknown, CType(a.petQualityId, Quality))
+                                    )
                                 ).ToCollection()
                             ),
                         New AuctionHouse(
                             (
                                 From a In aAuctions.horde.auctions
-                                Select New Auction(a.auc, a.item, a.owner, a.ownerRealm, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft(), a.rand, a.seed)
+                                Select New Auction(
+                                    a.auc,
+                                    a.item,
+                                    a.owner,
+                                    a.ownerRealm,
+                                    a.bid,
+                                    a.buyout,
+                                    a.quantity,
+                                    a.timeLeft.GetAuctionTimeLeft(),
+                                    a.rand,
+                                    a.seed,
+                                    a.petSpeciesId,
+                                    CType(a.petBreedId, BattlePetBreed),
+                                    a.petLevel,
+                                    If(a.petSpeciesId = 0, Quality.Unknown, CType(a.petQualityId, Quality))
+                                    )
                                 ).ToCollection()
                             ),
                         New AuctionHouse(
                             (
                                 From a In aAuctions.neutral.auctions
-                                Select New Auction(a.auc, a.item, a.owner, a.ownerRealm, a.bid, a.buyout, a.quantity, a.timeLeft.GetAuctionTimeLeft(), a.rand, a.seed)
+                                Select New Auction(
+                                    a.auc,
+                                    a.item,
+                                    a.owner,
+                                    a.ownerRealm,
+                                    a.bid,
+                                    a.buyout,
+                                    a.quantity,
+                                    a.timeLeft.GetAuctionTimeLeft(),
+                                    a.rand,
+                                    a.seed,
+                                    a.petSpeciesId,
+                                    CType(a.petBreedId, BattlePetBreed),
+                                    a.petLevel,
+                                    If(a.petSpeciesId = 0, Quality.Unknown, CType(a.petQualityId, Quality))
+                                    )
                                 ).ToCollection()
                             )
                         )

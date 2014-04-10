@@ -93,7 +93,39 @@ Namespace roncliProductions.LibWowAPI.Auction
         ''' <remarks>This value contains information about the specific instance of the item.  Note that despite the name of the field, this field is not truly unique, and can have repeated values.</remarks>
         Public Property UniqueID As Long
 
-        Friend Sub New(lngID As Long, intItemID As Integer, strOwner As String, strOwnerRealm As String, lngBid As Long, lngBuyout As Long, intQuantity As Integer, atlTimeLeft As AuctionTimeLeft, intSuffixID As Integer, intUniqueID As Long)
+        ''' <summary>
+        ''' The item's pet species ID.
+        ''' </summary>
+        ''' <value>This property gets or sets the PetSpeciesID field.</value>
+        ''' <returns>Returns the item's pet species ID.</returns>
+        ''' <remarks>If the item being auctioned is not a pet, this will return 0.</remarks>
+        Public Property PetSpeciesID As Integer
+
+        ''' <summary>
+        ''' The item's pet breed.
+        ''' </summary>
+        ''' <value>This property gets or sets the PetBreed field.</value>
+        ''' <returns>Returns the item's pet breed.</returns>
+        ''' <remarks>If the item being auctioned is not a pet, this will return <see cref="BattlePetBreed.Unknown" />.</remarks>
+        Public Property PetBreed As BattlePetBreed
+
+        ''' <summary>
+        ''' The item's pet level.
+        ''' </summary>
+        ''' <value>This property gets or sets the PetLevel field.</value>
+        ''' <returns>Returns the item's pet level.</returns>
+        ''' <remarks>If the item being auctioned is not a pet, this will return 0.</remarks>
+        Public Property PetLevel As Integer
+
+        ''' <summary>
+        ''' The item's pet quality.
+        ''' </summary>
+        ''' <value>This property gets or sets the PetQuality field.</value>
+        ''' <returns>Returns the item's pet quality.</returns>
+        ''' <remarks>If the item being auctioned is not a pet, this will return <see cref="Quality.Unknown" />.</remarks>
+        Public Property PetQuality As Quality
+
+        Friend Sub New(lngID As Long, intItemID As Integer, strOwner As String, strOwnerRealm As String, lngBid As Long, lngBuyout As Long, intQuantity As Integer, atlTimeLeft As AuctionTimeLeft, intSuffixID As Integer, intUniqueID As Long, intPetSpeciesID As Integer, bpbPetBreed As BattlePetBreed, intPetLevel As Integer, qPetQuality As Quality)
             ID = lngID
             ItemID = intItemID
             Owner = strOwner
@@ -104,6 +136,10 @@ Namespace roncliProductions.LibWowAPI.Auction
             TimeLeft = atlTimeLeft
             SuffixID = intSuffixID
             UniqueID = intUniqueID
+            PetSpeciesID = intPetSpeciesID
+            PetBreed = bpbPetBreed
+            PetLevel = intPetLevel
+            PetQuality = qPetQuality
         End Sub
 
     End Class
