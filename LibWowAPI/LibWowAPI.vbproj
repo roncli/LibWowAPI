@@ -87,6 +87,20 @@
     <Compile Include="Auction\Schema\file.vb" />
     <Compile Include="Auction\Schema\files.vb" />
     <Compile Include="Auction\Schema\realm.vb" />
+    <Compile Include="BattlePets\clsAbility.vb" />
+    <Compile Include="BattlePets\clsBattlePetStats.vb" />
+    <Compile Include="BattlePets\clsBattlePetSpecies.vb" />
+    <Compile Include="BattlePets\clsBattlePetAbility.vb" />
+    <Compile Include="BattlePets\clsBattlePetStatsOptions.vb" />
+    <Compile Include="BattlePets\clsBattlePetSpeciesOptions.vb" />
+    <Compile Include="BattlePets\clsBattlePetAbilityOptions.vb" />
+    <Compile Include="BattlePets\clsSpecies.vb" />
+    <Compile Include="BattlePets\clsSpeciesAbility.vb" />
+    <Compile Include="BattlePets\clsStats.vb" />
+    <Compile Include="BattlePets\Schema\ability.vb" />
+    <Compile Include="BattlePets\Schema\species.vb" />
+    <Compile Include="BattlePets\Schema\speciesAbility.vb" />
+    <Compile Include="BattlePets\Schema\stats.vb" />
     <Compile Include="Character\clsAchievementFeed.vb" />
     <Compile Include="Character\clsAchievements.vb" />
     <Compile Include="Character\clsAppearance.vb" />
@@ -347,7 +361,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\PetTypes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

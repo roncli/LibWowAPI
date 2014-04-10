@@ -588,4 +588,132 @@ Namespace roncliProductions.LibWowAPI.Enums
         OnUse = 1
     End Enum
 
+    ''' <summary>
+    ''' An enumeration to describe a battle pet's breed.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum BattlePetBreed
+        Unknown = 0
+
+        ''' <summary>
+        ''' Adds 2.5 base health, 0.5 base power, and 0.5 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleBalanced = 3
+
+        ''' <summary>
+        ''' Adds 2 base power per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleDoublePower = 4
+
+        ''' <summary>
+        ''' Adds 2 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleDoubleSpeed = 5
+
+        ''' <summary>
+        ''' Adds 10 base health per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleDoubleHealth = 6
+
+        ''' <summary>
+        ''' Adds 4.5 base health and 0.9 base power per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleHealthPower = 7
+
+        ''' <summary>
+        ''' Adds 0.9 base power and 0.9 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MalePowerSpeed = 8
+
+        ''' <summary>
+        ''' Adds 4.5 base health and 0.9 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleHealthSpeed = 9
+
+        ''' <summary>
+        ''' Adds 2 base health, 0.9 base power, and 0.4 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleBalancedPower = 10
+
+        ''' <summary>
+        ''' Adds 2 base health, 0.4 base power, and 0.9 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleBalancedSpeed = 11
+
+        ''' <summary>
+        ''' Adds 4.5 base health, 0.4 base power, and 0.4 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        MaleBalancedHealth = 12
+
+        ''' <summary>
+        ''' Adds 2.5 base health, 0.5 base power, and 0.5 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleBalanced = 13
+
+        ''' <summary>
+        ''' Adds 2 base power per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleDoublePower = 14
+
+        ''' <summary>
+        ''' Adds 2 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleDoubleSpeed = 15
+
+        ''' <summary>
+        ''' Adds 10 base health per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleDoubleHealth = 16
+
+        ''' <summary>
+        ''' Adds 4.5 base health and 0.9 base power per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleHealthPower = 17
+
+        ''' <summary>
+        ''' Adds 0.9 base power and 0.9 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemalePowerSpeed = 18
+
+        ''' <summary>
+        ''' Adds 4.5 base health and 0.9 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleHealthSpeed = 19
+
+        ''' <summary>
+        ''' Adds 2 base health, 0.9 base power, and 0.4 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleBalancedPower = 20
+
+        ''' <summary>
+        ''' Adds 2 base health, 0.4 base power, and 0.9 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleBalancedSpeed = 21
+
+        ''' <summary>
+        ''' Adds 4.5 base health, 0.4 base power, and 0.4 base speed per level.
+        ''' </summary>
+        ''' <remarks></remarks>
+        FemaleBalancedHealth = 22
+    End Enum
+
 End Namespace

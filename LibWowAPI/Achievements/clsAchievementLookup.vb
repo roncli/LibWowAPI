@@ -4,7 +4,6 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System
-Imports System.Collections.ObjectModel
 Imports System.Globalization
 Imports System.IO
 Imports System.Linq
@@ -97,7 +96,7 @@ Namespace roncliProductions.LibWowAPI.Achievements
         ''' <summary>
         ''' Loads the achievement.
         ''' </summary>
-        ''' <remarks>This method calls the Blizzard WoW API, receives the JSON, and translates it into an <see cref="Achievement" /> object.  Each item in the collection represents a category of achievements received from the API.</remarks>
+        ''' <remarks>This method calls the Blizzard WoW API, receives the JSON, and translates it into an <see cref="Achievement" /> object.</remarks>
         ''' <exception cref="LibWowAPIException">If the JSON received from the API is invalid, the exception that caused it is packaged into the <see cref="LibWowAPIException.InnerException" /> of a <see cref="LibWowAPIException" />.</exception>
         Public Overrides Sub Load()
             MyBase.Retrieve()
@@ -163,11 +162,11 @@ Namespace roncliProductions.LibWowAPI.Achievements
 
         Private aAchievement As Achievement
         ''' <summary>
-        ''' 
+        ''' The achievement returned from the Blizzard WoW API.
         ''' </summary>
-        ''' <value></value>
-        ''' <returns></returns>
-        ''' <remarks></remarks>
+        ''' <value>This property gets the Achievement field.</value>
+        ''' <returns>Returns achievement information as returned from the Blizzard WoW API.</returns>
+        ''' <remarks>This property is an <see cref="Achievement" /> object that contains information about the achievement specified in the <see cref="AchievementLookup.Options" />.</remarks>
         Public ReadOnly Property Achievement As Achievement
             Get
                 Return aAchievement

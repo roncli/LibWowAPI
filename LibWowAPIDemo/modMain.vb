@@ -11,6 +11,7 @@ Imports roncliProductions
 Imports roncliProductions.LibWowAPI
 Imports roncliProductions.LibWowAPI.Achievements
 Imports roncliProductions.LibWowAPI.Auction
+Imports roncliProductions.LibWowAPI.BattlePets
 Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Data
 Imports roncliProductions.LibWowAPI.Data.Battlegroups
@@ -51,20 +52,23 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("6 - Arena Team")
                 Console.WriteLine("7 - Auctions")
                 Console.WriteLine("8 - Battlegroups")
-                Console.WriteLine("9 - Character Achievements")
-                Console.WriteLine("10 - Character Classes")
-                Console.WriteLine("11 - Character Profile")
-                Console.WriteLine("12 - Character Races")
-                Console.WriteLine("13 - Guild Achievements")
-                Console.WriteLine("14 - Guild Perks")
-                Console.WriteLine("15 - Guild Profile")
-                Console.WriteLine("16 - Guild Rewards")
-                Console.WriteLine("17 - Item Classes")
-                Console.WriteLine("18 - Item Lookup")
-                Console.WriteLine("19 - Quest Lookup")
-                Console.WriteLine("20 - Rated Battlegroup Ladder")
-                Console.WriteLine("21 - Realm Status")
-                Console.WriteLine("22 - Recipe Lookup")
+                Console.WriteLine("9 - Battle Pet Abilities")
+                Console.WriteLine("10 - Battle Pet Species")
+                Console.WriteLine("11 - Battle Pet Stats")
+                Console.WriteLine("12 - Character Achievements")
+                Console.WriteLine("13 - Character Classes")
+                Console.WriteLine("14 - Character Profile")
+                Console.WriteLine("15 - Character Races")
+                Console.WriteLine("16 - Guild Achievements")
+                Console.WriteLine("17 - Guild Perks")
+                Console.WriteLine("18 - Guild Profile")
+                Console.WriteLine("19 - Guild Rewards")
+                Console.WriteLine("20 - Item Classes")
+                Console.WriteLine("21 - Item Lookup")
+                Console.WriteLine("22 - Quest Lookup")
+                Console.WriteLine("23 - Rated Battlegroup Ladder")
+                Console.WriteLine("24 - Realm Status")
+                Console.WriteLine("25 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -88,32 +92,38 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 8
                             BattlegroupsDemo()
                         Case 9
-                            CharacterAchievementsDemo()
+                            BattlePetAbilitiesDemo()
                         Case 10
-                            CharacterClassesDemo()
+                            BattlePetSpeciesDemo()
                         Case 11
-                            CharacterProfileDemo()
+                            BattlePetStatsDemo()
                         Case 12
-                            CharacterRacesDemo()
+                            CharacterAchievementsDemo()
                         Case 13
-                            GuildAchievementsDemo()
+                            CharacterClassesDemo()
                         Case 14
-                            GuildPerksDemo()
+                            CharacterProfileDemo()
                         Case 15
-                            GuildProfileDemo()
+                            CharacterRacesDemo()
                         Case 16
-                            GuildRewardsDemo()
+                            GuildAchievementsDemo()
                         Case 17
-                            ItemClassesDemo()
+                            GuildPerksDemo()
                         Case 18
-                            ItemLookupDemo()
+                            GuildProfileDemo()
                         Case 19
-                            QuestLookupDemo()
+                            GuildRewardsDemo()
                         Case 20
-                            RatedBattlegroundLadderDemo()
+                            ItemClassesDemo()
                         Case 21
-                            RealmStatusDemo()
+                            ItemLookupDemo()
                         Case 22
+                            QuestLookupDemo()
+                        Case 23
+                            RatedBattlegroundLadderDemo()
+                        Case 24
+                            RealmStatusDemo()
+                        Case 25
                             RecipeLookupDemo()
                     End Select
                     Console.Clear()
@@ -282,7 +292,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Please enter the ID number of the achievement you wish to lookup.")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
-                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
                 If Integer.TryParse(strResponse, intAchievementID) Then
                     Exit Do
                 Else
@@ -360,7 +369,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("5 - 5v5")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
-                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
                 Dim intResponse As Integer
                 If Integer.TryParse(strResponse, intResponse) Then
                     Select Case intResponse
@@ -516,7 +524,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("5 - 5v5")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
-                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
                 Dim intResponse As Integer
                 If Integer.TryParse(strResponse, intResponse) Then
                     Select Case intResponse
@@ -656,6 +663,217 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("{0} - Slug: {1}", bBattlegroup.Name, bBattlegroup.Slug)
             Next
             Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub BattlePetAbilitiesDemo()
+            Console.Clear()
+            Console.WriteLine("Battle Pet Abilities Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables
+            Dim intAbilityID As Integer
+
+            ' Next, get the ability ID.
+            Do
+                Console.WriteLine("Please enter the ID number of the battle pet ability you wish to lookup.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If Integer.TryParse(strResponse, intAbilityID) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the Ability.
+            Dim aAbility As New BattlePetAbility(intAbilityID)
+
+            ' Show the Achievement.
+            Console.Clear()
+            If aAbility.CacheHit.HasValue AndAlso aAbility.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            Console.WriteLine("{0}) {1}", aAbility.Ability.ID, aAbility.Ability.Name)
+            If aAbility.Ability.IsPassive Then
+                Console.WriteLine("  Passive Ability")
+            End If
+            Console.WriteLine("  Rounds: {0} - Cooldown: {1}", aAbility.Ability.Rounds, aAbility.Ability.Cooldown)
+            Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub BattlePetSpeciesDemo()
+            Console.Clear()
+            Console.WriteLine("Battle Pet Species Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables
+            Dim intSpeciesID As Integer
+
+            ' Next, get the species ID.
+            Do
+                Console.WriteLine("Please enter the ID number of the battle pet species you wish to lookup.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If Integer.TryParse(strResponse, intSpeciesID) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the species.
+            Dim sSpecies As New BattlePetSpecies(intSpeciesID)
+
+            ' Show the Achievement.
+            Console.Clear()
+            If sSpecies.CacheHit.HasValue AndAlso sSpecies.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            Console.WriteLine("{0}) {1}", sSpecies.Species.ID, sSpecies.Species.Name)
+            Console.WriteLine("Source: {0}", sSpecies.Species.Source)
+            Console.WriteLine()
+            Console.WriteLine("Abilities:")
+            For Each saAbility In sSpecies.Species.Abilities
+                Console.WriteLine("  {0}) {1}", saAbility.ID, saAbility.Name)
+                Console.WriteLine("    Required level: {0}", saAbility.RequiredLevel)
+                If saAbility.IsPassive Then
+                    Console.WriteLine("    Passive Ability")
+                End If
+                Console.WriteLine("    Rounds: {0} - Cooldown: {1}", saAbility.Rounds, saAbility.Cooldown)
+                Console.WriteLine()
+            Next
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub BattlePetStatsDemo()
+            Console.Clear()
+            Console.WriteLine("Battle Pet Stats Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables
+            Dim intSpeciesID As Integer
+            Dim intLevel As Integer
+            Dim bpbBreed As Enums.BattlePetBreed
+            Dim qQuality As Enums.Quality
+
+            ' Next, get the species ID.
+            Do
+                Console.WriteLine("Please enter the ID number of the battle pet species you wish to lookup.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If Integer.TryParse(strResponse, intSpeciesID) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Next, get the level.
+            Do
+                Console.WriteLine("Please enter the level of the pet.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If Integer.TryParse(strResponse, intLevel) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Next, get the breed.
+            Do
+                Console.WriteLine("Select the breed of the pet")
+                Console.WriteLine("3 - Male, Balanced")
+                Console.WriteLine("4 - Male, Double Power")
+                Console.WriteLine("5 - Male, Double Speed")
+                Console.WriteLine("6 - Male, Double Health")
+                Console.WriteLine("7 - Male, Health & Power")
+                Console.WriteLine("8 - Male, Power & Speed")
+                Console.WriteLine("9 - Male, Health & Speed")
+                Console.WriteLine("10 - Male, Balanced Power")
+                Console.WriteLine("11 - Male, Balance Speed")
+                Console.WriteLine("12 - Male, Balanced Health")
+                Console.WriteLine("13 - Female, Balanced")
+                Console.WriteLine("14 - Female, Double Power")
+                Console.WriteLine("15 - Female, Double Speed")
+                Console.WriteLine("16 - Female, Double Health")
+                Console.WriteLine("17 - Female, Health & Power")
+                Console.WriteLine("18 - Female, Power & Speed")
+                Console.WriteLine("19 - Female, Health & Speed")
+                Console.WriteLine("20 - Female, Balanced Power")
+                Console.WriteLine("21 - Female, Balance Speed")
+                Console.WriteLine("22 - Female, Balanced Health")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                Dim intResponse As Integer
+                If Integer.TryParse(strResponse, intResponse) Then
+                    If intResponse >= 3 And intResponse <= 22 Then
+                        bpbBreed = CType(intResponse, Enums.BattlePetBreed)
+                        Exit Do
+                    Else
+                        Console.WriteLine("Invalid response.")
+                        Console.WriteLine()
+                    End If
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Next, get the quality.
+            Do
+                Console.WriteLine("Select the quality of the pet")
+                Console.WriteLine("0 - Poor")
+                Console.WriteLine("1 - Common")
+                Console.WriteLine("2 - Uncommon")
+                Console.WriteLine("3 - Rare")
+                Console.WriteLine("4 - Epic")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                Dim intResponse As Integer
+                If Integer.TryParse(strResponse, intResponse) Then
+                    If intResponse >= 0 And intResponse <= 4 Then
+                        qQuality = CType(intResponse, Enums.Quality)
+                        Exit Do
+                    Else
+                        Console.WriteLine("Invalid response.")
+                        Console.WriteLine()
+                    End If
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the stats.
+            Dim sStats As New BattlePetStats(intSpeciesID, intLevel, bpbBreed, qQuality)
+
+            ' Show the Achievement.
+            Console.Clear()
+            If sStats.CacheHit.HasValue AndAlso sStats.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            Console.WriteLine("Species: {0} - Level: {1} - Breed: {2} - Quality: {3}", sStats.Stats.SpeciesID, sStats.Stats.Level, sStats.Stats.Breed, sStats.Stats.PetQuality)
+            Console.WriteLine("  Health: {0}", sStats.Stats.Health)
+            Console.WriteLine("  Power: {0}", sStats.Stats.Power)
+            Console.WriteLine("  Speed: {0}", sStats.Stats.Speed)
 
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)
@@ -1907,7 +2125,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Please enter the ID number of the item you wish to lookup.")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
-                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
                 If Integer.TryParse(strResponse, intItemID) Then
                     Exit Do
                 Else
@@ -2096,7 +2313,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Please enter the ID number of the quest you wish to lookup.")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
-                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
                 If Integer.TryParse(strResponse, intQuestID) Then
                     Exit Do
                 Else
@@ -2286,7 +2502,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Please enter the ID number of the recipe you wish to lookup.")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
-                If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
                 If Integer.TryParse(strResponse, intRecipeID) Then
                     Exit Do
                 Else

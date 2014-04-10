@@ -133,7 +133,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added achievement lookup. (Achievements.AchievementLookup)
  * Added faction to achievements.
  * Added ItemLevel and Armor to achievement reward items.
- * Added OwnerRealm, Rand, and Seed values to the auction data.
+ * Added OwnerRealm, SuffixID, and UniqueID values to the auction data.
+ * Added battle pet ability, species, and stats lookups. (BattlePets.BattlePetAbility, BattlePets.BattlePetSpecies, and BattlePets.BattlePetStats)
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Data.CharacterAchievements and Data.GuildAchievements to use the objects in the Achievements namespace.

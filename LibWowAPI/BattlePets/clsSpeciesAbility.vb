@@ -1,0 +1,28 @@
+﻿' LibWowAPI
+' by Ronald M. Clifford (roncli@roncli.com)
+'
+' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
+
+Imports System.Runtime.Serialization
+
+Namespace roncliProductions.LibWowAPI.BattlePets
+
+    Public Class SpeciesAbility
+        Inherits Ability
+
+        Public Property Slot As Integer
+
+        Public Property Order As Integer
+
+        Public Property RequiredLevel As Integer
+
+        Public Sub New(intSlot As Integer, intOrder As Integer, intRequiredLevel As Integer, intID As Integer, strName As String, strIcon As String, intCooldown As Integer, intRounds As Integer, intPetTypeID As Integer, blnIsPassive As Boolean, blnHideHints As Boolean)
+            MyBase.New(intID, strName, strIcon, intCooldown, intRounds, intPetTypeID, blnIsPassive, blnHideHints)
+            Slot = intSlot
+            Order = intOrder
+            RequiredLevel = intRequiredLevel
+        End Sub
+
+    End Class
+
+End Namespace
