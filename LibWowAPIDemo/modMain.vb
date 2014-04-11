@@ -12,6 +12,7 @@ Imports roncliProductions.LibWowAPI
 Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Auction
 Imports roncliProductions.LibWowAPI.BattlePet
+Imports roncliProductions.LibWowAPI.Challenge
 Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Data
 Imports roncliProductions.LibWowAPI.Data.Battlegroups
@@ -55,19 +56,21 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("9 - Battle Pet Abilities")
                 Console.WriteLine("10 - Battle Pet Species")
                 Console.WriteLine("11 - Battle Pet Stats")
-                Console.WriteLine("12 - Character Achievements")
-                Console.WriteLine("13 - Character Classes")
-                Console.WriteLine("14 - Character Profile")
-                Console.WriteLine("15 - Character Races")
-                Console.WriteLine("16 - Guild Achievements")
-                Console.WriteLine("17 - Guild Perks")
-                Console.WriteLine("18 - Guild Profile")
-                Console.WriteLine("19 - Guild Rewards")
-                Console.WriteLine("20 - Item Classes")
-                Console.WriteLine("21 - Item Lookup")
-                Console.WriteLine("22 - Quest Lookup")
-                Console.WriteLine("23 - Rated Battlegroup Ladder")
-                Console.WriteLine("24 - Realm Status")
+                Console.WriteLine("12 - Challenge Mode for Realm")
+                Console.WriteLine("13 - Challenge Mode for Region")
+                Console.WriteLine("14 - Character Achievements")
+                Console.WriteLine("15 - Character Classes")
+                Console.WriteLine("16 - Character Profile")
+                Console.WriteLine("17 - Character Races")
+                Console.WriteLine("18 - Guild Achievements")
+                Console.WriteLine("19 - Guild Perks")
+                Console.WriteLine("20 - Guild Profile")
+                Console.WriteLine("21 - Guild Rewards")
+                Console.WriteLine("22 - Item Classes")
+                Console.WriteLine("23 - Item Lookup")
+                Console.WriteLine("24 - Quest Lookup")
+                Console.WriteLine("25 - Rated Battlegroup Ladder")
+                Console.WriteLine("26 - Realm Status")
                 Console.WriteLine("25 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
@@ -98,32 +101,36 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 11
                             BattlePetStatsDemo()
                         Case 12
-                            CharacterAchievementsDemo()
+                            ChallengeRealmDemo()
                         Case 13
-                            CharacterClassesDemo()
+                            ChallengeRegionDemo()
                         Case 14
-                            CharacterProfileDemo()
+                            CharacterAchievementsDemo()
                         Case 15
-                            CharacterRacesDemo()
+                            CharacterClassesDemo()
                         Case 16
-                            GuildAchievementsDemo()
+                            CharacterProfileDemo()
                         Case 17
-                            GuildPerksDemo()
+                            CharacterRacesDemo()
                         Case 18
-                            GuildProfileDemo()
+                            GuildAchievementsDemo()
                         Case 19
-                            GuildRewardsDemo()
+                            GuildPerksDemo()
                         Case 20
-                            ItemClassesDemo()
+                            GuildProfileDemo()
                         Case 21
-                            ItemLookupDemo()
+                            GuildRewardsDemo()
                         Case 22
-                            QuestLookupDemo()
+                            ItemClassesDemo()
                         Case 23
-                            RatedBattlegroundLadderDemo()
+                            ItemLookupDemo()
                         Case 24
-                            RealmStatusDemo()
+                            QuestLookupDemo()
                         Case 25
+                            RatedBattlegroundLadderDemo()
+                        Case 26
+                            RealmStatusDemo()
+                        Case 27
                             RecipeLookupDemo()
                     End Select
                     Console.Clear()
@@ -883,6 +890,102 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("  Health: {0}", sStats.Stats.Health)
             Console.WriteLine("  Power: {0}", sStats.Stats.Power)
             Console.WriteLine("  Speed: {0}", sStats.Stats.Speed)
+            Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub ChallengeRealmDemo()
+            Console.Clear()
+            Console.WriteLine("Challenge Mode for Realm")
+            Console.WriteLine()
+
+            ' Declare some variabales.
+            Dim strRealm As String
+
+            ' Next, get the realm.
+            Do
+                Console.WriteLine("Please enter the name of the realm to get the leaderboards for.")
+                Console.Write(">")
+                strRealm = Console.ReadLine
+
+                If String.IsNullOrWhiteSpace(strRealm) Then
+                    Console.WriteLine("You must enter a realm name.")
+                    Console.WriteLine()
+                Else
+                    Exit Do
+                End If
+            Loop
+
+            ' Get the leaderboards.
+            Dim crChallenge = New ChallengeRealm(strRealm)
+
+            ' Show the leaderboards
+            Console.Clear()
+            If crChallenge.CacheHit.HasValue AndAlso crChallenge.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            For Each cChallenge In crChallenge.Challenge
+                Console.WriteLine("{0}) {1}", cChallenge.Map.ID, cChallenge.Map.Name)
+                Console.WriteLine("  Bronze Time: {0:g}", cChallenge.Map.BronzeCriteria)
+                Console.WriteLine("  Silver Time: {0:g}", cChallenge.Map.SilverCriteria)
+                Console.WriteLine("  Gold Time: {0:g}", cChallenge.Map.GoldCriteria)
+                For Each gGroup In cChallenge.Groups
+                    Console.WriteLine("  {0}) {1:g}", gGroup.Ranking, gGroup.Time)
+                    Console.WriteLine(
+                        "    {0}", String.Join(
+                            ", ", (
+                                From m In gGroup.Members
+                                Where m.Character IsNot Nothing
+                                Select String.Format(CultureInfo.InvariantCulture, "{0}-{1}", m.Character.Name, m.Character.Realm)
+                                ).ToArray()
+                            )
+                        )
+                Next
+            Next
+            Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub ChallengeRegionDemo()
+            Console.Clear()
+            Console.WriteLine("Challenge Mode for Region")
+            Console.WriteLine()
+
+            ' Get the leaderboards.
+            Dim crChallenge = New ChallengeRegion()
+            crChallenge.Load()
+
+            ' Show the leaderboards
+            If crChallenge.CacheHit.HasValue AndAlso crChallenge.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            For Each cChallenge In crChallenge.Challenge
+                Console.WriteLine("{0}) {1}", cChallenge.Map.ID, cChallenge.Map.Name)
+                Console.WriteLine("  Bronze Time: {0:g}", cChallenge.Map.BronzeCriteria)
+                Console.WriteLine("  Silver Time: {0:g}", cChallenge.Map.SilverCriteria)
+                Console.WriteLine("  Gold Time: {0:g}", cChallenge.Map.GoldCriteria)
+                For Each gGroup In cChallenge.Groups
+                    Console.WriteLine("  {0}) {1:g}", gGroup.Ranking, gGroup.Time)
+                    Console.WriteLine(
+                        "    {0}", String.Join(
+                            ", ", (
+                                From m In gGroup.Members
+                                Where m.Character IsNot Nothing
+                                Select String.Format(CultureInfo.InvariantCulture, "{0}-{1}", m.Character.Name, m.Character.Realm)
+                                ).ToArray()
+                            )
+                        )
+                Next
+            Next
+            Console.WriteLine()
 
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)

@@ -130,11 +130,12 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 ### 1.2
 * New:
  * Added Language.Italiano to send it_IT for Italian.
- * Added achievement lookup. (Achievements.AchievementLookup)
+ * Added achievement lookup. (Achievement.AchievementLookup)
  * Added faction to achievements.
  * Added ItemLevel and Armor to achievement reward items.
  * Added OwnerRealm, SuffixID, UniqueID, PetSpeciesID, PetBreed, PetLevel, and PetQuality to the auction data.
- * Added battle pet ability, species, and stats lookups. (BattlePets.BattlePetAbility, BattlePets.BattlePetSpecies, and BattlePets.BattlePetStats)
+ * Added battle pet ability, species, and stats lookups. (BattlePet.BattlePetAbility, BattlePet.BattlePetSpecies, and BattlePet.BattlePetStats)
+ * Added challenge mode leaderboards for realm and region. (Challenge.ChallengeRealm and Challenge.ChallengeRegion)
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Data.CharacterAchievements and Data.GuildAchievements to use the objects in the Achievements namespace.
@@ -144,11 +145,13 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 The following classes are provided:
 
-* Achievements.AchievementLookup
+* Achievement.AchievementLookup
 * Auction.AuctionData
-* BattlePets.BattlePetAbility
-* BattlePets.BattlePetSpecies
-* BattlePets.BattlePetStats
+* BattlePet.BattlePetAbility
+* BattlePet.BattlePetSpecies
+* BattlePet.BattlePetStats
+* Challenge.ChallengeRealm
+* Challenge.ChallengeRegion
 * Character.CharacterProfile
 * Data.Battlegroups
 * Data.CharacterAchievements

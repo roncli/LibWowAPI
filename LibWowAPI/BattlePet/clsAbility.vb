@@ -7,6 +7,10 @@ Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.BattlePet
 
+    ''' <summary>
+    ''' A class containing information about a battle pet ability.
+    ''' </summary>
+    ''' <remarks>This class contains information about a battle pet ability.</remarks>
     Public Class Ability
 
         ''' <summary>

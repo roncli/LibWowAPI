@@ -8,6 +8,10 @@ Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.BattlePet
 
+    ''' <summary>
+    ''' A class containing information about a battle pet's stats.
+    ''' </summary>
+    ''' <remarks>This class contains information about a battle pet's stats.</remarks>
     Public Class Stats
 
         ''' <summary>

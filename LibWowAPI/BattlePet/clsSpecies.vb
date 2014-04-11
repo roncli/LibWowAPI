@@ -8,6 +8,10 @@ Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.BattlePet
 
+    ''' <summary>
+    ''' A class containing information about a battle pet species.
+    ''' </summary>
+    ''' <remarks>This class contains information about a battle pet species.</remarks>
     Public Class Species
 
         ''' <summary>
