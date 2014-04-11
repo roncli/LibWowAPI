@@ -15,10 +15,43 @@ Namespace roncliProductions.LibWowAPI
 
 End Namespace
 
+Namespace roncliProductions.LibWowAPI.Achievement
+
+    ''' <summary>
+    ''' The Achievement namespace provides the <see cref="Achievement" /> class, which retrieves achievement data from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
 Namespace roncliProductions.LibWowAPI.Auction
 
     ''' <summary>
     ''' The Auction namespace provides the <see cref="AuctionData" /> class, which retrieves auction data from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
+Namespace roncliProductions.LibWowAPI.BattlePet
+
+    ''' <summary>
+    ''' The BattlePet namespace provides the <see cref="BattlePetAbility" />, <see cref="BattlePetSpecies" />, and <see cref="BattlePetStats" /> classes, which retrieve battle pet data from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
+Namespace roncliProductions.LibWowAPI.Challenge
+
+    ''' <summary>
+    ''' The Challenge namespace provides the <see cref="ChallengeRealm" /> and <see cref="ChallengeRegion" /> classes, which retrieve challenge mode leaderboards from the Blizzard WoW API.
     ''' </summary>
     ''' <remarks></remarks>
     Friend Class NamespaceDoc
