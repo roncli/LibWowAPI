@@ -105,10 +105,8 @@
     <Compile Include="Challenge\clsChallengeRealm.vb" />
     <Compile Include="Challenge\clsChallengeRealmOptions.vb" />
     <Compile Include="Challenge\clsCharacter.vb" />
-    <Compile Include="Challenge\clsEmblem.vb" />
     <Compile Include="Challenge\clsMember.vb" />
     <Compile Include="Challenge\clsGroup.vb" />
-    <Compile Include="Challenge\clsGuild.vb" />
     <Compile Include="Challenge\clsMap.vb" />
     <Compile Include="Challenge\clsRealm.vb" />
     <Compile Include="Challenge\clsChallenge.vb" />
@@ -119,8 +117,6 @@
     <Compile Include="Challenge\Schema\challengeRegionMap.vb" />
     <Compile Include="Challenge\Schema\group.vb" />
     <Compile Include="Challenge\Schema\character.vb" />
-    <Compile Include="Challenge\Schema\emblem.vb" />
-    <Compile Include="Challenge\Schema\guild.vb" />
     <Compile Include="Challenge\Schema\realm.vb" />
     <Compile Include="Challenge\Schema\spec.vb" />
     <Compile Include="Challenge\Schema\member.vb" />
@@ -140,12 +136,10 @@
     <Compile Include="Character\clsCompletedCriteria.vb" />
     <Compile Include="Character\clsFeedCriteria.vb" />
     <Compile Include="Character\clsCriteriaFeed.vb" />
-    <Compile Include="Character\clsEmblem.vb" />
     <Compile Include="Character\clsFeedAchievement.vb" />
     <Compile Include="Character\clsFeedItem.vb" />
     <Compile Include="Character\clsGlyph.vb" />
     <Compile Include="Character\clsGlyphs.vb" />
-    <Compile Include="Character\clsGuild.vb" />
     <Compile Include="Character\clsInstance.vb" />
     <Compile Include="Character\clsItem.vb" />
     <Compile Include="Character\clsItems.vb" />
@@ -180,8 +174,6 @@
     <Compile Include="Character\Schema\glyphs.vb" />
     <Compile Include="Character\Schema\instance.vb" />
     <Compile Include="Character\Schema\item.vb" />
-    <Compile Include="Character\Schema\emblem.vb" />
-    <Compile Include="Character\Schema\guild.vb" />
     <Compile Include="Character\Schema\items.vb" />
     <Compile Include="Character\Schema\hunterPet.vb" />
     <Compile Include="Character\Schema\mount.vb" />
@@ -235,8 +227,10 @@
     <Compile Include="Guild\clsRewardItem.vb" />
     <Compile Include="Guild\clsSpec.vb" />
     <Compile Include="Guild\clsPlayerAchievementNews.vb" />
+    <Compile Include="Guild\clsGuildBasicInfo.vb" />
     <Compile Include="Guild\Schema\achievement.vb" />
     <Compile Include="Guild\Schema\criteria.vb" />
+    <Compile Include="Guild\Schema\guildBasicInfo.vb" />
     <Compile Include="Guild\Schema\news.vb" />
     <Compile Include="Guild\Schema\rewardItem.vb" />
     <Compile Include="Guild\Schema\spec.vb" />
