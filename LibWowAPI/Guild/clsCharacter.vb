@@ -95,7 +95,23 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <remarks>This is a <see cref="Spec" /> object which represents information about the character's talent spec.</remarks>
         Public Property Spec As Spec
 
-        Friend Sub New(strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, sSpec As Spec)
+        ''' <summary>
+        ''' The guild the character is from.
+        ''' </summary>
+        ''' <value>This property gets or sets the Guild field.</value>
+        ''' <returns>Returns the guild the character is from.</returns>
+        ''' <remarks>This represents the guild the character is from.</remarks>
+        Public Property Guild As String
+
+        ''' <summary>
+        ''' The realm the character's guild resides on.
+        ''' </summary>
+        ''' <value>This property gets or sets the GuildRealm field.</value>
+        ''' <returns>Returns the realm the character's guild resides on.</returns>
+        ''' <remarks>This represents the realm the character's guild resides on.</remarks>
+        Public Property GuildRealm As String
+
+        Friend Sub New(strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, sSpec As Spec, strGuild As String, strGuildRealm As String)
             Name = strName
             Realm = strRealm
             Battlegroup = strBattlegroup
@@ -106,6 +122,8 @@ Namespace roncliProductions.LibWowAPI.Guild
             AchievementPoints = intAchievementPoints
             Thumbnail = strThumbnail
             Spec = sSpec
+            Guild = strGuild
+            GuildRealm = strGuildRealm
         End Sub
 
     End Class

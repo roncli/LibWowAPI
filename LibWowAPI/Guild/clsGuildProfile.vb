@@ -142,7 +142,9 @@ Namespace roncliProductions.LibWowAPI.Guild
                                     m.character.spec.description,
                                     m.character.spec.order
                                     )
-                                )
+                                ),
+                            m.character.guild,
+                            m.character.guildRealm
                             ),
                         m.rank
                         )

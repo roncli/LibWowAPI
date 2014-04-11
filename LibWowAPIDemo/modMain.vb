@@ -1849,7 +1849,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     Dim bkfItem = TryCast(fiItem, BossKillFeed)
                     Dim cfItem = TryCast(fiItem, CriteriaFeed)
                     Dim lfItem = TryCast(fiItem, LootFeed)
-                    If fiItem IsNot Nothing Then
+                    If afItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Achievement: {1}", afItem.Date, afItem.Achievement.Title)
                     ElseIf bkfItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Boss Kill: {1}", bkfItem.Date, bkfItem.Name)

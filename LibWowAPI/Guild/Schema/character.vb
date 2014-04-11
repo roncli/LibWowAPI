@@ -19,6 +19,8 @@ Namespace roncliProductions.LibWowAPI.Guild.Schema
         <DataMember()> Public Property achievementPoints As Integer
         <DataMember()> Public Property thumbnail As String
         <DataMember()> Public Property spec As spec
+        <DataMember()> Public Property guild As String
+        <DataMember()> Public Property guildRealm As String
 
     End Class
 

@@ -161,14 +161,12 @@
     <Compile Include="Character\clsTalentSpec.vb" />
     <Compile Include="Character\clsTitle.vb" />
     <Compile Include="Character\clsTooltipParams.vb" />
-    <Compile Include="Character\Schema\achievement.vb" />
     <Compile Include="Character\Schema\achievements.vb" />
     <Compile Include="Character\Schema\appearance.vb" />
     <Compile Include="Character\Schema\arenaTeam.vb" />
     <Compile Include="Character\Schema\battleground.vb" />
     <Compile Include="Character\Schema\boss.vb" />
     <Compile Include="Character\Schema\character.vb" />
-    <Compile Include="Character\Schema\criteria.vb" />
     <Compile Include="Character\Schema\feed.vb" />
     <Compile Include="Character\Schema\glyph.vb" />
     <Compile Include="Character\Schema\glyphs.vb" />
@@ -228,8 +226,6 @@
     <Compile Include="Guild\clsSpec.vb" />
     <Compile Include="Guild\clsPlayerAchievementNews.vb" />
     <Compile Include="Guild\clsGuildBasicInfo.vb" />
-    <Compile Include="Guild\Schema\achievement.vb" />
-    <Compile Include="Guild\Schema\criteria.vb" />
     <Compile Include="Guild\Schema\guildBasicInfo.vb" />
     <Compile Include="Guild\Schema\news.vb" />
     <Compile Include="Guild\Schema\rewardItem.vb" />

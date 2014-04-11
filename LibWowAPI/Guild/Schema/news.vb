@@ -14,7 +14,7 @@ Namespace roncliProductions.LibWowAPI.Guild.Schema
         <DataMember()> Public Property timestamp As Long
         <DataMember()> Public Property itemId As Integer
         <DataMember()> Public Property levelUp As Integer
-        <DataMember()> Public Property achievement As achievement
+        <DataMember()> Public Property achievement As Achievement.Schema.achievement
 
     End Class
 
