@@ -101,10 +101,10 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' </summary>
         ''' <value>This property gets or sets the Faction field.</value>
         ''' <returns>Returns the faction that the achievement is specific to.</returns>
-        ''' <remarks>This represents the faction that the achievement is specific to.  If the achievement is not specific to any given faction, this returns <see cref="Side.Neutral" />.</remarks>
-        Public Property Faction As Side
+        ''' <remarks>This represents the faction that the achievement is specific to.  If the achievement is not specific to any given faction, this returns <see cref="Faction.Neutral" />.</remarks>
+        Public Property Faction As Faction
 
-        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean, sFaction As Side)
+        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean, fFaction As Faction)
             ID = intID
             Title = strTitle
             Points = intPoints
@@ -114,7 +114,7 @@ Namespace roncliProductions.LibWowAPI.Achievement
             Icon = strIcon
             colCriteria = cCriteria
             AccountWide = blnAccountWide
-            Faction = sFaction
+            Faction = fFaction
         End Sub
 
     End Class

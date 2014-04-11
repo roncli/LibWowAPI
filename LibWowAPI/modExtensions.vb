@@ -109,16 +109,16 @@ Namespace roncliProductions.LibWowAPI.Extensions
             End Select
         End Function
 
-        <Extension()> Friend Function GetSide(strSide As String) As Side
-            Select Case strSide
+        <Extension()> Friend Function GetFaction(strFaction As String) As Faction
+            Select Case strFaction
                 Case "alliance"
-                    Return Side.Alliance
+                    Return Faction.Alliance
                 Case "horde"
-                    Return Side.Horde
+                    Return Faction.Horde
                 Case "neutral"
-                    Return Side.Neutral
+                    Return Faction.Neutral
                 Case Else
-                    Return Side.Unknown
+                    Return Faction.Unknown
             End Select
         End Function
 

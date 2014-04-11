@@ -55,12 +55,12 @@ Namespace roncliProductions.LibWowAPI.Guild
         Public Property Level As Integer
 
         ''' <summary>
-        ''' The side the guild is on.
+        ''' The faction the guild is on.
         ''' </summary>
-        ''' <value>This property gets or sets the Side field.</value>
-        ''' <returns>Returns the side the guild is on.</returns>
-        ''' <remarks>This is a <see cref="Enums.Side" /> enumeration that tells which side the guild is on.</remarks>
-        Public Property Side As Side
+        ''' <value>This property gets or sets the Faction field.</value>
+        ''' <returns>Returns the faction the guild is on.</returns>
+        ''' <remarks>This is a <see cref="Enums.Faction" /> enumeration that tells which faction the guild is on.</remarks>
+        Public Property Faction As Faction
 
         ''' <summary>
         ''' The number of guild achievement points the guild has earned.
@@ -112,13 +112,13 @@ Namespace roncliProductions.LibWowAPI.Guild
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, sSide As Side, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem))
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, fFaction As Faction, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
             Battlegroup = strBattlegroup
             Level = intLevel
-            Side = sSide
+            Faction = fFaction
             AchievementPoints = intAchievementPoints
             Achievements = aAchievements
             lstMembers = mMembers

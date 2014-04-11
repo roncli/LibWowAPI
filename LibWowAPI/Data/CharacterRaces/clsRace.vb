@@ -30,12 +30,12 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterRaces
         Public Property Mask As Integer
 
         ''' <summary>
-        ''' The side the race belongs to, Alliance or Horde.
+        ''' The faction the race belongs to, Alliance or Horde.
         ''' </summary>
-        ''' <value>This property gets or sets the Side field.</value>
-        ''' <returns>Returns the side the race belongs to, Alliance or Horde.</returns>
-        ''' <remarks>This is a <see cref="Enums.Side" /> enumeration that tells which side the race belongs to, Alliance or Horde.</remarks>
-        Public Property Side As Side
+        ''' <value>This property gets or sets the Faction field.</value>
+        ''' <returns>Returns the faction the race belongs to, Alliance or Horde.</returns>
+        ''' <remarks>This is a <see cref="Enums.Faction" /> enumeration that tells which faction the race belongs to, Alliance or Horde.</remarks>
+        Public Property Faction As Faction
 
         ''' <summary>
         ''' The name of the race.
@@ -45,10 +45,10 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterRaces
         ''' <remarks>This is the localized name of the race.</remarks>
         Public Property Name As String
 
-        Friend Sub New(intID As Integer, intMask As Integer, sSide As Side, strName As String)
+        Friend Sub New(intID As Integer, intMask As Integer, fFaction As Faction, strName As String)
             ID = intID
             Mask = intMask
-            Side = sSide
+            Faction = fFaction
             Name = strName
         End Sub
 

@@ -117,7 +117,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                 gpGuild.realm,
                 gpGuild.battlegroup,
                 gpGuild.level,
-                CType(gpGuild.side, Side),
+                CType(gpGuild.side, Faction),
                 gpGuild.achievementPoints,
                 If(gpGuild.achievements Is Nothing, Nothing, SetAchievements(gpGuild.achievements)),
                 If(gpGuild.members Is Nothing OrElse gpGuild.members.Count = 0, Nothing,

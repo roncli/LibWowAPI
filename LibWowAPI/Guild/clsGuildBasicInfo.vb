@@ -3,13 +3,13 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
-Namespace roncliProductions.LibWowAPI.Challenge
+Namespace roncliProductions.LibWowAPI.Guild
 
     ''' <summary>
     ''' A class containing some of the information information about a guild.
     ''' </summary>
     ''' <remarks>Basic guild information is available to retrieve.</remarks>
-    Public Class Guild
+    Public Class GuildBasicInfo
 
         ''' <summary>
         ''' The name of the guild.

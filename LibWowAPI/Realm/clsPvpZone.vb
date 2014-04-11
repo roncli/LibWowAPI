@@ -22,12 +22,12 @@ Namespace roncliProductions.LibWowAPI.Realm
         Public Property Area As Integer
 
         ''' <summary>
-        ''' The side that controls the zone.
+        ''' The faction that controls the zone.
         ''' </summary>
         ''' <value>This property gets or sets the ControllingFaction field.</value>
-        ''' <returns>Returns the side that controls the zone.</returns>
-        ''' <remarks>This is a <see cref="Enums.Side" /> enumeration that represents the side that controls the zone.</remarks>
-        Public Property ControllingFaction As Side
+        ''' <returns>Returns the faction that controls the zone.</returns>
+        ''' <remarks>This is a <see cref="Enums.Faction" /> enumeration that represents the faction that controls the zone.</remarks>
+        Public Property ControllingFaction As Faction
 
         ''' <summary>
         ''' The status of the zone.
@@ -45,9 +45,9 @@ Namespace roncliProductions.LibWowAPI.Realm
         ''' <remarks>This represents the date and time of the next battle for the zone.</remarks>
         Public Property [Next] As Date
 
-        Friend Sub New(intArea As Integer, sControllingFaction As Side, pzsStatus As PvpZoneStatus, dtNext As Date)
+        Friend Sub New(intArea As Integer, fControllingFaction As Faction, pzsStatus As PvpZoneStatus, dtNext As Date)
             Area = intArea
-            ControllingFaction = sControllingFaction
+            ControllingFaction = fControllingFaction
             Status = pzsStatus
             [Next] = dtNext
         End Sub

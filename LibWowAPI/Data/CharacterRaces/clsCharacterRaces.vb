@@ -107,7 +107,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterRaces
 
             colRaces = (
                 From r In crRaces.races
-                Select New Race(r.id, r.mask, r.side.GetSide(), r.name)
+                Select New Race(r.id, r.mask, r.side.GetFaction(), r.name)
                 ).ToCollection()
         End Sub
 

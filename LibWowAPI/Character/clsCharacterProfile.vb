@@ -14,6 +14,7 @@ Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
+Imports roncliProductions.LibWowAPI.Guild
 
 Namespace roncliProductions.LibWowAPI.Character
 
@@ -127,7 +128,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 cpCharacter.thumbnail,
                 cpCharacter.calcClass,
                 If(cpCharacter.guild Is Nothing, Nothing,
-                    New Guild(
+                    New GuildBasicInfo(
                         cpCharacter.guild.name,
                         cpCharacter.guild.realm,
                         cpCharacter.guild.battlegroup,

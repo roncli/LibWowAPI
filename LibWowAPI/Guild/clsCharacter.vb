@@ -52,7 +52,7 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' </summary>
         ''' <value>This property gets or sets the Race field.</value>
         ''' <returns>Returns the character's race.</returns>
-        ''' <remarks>The character's race is represented by a <see cref="Data.CharacterRaces.Race" /> object.  See the <see cref="Data.CharacterRaces.Race.Name" /> property to get the name of the race, and the <see cref="Data.CharacterRaces.Race.Side" /> property to get the character's faction.</remarks>
+        ''' <remarks>The character's race is represented by a <see cref="Data.CharacterRaces.Race" /> object.  See the <see cref="Data.CharacterRaces.Race.Name" /> property to get the name of the race, and the <see cref="Data.CharacterRaces.Race.Faction" /> property to get the character's faction.</remarks>
         Public Property Race As Race
 
         ''' <summary>

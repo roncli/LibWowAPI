@@ -117,7 +117,7 @@ Namespace roncliProductions.LibWowAPI.PvP
                 atTeam.sessionGamesWon,
                 atTeam.sessionGamesLost,
                 atTeam.lastSessionRanking,
-                atTeam.side.GetSide(),
+                atTeam.side.GetFaction(),
                 atTeam.currentWeekRanking,
                 If(
                     atTeam.members Is Nothing, Nothing, (

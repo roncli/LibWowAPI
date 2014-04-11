@@ -119,12 +119,12 @@ Namespace roncliProductions.LibWowAPI.PvP
         Public Property LastSessionRanking As Integer
 
         ''' <summary>
-        ''' The side the team is on.
+        ''' The faction the team is on.
         ''' </summary>
-        ''' <value>This property gets or sets the Side field.</value>
-        ''' <returns>Returns the side the team is on.</returns>
-        ''' <remarks>This is a <see cref="Enums.Side" /> enumeration that tells what side the team is on.</remarks>
-        Public Property Side As Side
+        ''' <value>This property gets or sets the Faction field.</value>
+        ''' <returns>Returns the faction the team is on.</returns>
+        ''' <remarks>This is a <see cref="Enums.Faction" /> enumeration that tells what faction the team is on.</remarks>
+        Public Property Faction As Faction
 
         ''' <summary>
         ''' The team's ranking as of the previous Tuesday.
@@ -147,7 +147,7 @@ Namespace roncliProductions.LibWowAPI.PvP
             End Get
         End Property
 
-        Friend Sub New(strRealm As String, intRanking As Integer, intRating As Integer, intTeamSize As Integer, dtCreated As Date, strName As String, intGamesPlayed As Integer, intGamesWon As Integer, intGamesLost As Integer, intSessionGamesPlayed As Integer, intSessionGamesWon As Integer, intSessionGamesLost As Integer, intLastSessionRanking As Integer, sSide As Side, intCurrentWeekRanking As Integer, mMembers As Collection(Of Member))
+        Friend Sub New(strRealm As String, intRanking As Integer, intRating As Integer, intTeamSize As Integer, dtCreated As Date, strName As String, intGamesPlayed As Integer, intGamesWon As Integer, intGamesLost As Integer, intSessionGamesPlayed As Integer, intSessionGamesWon As Integer, intSessionGamesLost As Integer, intLastSessionRanking As Integer, fFaction As Faction, intCurrentWeekRanking As Integer, mMembers As Collection(Of Member))
             Realm = strRealm
             Ranking = intRanking
             Rating = intRating
@@ -161,7 +161,7 @@ Namespace roncliProductions.LibWowAPI.PvP
             SessionGamesWon = intSessionGamesWon
             SessionGamesLost = intSessionGamesLost
             LastSessionRanking = intLastSessionRanking
-            Side = sSide
+            Faction = fFaction
             CurrentWeekRanking = intCurrentWeekRanking
             colMembers = mMembers
         End Sub

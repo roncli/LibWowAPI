@@ -154,7 +154,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                                 )
                                             ).ToCollection(),
                                         a.accountWide,
-                                        CType(a.factionId, Side)
+                                        CType(a.factionId, Faction)
                                         )
                                     ).ToCollection()
                                 )
@@ -194,7 +194,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                     )
                                 ).ToCollection(),
                             a.accountWide,
-                            CType(a.factionId, Side)
+                            CType(a.factionId, Faction)
                             )
                         ).ToCollection()
                     )

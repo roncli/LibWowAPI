@@ -144,7 +144,7 @@ Namespace roncliProductions.LibWowAPI.Achievement
                         ).ToCollection()
                     ),
                 alAchievement.accountWide,
-                CType(alAchievement.factionId, Side)
+                CType(alAchievement.factionId, Faction)
                 )
         End Sub
 

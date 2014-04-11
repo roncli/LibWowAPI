@@ -140,6 +140,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Data.CharacterAchievements and Data.GuildAchievements to use the objects in the Achievements namespace.
  * Achievement criteria are now sorted by their OrderIndex property.
+ * All public references to Side have been changed to Faction.
+ * Refactored Character to use the guild basic info and emblem classes in the Guild namespace.
 
 ## Classes
 

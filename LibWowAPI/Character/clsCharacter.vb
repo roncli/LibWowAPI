@@ -7,6 +7,7 @@ Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
+Imports roncliProductions.LibWowAPI.Guild
 
 Namespace roncliProductions.LibWowAPI.Character
 
@@ -61,7 +62,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets or sets the Race field.</value>
         ''' <returns>Returns the character's race.</returns>
-        ''' <remarks>The character's race is represented by a <see cref="Data.CharacterRaces.Race" /> object.  See the <see cref="Data.CharacterRaces.Race.Name" /> property to get the name of the race, and the <see cref="Data.CharacterRaces.Race.Side" /> property to get the character's faction.</remarks>
+        ''' <remarks>The character's race is represented by a <see cref="Data.CharacterRaces.Race" /> object.  See the <see cref="Data.CharacterRaces.Race.Name" /> property to get the name of the race, and the <see cref="Data.CharacterRaces.Race.Faction" /> property to get the character's faction.</remarks>
         Public Property Race As Race
 
         ''' <summary>
@@ -109,8 +110,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets or sets the Guild field.</value>
         ''' <returns>Returns the character's guild.</returns>
-        ''' <remarks>If the <see cref="CharacterProfileOptions.Guild" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Guild" /> class will be available, containing information about the character's guild.</remarks>
-        Public Property Guild As Guild
+        ''' <remarks>If the <see cref="CharacterProfileOptions.Guild" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="GuildBasicInfo" /> class will be available, containing information about the character's guild.</remarks>
+        Public Property Guild As GuildBasicInfo
 
         ''' <summary>
         ''' The character's equipped items.
@@ -262,7 +263,7 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, gGuild As Guild, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -274,7 +275,7 @@ Namespace roncliProductions.LibWowAPI.Character
             AchievementPoints = intAchievementPoints
             Thumbnail = strThumbnail
             CalcClass = strCalcClass
-            Guild = gGuild
+            Guild = gbiGuild
             Items = iItems
             Stats = sStats
             Professions = pProfessions

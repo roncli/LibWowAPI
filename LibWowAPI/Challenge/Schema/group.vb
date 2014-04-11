@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Runtime.Serialization
+Imports roncliProductions.LibWowAPI.Guild.Schema
 
 Namespace roncliProductions.LibWowAPI.Challenge.Schema
 
@@ -16,7 +17,7 @@ Namespace roncliProductions.LibWowAPI.Challenge.Schema
         <DataMember()> Public Property faction As String
         <DataMember()> Public Property isRecurring As Boolean
         <DataMember()> Public Property members As member()
-        <DataMember()> Public Property guild As guild
+        <DataMember()> Public Property guild As guildBasicInfo
 
     End Class
 

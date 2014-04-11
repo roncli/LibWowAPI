@@ -134,7 +134,7 @@ Namespace roncliProductions.LibWowAPI.PvP
                     t.sessionGamesWon,
                     t.sessionGamesLost,
                     t.lastSessionRanking,
-                    t.side.GetSide(),
+                    t.side.GetFaction(),
                     t.currentWeekRanking,
                     (From m In t.members
                      Select New Member(

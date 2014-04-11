@@ -13,6 +13,7 @@ Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
+Imports roncliProductions.LibWowAPI.Guild
 
 Namespace roncliProductions.LibWowAPI.Challenge
 
@@ -122,7 +123,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
                             New TimeSpan(0, 0, 0, 0, g.time.time),
                             DateTime.Parse(g.date, CultureInfo.InvariantCulture),
                             g.medal,
-                            g.faction.GetSide(),
+                            g.faction.GetFaction(),
                             g.isRecurring,
                             (
                                 From m In g.members
@@ -163,7 +164,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
                                     )
                                 ).ToCollection(),
                             If(
-                                g.guild Is Nothing, Nothing, New Guild(
+                                g.guild Is Nothing, Nothing, New GuildBasicInfo(
                                     g.guild.name,
                                     g.guild.realm,
                                     g.guild.battlegroup,

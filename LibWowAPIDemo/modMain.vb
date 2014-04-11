@@ -476,7 +476,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each atTeam In alLadder.Teams
-                Console.WriteLine("{0}) {1} - {2} - {3} - {4}v{4} - Created: {5:M/d/yyyy}", atTeam.Ranking, atTeam.Realm, atTeam.Side, atTeam.Name, atTeam.TeamSize, atTeam.Created)
+                Console.WriteLine("{0}) {1} - {2} - {3} - {4}v{4} - Created: {5:M/d/yyyy}", atTeam.Ranking, atTeam.Realm, atTeam.Faction, atTeam.Name, atTeam.TeamSize, atTeam.Created)
                 Console.WriteLine("  Rating: {0}", atTeam.Rating)
                 Console.WriteLine("  Record: {0}-{1} ({2} played) - Session record: {3}-{4} ({5} played)", atTeam.GamesWon, atTeam.GamesLost, atTeam.GamesPlayed, atTeam.SessionGamesWon, atTeam.SessionGamesLost, atTeam.SessionGamesPlayed)
                 Console.WriteLine("  Current week ranking: {0} - Last session ranking: {1}", atTeam.CurrentWeekRanking, atTeam.LastSessionRanking)
@@ -571,7 +571,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("{0} - {1} - {2} - {3}v{3} - Created: {4:M/d/yyyy}", atTeam.Team.Realm, atTeam.Team.Side, atTeam.Team.Name, atTeam.Team.TeamSize, atTeam.Team.Created)
+            Console.WriteLine("{0} - {1} - {2} - {3}v{3} - Created: {4:M/d/yyyy}", atTeam.Team.Realm, atTeam.Team.Faction, atTeam.Team.Name, atTeam.Team.TeamSize, atTeam.Team.Created)
             Console.WriteLine("Rating: {0} - Ranking: {1}", atTeam.Team.Rating, atTeam.Team.Ranking)
             Console.WriteLine("Record: {0}-{1} ({2} played) - Session record: {3}-{4} ({5} played)", atTeam.Team.GamesWon, atTeam.Team.GamesLost, atTeam.Team.GamesPlayed, atTeam.Team.SessionGamesWon, atTeam.Team.SessionGamesLost, atTeam.Team.SessionGamesPlayed)
             Console.WriteLine("Current week ranking: {0} - Last session ranking: {1}", atTeam.Team.CurrentWeekRanking, atTeam.Team.LastSessionRanking)
@@ -1883,7 +1883,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each rRace In crRaces.Races
-                Console.WriteLine("{0}) {1} - {2} - Mask: {3}", rRace.ID, rRace.Name, rRace.Side, rRace.Mask)
+                Console.WriteLine("{0}) {1} - {2} - Mask: {3}", rRace.ID, rRace.Name, rRace.Faction, rRace.Mask)
             Next
 
             Console.WriteLine("Press any key to continue.")
@@ -2081,7 +2081,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("{0} - {1} - {2} - Level {3}", gpGuild.Guild.Realm, gpGuild.Guild.Side, gpGuild.Guild.Name, gpGuild.Guild.Level)
+            Console.WriteLine("{0} - {1} - {2} - Level {3}", gpGuild.Guild.Realm, gpGuild.Guild.Faction, gpGuild.Guild.Name, gpGuild.Guild.Level)
             Console.WriteLine("Battlegroup: {0}", gpGuild.Guild.Battlegroup)
             Console.WriteLine("Last updated: {0:M/d/yyyy h:mm:ss tt}", gpGuild.Guild.LastModified.ToLocalTime())
             Console.WriteLine("Guild Achievement Points: {0}", gpGuild.Guild.AchievementPoints)

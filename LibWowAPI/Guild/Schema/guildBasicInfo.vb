@@ -5,9 +5,9 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Challenge.Schema
+Namespace roncliProductions.LibWowAPI.Guild.Schema
 
-    <DataContract()> Friend Class guild
+    <DataContract()> Friend Class guildBasicInfo
 
         <DataMember()> Public Property name As String
         <DataMember()> Public Property realm As String

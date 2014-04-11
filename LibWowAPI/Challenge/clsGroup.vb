@@ -6,6 +6,7 @@
 Imports System
 Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Enums
+Imports roncliProductions.LibWowAPI.Guild
 
 Namespace roncliProductions.LibWowAPI.Challenge
 
@@ -53,7 +54,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <value>This property gets or sets the Faction field.</value>
         ''' <returns>Returns the faction the group belongs to.</returns>
         ''' <remarks>This represents the faction the group belongs to.</remarks>
-        Public Property Faction As Side
+        Public Property Faction As Faction
 
         ''' <summary>
         ''' Determines whether any of the members of this group have a higher ranking for this map.
@@ -82,17 +83,17 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <value>This property gets or sets the Guild field.</value>
         ''' <returns>Returns the guild the members in the group are from.</returns>
         ''' <remarks>This represents the guild the members in the group are from.</remarks>
-        Public Property Guild As Guild
+        Public Property Guild As GuildBasicInfo
 
-        Public Sub New(intRanking As Integer, tsTime As TimeSpan, dtDate As DateTime, strMedal As String, sFaction As Side, blnIsRecurring As Boolean, mMembers As Collection(Of Member), gGuild As Guild)
+        Public Sub New(intRanking As Integer, tsTime As TimeSpan, dtDate As DateTime, strMedal As String, fFaction As Faction, blnIsRecurring As Boolean, mMembers As Collection(Of Member), gbiGuild As GuildBasicInfo)
             Ranking = intRanking
             Time = tsTime
             [Date] = dtDate
             Medal = strMedal
-            Faction = sFaction
+            Faction = fFaction
             IsRecurring = blnIsRecurring
             colMembers = mMembers
-            Guild = gGuild
+            Guild = gbiGuild
         End Sub
 
     End Class

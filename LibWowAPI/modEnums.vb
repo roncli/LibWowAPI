@@ -66,10 +66,10 @@ Namespace roncliProductions.LibWowAPI.Enums
     End Enum
 
     ''' <summary>
-    ''' An enumeration to describe a side.
+    ''' An enumeration to describe a faction.
     ''' </summary>
     ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Data.CharacterRaces" /> class, among others, to identify which faction the character belongs to.</remarks>
-    Public Enum Side
+    Public Enum Faction
         Unknown = -1
         Alliance = 0
         Horde = 1
