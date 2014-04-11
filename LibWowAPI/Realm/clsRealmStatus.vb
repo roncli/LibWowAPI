@@ -140,7 +140,8 @@ Namespace roncliProductions.LibWowAPI.Realm
                     r.name,
                     r.slug,
                     r.battlegroup,
-                    r.locale
+                    r.locale,
+                    r.timezone
                     )
                 ).ToCollection()
         End Sub

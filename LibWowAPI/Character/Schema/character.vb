@@ -21,6 +21,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property achievementPoints As Integer
         <DataMember()> Public Property thumbnail As String
         <DataMember()> Public Property calcClass As String
+        <DataMember()> Public Property totalHonorableKills As Integer
         <DataMember()> Public Property guild As guildBasicInfo
         <DataMember()> Public Property items As items
         <DataMember()> Public Property stats As stats

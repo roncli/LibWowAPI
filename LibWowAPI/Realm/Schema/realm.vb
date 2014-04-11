@@ -19,6 +19,7 @@ Namespace roncliProductions.LibWowAPI.Realm.Schema
         <DataMember()> Public Property slug As String
         <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property locale As String
+        <DataMember()> Public Property timezone As String
 
     End Class
 

@@ -127,6 +127,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 cpCharacter.achievementPoints,
                 cpCharacter.thumbnail,
                 cpCharacter.calcClass,
+                cpCharacter.totalHonorableKills,
                 If(cpCharacter.guild Is Nothing, Nothing,
                     New GuildBasicInfo(
                         cpCharacter.guild.name,

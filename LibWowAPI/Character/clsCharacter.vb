@@ -106,6 +106,14 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property CalcClass As String
 
         ''' <summary>
+        ''' The total number of honorable kills the character has.
+        ''' </summary>
+        ''' <value>This property gets or sets the TotalHonorableKills field.</value>
+        ''' <returns>Returns the total number of honorable kills the character has.</returns>
+        ''' <remarks>This represents the total number of honorable kills the character has.</remarks>
+        Public Property TotalHonorableKills As Integer
+
+        ''' <summary>
         ''' The character's guild.
         ''' </summary>
         ''' <value>This property gets or sets the Guild field.</value>
@@ -263,7 +271,7 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -275,6 +283,7 @@ Namespace roncliProductions.LibWowAPI.Character
             AchievementPoints = intAchievementPoints
             Thumbnail = strThumbnail
             CalcClass = strCalcClass
+            TotalHonorableKills = intTotalHonorableKills
             Guild = gbiGuild
             Items = iItems
             Stats = sStats

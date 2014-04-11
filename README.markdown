@@ -136,6 +136,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added OwnerRealm, SuffixID, UniqueID, PetSpeciesID, PetBreed, PetLevel, and PetQuality to the auction data.
  * Added battle pet ability, species, and stats lookups. (BattlePet.BattlePetAbility, BattlePet.BattlePetSpecies, and BattlePet.BattlePetStats)
  * Added challenge mode leaderboards for realm and region. (Challenge.ChallengeRealm and Challenge.ChallengeRegion)
+ * Added TotalHonorableKills to the base character data.
+ * Added TimeZone to realms.
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Data.CharacterAchievements and Data.GuildAchievements to use the objects in the Achievements namespace.

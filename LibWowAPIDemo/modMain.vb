@@ -71,7 +71,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("24 - Quest Lookup")
                 Console.WriteLine("25 - Rated Battlegroup Ladder")
                 Console.WriteLine("26 - Realm Status")
-                Console.WriteLine("25 - Recipe Lookup")
+                Console.WriteLine("27 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -1213,7 +1213,7 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("{0} - {1} - Level {2} {3} {4} {5}", cpCharacter.Character.Realm, cpCharacter.Character.Name, cpCharacter.Character.Level, cpCharacter.Character.Gender, cpCharacter.Character.Race.Name, cpCharacter.Character.Class.Name)
             Console.WriteLine("Battlegroup: {0}", cpCharacter.Character.Battlegroup)
             Console.WriteLine("Last updated: {0:M/d/yyyy h:mm:ss tt}", cpCharacter.Character.LastModified.ToLocalTime())
-            Console.WriteLine("Achievement points: {0}", cpCharacter.Character.AchievementPoints)
+            Console.WriteLine("Achievement points: {0} - Total Honorable Kills: {1}", cpCharacter.Character.AchievementPoints, cpCharacter.Character.TotalHonorableKills)
             Console.WriteLine("Thumbnail: {0}", cpCharacter.Character.Thumbnail)
             Console.WriteLine()
 
@@ -2590,7 +2590,7 @@ Namespace roncliProductions.LibWowAPIDemo
 
             For Each rRealm In rsStatus.Realms
                 Console.WriteLine("{0} - {1} - Battlegroup: {2}", rRealm.Name, rRealm.Type, rRealm.Battlegroup)
-                Console.WriteLine("Population: {0} - Locale: {1}", rRealm.Population, rRealm.Locale)
+                Console.WriteLine("Population: {0} - Locale: {1} - Time Zone: {2}", rRealm.Population, rRealm.Locale, rRealm.TimeZone)
                 Console.WriteLine("Status: {0} - Queue: {1}", If(rRealm.Status, "Online", "Offline"), If(rRealm.Queue, "Yes", "No"))
                 Console.WriteLine("Wintergrasp: {0} controlled, next battle at {1:h:mm:ss tt} GMT, Status: {2}", rRealm.Wintergrasp.ControllingFaction, rRealm.Wintergrasp.Next, rRealm.Wintergrasp.Status)
                 Console.WriteLine("Tol Barad: {0} controlled, next battle at {1:h:mm:ss tt} GMT, Status: {2}", rRealm.TolBarad.ControllingFaction, rRealm.TolBarad.Next, rRealm.TolBarad.Status)

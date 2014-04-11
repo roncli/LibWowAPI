@@ -716,4 +716,29 @@ Namespace roncliProductions.LibWowAPI.Enums
         FemaleBalancedHealth = 22
     End Enum
 
+    ''' <summary>
+    ''' An enumeration to describe a character's equipment slot.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum EquipmentSlot
+        Unknwon = -1
+        Head = 0
+        Shoulders = 2
+        Shirt = 3
+        Chest = 4
+        Waist = 5
+        Lets = 6
+        Feet = 7
+        Wrist = 8
+        Hands = 9
+        Finger1 = 10
+        Finger2 = 11
+        Trinket1 = 12
+        Trinket2 = 13
+        Back = 14
+        MainHand = 15
+        OffHand = 16
+        Tabard = 18
+    End Enum
+
 End Namespace

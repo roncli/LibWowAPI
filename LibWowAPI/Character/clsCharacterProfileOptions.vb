@@ -28,60 +28,12 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Name As String
 
         ''' <summary>
-        ''' Determines whether to retrieve the guild the character is in.
+        ''' Determines whether to retrieve the character's completed achievements and achievement criteria.
         ''' </summary>
-        ''' <value>This property gets or sets the Guild field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the guild the character is in.</returns>
-        ''' <remarks>When set to true, the API will return information about the character's guild.</remarks>
-        Public Property Guild As Boolean = False
-
-        ''' <summary>
-        ''' Determines whether to retrieve the character's combat statistics.
-        ''' </summary>
-        ''' <value>This property gets or sets the Stats field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's combat statistics.</returns>
-        ''' <remarks>When set to true, the API will return information about the character's combat statistics.</remarks>
-        Public Property Stats As Boolean = False
-
-        ''' <summary>
-        ''' Determines whether to retrieve the character's talent specs.
-        ''' </summary>
-        ''' <value>This property gets or sets the Talents field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's talent specs.</returns>
-        ''' <remarks>When set to true, the API will return information about the character's talent specs.</remarks>
-        Public Property Talents As Boolean = False
-
-        ''' <summary>
-        ''' Determines whether to retrieve the character's equipped items.
-        ''' </summary>
-        ''' <value>This property gets or sets the Items field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's equipped items.</returns>
-        ''' <remarks>When set to true, the API will return information about the character's equipped items.</remarks>
-        Public Property Items As Boolean = False
-
-        ''' <summary>
-        ''' Determines whether to retrieve the character's faction reputations.
-        ''' </summary>
-        ''' <value>This property gets or sets the Reputation field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's faction reputations.</returns>
-        ''' <remarks>When set to true, the API will return information about the character's faction reputations.</remarks>
-        Public Property Reputation As Boolean = False
-
-        ''' <summary>
-        ''' Determines whether to retrieve the character's known titles.
-        ''' </summary>
-        ''' <value>This property gets or sets the Titles field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's known titles.</returns>
-        ''' <remarks>When set to true, the API will return the character's known titles.</remarks>
-        Public Property Titles As Boolean = False
-
-        ''' <summary>
-        ''' Determines whether to retrieve the character's professions.
-        ''' </summary>
-        ''' <value>This property gets or sets the Professions field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's professions.</returns>
-        ''' <remarks>When set to true, the API will return the character's professions.</remarks>
-        Public Property Professions As Boolean = False
+        ''' <value>This property gets or sets the Achievements field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's completed achievements and achievement criteria.</returns>
+        ''' <remarks>When set to true, the API will return information about the character's completed achievements and achievement criteria.</remarks>
+        Public Property Achievements As Boolean = False
 
         ''' <summary>
         ''' Determines whether to retrieve the character's appearance.
@@ -91,16 +43,21 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>When set to true, the API will return information about the character's appearance.</remarks>
         Public Property Appearance As Boolean = False
 
-        ' TODO: Add pets and petSlots
-        ' Public Property Companions As Boolean = False
+        ''' <summary>
+        ''' Determines whether to retrieve the character's feed.
+        ''' </summary>
+        ''' <value>This property gets or sets the Feed field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's feed.</returns>
+        ''' <remarks>When set to true, the API will return the character's feed.</remarks>
+        Public Property Feed As Boolean = False
 
         ''' <summary>
-        ''' Determines whether to retrieve the character's mounts.
+        ''' Determines whether to retrieve the guild the character is in.
         ''' </summary>
-        ''' <value>This property gets or sets the Mounts field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's mounts.</returns>
-        ''' <remarks>When set to true, the API will return the character's mounts.</remarks>
-        Public Property Mounts As Boolean = False
+        ''' <value>This property gets or sets the Guild field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the guild the character is in.</returns>
+        ''' <remarks>When set to true, the API will return information about the character's guild.</remarks>
+        Public Property Guild As Boolean = False
 
         ''' <summary>
         ''' Determines whether to retrieve the character's hunter pets.
@@ -111,12 +68,44 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property HunterPets As Boolean = False
 
         ''' <summary>
-        ''' Determines whether to retrieve the character's completed achievements and achievement criteria.
+        ''' Determines whether to retrieve the character's equipped items.
         ''' </summary>
-        ''' <value>This property gets or sets the Achievements field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's completed achievements and achievement criteria.</returns>
-        ''' <remarks>When set to true, the API will return information about the character's completed achievements and achievement criteria.</remarks>
-        Public Property Achievements As Boolean = False
+        ''' <value>This property gets or sets the Items field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's equipped items.</returns>
+        ''' <remarks>When set to true, the API will return information about the character's equipped items.</remarks>
+        Public Property Items As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's mounts.
+        ''' </summary>
+        ''' <value>This property gets or sets the Mounts field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's mounts.</returns>
+        ''' <remarks>When set to true, the API will return the character's mounts.</remarks>
+        Public Property Mounts As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's pets.
+        ''' </summary>
+        ''' <value>This property gets or sets the Pets field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's pets.</returns>
+        ''' <remarks>When set to true, the API will return the character's pets.</remarks>
+        Public Property Pets As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's battle pet slots.
+        ''' </summary>
+        ''' <value>This property gets or sets the PetSlots field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's battle pet slots.</returns>
+        ''' <remarks>When set to true, the API will return the character's battle pet slots.</remarks>
+        Public Property PetSlots As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's professions.
+        ''' </summary>
+        ''' <value>This property gets or sets the Professions field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's professions.</returns>
+        ''' <remarks>When set to true, the API will return the character's professions.</remarks>
+        Public Property Professions As Boolean = False
 
         ''' <summary>
         ''' Determines whether to retrieve the character's instance progression.
@@ -143,12 +132,44 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Quests As Boolean = False
 
         ''' <summary>
-        ''' Determines whether to retrieve the character's feed.
+        ''' Determines whether to retrieve the character's faction reputations.
         ''' </summary>
-        ''' <value>This property gets or sets the Feed field.</value>
-        ''' <returns>Returns a boolean that determines whether to retrieve the character's feed.</returns>
-        ''' <remarks>When set to true, the API will return the character's feed.</remarks>
-        Public Property Feed As Boolean = False
+        ''' <value>This property gets or sets the Reputation field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's faction reputations.</returns>
+        ''' <remarks>When set to true, the API will return information about the character's faction reputations.</remarks>
+        Public Property Reputation As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's combat statistics.
+        ''' </summary>
+        ''' <value>This property gets or sets the Stats field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's combat statistics.</returns>
+        ''' <remarks>When set to true, the API will return information about the character's combat statistics.</remarks>
+        Public Property Stats As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's talent specs.
+        ''' </summary>
+        ''' <value>This property gets or sets the Talents field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's talent specs.</returns>
+        ''' <remarks>When set to true, the API will return information about the character's talent specs.</remarks>
+        Public Property Talents As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's known titles.
+        ''' </summary>
+        ''' <value>This property gets or sets the Titles field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's known titles.</returns>
+        ''' <remarks>When set to true, the API will return the character's known titles.</remarks>
+        Public Property Titles As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the character's audit data.
+        ''' </summary>
+        ''' <value>This property gets or sets the Audit field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the character's audit data.</returns>
+        ''' <remarks>When set to true, the API will return the character's audit data.</remarks>
+        Public Property Audit As Boolean = False
 
         Friend Sub New()
         End Sub
