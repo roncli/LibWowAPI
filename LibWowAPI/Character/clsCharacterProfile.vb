@@ -596,7 +596,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                 p.spec.order
                                 )
                             ),
-                        p.calcSpec
+                        p.calcSpec,
+                        p.familyId,
+                        p.familyName
                         )
                     ).ToCollection()
                 ),

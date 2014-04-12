@@ -15,6 +15,8 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property slot As Integer
         <DataMember()> Public Property spec As spec
         <DataMember()> Public Property calcSpec As String
+        <DataMember()> Public Property familyId As Integer
+        <DataMember()> Public Property familyName As String
 
     End Class
 

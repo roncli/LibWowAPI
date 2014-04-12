@@ -59,13 +59,31 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This is the optional third character in the first field of the parameter for the talent calculator.</remarks>
         Public Property CalcSpec As String
 
-        Friend Sub New(strName As String, intCreature As Integer, blnSelected As Boolean, intSlot As Integer, sSpec As Spec, strCalcSpec As String)
+        ''' <summary>
+        ''' The ID number of the pet family.
+        ''' </summary>
+        ''' <value>This property gets or sets the FamilyID field.</value>
+        ''' <returns>Returns the ID number of the pet family.</returns>
+        ''' <remarks>This represents the ID number of the pet family.</remarks>
+        Public Property FamilyID As Integer
+
+        ''' <summary>
+        ''' The name of the pet family.
+        ''' </summary>
+        ''' <value>This property gets or sets the FamilyName field.</value>
+        ''' <returns>Returns the name of the pet family.</returns>
+        ''' <remarks>This represents the name of the pet family.</remarks>
+        Public Property FamilyName As String
+
+        Friend Sub New(strName As String, intCreature As Integer, blnSelected As Boolean, intSlot As Integer, sSpec As Spec, strCalcSpec As String, intFamilyID As Integer, strFamilyName As String)
             Name = strName
             Creature = intCreature
             Selected = blnSelected
             Slot = intSlot
             Spec = sSpec
             CalcSpec = strCalcSpec
+            FamilyID = intFamilyID
+            FamilyName = strFamilyName
         End Sub
 
     End Class

@@ -1785,7 +1785,7 @@ Namespace roncliProductions.LibWowAPIDemo
             If cpCharacter.Character.HunterPets IsNot Nothing Then
                 Console.WriteLine("Hunter Pets:")
                 For Each hpHunterPet In cpCharacter.Character.HunterPets
-                    Console.WriteLine("  {0} - Creature: {1} - Slot: {2}", hpHunterPet.Name, hpHunterPet.Creature, hpHunterPet.Slot)
+                    Console.WriteLine("  {0} - Creature: {1} - Family: {2} - Slot: {3}", hpHunterPet.Name, hpHunterPet.Creature, hpHunterPet.FamilyName, hpHunterPet.Slot)
                     If hpHunterPet.Spec IsNot Nothing Then
                         Console.WriteLine("    Spec:")
                         Console.WriteLine("      {0} - {1}", hpHunterPet.Spec.Name, hpHunterPet.Spec.Role)
