@@ -10,6 +10,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
@@ -113,7 +114,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                     r.races.GetRaces(),
                     If(
                         r.achievement Is Nothing, Nothing,
-                        New Achievement(
+                        New Achievement.Achievement(
                             r.achievement.id,
                             r.achievement.title,
                             r.achievement.points,
@@ -126,7 +127,9 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                                         ri.id,
                                         ri.name,
                                         ri.icon,
-                                        CType(ri.quality, Quality)
+                                        CType(ri.quality, Quality),
+                                        ri.itemLevel,
+                                        ri.armor
                                         )
                                     ).ToCollection()
                                 ),
@@ -140,14 +143,17 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                                     c.max
                                     )
                                 ).ToCollection(),
-                            r.achievement.accountWide
+                            r.achievement.accountWide,
+                            CType(r.achievement.factionId, Faction)
                             )
                         ),
                     New RewardItem(
                         r.item.id,
                         r.item.name,
                         r.item.icon,
-                        CType(r.item.quality, Quality)
+                        CType(r.item.quality, Quality),
+                        r.item.itemLevel,
+                        r.item.armor
                         )
                     )
                 ).ToCollection()

@@ -141,7 +141,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added Guild and GuildRealm to characters displayed within the Guild class.  No, I don't understand why they added redundant information, either.
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
- * Refactored Character.Character, Data.CharacterAchievements, Data.GuildAchievements, and Guild.Guild to use the objects in the Achievements namespace.
+ * Refactored Character.Character, Data.CharacterAchievements, Data.GuildAchievements, Data.GuildRewards, and Guild.Guild to use the objects in the Achievements namespace for achievements, crtieria, and reward items.
  * Achievement criteria are now sorted by their OrderIndex property.
  * All public references to Side have been changed to Faction.
  * Refactored Character to use the guild basic info and emblem classes in the Guild namespace.

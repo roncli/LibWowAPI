@@ -210,8 +210,6 @@
     <Compile Include="Data\CharacterRaces\clsCharacterRaces.vb" />
     <Compile Include="Data\CharacterRaces\clsRace.vb" />
     <Compile Include="Data\GuildAchievements\clsGuildAchievements.vb" />
-    <Compile Include="Data\GuildRewards\clsCriteria.vb" />
-    <Compile Include="Data\GuildRewards\Schema\criteria.vb" />
     <Compile Include="Data\ItemClasses\clsSubclass.vb" />
     <Compile Include="Data\ItemClasses\Schema\subclass.vb" />
     <Compile Include="Guild\clsNewsAchievement.vb" />
@@ -255,12 +253,10 @@
     <Compile Include="Item\Schema\socketInfo.vb" />
     <Compile Include="Item\Schema\type.vb" />
     <Compile Include="Item\Schema\weaponInfo.vb" />
-    <Compile Include="Data\GuildRewards\clsAchievement.vb" />
     <Compile Include="Data\GuildPerks\clsGuildPerks.vb" />
     <Compile Include="Data\GuildPerks\clsPerk.vb" />
     <Compile Include="Data\GuildPerks\clsSpell.vb" />
     <Compile Include="Data\GuildRewards\clsGuildRewards.vb" />
-    <Compile Include="Data\GuildRewards\clsRewardItem.vb" />
     <Compile Include="Data\GuildRewards\clsReward.vb" />
     <Compile Include="Data\ItemClasses\clsClass.vb" />
     <Compile Include="Data\ItemClasses\clsItemClasses.vb" />
@@ -271,8 +267,6 @@
     <Compile Include="Data\GuildPerks\Schema\perk.vb" />
     <Compile Include="Data\GuildPerks\Schema\perks.vb" />
     <Compile Include="Data\GuildPerks\Schema\spell.vb" />
-    <Compile Include="Data\GuildRewards\Schema\achievement.vb" />
-    <Compile Include="Data\GuildRewards\Schema\item.vb" />
     <Compile Include="Data\GuildRewards\Schema\reward.vb" />
     <Compile Include="Data\GuildRewards\Schema\rewards.vb" />
     <Compile Include="Data\GuildRewards\Schema\tooltipParams.vb" />

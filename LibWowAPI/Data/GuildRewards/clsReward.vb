@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
 
@@ -50,7 +51,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
         ''' <value>This property gets or sets the Achievement.</value>
         ''' <returns>Returns the guild achievement that unlocks the reward.</returns>
         ''' <remarks>This is a <see cref="Achievement" /> object that details the achievement required to unlock the reward.</remarks>
-        Public Property Achievement As Achievement
+        Public Property Achievement As Achievement.Achievement
 
         ''' <summary>
         ''' The guild reward item.
@@ -60,7 +61,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
         ''' <remarks>This is a <see cref="RewardItem" /> object that contains details about the rewarded item.</remarks>
         Public Property RewardItem As RewardItem
 
-        Friend Sub New(intRequiredGuildLevel As Integer, sRequiredGuildStanding As Standing, rRaces As Collection(Of Race), aAchievement As Achievement, riRewardItem As RewardItem)
+        Friend Sub New(intRequiredGuildLevel As Integer, sRequiredGuildStanding As Standing, rRaces As Collection(Of Race), aAchievement As Achievement.Achievement, riRewardItem As RewardItem)
             RequiredGuildLevel = intRequiredGuildLevel
             RequiredGuildStanding = sRequiredGuildStanding
             colRaces = rRaces

@@ -2161,7 +2161,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each rReward In grRewards.Rewards
-                Console.WriteLine("{0} - ID: {1} - Quality: {2}", rReward.RewardItem.Name, rReward.RewardItem.ID, rReward.RewardItem.Quality)
+                Console.WriteLine("{0} - ID: {1} - Quality: {2} - iLevel: {3} - Armor: {4}", rReward.RewardItem.Name, rReward.RewardItem.ID, rReward.RewardItem.Quality, rReward.RewardItem.ItemLevel, rReward.RewardItem.Armor)
                 If rReward.RequiredGuildLevel > 0 Then
                     Console.WriteLine("Required Guild Level: {0}", rReward.RequiredGuildLevel)
                 End If
@@ -2180,7 +2180,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                     If rReward.Achievement.RewardItems IsNot Nothing Then
                         For Each riItem In rReward.Achievement.RewardItems
-                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                            Console.WriteLine("      {0} - ID: {1} - Quality: {2} - iLevel: {3} - Armor: {4}", riItem.Name, riItem.ID, riItem.Quality, riItem.ItemLevel, riItem.Armor)
                         Next
                     End If
                     If rReward.Achievement.Criteria IsNot Nothing Then
