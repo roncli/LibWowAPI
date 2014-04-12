@@ -3,6 +3,7 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Character
@@ -46,6 +47,14 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property Quality As Quality
 
         ''' <summary>
+        ''' The item level of the item.
+        ''' </summary>
+        ''' <value>This property gets or sets the ItemLevel field.</value>
+        ''' <returns>Returns the item level of the item.</returns>
+        ''' <remarks>This is the item level of the item.</remarks>
+        Public Property ItemLevel As Integer
+
+        ''' <summary>
         ''' Parameters belonging to this specific instance of the item.
         ''' </summary>
         ''' <value>This property gets or sets the TooltipParams field.</value>
@@ -53,12 +62,36 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This is a <see cref="TooltipParams" /> object that describes extra parameters specific to this instance of the item.</remarks>
         Public Property TooltipParams As TooltipParams
 
-        Friend Sub New(intID As Integer, strName As String, strIcon As String, qQuality As Quality, tpTooltipParams As TooltipParams)
+        Private colStats As Collection(Of Stat)
+        ''' <summary>
+        ''' The stats available on the item.
+        ''' </summary>
+        ''' <value>This property gets the Stats field.</value>
+        ''' <returns>Returns the stats available on the item.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of Stat)" /> of <see cref="Stat" /> objects that represent the stats available on the item.</remarks>
+        Public ReadOnly Property Stats As Collection(Of Stat)
+            Get
+                Return colStats
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' The amount of armor on the item.
+        ''' </summary>
+        ''' <value>This property gets or sets the Armor field.</value>
+        ''' <returns>Returns the amount of armor on the item.</returns>
+        ''' <remarks>This is the amount of armor on the item.</remarks>
+        Public Property Armor As Integer
+
+        Friend Sub New(intID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, sStats As Collection(Of Stat), intArmor As Integer)
             ID = intID
             Name = strName
             Icon = strIcon
             Quality = qQuality
+            ItemLevel = intItemLevel
             TooltipParams = tpTooltipParams
+            colStats = sStats
+            Armor = intArmor
         End Sub
 
     End Class

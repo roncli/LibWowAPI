@@ -87,7 +87,15 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This is the ID number of the item this item is transmogrified into.</remarks>
         Public Property TransmogItem As Integer
 
-        Friend Sub New(intGems As Collection(Of Integer), intSuffix As Integer, intSeed As Integer, intEnchant As Integer, blnExtraSocket As Boolean, intSet As Collection(Of Integer), intReforge As Integer, intTransmogItem As Integer)
+        ''' <summary>
+        ''' Information about the upgrades on the item.
+        ''' </summary>
+        ''' <value>This property gets or sets the Upgrade field.</value>
+        ''' <returns>Returns information about the upgrades on the item.</returns>
+        ''' <remarks>This represents information about the upgrades on the item.</remarks>
+        Public Property Upgrade As Upgrade
+
+        Friend Sub New(intGems As Collection(Of Integer), intSuffix As Integer, intSeed As Integer, intEnchant As Integer, blnExtraSocket As Boolean, intSet As Collection(Of Integer), intReforge As Integer, intTransmogItem As Integer, uUpgrade As Upgrade)
             colGems = intGems
             Suffix = intSuffix
             Seed = intSeed
@@ -96,6 +104,7 @@ Namespace roncliProductions.LibWowAPI.Character
             colSet = intSet
             Reforge = intReforge
             TransmogItem = intTransmogItem
+            Upgrade = uUpgrade
         End Sub
 
     End Class

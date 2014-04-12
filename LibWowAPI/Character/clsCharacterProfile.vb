@@ -155,6 +155,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.head.name,
                                 cpCharacter.items.head.icon,
                                 CType(cpCharacter.items.head.quality, Quality),
+                                cpCharacter.items.head.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.head.tooltipParams.gem0, cpCharacter.items.head.tooltipParams.gem1, cpCharacter.items.head.tooltipParams.gem2),
                                     cpCharacter.items.head.tooltipParams.suffix,
@@ -163,8 +164,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.head.tooltipParams.extraSocket,
                                     If(cpCharacter.items.head.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.head.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.head.tooltipParams.reforge,
-                                    cpCharacter.items.head.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.head.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.head.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.head.tooltipParams.upgrade.current,
+                                            cpCharacter.items.head.tooltipParams.upgrade.total,
+                                            cpCharacter.items.head.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.head.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.head.armor
                                 )
                             ),
                         If(cpCharacter.items.neck Is Nothing, Nothing,

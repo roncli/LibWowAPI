@@ -13,7 +13,10 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property name As String
         <DataMember()> Public Property icon As String
         <DataMember()> Public Property quality As Integer
+        <DataMember()> Public Property itemLevel As Integer
         <DataMember()> Public Property tooltipParams As tooltipParams
+        <DataMember()> Public Property stats As stat()
+        <DataMember()> Public Property armor As Integer
 
     End Class
 
