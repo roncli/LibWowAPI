@@ -94,6 +94,14 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property RangedAttackPower As Integer
 
         ''' <summary>
+        ''' The character's bonus to PvP resilience.
+        ''' </summary>
+        ''' <value>This property gets or sets the PvpResilienceBonus field.</value>
+        ''' <returns>Returns the character's bonus to PvP resilience.</returns>
+        ''' <remarks>This represents the character's bonus to PvP resilience.</remarks>
+        Public Property PvpResilienceBonus As Double
+
+        ''' <summary>
         ''' The character's mastery.
         ''' </summary>
         ''' <value>This property gets or sets the Mastery field.</value>
@@ -142,12 +150,28 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property HitRating As Integer
 
         ''' <summary>
+        ''' The character's percentage increase in haste.
+        ''' </summary>
+        ''' <value>This property gets or sets the Haste field.</value>
+        ''' <returns>Returns the character's percentage increase in haste.</returns>
+        ''' <remarks>This represents the character's increase in haste.  Use the <see cref="HasteRatingPercent" /> property for a slightly more precise percentage.</remarks>
+        Public Property Haste As Double
+
+        ''' <summary>
         ''' The character's haste rating.
         ''' </summary>
         ''' <value>This property gets or sets the HasteRating field.</value>
         ''' <returns>Returns the character's haste rating.</returns>
-        ''' <remarks>This represents the amount of haste rating the character has.  Note that haste percentage, ranged haste percentage, and spell haste percentage are not currently provided by the API.</remarks>
+        ''' <remarks>This represents the amount of haste rating the character has.</remarks>
         Public Property HasteRating As Integer
+
+        ''' <summary>
+        ''' The character's percentage increase in haste.
+        ''' </summary>
+        ''' <value>This property gets or sets the HasteRatingPercent field.</value>
+        ''' <returns>Returns the character's percentage increase in haste.</returns>
+        ''' <remarks>This represents the character's increase in haste.  This is slightly more precise than the <see cref="Haste" /> property.</remarks>
+        Public Property HasteRatingPercent As Double
 
         ''' <summary>
         ''' The character's expertise rating.
@@ -221,6 +245,29 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This represents the amount of mana the character regenerates in combat every 5 seconds.</remarks>
         Public Property Mana5Combat As Double
 
+        ''' <summary>
+        ''' The character's percentage increase in spell haste.
+        ''' </summary>
+        ''' <value>This property gets or sets the SpellHaste field.</value>
+        ''' <returns>Returns the character's percentage increase in spell haste.</returns>
+        ''' <remarks>This represents the character's increase in spell haste.  Use the <see cref="SpellHasteRatingPercent" /> property for a slightly more precise percentage.</remarks>
+        Public Property SpellHaste As Double
+
+        ''' <summary>
+        ''' The character's spell haste rating.
+        ''' </summary>
+        ''' <value>This property gets or sets the SpellHasteRating field.</value>
+        ''' <returns>Returns the character's spell haste rating.</returns>
+        ''' <remarks>This represents the amount of spell haste rating the character has.</remarks>
+        Public Property SpellHasteRating As Integer
+
+        ''' <summary>
+        ''' The character's percentage increase in spell haste.
+        ''' </summary>
+        ''' <value>This property gets or sets the SpellHasteRatingPercent field.</value>
+        ''' <returns>Returns the character's percentage increase in spell haste.</returns>
+        ''' <remarks>This represents the character's increase in spell haste.  This is slightly more precise than the <see cref="SpellHaste" /> property.</remarks>
+        Public Property SpellHasteRatingPercent As Double
         ''' <summary>
         ''' The character's armor.
         ''' </summary>
@@ -406,6 +453,14 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property RangedDps As Double
 
         ''' <summary>
+        ''' The character's ranged weapon expertise.
+        ''' </summary>
+        ''' <value>This property gets or sets the RangedExpertise field.</value>
+        ''' <returns>Returns the character's ranged weapon expertise.</returns>
+        ''' <remarks>This represents the character's ranged weapon expertise.</remarks>
+        Public Property RangedExpertise As Double
+
+        ''' <summary>
         ''' The character's percentage chance to critically strike with a ranged attack.
         ''' </summary>
         ''' <value>This property gets or sets the RangedCrit field.</value>
@@ -438,6 +493,30 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property RangedHitRating As Integer
 
         ''' <summary>
+        ''' The character's percentage increase in ranged haste.
+        ''' </summary>
+        ''' <value>This property gets or sets the RangedHaste field.</value>
+        ''' <returns>Returns the character's percentage increase in ranged haste.</returns>
+        ''' <remarks>This represents the character's increase in ranged haste.  Use the <see cref="RangedHasteRatingPercent" /> property for a slightly more precise percentage.</remarks>
+        Public Property RangedHaste As Double
+
+        ''' <summary>
+        ''' The character's ranged haste rating.
+        ''' </summary>
+        ''' <value>This property gets or sets the RangedHasteRating field.</value>
+        ''' <returns>Returns the character's ranged haste rating.</returns>
+        ''' <remarks>This represents the amount of ranged haste rating the character has.</remarks>
+        Public Property RangedHasteRating As Integer
+
+        ''' <summary>
+        ''' The character's percentage increase in ranged haste.
+        ''' </summary>
+        ''' <value>This property gets or sets the RangedHasteRatingPercent field.</value>
+        ''' <returns>Returns the character's percentage increase in ranged haste.</returns>
+        ''' <remarks>This represents the character's increase in ranged haste.  This is slightly more precise than the <see cref="RangedHaste" /> property.</remarks>
+        Public Property RangedHasteRatingPercent As Double
+
+        ''' <summary>
         ''' The character's percentage PvP power.
         ''' </summary>
         ''' <value>This property gets or sets the PvpPower field.</value>
@@ -453,7 +532,23 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This represents the character's PvP power rating.</remarks>
         Public Property PvpPowerRating As Integer
 
-        Friend Sub New(intHealth As Integer, ptPowerType As PowerType, intPower As Integer, intStr As Integer, intAgi As Integer, intSta As Integer, intInt As Integer, intSpr As Integer, intAttackPower As Integer, intRangedAttackPower As Integer, dblMastery As Double, intMasteryRating As Integer, dblCrit As Double, intCritRating As Integer, dblHitPercent As Double, intHitRating As Integer, intHasteRating As Integer, intExpertiseRating As Integer, intSpellPower As Integer, intSpellPen As Integer, dblSpellCrit As Double, intSpellCritRating As Integer, dblSpellHitPercent As Double, intSpellHitRating As Integer, dblMana5 As Double, dblMana5Combat As Double, intArmor As Integer, dblDodge As Double, intDodgeRating As Integer, dblParry As Double, intParryRating As Integer, dblBlock As Double, intBlockRating As Integer, dblPvpResilience As Double, intPvpResilienceRating As Integer, dblMainHandDmgMin As Double, dblMainHandDmgMax As Double, dblMainHandSpeed As Double, dblMainHandDps As Double, dblMainHandExpertise As Double, dblOffHandDmgMin As Double, dblOffHandDmgMax As Double, dblOffHandSpeed As Double, dblOffHandDps As Double, dblOffHandExpertise As Double, dblRangedDmgMin As Double, dblRangedDmgMax As Double, dblRangedSpeed As Double, dblRangedDps As Double, dblRangedCrit As Double, intRangedCritRating As Integer, dblRangedHitPercent As Double, intRangedHitRating As Integer, dblPvpPower As Double, intPvpPowerRating As Integer)
+        ''' <summary>
+        ''' The character's PvP power damage.
+        ''' </summary>
+        ''' <value>This property gets or sets the PvpPowerDamage field.</value>
+        ''' <returns>Returns the character's PvP power damage.</returns>
+        ''' <remarks>This represents the character's PvP power damage.</remarks>
+        Public Property PvpPowerDamage As Double
+
+        ''' <summary>
+        ''' The character's PvP power healing.
+        ''' </summary>
+        ''' <value>This property gets or sets the PvpPowerHealing field.</value>
+        ''' <returns>Returns the character's PvP power healing.</returns>
+        ''' <remarks>This represents the character's PvP power healing.</remarks>
+        Public Property PvpPowerHealing As Double
+
+        Friend Sub New(intHealth As Integer, ptPowerType As PowerType, intPower As Integer, intStr As Integer, intAgi As Integer, intSta As Integer, intInt As Integer, intSpr As Integer, intAttackPower As Integer, intRangedAttackPower As Integer, dblPvpResilienceBonus As Double, dblMastery As Double, intMasteryRating As Integer, dblCrit As Double, intCritRating As Integer, dblHitPercent As Double, intHitRating As Integer, dblHaste As Double, intHasteRating As Integer, dblHasteRatingPercent As Double, intExpertiseRating As Integer, intSpellPower As Integer, intSpellPen As Integer, dblSpellCrit As Double, intSpellCritRating As Integer, dblSpellHitPercent As Double, intSpellHitRating As Integer, dblMana5 As Double, dblMana5Combat As Double, dblSpellHaste As Double, intSpellHasteRating As Integer, dblSpellHasteRatingPercent As Double, intArmor As Integer, dblDodge As Double, intDodgeRating As Integer, dblParry As Double, intParryRating As Integer, dblBlock As Double, intBlockRating As Integer, dblPvpResilience As Double, intPvpResilienceRating As Integer, dblMainHandDmgMin As Double, dblMainHandDmgMax As Double, dblMainHandSpeed As Double, dblMainHandDps As Double, dblMainHandExpertise As Double, dblOffHandDmgMin As Double, dblOffHandDmgMax As Double, dblOffHandSpeed As Double, dblOffHandDps As Double, dblOffHandExpertise As Double, dblRangedDmgMin As Double, dblRangedDmgMax As Double, dblRangedSpeed As Double, dblRangedDps As Double, dblRangedExpertise As Double, dblRangedCrit As Double, intRangedCritRating As Integer, dblRangedHitPercent As Double, intRangedHitRating As Integer, dblRangedHaste As Double, intRangedHasteRating As Integer, dblRangedHasteRatingPercent As Double, dblPvpPower As Double, intPvpPowerRating As Integer, dblPvpPowerDamage As Double, dblPvpPowerHealing As Double)
             Health = intHealth
             PowerType = ptPowerType
             Power = intPower
@@ -464,13 +559,16 @@ Namespace roncliProductions.LibWowAPI.Character
             Spr = intSpr
             AttackPower = intAttackPower
             RangedAttackPower = intRangedAttackPower
+            PvpResilienceBonus = dblPvpResilienceBonus
             Mastery = dblMastery
             MasteryRating = intMasteryRating
             Crit = dblCrit
             CritRating = intCritRating
             HitPercent = dblHitPercent
             HitRating = intHitRating
+            Haste = dblHaste
             HasteRating = intHasteRating
+            HasteRatingPercent = dblHasteRatingPercent
             ExpertiseRating = intExpertiseRating
             SpellPower = intSpellPower
             SpellPen = intSpellPen
@@ -480,6 +578,9 @@ Namespace roncliProductions.LibWowAPI.Character
             SpellHitRating = intSpellHitRating
             Mana5 = dblMana5
             Mana5Combat = dblMana5Combat
+            SpellHaste = dblSpellHaste
+            SpellHasteRating = intSpellHasteRating
+            SpellHasteRatingPercent = dblSpellHasteRatingPercent
             Armor = intArmor
             Dodge = dblDodge
             DodgeRating = intDodgeRating
@@ -503,12 +604,18 @@ Namespace roncliProductions.LibWowAPI.Character
             RangedDmgMax = dblRangedDmgMax
             RangedSpeed = dblRangedSpeed
             RangedDps = dblRangedDps
+            RangedExpertise = dblRangedExpertise
             RangedCrit = dblRangedCrit
             RangedCritRating = intRangedCritRating
             RangedHitPercent = dblRangedHitPercent
             RangedHitRating = intRangedHitRating
+            RangedHaste = dblRangedHaste
+            RangedHasteRating = intRangedHasteRating
+            RangedHasteRatingPercent = dblRangedHasteRatingPercent
             PvpPower = dblPvpPower
             PvpPowerRating = intPvpPowerRating
+            PvpPowerDamage = dblPvpPowerDamage
+            dblPvpPowerHealing = dblPvpPowerHealing
         End Sub
 
     End Class

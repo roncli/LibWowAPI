@@ -147,7 +147,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Achievement criteria are now sorted by their OrderIndex property.
  * All public references to Side have been changed to Faction.
  * Refactored Character to use the guild basic info and emblem classes in the Guild namespace.
- * PvP data for the character profile has been updated to eliminate teams.
+ * PvP data for the character profile has been updated to eliminate teams and use the new brackets.
  * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
 
 ## Classes

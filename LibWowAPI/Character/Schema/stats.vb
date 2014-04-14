@@ -19,13 +19,16 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property spr As Integer
         <DataMember()> Public Property attackPower As Integer
         <DataMember()> Public Property rangedAttackPower As Integer
+        <DataMember()> Public Property pvpResilienceBonus As Double
         <DataMember()> Public Property mastery As Double
         <DataMember()> Public Property masteryRating As Integer
         <DataMember()> Public Property crit As Double
         <DataMember()> Public Property critRating As Integer
         <DataMember()> Public Property hitPercent As Double
         <DataMember()> Public Property hitRating As Integer
+        <DataMember()> Public Property haste As Double
         <DataMember()> Public Property hasteRating As Integer
+        <DataMember()> Public Property hasteRatingPercent As Double
         <DataMember()> Public Property expertiseRating As Integer
         <DataMember()> Public Property spellPower As Integer
         <DataMember()> Public Property spellPen As Integer
@@ -35,6 +38,9 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property spellHitRating As Integer
         <DataMember()> Public Property mana5 As Double
         <DataMember()> Public Property mana5Combat As Double
+        <DataMember()> Public Property spellHaste As Double
+        <DataMember()> Public Property spellHasteRating As Integer
+        <DataMember()> Public Property spellHasteRatingPercent As Double
         <DataMember()> Public Property armor As Integer
         <DataMember()> Public Property dodge As Double
         <DataMember()> Public Property dodgeRating As Integer
@@ -58,12 +64,18 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property rangedDmgMax As Double
         <DataMember()> Public Property rangedSpeed As Double
         <DataMember()> Public Property rangedDps As Double
+        <DataMember()> Public Property rangedExpertise As Double
         <DataMember()> Public Property rangedCrit As Double
         <DataMember()> Public Property rangedCritRating As Integer
         <DataMember()> Public Property rangedHitPercent As Double
         <DataMember()> Public Property rangedHitRating As Integer
+        <DataMember()> Public Property rangedHaste As Double
+        <DataMember()> Public Property rangedHasteRating As Integer
+        <DataMember()> Public Property rangedHasteRatingPercent As Double
         <DataMember()> Public Property pvpPower As Double
         <DataMember()> Public Property pvpPowerRating As Integer
+        <DataMember()> Public Property pvpPowerDamage As Double
+        <DataMember()> Public Property pvpPowerHealing As Double
 
     End Class
 
