@@ -1042,27 +1042,48 @@ Namespace roncliProductions.LibWowAPI.Character
                     ),
                 If(
                     cpCharacter.pvp Is Nothing, Nothing, New PvP(
-                        New RatedBattlegrounds(
-                            cpCharacter.pvp.ratedBattlegrounds.personalRating,
-                            (
-                                From b In cpCharacter.pvp.ratedBattlegrounds.battlegrounds
-                                Select New Battleground(
-                                    b.name,
-                                    b.played,
-                                    b.won
-                                    )
-                                ).ToCollection()
-                            ),
-                        (
-                            From t In cpCharacter.pvp.arenaTeams
-                            Select New ArenaTeam(
-                                t.name,
-                                t.personalRating,
-                                t.teamRating,
-                                System.Convert.ToInt32(t.size.Substring(0, 1), CultureInfo.InvariantCulture)
+                        New Brackets(
+                            New ArenaBracket(
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.slug,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.rating,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.weeklyPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.weeklyWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.weeklyLost,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.seasonPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.seasonWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_2v2.seasonLost
+                                ),
+                            New ArenaBracket(
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.slug,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.rating,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.weeklyPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.weeklyWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.weeklyLost,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.seasonPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.seasonWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_3v3.seasonLost
+                                ),
+                            New ArenaBracket(
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.slug,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.rating,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.weeklyPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.weeklyWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.weeklyLost,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.seasonPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.seasonWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_5v5.seasonLost
+                                ),
+                            New ArenaBracket(
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.slug,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.rating,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.weeklyPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.weeklyWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.weeklyLost,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.seasonPlayed,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.seasonWon,
+                                cpCharacter.pvp.brackets.ARENA_BRACKET_RBG.seasonLost
                                 )
-                            ).ToCollection(),
-                        cpCharacter.pvp.totalHonorableKills
+                            )
                         )
                     ),
                 If(cpCharacter.quests Is Nothing, Nothing, cpCharacter.quests.ToCollection()),

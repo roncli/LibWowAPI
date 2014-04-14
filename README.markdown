@@ -136,7 +136,6 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added OwnerRealm, SuffixID, UniqueID, PetSpeciesID, PetBreed, PetLevel, and PetQuality to the auction data.
  * Added battle pet ability, species, and stats lookups. (BattlePet.BattlePetAbility, BattlePet.BattlePetSpecies, and BattlePet.BattlePetStats)
  * Added challenge mode leaderboards for realm and region. (Challenge.ChallengeRealm and Challenge.ChallengeRegion)
- * Added TotalHonorableKills to the base character data.
  * Added TimeZone to realms.
  * Added Guild and GuildRealm to characters displayed within the Guild class.  No, I don't understand why they added redundant information, either.
  * Added FamilyID ans FamilyName to character's hunter pets.
@@ -148,6 +147,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Achievement criteria are now sorted by their OrderIndex property.
  * All public references to Side have been changed to Faction.
  * Refactored Character to use the guild basic info and emblem classes in the Guild namespace.
+ * PvP data for the character profile has been updated to eliminate teams.
+ * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
 
 ## Classes
 

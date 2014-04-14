@@ -9,9 +9,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
 
     <DataContract()> Friend Class pvp
 
-        <DataMember()> Public Property ratedBattlegrounds As ratedBattlegrounds
-        <DataMember()> Public Property arenaTeams As arenaTeam()
-        <DataMember()> Public Property totalHonorableKills As Integer
+        <DataMember()> Public Property brackets As brackets
 
     End Class
 

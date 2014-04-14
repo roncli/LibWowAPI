@@ -125,8 +125,7 @@
     <Compile Include="Character\clsAchievementFeed.vb" />
     <Compile Include="Character\clsAchievements.vb" />
     <Compile Include="Character\clsAppearance.vb" />
-    <Compile Include="Character\clsArenaTeam.vb" />
-    <Compile Include="Character\clsBattleground.vb" />
+    <Compile Include="Character\clsArenaBracket.vb" />
     <Compile Include="Character\clsBoss.vb" />
     <Compile Include="Character\clsBossKillFeed.vb" />
     <Compile Include="Character\clsCharacter.vb" />
@@ -150,8 +149,8 @@
     <Compile Include="Character\clsProfession.vb" />
     <Compile Include="Character\clsProfessions.vb" />
     <Compile Include="Character\clsProgression.vb" />
+    <Compile Include="Character\clsBrackets.vb" />
     <Compile Include="Character\clsPvP.vb" />
-    <Compile Include="Character\clsRatedBattlegrounds.vb" />
     <Compile Include="Character\clsReputation.vb" />
     <Compile Include="Character\clsRewardItem.vb" />
     <Compile Include="Character\clsSpec.vb" />
@@ -165,8 +164,6 @@
     <Compile Include="Character\clsUpgrade.vb" />
     <Compile Include="Character\Schema\achievements.vb" />
     <Compile Include="Character\Schema\appearance.vb" />
-    <Compile Include="Character\Schema\arenaTeam.vb" />
-    <Compile Include="Character\Schema\battleground.vb" />
     <Compile Include="Character\Schema\boss.vb" />
     <Compile Include="Character\Schema\character.vb" />
     <Compile Include="Character\Schema\feed.vb" />
@@ -181,8 +178,9 @@
     <Compile Include="Character\Schema\professions.vb" />
     <Compile Include="Character\Schema\profession.vb" />
     <Compile Include="Character\Schema\progression.vb" />
+    <Compile Include="Character\Schema\arena_bracket.vb" />
+    <Compile Include="Character\Schema\brackets.vb" />
     <Compile Include="Character\Schema\pvp.vb" />
-    <Compile Include="Character\Schema\ratedBattlegrounds.vb" />
     <Compile Include="Character\Schema\reputation.vb" />
     <Compile Include="Character\Schema\rewardItem.vb" />
     <Compile Include="Character\Schema\spec.vb" />

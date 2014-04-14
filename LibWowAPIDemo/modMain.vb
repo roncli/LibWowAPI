@@ -1130,6 +1130,10 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
         End Sub
 
+        Private Sub DisplayArenaBracket(abBracket As ArenaBracket)
+            Console.WriteLine("  {0}) {1} rating - {2}-{3} season - {4}-{5} week", abBracket.Slug, abBracket.Rating, abBracket.SeasonWon, abBracket.SeasonLost, abBracket.WeeklyWon, abBracket.WeeklyLost)
+        End Sub
+
         Public Sub CharacterProfileDemo()
             Console.Clear()
             Console.WriteLine("Character Profile Demo")
@@ -1258,6 +1262,7 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("Last updated: {0:M/d/yyyy h:mm:ss tt}", cpCharacter.Character.LastModified.ToLocalTime())
             Console.WriteLine("Achievement points: {0} - Total Honorable Kills: {1}", cpCharacter.Character.AchievementPoints, cpCharacter.Character.TotalHonorableKills)
             Console.WriteLine("Thumbnail: {0}", cpCharacter.Character.Thumbnail)
+            Console.WriteLine("Total Honorable Kills: {0}", cpCharacter.Character.TotalHonorableKills)
             Console.WriteLine()
 
             If cpCharacter.Character.Guild IsNot Nothing Then
@@ -1506,18 +1511,10 @@ Namespace roncliProductions.LibWowAPIDemo
 
             If cpCharacter.Character.PvP IsNot Nothing Then
                 Console.WriteLine("PvP:")
-                Console.WriteLine("  Total Honorable Kills: {0}", cpCharacter.Character.PvP.TotalHonorableKills)
-                Console.WriteLine("  Rated Battlegrounds:")
-                Console.WriteLine("    Personal Rating: {0}", cpCharacter.Character.PvP.RatedBattlegrounds.PersonalRating)
-                For Each bBattleground In cpCharacter.Character.PvP.RatedBattlegrounds.Battlegrounds
-                    Console.WriteLine("    {0} - Record: {1}-{2}", bBattleground.Name, bBattleground.Won, bBattleground.Played - bBattleground.Won)
-                Next
-                If cpCharacter.Character.PvP.ArenaTeams.Count > 0 Then
-                    Console.WriteLine("  Arena Teams:")
-                    For Each atTeam In cpCharacter.Character.PvP.ArenaTeams
-                        Console.WriteLine("    {0} - {1}v{1} - Rating: {2} Team, {3} Personal", atTeam.Name, atTeam.Size, atTeam.TeamRating, atTeam.PersonalRating)
-                    Next
-                End If
+                DisplayArenaBracket(cpCharacter.Character.PvP.Brackets.ArenaBracket2v2)
+                DisplayArenaBracket(cpCharacter.Character.PvP.Brackets.ArenaBracket3v3)
+                DisplayArenaBracket(cpCharacter.Character.PvP.Brackets.ArenaBracket5v5)
+                DisplayArenaBracket(cpCharacter.Character.PvP.Brackets.ArenaBracketRBG)
                 Console.WriteLine()
             End If
 
