@@ -12,6 +12,14 @@ Namespace roncliProductions.LibWowAPI.Character
     Public Class Boss
 
         ''' <summary>
+        ''' The ID number of the encounter.
+        ''' </summary>
+        ''' <value>This property gets or sets the ID field.</value>
+        ''' <returns>Returns the ID number of the encounter.</returns>
+        ''' <remarks>If the encounter is listed as a boss, this is the NPC ID number.  Otherwise, this is likely a Spell ID number, which has no translation yet.</remarks>
+        Public Property ID As Integer
+
+        ''' <summary>
         ''' The name of the boss.
         ''' </summary>
         ''' <value>This property gets or sets the Name field.</value>
@@ -28,6 +36,14 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property NormalKills As Integer
 
         ''' <summary>
+        ''' The date of the most recent normal kill.
+        ''' </summary>
+        ''' <value>This property gets or sets the NormalTimestamp field.</value>
+        ''' <returns>Returns the date of the most recent normal kill.</returns>
+        ''' <remarks>This represents the date of the most recent normal kill.</remarks>
+        Public Property NormalTimestamp As Date
+
+        ''' <summary>
         ''' The number of kills on heroic mode.
         ''' </summary>
         ''' <value>This property gets or sets the HeroicKills field.</value>
@@ -36,18 +52,56 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property HeroicKills As Integer
 
         ''' <summary>
-        ''' The ID number of the encounter.
+        ''' The date of the most recent heroic kill.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
-        ''' <returns>Returns the ID number of the encounter.</returns>
-        ''' <remarks>If the encounter is listed as a boss, this is the NPC ID number.  Otherwise, this is likely a Spell ID number, which has no translation yet.</remarks>
-        Public Property ID As Integer
+        ''' <value>This property gets or sets the HeroicTimestamp field.</value>
+        ''' <returns>Returns the date of the most recent heroic kill.</returns>
+        ''' <remarks>This represents the date of the most recent heroic kill.</remarks>
+        Public Property HeroicTimestamp As Date
 
-        Friend Sub New(strName As String, intNormalKills As Integer, intHeroicKills As Integer, intID As Integer)
+        ''' <summary>
+        ''' The number of kills on LFR mode.
+        ''' </summary>
+        ''' <value>This property gets or sets the LFRKills field.</value>
+        ''' <returns>Returns the number of kills on LFR mode.</returns>
+        ''' <remarks>This represents the date of the most recent LFR kill.</remarks>
+        Public Property LFRKills As Integer
+
+        ''' <summary>
+        ''' The date of the most recent LFR kill.
+        ''' </summary>
+        ''' <value>This property gets or sets the LFRTimestamp field.</value>
+        ''' <returns>Returns the date of the most recent LFR kill.</returns>
+        ''' <remarks>This represents the date of the most recent LFR kill.</remarks>
+        Public Property LFRTimestamp As Date
+
+        ''' <summary>
+        ''' The number of kills on flex mode.
+        ''' </summary>
+        ''' <value>This property gets or sets the FlexKills field.</value>
+        ''' <returns>Returns the number of kills on flex mode.</returns>
+        ''' <remarks>This represents the date of the most recent flex kill.</remarks>
+        Public Property FlexKills As Integer
+
+        ''' <summary>
+        ''' The date of the most recent flex kill.
+        ''' </summary>
+        ''' <value>This property gets or sets the FlexTimestamp field.</value>
+        ''' <returns>Returns the date of the most recent flex kill.</returns>
+        ''' <remarks>This represents the date of the most recent flex kill.</remarks>
+        Public Property FlexTimestamp As Date
+
+        Friend Sub New(intID As Integer, strName As String, intNormalKills As Integer, dtNormalTimestamp As Date, intHeroicKills As Integer, dtHeroicTimestamp As Date, intLFRKills As Integer, dtLFRTimestamp As Date, intFlexKills As Integer, dtFlexTimestamp As Date)
+            ID = intID
             Name = strName
             NormalKills = intNormalKills
+            NormalTimestamp = dtNormalTimestamp
             HeroicKills = intHeroicKills
-            ID = intID
+            HeroicTimestamp = dtHeroicTimestamp
+            LFRKills = intLFRKills
+            LFRTimestamp = dtLFRTimestamp
+            FlexKills = intFlexKills
+            FlexTimestamp = dtFlexTimestamp
         End Sub
 
     End Class

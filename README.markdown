@@ -140,6 +140,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added TimeZone to realms.
  * Added Guild and GuildRealm to characters displayed within the Guild class.  No, I don't understand why they added redundant information, either.
  * Added FamilyID ans FamilyName to character's hunter pets.
+ * Added item level, upgrade information, and stats to a character's equipped items.
+ * Added LFR and Flex kills as well as most recent timestamps to all modes for character progression.
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Character.Character, Data.CharacterAchievements, Data.GuildAchievements, Data.GuildRewards, and Guild.Guild to use the objects in the Achievements namespace for achievements, crtieria, and reward items.

@@ -9,10 +9,16 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
 
     <DataContract()> Friend Class boss
 
+        <DataMember()> Public Property id As Integer
         <DataMember()> Public Property name As String
         <DataMember()> Public Property normalKills As Integer
+        <DataMember()> Public Property normalTimestamp As Long
         <DataMember()> Public Property heroicKills As Integer
-        <DataMember()> Public Property id As Integer
+        <DataMember()> Public Property heroicTimestamp As Long
+        <DataMember()> Public Property lfrKills As Integer
+        <DataMember()> Public Property lfrTimestamp As Long
+        <DataMember()> Public Property flexKills As Integer
+        <DataMember()> Public Property flexTimestamp As Long
 
     End Class
 

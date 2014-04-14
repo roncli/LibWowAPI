@@ -1012,55 +1012,66 @@ Namespace roncliProductions.LibWowAPI.Character
                          ).ToCollection()
                         )
                     )),
-                If(cpCharacter.progression Is Nothing, Nothing,
-                    New Progression(
-                        (From r In cpCharacter.progression.raids
-                         Select New Instance(
-                             r.name,
-                             CType(r.normal, Progress),
-                             CType(r.heroic, Progress),
-                             r.id,
-                             (From b In r.bosses
-                              Select New Boss(
-                                  b.name,
-                                  b.normalKills,
-                                  b.heroicKills,
-                                  b.id
-                                  )
-                              ).ToCollection()
-                             )
-                         ).ToCollection()
-                        )
-                    ),
-                If(cpCharacter.pvp Is Nothing, Nothing,
-                   New PvP(
-                       New RatedBattlegrounds(
-                           cpCharacter.pvp.ratedBattlegrounds.personalRating,
-                           (From b In cpCharacter.pvp.ratedBattlegrounds.battlegrounds
-                            Select New Battleground(
-                                b.name,
-                                b.played,
-                                b.won
+                If(
+                    cpCharacter.progression Is Nothing, Nothing, New Progression(
+                        (
+                            From r In cpCharacter.progression.raids
+                            Select New Instance(
+                                r.name,
+                                CType(r.normal, Progress),
+                                CType(r.heroic, Progress),
+                                r.id,
+                                (
+                                    From b In r.bosses
+                                    Select New Boss(
+                                        b.id,
+                                        b.name,
+                                        b.normalKills,
+                                        b.normalTimestamp.BlizzardTimestampToUTC(),
+                                        b.heroicKills,
+                                        b.heroicTimestamp.BlizzardTimestampToUTC(),
+                                        b.lfrKills,
+                                        b.lfrTimestamp.BlizzardTimestampToUTC(),
+                                        b.flexKills,
+                                        b.flexTimestamp.BlizzardTimestampToUTC()
+                                        )
+                                    ).ToCollection()
                                 )
                             ).ToCollection()
-                           ),
-                       (From t In cpCharacter.pvp.arenaTeams
-                        Select New ArenaTeam(
-                            t.name,
-                            t.personalRating,
-                            t.teamRating,
-                            System.Convert.ToInt32(t.size.Substring(0, 1), CultureInfo.InvariantCulture)
-                            )
-                        ).ToCollection(),
-                       cpCharacter.pvp.totalHonorableKills
-                       )
-                   ),
+                        )
+                    ),
+                If(
+                    cpCharacter.pvp Is Nothing, Nothing, New PvP(
+                        New RatedBattlegrounds(
+                            cpCharacter.pvp.ratedBattlegrounds.personalRating,
+                            (
+                                From b In cpCharacter.pvp.ratedBattlegrounds.battlegrounds
+                                Select New Battleground(
+                                    b.name,
+                                    b.played,
+                                    b.won
+                                    )
+                                ).ToCollection()
+                            ),
+                        (
+                            From t In cpCharacter.pvp.arenaTeams
+                            Select New ArenaTeam(
+                                t.name,
+                                t.personalRating,
+                                t.teamRating,
+                                System.Convert.ToInt32(t.size.Substring(0, 1), CultureInfo.InvariantCulture)
+                                )
+                            ).ToCollection(),
+                        cpCharacter.pvp.totalHonorableKills
+                        )
+                    ),
                 If(cpCharacter.quests Is Nothing, Nothing, cpCharacter.quests.ToCollection()),
-                If(cpCharacter.feed Is Nothing, Nothing,
-                   (From f In cpCharacter.feed
-                    Select CreateFeedItem(f)
-                       ).ToCollection()
-                   )
+                If(
+                    cpCharacter.feed Is Nothing, Nothing, (
+                        From f In cpCharacter.feed
+                        Select CreateFeedItem(f)
+                        ).ToCollection()
+                    )
                 )
         End Sub
 

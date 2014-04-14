@@ -1478,7 +1478,27 @@ Namespace roncliProductions.LibWowAPIDemo
                 For Each rRaid In cpCharacter.Character.Progression.Raids
                     Console.WriteLine("    {0} - ID: {1} - Normal: {2} - Heroic: {3}", rRaid.Name, rRaid.ID, rRaid.Normal, rRaid.Heroic)
                     For Each bBoss In rRaid.Bosses
-                        Console.WriteLine("      {0} - ID: {1} - Normal: {2} - Heroic: {3}", bBoss.Name, bBoss.ID, bBoss.NormalKills, bBoss.HeroicKills)
+                        Console.WriteLine("      {0} - ID: {1}", bBoss.Name, bBoss.ID)
+                        If bBoss.NormalKills > 0 Then
+                            Console.WriteLine("        Normal: {0} kills - Last Kill: {1:M/d/yyyy}", bBoss.NormalKills, bBoss.NormalTimestamp)
+                        Else
+                            Console.WriteLine("        Normal: 0 kills")
+                        End If
+                        If bBoss.HeroicKills > 0 Then
+                            Console.WriteLine("        Heroic: {0} kills - Last Kill: {1:M/d/yyyy}", bBoss.HeroicKills, bBoss.HeroicTimestamp)
+                        Else
+                            Console.WriteLine("        Heroic: 0 kills")
+                        End If
+                        If bBoss.LFRKills > 0 Then
+                            Console.WriteLine("        LFR: {0} kills - Last Kill: {1:M/d/yyyy}", bBoss.LFRKills, bBoss.LFRTimestamp)
+                        Else
+                            Console.WriteLine("        LFR: 0 kills")
+                        End If
+                        If bBoss.FlexKills > 0 Then
+                            Console.WriteLine("        Flex: {0} kills - Last Kill: {1:M/d/yyyy}", bBoss.FlexKills, bBoss.FlexTimestamp)
+                        Else
+                            Console.WriteLine("        Flex: 0 kills")
+                        End If
                     Next
                 Next
                 Console.WriteLine()
