@@ -191,6 +191,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.neck.name,
                                 cpCharacter.items.neck.icon,
                                 CType(cpCharacter.items.neck.quality, Quality),
+                                cpCharacter.items.neck.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.neck.tooltipParams.gem0, cpCharacter.items.neck.tooltipParams.gem1, cpCharacter.items.neck.tooltipParams.gem2),
                                     cpCharacter.items.neck.tooltipParams.suffix,
@@ -199,8 +200,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.neck.tooltipParams.extraSocket,
                                     If(cpCharacter.items.neck.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.neck.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.neck.tooltipParams.reforge,
-                                    cpCharacter.items.neck.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.neck.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.neck.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.neck.tooltipParams.upgrade.current,
+                                            cpCharacter.items.neck.tooltipParams.upgrade.total,
+                                            cpCharacter.items.neck.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.neck.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.neck.armor
                                 )
                             ),
                         If(cpCharacter.items.shoulder Is Nothing, Nothing,
@@ -209,6 +227,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.shoulder.name,
                                 cpCharacter.items.shoulder.icon,
                                 CType(cpCharacter.items.shoulder.quality, Quality),
+                                cpCharacter.items.shoulder.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.shoulder.tooltipParams.gem0, cpCharacter.items.shoulder.tooltipParams.gem1, cpCharacter.items.shoulder.tooltipParams.gem2),
                                     cpCharacter.items.shoulder.tooltipParams.suffix,
@@ -217,8 +236,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.shoulder.tooltipParams.extraSocket,
                                     If(cpCharacter.items.shoulder.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.shoulder.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.shoulder.tooltipParams.reforge,
-                                    cpCharacter.items.shoulder.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.shoulder.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.shoulder.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.shoulder.tooltipParams.upgrade.current,
+                                            cpCharacter.items.shoulder.tooltipParams.upgrade.total,
+                                            cpCharacter.items.shoulder.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.shoulder.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.shoulder.armor
                                 )
                             ),
                         If(cpCharacter.items.back Is Nothing, Nothing,
@@ -227,6 +263,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.back.name,
                                 cpCharacter.items.back.icon,
                                 CType(cpCharacter.items.back.quality, Quality),
+                                cpCharacter.items.back.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.back.tooltipParams.gem0, cpCharacter.items.back.tooltipParams.gem1, cpCharacter.items.back.tooltipParams.gem2),
                                     cpCharacter.items.back.tooltipParams.suffix,
@@ -235,8 +272,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.back.tooltipParams.extraSocket,
                                     If(cpCharacter.items.back.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.back.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.back.tooltipParams.reforge,
-                                    cpCharacter.items.back.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.back.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.back.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.back.tooltipParams.upgrade.current,
+                                            cpCharacter.items.back.tooltipParams.upgrade.total,
+                                            cpCharacter.items.back.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.back.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.back.armor
                                 )
                             ),
                         If(cpCharacter.items.chest Is Nothing, Nothing,
@@ -245,6 +299,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.chest.name,
                                 cpCharacter.items.chest.icon,
                                 CType(cpCharacter.items.chest.quality, Quality),
+                                cpCharacter.items.chest.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.chest.tooltipParams.gem0, cpCharacter.items.chest.tooltipParams.gem1, cpCharacter.items.chest.tooltipParams.gem2),
                                     cpCharacter.items.chest.tooltipParams.suffix,
@@ -253,8 +308,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.chest.tooltipParams.extraSocket,
                                     If(cpCharacter.items.chest.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.chest.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.chest.tooltipParams.reforge,
-                                    cpCharacter.items.chest.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.chest.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.chest.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.chest.tooltipParams.upgrade.current,
+                                            cpCharacter.items.chest.tooltipParams.upgrade.total,
+                                            cpCharacter.items.chest.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.chest.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.chest.armor
                                 )
                             ),
                         If(cpCharacter.items.shirt Is Nothing, Nothing,
@@ -263,6 +335,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.shirt.name,
                                 cpCharacter.items.shirt.icon,
                                 CType(cpCharacter.items.shirt.quality, Quality),
+                                cpCharacter.items.shirt.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.shirt.tooltipParams.gem0, cpCharacter.items.shirt.tooltipParams.gem1, cpCharacter.items.shirt.tooltipParams.gem2),
                                     cpCharacter.items.shirt.tooltipParams.suffix,
@@ -271,8 +344,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.shirt.tooltipParams.extraSocket,
                                     If(cpCharacter.items.shirt.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.shirt.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.shirt.tooltipParams.reforge,
-                                    cpCharacter.items.shirt.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.shirt.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.shirt.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.shirt.tooltipParams.upgrade.current,
+                                            cpCharacter.items.shirt.tooltipParams.upgrade.total,
+                                            cpCharacter.items.shirt.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.shirt.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.shirt.armor
                                 )
                             ),
                         If(cpCharacter.items.tabard Is Nothing, Nothing,
@@ -281,6 +371,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.tabard.name,
                                 cpCharacter.items.tabard.icon,
                                 CType(cpCharacter.items.tabard.quality, Quality),
+                                cpCharacter.items.tabard.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.tabard.tooltipParams.gem0, cpCharacter.items.tabard.tooltipParams.gem1, cpCharacter.items.tabard.tooltipParams.gem2),
                                     cpCharacter.items.tabard.tooltipParams.suffix,
@@ -289,8 +380,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.tabard.tooltipParams.extraSocket,
                                     If(cpCharacter.items.tabard.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.tabard.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.tabard.tooltipParams.reforge,
-                                    cpCharacter.items.tabard.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.tabard.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.tabard.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.tabard.tooltipParams.upgrade.current,
+                                            cpCharacter.items.tabard.tooltipParams.upgrade.total,
+                                            cpCharacter.items.tabard.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.tabard.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.tabard.armor
                                 )
                             ),
                         If(cpCharacter.items.wrist Is Nothing, Nothing,
@@ -299,6 +407,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.wrist.name,
                                 cpCharacter.items.wrist.icon,
                                 CType(cpCharacter.items.wrist.quality, Quality),
+                                cpCharacter.items.wrist.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.wrist.tooltipParams.gem0, cpCharacter.items.wrist.tooltipParams.gem1, cpCharacter.items.wrist.tooltipParams.gem2),
                                     cpCharacter.items.wrist.tooltipParams.suffix,
@@ -307,8 +416,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.wrist.tooltipParams.extraSocket,
                                     If(cpCharacter.items.wrist.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.wrist.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.wrist.tooltipParams.reforge,
-                                    cpCharacter.items.wrist.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.wrist.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.wrist.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.wrist.tooltipParams.upgrade.current,
+                                            cpCharacter.items.wrist.tooltipParams.upgrade.total,
+                                            cpCharacter.items.wrist.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.wrist.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.wrist.armor
                                 )
                             ),
                         If(cpCharacter.items.hands Is Nothing, Nothing,
@@ -317,6 +443,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.hands.name,
                                 cpCharacter.items.hands.icon,
                                 CType(cpCharacter.items.hands.quality, Quality),
+                                cpCharacter.items.hands.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.hands.tooltipParams.gem0, cpCharacter.items.hands.tooltipParams.gem1, cpCharacter.items.hands.tooltipParams.gem2),
                                     cpCharacter.items.hands.tooltipParams.suffix,
@@ -325,8 +452,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.hands.tooltipParams.extraSocket,
                                     If(cpCharacter.items.hands.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.hands.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.hands.tooltipParams.reforge,
-                                    cpCharacter.items.hands.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.hands.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.hands.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.hands.tooltipParams.upgrade.current,
+                                            cpCharacter.items.hands.tooltipParams.upgrade.total,
+                                            cpCharacter.items.hands.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.hands.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.hands.armor
                                 )
                             ),
                         If(cpCharacter.items.waist Is Nothing, Nothing,
@@ -335,6 +479,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.waist.name,
                                 cpCharacter.items.waist.icon,
                                 CType(cpCharacter.items.waist.quality, Quality),
+                                cpCharacter.items.waist.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.waist.tooltipParams.gem0, cpCharacter.items.waist.tooltipParams.gem1, cpCharacter.items.waist.tooltipParams.gem2),
                                     cpCharacter.items.waist.tooltipParams.suffix,
@@ -343,8 +488,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.waist.tooltipParams.extraSocket,
                                     If(cpCharacter.items.waist.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.waist.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.waist.tooltipParams.reforge,
-                                    cpCharacter.items.waist.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.waist.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.waist.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.waist.tooltipParams.upgrade.current,
+                                            cpCharacter.items.waist.tooltipParams.upgrade.total,
+                                            cpCharacter.items.waist.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.waist.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.waist.armor
                                 )
                             ),
                         If(cpCharacter.items.legs Is Nothing, Nothing,
@@ -353,6 +515,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.legs.name,
                                 cpCharacter.items.legs.icon,
                                 CType(cpCharacter.items.legs.quality, Quality),
+                                cpCharacter.items.legs.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.legs.tooltipParams.gem0, cpCharacter.items.legs.tooltipParams.gem1, cpCharacter.items.legs.tooltipParams.gem2),
                                     cpCharacter.items.legs.tooltipParams.suffix,
@@ -361,8 +524,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.legs.tooltipParams.extraSocket,
                                     If(cpCharacter.items.legs.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.legs.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.legs.tooltipParams.reforge,
-                                    cpCharacter.items.legs.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.legs.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.legs.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.legs.tooltipParams.upgrade.current,
+                                            cpCharacter.items.legs.tooltipParams.upgrade.total,
+                                            cpCharacter.items.legs.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.legs.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.legs.armor
                                 )
                             ),
                         If(cpCharacter.items.feet Is Nothing, Nothing,
@@ -371,6 +551,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.feet.name,
                                 cpCharacter.items.feet.icon,
                                 CType(cpCharacter.items.feet.quality, Quality),
+                                cpCharacter.items.feet.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.feet.tooltipParams.gem0, cpCharacter.items.feet.tooltipParams.gem1, cpCharacter.items.feet.tooltipParams.gem2),
                                     cpCharacter.items.feet.tooltipParams.suffix,
@@ -379,8 +560,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.feet.tooltipParams.extraSocket,
                                     If(cpCharacter.items.feet.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.feet.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.feet.tooltipParams.reforge,
-                                    cpCharacter.items.feet.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.feet.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.feet.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.feet.tooltipParams.upgrade.current,
+                                            cpCharacter.items.feet.tooltipParams.upgrade.total,
+                                            cpCharacter.items.feet.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.feet.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.feet.armor
                                 )
                             ),
                         If(cpCharacter.items.finger1 Is Nothing, Nothing,
@@ -389,6 +587,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.finger1.name,
                                 cpCharacter.items.finger1.icon,
                                 CType(cpCharacter.items.finger1.quality, Quality),
+                                cpCharacter.items.finger1.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.finger1.tooltipParams.gem0, cpCharacter.items.finger1.tooltipParams.gem1, cpCharacter.items.finger1.tooltipParams.gem2),
                                     cpCharacter.items.finger1.tooltipParams.suffix,
@@ -397,8 +596,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.finger1.tooltipParams.extraSocket,
                                     If(cpCharacter.items.finger1.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.finger1.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.finger1.tooltipParams.reforge,
-                                    cpCharacter.items.finger1.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.finger1.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.finger1.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.finger1.tooltipParams.upgrade.current,
+                                            cpCharacter.items.finger1.tooltipParams.upgrade.total,
+                                            cpCharacter.items.finger1.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.finger1.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.finger1.armor
                                 )
                             ),
                         If(cpCharacter.items.finger2 Is Nothing, Nothing,
@@ -407,6 +623,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.finger2.name,
                                 cpCharacter.items.finger2.icon,
                                 CType(cpCharacter.items.finger2.quality, Quality),
+                                cpCharacter.items.finger2.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.finger2.tooltipParams.gem0, cpCharacter.items.finger2.tooltipParams.gem1, cpCharacter.items.finger2.tooltipParams.gem2),
                                     cpCharacter.items.finger2.tooltipParams.suffix,
@@ -415,8 +632,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.finger2.tooltipParams.extraSocket,
                                     If(cpCharacter.items.finger2.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.finger2.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.finger2.tooltipParams.reforge,
-                                    cpCharacter.items.finger2.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.finger2.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.finger2.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.finger2.tooltipParams.upgrade.current,
+                                            cpCharacter.items.finger2.tooltipParams.upgrade.total,
+                                            cpCharacter.items.finger2.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.finger2.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.finger2.armor
                                 )
                             ),
                         If(cpCharacter.items.trinket1 Is Nothing, Nothing,
@@ -425,6 +659,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.trinket1.name,
                                 cpCharacter.items.trinket1.icon,
                                 CType(cpCharacter.items.trinket1.quality, Quality),
+                                cpCharacter.items.trinket1.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.trinket1.tooltipParams.gem0, cpCharacter.items.trinket1.tooltipParams.gem1, cpCharacter.items.trinket1.tooltipParams.gem2),
                                     cpCharacter.items.trinket1.tooltipParams.suffix,
@@ -433,8 +668,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.trinket1.tooltipParams.extraSocket,
                                     If(cpCharacter.items.trinket1.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.trinket1.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.trinket1.tooltipParams.reforge,
-                                    cpCharacter.items.trinket1.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.trinket1.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.trinket1.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.trinket1.tooltipParams.upgrade.current,
+                                            cpCharacter.items.trinket1.tooltipParams.upgrade.total,
+                                            cpCharacter.items.trinket1.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.trinket1.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.trinket1.armor
                                 )
                             ),
                         If(cpCharacter.items.trinket2 Is Nothing, Nothing,
@@ -443,6 +695,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.trinket2.name,
                                 cpCharacter.items.trinket2.icon,
                                 CType(cpCharacter.items.trinket2.quality, Quality),
+                                cpCharacter.items.trinket2.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.trinket2.tooltipParams.gem0, cpCharacter.items.trinket2.tooltipParams.gem1, cpCharacter.items.trinket2.tooltipParams.gem2),
                                     cpCharacter.items.trinket2.tooltipParams.suffix,
@@ -451,8 +704,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.trinket2.tooltipParams.extraSocket,
                                     If(cpCharacter.items.trinket2.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.trinket2.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.trinket2.tooltipParams.reforge,
-                                    cpCharacter.items.trinket2.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.trinket2.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.trinket2.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.trinket2.tooltipParams.upgrade.current,
+                                            cpCharacter.items.trinket2.tooltipParams.upgrade.total,
+                                            cpCharacter.items.trinket2.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.trinket2.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.trinket2.armor
                                 )
                             ),
                         If(cpCharacter.items.mainHand Is Nothing, Nothing,
@@ -461,6 +731,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.mainHand.name,
                                 cpCharacter.items.mainHand.icon,
                                 CType(cpCharacter.items.mainHand.quality, Quality),
+                                cpCharacter.items.mainHand.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.mainHand.tooltipParams.gem0, cpCharacter.items.mainHand.tooltipParams.gem1, cpCharacter.items.mainHand.tooltipParams.gem2),
                                     cpCharacter.items.mainHand.tooltipParams.suffix,
@@ -469,8 +740,25 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.mainHand.tooltipParams.extraSocket,
                                     If(cpCharacter.items.mainHand.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.mainHand.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.mainHand.tooltipParams.reforge,
-                                    cpCharacter.items.mainHand.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.mainHand.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.mainHand.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.mainHand.tooltipParams.upgrade.current,
+                                            cpCharacter.items.mainHand.tooltipParams.upgrade.total,
+                                            cpCharacter.items.mainHand.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.mainHand.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.mainHand.armor
                                 )
                             ),
                         If(cpCharacter.items.offHand Is Nothing, Nothing,
@@ -479,6 +767,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.items.offHand.name,
                                 cpCharacter.items.offHand.icon,
                                 CType(cpCharacter.items.offHand.quality, Quality),
+                                cpCharacter.items.offHand.itemLevel,
                                 New TooltipParams(
                                     GetGems(cpCharacter.items.offHand.tooltipParams.gem0, cpCharacter.items.offHand.tooltipParams.gem1, cpCharacter.items.offHand.tooltipParams.gem2),
                                     cpCharacter.items.offHand.tooltipParams.suffix,
@@ -487,69 +776,86 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.offHand.tooltipParams.extraSocket,
                                     If(cpCharacter.items.offHand.tooltipParams.set Is Nothing, New Collection(Of Integer), cpCharacter.items.offHand.tooltipParams.set.ToCollection()),
                                     cpCharacter.items.offHand.tooltipParams.reforge,
-                                    cpCharacter.items.offHand.tooltipParams.transmogItem
-                                    )
+                                    cpCharacter.items.offHand.tooltipParams.transmogItem,
+                                    If(
+                                        cpCharacter.items.offHand.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                            cpCharacter.items.offHand.tooltipParams.upgrade.current,
+                                            cpCharacter.items.offHand.tooltipParams.upgrade.total,
+                                            cpCharacter.items.offHand.tooltipParams.upgrade.itemLevelIncrement
+                                            )
+                                        )
+                                    ),
+                                (
+                                    From s In cpCharacter.items.offHand.stats
+                                    Select New Stat(
+                                        CType(s.stat, Enums.Stat),
+                                        s.amount,
+                                        s.reforgedAmount,
+                                        s.reforged
+                                        )
+                                    ).ToCollection(),
+                                cpCharacter.items.offHand.armor
                                 )
                             )
                         )
                     ),
                 If(cpCharacter.stats Is Nothing, Nothing,
                     New Stats(
-                        cpCharacter.stats.health,
-                        cpCharacter.stats.powerType.GetPowerType(),
-                        cpCharacter.stats.power,
-                        cpCharacter.stats.str,
-                        cpCharacter.stats.agi,
-                        cpCharacter.stats.sta,
-                        cpCharacter.stats.int,
-                        cpCharacter.stats.spr,
-                        cpCharacter.stats.attackPower,
-                        cpCharacter.stats.rangedAttackPower,
-                        cpCharacter.stats.mastery,
-                        cpCharacter.stats.masteryRating,
-                        cpCharacter.stats.crit,
-                        cpCharacter.stats.critRating,
-                        cpCharacter.stats.hitPercent,
-                        cpCharacter.stats.hitRating,
-                        cpCharacter.stats.hasteRating,
-                        cpCharacter.stats.expertiseRating,
-                        cpCharacter.stats.spellPower,
-                        cpCharacter.stats.spellPen,
-                        cpCharacter.stats.spellCrit,
-                        cpCharacter.stats.spellCritRating,
-                        cpCharacter.stats.spellHitPercent,
-                        cpCharacter.stats.spellHitRating,
-                        cpCharacter.stats.mana5,
-                        cpCharacter.stats.mana5Combat,
-                        cpCharacter.stats.armor,
-                        cpCharacter.stats.dodge,
-                        cpCharacter.stats.dodgeRating,
-                        cpCharacter.stats.parry,
-                        cpCharacter.stats.parryRating,
-                        cpCharacter.stats.block,
-                        cpCharacter.stats.blockRating,
-                        cpCharacter.stats.pvpResilience,
-                        cpCharacter.stats.pvpResilienceRating,
-                        cpCharacter.stats.mainHandDmgMin,
-                        cpCharacter.stats.mainHandDmgMax,
-                        cpCharacter.stats.mainHandSpeed,
-                        cpCharacter.stats.mainHandDps,
-                        cpCharacter.stats.mainHandExpertise,
-                        cpCharacter.stats.offHandDmgMin,
-                        cpCharacter.stats.offHandDmgMax,
-                        cpCharacter.stats.offHandSpeed,
-                        cpCharacter.stats.offHandDps,
-                        cpCharacter.stats.offHandExpertise,
-                        cpCharacter.stats.rangedDmgMin,
-                        cpCharacter.stats.rangedDmgMax,
-                        cpCharacter.stats.rangedSpeed,
-                        cpCharacter.stats.rangedDps,
-                        cpCharacter.stats.rangedCrit,
-                        cpCharacter.stats.rangedCritRating,
-                        cpCharacter.stats.rangedHitPercent,
-                        cpCharacter.stats.rangedHitRating,
-                        cpCharacter.stats.pvpPower,
-                        cpCharacter.stats.pvpPowerRating
+                                        cpCharacter.stats.health,
+                                        cpCharacter.stats.powerType.GetPowerType(),
+                                        cpCharacter.stats.power,
+                                        cpCharacter.stats.str,
+                                        cpCharacter.stats.agi,
+                                        cpCharacter.stats.sta,
+                                        cpCharacter.stats.int,
+                                        cpCharacter.stats.spr,
+                                        cpCharacter.stats.attackPower,
+                                        cpCharacter.stats.rangedAttackPower,
+                                        cpCharacter.stats.mastery,
+                                        cpCharacter.stats.masteryRating,
+                                        cpCharacter.stats.crit,
+                                        cpCharacter.stats.critRating,
+                                        cpCharacter.stats.hitPercent,
+                                        cpCharacter.stats.hitRating,
+                                        cpCharacter.stats.hasteRating,
+                                        cpCharacter.stats.expertiseRating,
+                                        cpCharacter.stats.spellPower,
+                                        cpCharacter.stats.spellPen,
+                                        cpCharacter.stats.spellCrit,
+                                        cpCharacter.stats.spellCritRating,
+                                        cpCharacter.stats.spellHitPercent,
+                                        cpCharacter.stats.spellHitRating,
+                                        cpCharacter.stats.mana5,
+                                        cpCharacter.stats.mana5Combat,
+                                        cpCharacter.stats.armor,
+                                        cpCharacter.stats.dodge,
+                                        cpCharacter.stats.dodgeRating,
+                                        cpCharacter.stats.parry,
+                                        cpCharacter.stats.parryRating,
+                                        cpCharacter.stats.block,
+                                        cpCharacter.stats.blockRating,
+                                        cpCharacter.stats.pvpResilience,
+                                        cpCharacter.stats.pvpResilienceRating,
+                                        cpCharacter.stats.mainHandDmgMin,
+                                        cpCharacter.stats.mainHandDmgMax,
+                                        cpCharacter.stats.mainHandSpeed,
+                                        cpCharacter.stats.mainHandDps,
+                                        cpCharacter.stats.mainHandExpertise,
+                                        cpCharacter.stats.offHandDmgMin,
+                                        cpCharacter.stats.offHandDmgMax,
+                                        cpCharacter.stats.offHandSpeed,
+                                        cpCharacter.stats.offHandDps,
+                                        cpCharacter.stats.offHandExpertise,
+                                        cpCharacter.stats.rangedDmgMin,
+                                        cpCharacter.stats.rangedDmgMax,
+                                        cpCharacter.stats.rangedSpeed,
+                                        cpCharacter.stats.rangedDps,
+                                        cpCharacter.stats.rangedCrit,
+                                        cpCharacter.stats.rangedCritRating,
+                                        cpCharacter.stats.rangedHitPercent,
+                                        cpCharacter.stats.rangedHitRating,
+                                        cpCharacter.stats.pvpPower,
+                                        cpCharacter.stats.pvpPowerRating
                         )
                     ),
                 If(cpCharacter.professions Is Nothing, Nothing,

@@ -156,11 +156,13 @@
     <Compile Include="Character\clsRewardItem.vb" />
     <Compile Include="Character\clsSpec.vb" />
     <Compile Include="Character\clsSpell.vb" />
+    <Compile Include="Character\clsStat.vb" />
     <Compile Include="Character\clsStats.vb" />
     <Compile Include="Character\clsTalent.vb" />
     <Compile Include="Character\clsTalentSpec.vb" />
     <Compile Include="Character\clsTitle.vb" />
     <Compile Include="Character\clsTooltipParams.vb" />
+    <Compile Include="Character\clsUpgrade.vb" />
     <Compile Include="Character\Schema\achievements.vb" />
     <Compile Include="Character\Schema\appearance.vb" />
     <Compile Include="Character\Schema\arenaTeam.vb" />
@@ -185,11 +187,13 @@
     <Compile Include="Character\Schema\rewardItem.vb" />
     <Compile Include="Character\Schema\spec.vb" />
     <Compile Include="Character\Schema\spell.vb" />
+    <Compile Include="Character\Schema\stat.vb" />
     <Compile Include="Character\Schema\stats.vb" />
     <Compile Include="Character\Schema\talent.vb" />
     <Compile Include="Character\Schema\talentSpec.vb" />
     <Compile Include="Character\Schema\title.vb" />
     <Compile Include="Character\Schema\tooltipParams.vb" />
+    <Compile Include="Character\Schema\upgrade.vb" />
     <Compile Include="clsBlizzardAPIError.vb" />
     <Compile Include="clsBlizzardAPIException.vb" />
     <Compile Include="clsCache.vb" />

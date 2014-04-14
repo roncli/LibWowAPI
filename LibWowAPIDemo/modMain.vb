@@ -1087,6 +1087,49 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.ReadKey(True)
         End Sub
 
+        Private Sub DisplayEquippedItem(strSlot As String, iItem As LibWowAPI.Character.Item)
+            Console.WriteLine("  {0}: {1} - ID {2} - Quality: {3} - iLevel: {4}", strSlot, iItem.Name, iItem.ID, iItem.Quality, iItem.ItemLevel)
+            If iItem.TooltipParams.Upgrade IsNot Nothing Then
+                Console.WriteLine("    Upgraded: {0}/{1} for {2} iLevels", iItem.TooltipParams.Upgrade.Current, iItem.TooltipParams.Upgrade.Total, iItem.TooltipParams.Upgrade.ItemLevelIncrement)
+            End If
+            If iItem.Armor > 0 OrElse iItem.Stats.Count > 0 Then
+                Console.WriteLine("    Stats:")
+                If iItem.Armor > 0 Then
+                    Console.WriteLine("      {0} Armor", iItem.Armor)
+                End If
+                For Each sStat In iItem.Stats
+                    If sStat.Reforged Then
+                        Console.WriteLine("      {0} {1} (+{0} reforged)", sStat.TotalAmount, sStat.Stat)
+                    ElseIf sStat.ReforgedAmount <> 0 Then
+                        Console.WriteLine("      {0} {1} ({2} reforged)", sStat.TotalAmount, sStat.Stat, sStat.ReforgedAmount)
+                    Else
+                        Console.WriteLine("      {0} {1}", sStat.TotalAmount, sStat.Stat)
+                    End If
+                Next
+            End If
+            If iItem.TooltipParams.Gems.Count > 0 Then
+                Console.WriteLine("    Gems: {0}", String.Join(", ", iItem.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
+            End If
+            If iItem.TooltipParams.ExtraSocket Then
+                Console.WriteLine("      Includes Extra Socket.")
+            End If
+            If iItem.TooltipParams.Suffix <> 0 Then
+                Console.WriteLine("    Suffix: {0} (Seed: {1})", iItem.TooltipParams.Suffix, iItem.TooltipParams.Seed)
+            End If
+            If iItem.TooltipParams.Enchant <> 0 Then
+                Console.WriteLine("    Enchant: {0}", iItem.TooltipParams.Enchant)
+            End If
+            If iItem.TooltipParams.Reforge <> 0 Then
+                Console.WriteLine("    Reforge: {0}", iItem.TooltipParams.Reforge)
+            End If
+            If iItem.TooltipParams.TransmogItem <> 0 Then
+                Console.WriteLine("    Transmogrified into: {0}", iItem.TooltipParams.TransmogItem)
+            End If
+            If iItem.TooltipParams.Set.Count > 0 Then
+                Console.WriteLine("    Set items: {0}", String.Join(", ", iItem.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
+            End If
+        End Sub
+
         Public Sub CharacterProfileDemo()
             Console.Clear()
             Console.WriteLine("Character Profile Demo")
@@ -1282,436 +1325,58 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Items:")
                 Console.WriteLine("  Average Item Level: {0} (Equipped: {1})", cpCharacter.Character.Items.AverageItemLevel, cpCharacter.Character.Items.AverageItemLevelEquipped)
                 If cpCharacter.Character.Items.Head IsNot Nothing Then
-                    Console.WriteLine("  Head: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Head.Name, cpCharacter.Character.Items.Head.ID, cpCharacter.Character.Items.Head.Quality)
-                    If cpCharacter.Character.Items.Head.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Head.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Head.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Head.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Head.TooltipParams.Suffix, cpCharacter.Character.Items.Head.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Head.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Head.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Head.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Head.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Head.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Head.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Head.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Head.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Head", cpCharacter.Character.Items.Head)
                 End If
                 If cpCharacter.Character.Items.Neck IsNot Nothing Then
-                    Console.WriteLine("  Neck: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Neck.Name, cpCharacter.Character.Items.Neck.ID, cpCharacter.Character.Items.Neck.Quality)
-                    If cpCharacter.Character.Items.Neck.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Neck.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Neck.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Neck.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Neck.TooltipParams.Suffix, cpCharacter.Character.Items.Neck.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Neck.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Neck.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Neck.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Neck.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Neck.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Neck.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Neck.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Neck.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Neck", cpCharacter.Character.Items.Neck)
                 End If
                 If cpCharacter.Character.Items.Shoulder IsNot Nothing Then
-                    Console.WriteLine("  Shoulder: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Shoulder.Name, cpCharacter.Character.Items.Shoulder.ID, cpCharacter.Character.Items.Shoulder.Quality)
-                    If cpCharacter.Character.Items.Shoulder.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Shoulder.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Shoulder.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Shoulder.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Shoulder.TooltipParams.Suffix, cpCharacter.Character.Items.Shoulder.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Shoulder.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Shoulder.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Shoulder.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Shoulder.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Shoulder.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Shoulder.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Shoulder.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Shoulder.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Shoulder", cpCharacter.Character.Items.Shoulder)
                 End If
                 If cpCharacter.Character.Items.Back IsNot Nothing Then
-                    Console.WriteLine("  Back: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Back.Name, cpCharacter.Character.Items.Back.ID, cpCharacter.Character.Items.Back.Quality)
-                    If cpCharacter.Character.Items.Back.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Back.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Back.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Back.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Back.TooltipParams.Suffix, cpCharacter.Character.Items.Back.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Back.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Back.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Back.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Back.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Back.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Back.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Back.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Back.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Back", cpCharacter.Character.Items.Back)
                 End If
                 If cpCharacter.Character.Items.Chest IsNot Nothing Then
-                    Console.WriteLine("  Chest: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Chest.Name, cpCharacter.Character.Items.Chest.ID, cpCharacter.Character.Items.Chest.Quality)
-                    If cpCharacter.Character.Items.Chest.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Chest.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Chest.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Chest.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Chest.TooltipParams.Suffix, cpCharacter.Character.Items.Chest.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Chest.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Chest.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Chest.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Chest.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Chest.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Chest.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Chest.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Chest.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Chest", cpCharacter.Character.Items.Chest)
                 End If
                 If cpCharacter.Character.Items.Shirt IsNot Nothing Then
-                    Console.WriteLine("  Shirt: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Shirt.Name, cpCharacter.Character.Items.Shirt.ID, cpCharacter.Character.Items.Shirt.Quality)
-                    If cpCharacter.Character.Items.Shirt.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Shirt.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Shirt.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Shirt.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Shirt.TooltipParams.Suffix, cpCharacter.Character.Items.Shirt.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Shirt.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Shirt.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Shirt.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Shirt.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Shirt.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Shirt.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Shirt.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Shirt.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Shirt", cpCharacter.Character.Items.Shirt)
                 End If
                 If cpCharacter.Character.Items.Tabard IsNot Nothing Then
-                    Console.WriteLine("  Tabard: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Tabard.Name, cpCharacter.Character.Items.Tabard.ID, cpCharacter.Character.Items.Tabard.Quality)
-                    If cpCharacter.Character.Items.Tabard.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Tabard.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Tabard.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Tabard.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Tabard.TooltipParams.Suffix, cpCharacter.Character.Items.Tabard.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Tabard.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Tabard.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Tabard.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Tabard.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Tabard.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Tabard.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Tabard.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Tabard.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Tabard", cpCharacter.Character.Items.Tabard)
                 End If
                 If cpCharacter.Character.Items.Wrist IsNot Nothing Then
-                    Console.WriteLine("  Wrist: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Wrist.Name, cpCharacter.Character.Items.Wrist.ID, cpCharacter.Character.Items.Wrist.Quality)
-                    If cpCharacter.Character.Items.Wrist.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Wrist.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Wrist.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Wrist.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Wrist.TooltipParams.Suffix, cpCharacter.Character.Items.Wrist.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Wrist.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Wrist.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Wrist.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Wrist.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Wrist.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Wrist.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Wrist.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Wrist.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Wrist", cpCharacter.Character.Items.Wrist)
                 End If
                 If cpCharacter.Character.Items.Hands IsNot Nothing Then
-                    Console.WriteLine("  Hands: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Hands.Name, cpCharacter.Character.Items.Hands.ID, cpCharacter.Character.Items.Hands.Quality)
-                    If cpCharacter.Character.Items.Hands.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Hands.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Hands.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Hands.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Hands.TooltipParams.Suffix, cpCharacter.Character.Items.Hands.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Hands.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Hands.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Hands.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Hands.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Hands.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Hands.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Hands.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Hands.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Hands", cpCharacter.Character.Items.Hands)
                 End If
                 If cpCharacter.Character.Items.Waist IsNot Nothing Then
-                    Console.WriteLine("  Waist: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Waist.Name, cpCharacter.Character.Items.Waist.ID, cpCharacter.Character.Items.Waist.Quality)
-                    If cpCharacter.Character.Items.Waist.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Waist.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Waist.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Waist.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Waist.TooltipParams.Suffix, cpCharacter.Character.Items.Waist.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Waist.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Waist.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Waist.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Waist.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Waist.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Waist.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Waist.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Waist.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Waist", cpCharacter.Character.Items.Waist)
                 End If
                 If cpCharacter.Character.Items.Legs IsNot Nothing Then
-                    Console.WriteLine("  Legs: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Legs.Name, cpCharacter.Character.Items.Legs.ID, cpCharacter.Character.Items.Legs.Quality)
-                    If cpCharacter.Character.Items.Legs.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Legs.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Legs.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Legs.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Legs.TooltipParams.Suffix, cpCharacter.Character.Items.Legs.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Legs.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Legs.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Legs.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Legs.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Legs.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Legs.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Legs.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Legs.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Legs", cpCharacter.Character.Items.Legs)
                 End If
                 If cpCharacter.Character.Items.Feet IsNot Nothing Then
-                    Console.WriteLine("  Feet: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Feet.Name, cpCharacter.Character.Items.Feet.ID, cpCharacter.Character.Items.Feet.Quality)
-                    If cpCharacter.Character.Items.Feet.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Feet.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Feet.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Feet.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Feet.TooltipParams.Suffix, cpCharacter.Character.Items.Feet.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Feet.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Feet.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Feet.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Feet.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Feet.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Feet.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Feet.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Feet.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Feet", cpCharacter.Character.Items.Feet)
                 End If
                 If cpCharacter.Character.Items.Finger1 IsNot Nothing Then
-                    Console.WriteLine("  Finger1: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Finger1.Name, cpCharacter.Character.Items.Finger1.ID, cpCharacter.Character.Items.Finger1.Quality)
-                    If cpCharacter.Character.Items.Finger1.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Finger1.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Finger1.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Finger1.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Finger1.TooltipParams.Suffix, cpCharacter.Character.Items.Finger1.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Finger1.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Finger1.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Finger1.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Finger1.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Finger1.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Finger1.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Finger1.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Finger1.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Finger1", cpCharacter.Character.Items.Finger1)
                 End If
                 If cpCharacter.Character.Items.Finger2 IsNot Nothing Then
-                    Console.WriteLine("  Finger2: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Finger2.Name, cpCharacter.Character.Items.Finger2.ID, cpCharacter.Character.Items.Finger2.Quality)
-                    If cpCharacter.Character.Items.Finger2.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Finger2.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Finger2.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Finger2.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Finger2.TooltipParams.Suffix, cpCharacter.Character.Items.Finger2.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Finger2.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Finger2.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Finger2.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Finger2.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Finger2.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Finger2.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Finger2.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Finger2.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Finger2", cpCharacter.Character.Items.Finger2)
                 End If
                 If cpCharacter.Character.Items.Trinket1 IsNot Nothing Then
-                    Console.WriteLine("  Trinket1: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Trinket1.Name, cpCharacter.Character.Items.Trinket1.ID, cpCharacter.Character.Items.Trinket1.Quality)
-                    If cpCharacter.Character.Items.Trinket1.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Trinket1.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Trinket1.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Trinket1.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Trinket1.TooltipParams.Suffix, cpCharacter.Character.Items.Trinket1.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Trinket1.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Trinket1.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Trinket1.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Trinket1.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Trinket1.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Trinket1.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Trinket1.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Trinket1.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("HeadTrinket1", cpCharacter.Character.Items.Trinket1)
                 End If
                 If cpCharacter.Character.Items.Trinket2 IsNot Nothing Then
-                    Console.WriteLine("  Trinket2: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.Trinket2.Name, cpCharacter.Character.Items.Trinket2.ID, cpCharacter.Character.Items.Trinket2.Quality)
-                    If cpCharacter.Character.Items.Trinket2.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.Trinket2.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.Trinket2.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.Trinket2.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.Trinket2.TooltipParams.Suffix, cpCharacter.Character.Items.Trinket2.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.Trinket2.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.Trinket2.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.Trinket2.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.Trinket2.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.Trinket2.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.Trinket2.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.Trinket2.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.Trinket2.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("Trinket2", cpCharacter.Character.Items.Trinket2)
                 End If
                 If cpCharacter.Character.Items.MainHand IsNot Nothing Then
-                    Console.WriteLine("  MainHand: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.MainHand.Name, cpCharacter.Character.Items.MainHand.ID, cpCharacter.Character.Items.MainHand.Quality)
-                    If cpCharacter.Character.Items.MainHand.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.MainHand.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.MainHand.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.MainHand.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.MainHand.TooltipParams.Suffix, cpCharacter.Character.Items.MainHand.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.MainHand.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.MainHand.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.MainHand.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.MainHand.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.MainHand.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.MainHand.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.MainHand.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.MainHand.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("MainHand", cpCharacter.Character.Items.MainHand)
                 End If
                 If cpCharacter.Character.Items.OffHand IsNot Nothing Then
-                    Console.WriteLine("  OffHand: {0} - ID {1} - Quality: {2}", cpCharacter.Character.Items.OffHand.Name, cpCharacter.Character.Items.OffHand.ID, cpCharacter.Character.Items.OffHand.Quality)
-                    If cpCharacter.Character.Items.OffHand.TooltipParams.Gems.Count > 0 Then
-                        Console.WriteLine("    Gems: {0}", String.Join(", ", cpCharacter.Character.Items.OffHand.TooltipParams.Gems.Select(Function(g) g.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
-                    If cpCharacter.Character.Items.OffHand.TooltipParams.ExtraSocket Then
-                        Console.WriteLine("      Includes Extra Socket.")
-                    End If
-                    If cpCharacter.Character.Items.OffHand.TooltipParams.Suffix <> 0 Then
-                        Console.WriteLine("    Suffix: {0} (Seed: {1})", cpCharacter.Character.Items.OffHand.TooltipParams.Suffix, cpCharacter.Character.Items.OffHand.TooltipParams.Seed)
-                    End If
-                    If cpCharacter.Character.Items.OffHand.TooltipParams.Enchant <> 0 Then
-                        Console.WriteLine("    Enchant: {0}", cpCharacter.Character.Items.OffHand.TooltipParams.Enchant)
-                    End If
-                    If cpCharacter.Character.Items.OffHand.TooltipParams.Reforge <> 0 Then
-                        Console.WriteLine("    Reforge: {0}", cpCharacter.Character.Items.OffHand.TooltipParams.Reforge)
-                    End If
-                    If cpCharacter.Character.Items.OffHand.TooltipParams.TransmogItem <> 0 Then
-                        Console.WriteLine("    Transmogrified into: {0}", cpCharacter.Character.Items.OffHand.TooltipParams.TransmogItem)
-                    End If
-                    If cpCharacter.Character.Items.OffHand.TooltipParams.Set.Count > 0 Then
-                        Console.WriteLine("    Set items: {0}", String.Join(", ", cpCharacter.Character.Items.OffHand.TooltipParams.Set.Select(Function(s) s.ToString(CultureInfo.InvariantCulture)).ToArray()))
-                    End If
+                    DisplayEquippedItem("OffHand", cpCharacter.Character.Items.OffHand)
                 End If
                 Console.WriteLine()
             End If
