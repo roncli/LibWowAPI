@@ -12,6 +12,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Challenge
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
@@ -120,35 +121,36 @@ Namespace roncliProductions.LibWowAPI.Guild
                 CType(gpGuild.side, Faction),
                 gpGuild.achievementPoints,
                 If(gpGuild.achievements Is Nothing, Nothing, SetAchievements(gpGuild.achievements)),
-                If(gpGuild.members Is Nothing OrElse gpGuild.members.Count = 0, Nothing,
-                    (From m In gpGuild.members
-                    Select New Member(
-                        New Character(
-                            m.character.name,
-                            m.character.realm,
-                            m.character.battlegroup,
-                            m.character.class.GetClass(),
-                            m.character.race.GetRace(),
-                            CType(m.character.gender, Gender),
-                            m.character.level,
-                            m.character.achievementPoints,
-                            m.character.thumbnail,
-                            If(
-                                m.character.spec Is Nothing, Nothing, New Spec(
-                                    m.character.spec.name,
-                                    m.character.spec.role,
-                                    m.character.spec.backgroundImage,
-                                    m.character.spec.icon,
-                                    m.character.spec.description,
-                                    m.character.spec.order
-                                    )
+                If(
+                    gpGuild.members Is Nothing OrElse gpGuild.members.Count = 0, Nothing, (
+                        From m In gpGuild.members
+                        Select New Member(
+                            New Character(
+                                m.character.name,
+                                m.character.realm,
+                                m.character.battlegroup,
+                                m.character.class.GetClass(),
+                                m.character.race.GetRace(),
+                                CType(m.character.gender, Gender),
+                                m.character.level,
+                                m.character.achievementPoints,
+                                m.character.thumbnail,
+                                If(
+                                    m.character.spec Is Nothing, Nothing, New Spec(
+                                        m.character.spec.name,
+                                        m.character.spec.role,
+                                        m.character.spec.backgroundImage,
+                                        m.character.spec.icon,
+                                        m.character.spec.description,
+                                        m.character.spec.order
+                                        )
+                                    ),
+                                m.character.guild,
+                                m.character.guildRealm
                                 ),
-                            m.character.guild,
-                            m.character.guildRealm
-                            ),
-                        m.rank
-                        )
-                    ).ToCollection()
+                            m.rank
+                            )
+                        ).ToCollection()
                     ),
                 New Emblem(
                     gpGuild.emblem.icon,
@@ -157,11 +159,101 @@ Namespace roncliProductions.LibWowAPI.Guild
                     gpGuild.emblem.borderColor.ArgbHexToColor(),
                     gpGuild.emblem.backgroundColor.ArgbHexToColor()
                     ),
-                If(gpGuild.news Is Nothing, Nothing,
-                   (From n In gpGuild.news
-                    Select CreateNewsItem(n)
-                       ).ToCollection()
-                   )
+                If(
+                    gpGuild.news Is Nothing, Nothing, (
+                        From n In gpGuild.news
+                        Select CreateNewsItem(n)
+                        ).ToCollection()
+                    ),
+                If(
+                    gpGuild.challenge Is Nothing, Nothing, (
+                        From c In gpGuild.challenge
+                        Select New Challenge.Challenge(
+                            New Challenge.Realm(
+                                c.realm.name,
+                                c.realm.slug,
+                                c.realm.battlegroup,
+                                c.realm.locale,
+                                c.realm.timezone
+                                ),
+                            New Map(
+                                c.map.id,
+                                c.map.name,
+                                c.map.slug,
+                                c.map.hasChallengeMode,
+                                New TimeSpan(0, 0, 0, 0, c.map.bronzeCriteria.time),
+                                New TimeSpan(0, 0, 0, 0, c.map.silverCriteria.time),
+                                New TimeSpan(0, 0, 0, 0, c.map.goldCriteria.time)
+                                ),
+                            (
+                                From g In c.groups
+                                Select New Group(
+                                    g.ranking,
+                                    New TimeSpan(0, 0, 0, 0, g.time.time),
+                                    DateTime.Parse(g.date, CultureInfo.InvariantCulture),
+                                    g.medal,
+                                    g.faction.GetFaction(),
+                                    g.isRecurring,
+                                    (
+                                        From m In g.members
+                                        Select New Challenge.Member(
+                                            If(
+                                                m.character Is Nothing, Nothing, New Challenge.Character(
+                                                    m.character.name,
+                                                    m.character.realm,
+                                                    m.character.battlegroup,
+                                                    m.character.class.GetClass(),
+                                                    m.character.race.GetRace(),
+                                                    CType(m.character.gender, Gender),
+                                                    m.character.level,
+                                                    m.character.achievementPoints,
+                                                    m.character.thumbnail,
+                                                    If(
+                                                        m.character.spec Is Nothing, Nothing, New Challenge.Spec(
+                                                            m.character.spec.name,
+                                                            m.character.spec.role,
+                                                            m.character.spec.backgroundImage,
+                                                            m.character.spec.icon,
+                                                            m.character.spec.description,
+                                                            m.character.spec.order
+                                                            )
+                                                        ),
+                                                    m.character.guild,
+                                                    m.character.guildRealm
+                                                    )
+                                                ),
+                                            New Challenge.Spec(
+                                                m.spec.name,
+                                                m.spec.role,
+                                                m.spec.backgroundImage,
+                                                m.spec.icon,
+                                                m.spec.description,
+                                                m.spec.order
+                                                )
+                                            )
+                                        ).ToCollection(),
+                                    If(
+                                        g.guild Is Nothing, Nothing, New GuildBasicInfo(
+                                            g.guild.name,
+                                            g.guild.realm,
+                                            g.guild.battlegroup,
+                                            g.guild.level,
+                                            g.guild.members,
+                                            g.guild.achievementPoints,
+                                            New Emblem(
+                                                g.guild.emblem.icon,
+                                                g.guild.emblem.iconColor.ArgbHexToColor(),
+                                                g.guild.emblem.border,
+                                                g.guild.emblem.borderColor.ArgbHexToColor(),
+                                                g.guild.emblem.backgroundColor.ArgbHexToColor()
+                                                )
+                                            )
+                                        )
+                                    )
+                                ).ToCollection()
+                            )
+                        )
+                    ).ToCollection()
                 )
         End Sub
 
@@ -202,6 +294,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                 If Options.Members Then lstFields.Add("members")
                 If Options.Achievements Then lstFields.Add("achievements")
                 If Options.News Then lstFields.Add("news")
+                If Options.Challenge Then lstFields.Add("challenge")
                 Return String.Join(",", lstFields)
             End Get
         End Property

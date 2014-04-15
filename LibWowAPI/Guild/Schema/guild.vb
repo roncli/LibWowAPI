@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Runtime.Serialization
+Imports roncliProductions.LibWowAPI.Challenge.Schema
 
 Namespace roncliProductions.LibWowAPI.Guild.Schema
 
@@ -20,6 +21,7 @@ Namespace roncliProductions.LibWowAPI.Guild.Schema
         <DataMember()> Public Property members As member()
         <DataMember()> Public Property emblem As emblem
         <DataMember()> Public Property news As news()
+        <DataMember()> Public Property challenge As Challenge.Schema.challengeRealmMap()
 
     End Class
 

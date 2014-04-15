@@ -1819,6 +1819,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("1 - Include Guild Achievements - {0}", If(gpGuild.Options.Achievements, "Yes", "No"))
                 Console.WriteLine("2 - Include Members - {0}", If(gpGuild.Options.Members, "Yes", "No"))
                 Console.WriteLine("3 - Include News - {0}", If(gpGuild.Options.News, "Yes", "No"))
+                Console.WriteLine("4 - Include Challenge - {0}", If(gpGuild.Options.Challenge, "Yes", "No"))
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -1831,6 +1832,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             gpGuild.Options.Members = Not gpGuild.Options.Members
                         Case 3
                             gpGuild.Options.News = Not gpGuild.Options.News
+                        Case 4
+                            gpGuild.Options.Challenge = Not gpGuild.Options.Challenge
                     End Select
                     Console.Clear()
                 Else
@@ -1904,6 +1907,29 @@ Namespace roncliProductions.LibWowAPIDemo
                     ElseIf panItem IsNot Nothing Then
                         Console.WriteLine("  {0:M/d/yyyy} - Player Achievement: {1} by {2}", panItem.Date, panItem.Achievement.Title, panItem.Character)
                     End If
+                Next
+                Console.WriteLine()
+            End If
+
+            If gpGuild.Guild.Challenge IsNot Nothing Then
+                Console.WriteLine("Challenge:")
+                For Each cChallenge In gpGuild.Guild.Challenge
+                    Console.WriteLine("{0}) {1}", cChallenge.Map.ID, cChallenge.Map.Name)
+                    Console.WriteLine("  Bronze Time: {0:g}", cChallenge.Map.BronzeCriteria)
+                    Console.WriteLine("  Silver Time: {0:g}", cChallenge.Map.SilverCriteria)
+                    Console.WriteLine("  Gold Time: {0:g}", cChallenge.Map.GoldCriteria)
+                    For Each gGroup In cChallenge.Groups
+                        Console.WriteLine("  {0}) {1:g}", gGroup.Ranking, gGroup.Time)
+                        Console.WriteLine(
+                            "    {0}", String.Join(
+                                ", ", (
+                                    From m In gGroup.Members
+                                    Where m.Character IsNot Nothing
+                                    Select String.Format(CultureInfo.InvariantCulture, "{0}-{1}", m.Character.Name, m.Character.Realm)
+                                    ).ToArray()
+                                )
+                            )
+                    Next
                 Next
                 Console.WriteLine()
             End If

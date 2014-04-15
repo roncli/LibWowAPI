@@ -47,9 +47,17 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' Determines whether to retrieve the guild's news feed upon guild lookup.
         ''' </summary>
         ''' <value>This property gets or sets the News field.</value>
-        ''' <returns>Returns a boolean that determines</returns>
-        ''' <remarks></remarks>
+        ''' <returns>Returns a boolean that determines whether to retrieve the guild's news feed upon guild lookup.</returns>
+        ''' <remarks>When set to true, the API will return the guild's news feed.</remarks>
         Public Property News As Boolean = False
+
+        ''' <summary>
+        ''' Determines whether to retrieve the guild's challenge mode data upon guild lookup.
+        ''' </summary>
+        ''' <value>This property gets or sets the Challenge field.</value>
+        ''' <returns>Returns a boolean that determines whether to retrieve the guild's challenge mode data upon guild lookup.</returns>
+        ''' <remarks>When set to true, the API will return information about the guild's challenge mode data.</remarks>
+        Public Property Challenge As Boolean = False
 
         Friend Sub New()
         End Sub

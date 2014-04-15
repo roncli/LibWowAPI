@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Challenge
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Guild
@@ -112,7 +113,20 @@ Namespace roncliProductions.LibWowAPI.Guild
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, fFaction As Faction, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem))
+        Private colChallenge As Collection(Of Challenge.Challenge)
+        ''' <summary>
+        ''' The guild's challenge mode results.
+        ''' </summary>
+        ''' <value>This property gets the Challenge field.</value>
+        ''' <returns>Returns the guild's challenge mode results.</returns>
+        ''' <remarks>If the <see cref="GuildProfileOptions.Challenge" /> property of the <see cref="GuildProfile.Options" /> property is set to true, a <see cref="Collection(Of Challenge.Challenge)" /> of <see cref="Challenge.Challenge" /> will be available, containing the guild's challenge mode results.</remarks>
+        Public ReadOnly Property Challenge As Collection(Of Challenge.Challenge)
+            Get
+                Return colChallenge
+            End Get
+        End Property
+
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, fFaction As Faction, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem), cChallenge As Collection(Of Challenge.Challenge))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -124,6 +138,7 @@ Namespace roncliProductions.LibWowAPI.Guild
             lstMembers = mMembers
             Emblem = eEmblem
             colNews = nNews
+            colChallenge = cChallenge
         End Sub
 
     End Class
