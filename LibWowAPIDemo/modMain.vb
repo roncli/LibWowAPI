@@ -25,6 +25,7 @@ Imports roncliProductions.LibWowAPI.Data.Talents
 Imports roncliProductions.LibWowAPI.Guild
 Imports roncliProductions.LibWowAPI.Internationalization
 Imports roncliProductions.LibWowAPI.Item
+Imports roncliProductions.LibWowAPI.Leaderboard
 Imports roncliProductions.LibWowAPI.PvP
 Imports roncliProductions.LibWowAPI.Quest
 Imports roncliProductions.LibWowAPI.Realm
@@ -72,10 +73,11 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("23 - Guild Rewards")
                 Console.WriteLine("24 - Item Classes")
                 Console.WriteLine("25 - Item Lookup")
-                Console.WriteLine("26 - Quest Lookup")
-                Console.WriteLine("27 - Rated Battlegroup Ladder")
-                Console.WriteLine("28 - Realm Status")
-                Console.WriteLine("29 - Recipe Lookup")
+                Console.WriteLine("26 - PvP Leaderboards")
+                Console.WriteLine("27 - Quest Lookup")
+                Console.WriteLine("28 - Rated Battlegroup Ladder")
+                Console.WriteLine("29 - Realm Status")
+                Console.WriteLine("30 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -133,12 +135,14 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 25
                             ItemLookupDemo()
                         Case 26
-                            QuestLookupDemo()
+                            PvpLeaderboardsDemo()
                         Case 27
-                            RatedBattlegroundLadderDemo()
+                            QuestLookupDemo()
                         Case 28
-                            RealmStatusDemo()
+                            RatedBattlegroundLadderDemo()
                         Case 29
+                            RealmStatusDemo()
+                        Case 30
                             RecipeLookupDemo()
                     End Select
                     Console.Clear()
@@ -2170,6 +2174,58 @@ Namespace roncliProductions.LibWowAPIDemo
             If iItem.Item.IsAuctionable Then
                 Console.WriteLine("Is Auctionable")
             End If
+            Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub PvpLeaderboardsDemo()
+            Console.Clear()
+            Console.WriteLine("PvP Leaderboards Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables.
+            Dim ltType As Enums.LeaderboardType
+
+            ' Get the leaderboard type.
+            Do
+                Console.WriteLine("Select a leaderboard type.")
+                Console.WriteLine("1 - Arena 2v2")
+                Console.WriteLine("2 - Arena 3v3")
+                Console.WriteLine("3 - Arena 5v5")
+                Console.WriteLine("4 - Rated Battlegbrounds")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                Dim intResponse As Integer
+                If Integer.TryParse(strResponse, intResponse) Then
+                    If intResponse >= 1 AndAlso intResponse <= 4 Then
+                        ltType = CType(intResponse, Enums.LeaderboardType)
+                        Exit Do
+                    Else
+                        Console.WriteLine("Invalid response.")
+                        Console.WriteLine()
+                    End If
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the leaderboard.
+            Dim lLeaderboard As New LeaderboardLookup(ltType)
+
+            ' Show the leaderboard
+            Console.Clear()
+            If lLeaderboard.CacheHit.HasValue AndAlso lLeaderboard.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            For Each lRow In lLeaderboard.Leaderboard
+                Console.WriteLine("{0}) {1}-{2} - Rating: {3}", lRow.Ranking, lRow.Name, lRow.RealmName, lRow.Rating)
+                Console.WriteLine("  Season: {0}-{1} - Weekly: {2}-{3}", lRow.SeasonWins, lRow.SeasonLosses, lRow.WeeklyWins, lRow.WeeklyLosses)
+            Next
             Console.WriteLine()
 
             Console.WriteLine("Press any key to continue.")

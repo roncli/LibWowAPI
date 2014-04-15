@@ -158,6 +158,28 @@ Namespace roncliProductions.LibWowAPI.Data.ItemClasses
 
 End Namespace
 
+Namespace roncliProductions.LibWowAPI.Data.PetTypes
+
+    ''' <summary>
+    ''' The PetTypes namespace provides the <see cref="PetTypes" /> class, which retrieves a list of pet types from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
+Namespace roncliProductions.LibWowAPI.Data.Talents
+
+    ''' <summary>
+    ''' The Talents namespace provides the <see cref="ClassTalents" /> class, which retrieves a list of class talents from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
 Namespace roncliProductions.LibWowAPI.Enums
 
     ''' <summary>
@@ -202,6 +224,17 @@ Namespace roncliProductions.LibWowAPI.Item
 
 End Namespace
 
+Namespace roncliProductions.LibWowAPI.Leaderboard
+
+    ''' <summary>
+    ''' The Leaderboard namespace provides the <see cref="LeaderboardLookup" /> class, which retrieves PvP leaderboard information from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
 Namespace roncliProductions.LibWowAPI.PvP
 
     ''' <summary>
@@ -228,6 +261,17 @@ Namespace roncliProductions.LibWowAPI.Realm
 
     ''' <summary>
     ''' The Realm namespace provides the <see cref="RealmStatus" /> class, which retrieves realm statuses from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
+Namespace roncliProductions.LibWowAPI.Recipe
+
+    ''' <summary>
+    ''' The Recipe namespace provides the <see cref="RecipeLookup" /> class, which retrieves recipe information from the Blizzard WoW API.
     ''' </summary>
     ''' <remarks></remarks>
     Friend Class NamespaceDoc

@@ -311,6 +311,11 @@
     <Compile Include="Item\Schema\item.vb" />
     <Compile Include="Item\Schema\itemSpell.vb" />
     <Compile Include="Item\Schema\spell.vb" />
+    <Compile Include="Leaderboard\clsLeaderboardLookupOptions.vb" />
+    <Compile Include="Leaderboard\clsLeaderboard.vb" />
+    <Compile Include="Leaderboard\clsLeaderboardLookup.vb" />
+    <Compile Include="Leaderboard\Schema\leaderboard.vb" />
+    <Compile Include="Leaderboard\Schema\row.vb" />
     <Compile Include="modExtensions.vb" />
     <Compile Include="modInternationalization.vb" />
     <Compile Include="modEnums.vb" />

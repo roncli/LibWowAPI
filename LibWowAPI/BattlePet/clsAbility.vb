@@ -58,7 +58,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         ''' </summary>
         ''' <value>This property gets or sets the PetTypeID field.</value>
         ''' <returns>Returns the ID number of the pet type.</returns>
-        ''' <remarks>The pet type can be determined by matching this field to the <see="" /> field of the <see="" /> class.</remarks>
+        ''' <remarks>The pet type can be determined by matching this field to the <see cref="Data.PetTypes.PetType.ID" /> field of the <see cref="Data.PetTypes.PetType" /> class.</remarks>
         Public Property PetTypeID As Integer
 
         ''' <summary>

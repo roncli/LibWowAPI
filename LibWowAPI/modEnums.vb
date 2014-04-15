@@ -741,4 +741,16 @@ Namespace roncliProductions.LibWowAPI.Enums
         Tabard = 18
     End Enum
 
+    ''' <summary>
+    ''' An enumeration that describes a leaderboard type.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum LeaderboardType
+        Unknown = 0
+        Arena2v2 = 1
+        Arena3v3 = 2
+        Arena5v5 = 3
+        RatedBattlegrounds = 4
+    End Enum
+
 End Namespace
