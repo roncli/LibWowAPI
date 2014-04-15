@@ -1233,6 +1233,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("14 - Include Quests - {0}", If(cpCharacter.Options.Quests, "Yes", "No"))
                 Console.WriteLine("15 - Include Feed - {0}", If(cpCharacter.Options.Feed, "Yes", "No"))
                 Console.WriteLine("16 - Include Pets - {0}", If(cpCharacter.Options.Pets, "Yes", "No"))
+                Console.WriteLine("17 - Include Pet Slots - {0}", If(cpCharacter.Options.PetSlots, "Yes", "No"))
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -1271,6 +1272,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             cpCharacter.Options.Feed = Not cpCharacter.Options.Feed
                         Case 16
                             cpCharacter.Options.Pets = Not cpCharacter.Options.Pets
+                        Case 17
+                            cpCharacter.Options.PetSlots = Not cpCharacter.Options.PetSlots
                     End Select
                     Console.Clear()
                 Else
@@ -1580,6 +1583,15 @@ Namespace roncliProductions.LibWowAPIDemo
                 For Each cPet In cpCharacter.Character.Pets.Collected
                     Console.WriteLine("  {0} ({1}) - Level {2}", cPet.Name, cPet.CreatureName, cPet.Stats.Level)
                 Next
+                Console.WriteLine()
+            End If
+
+            If cpCharacter.Character.PetSlots IsNot Nothing Then
+                Console.WriteLine("Pet Slots:")
+                For Each psSlot In cpCharacter.Character.PetSlots
+                    Console.WriteLine("  {0}) {1}", psSlot.Slot, psSlot.BattlePetGuid)
+                Next
+                Console.WriteLine()
             End If
 
             Console.WriteLine("Press any key to continue.")

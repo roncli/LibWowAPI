@@ -38,6 +38,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property quests As Integer()
         <DataMember()> Public Property feed As feed()
         <DataMember()> Public Property pets As pets
+        <DataMember()> Public Property petSlots As petSlot()
 
     End Class
 

@@ -271,7 +271,20 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>If the <see cref="CharacterProfileOptions.Pets" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Pets" /> object will be available, containing the character's pets.</remarks>
         Public Property Pets As Pets
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem), pPets As Pets)
+        Private colPetSlots As Collection(Of PetSlot)
+        ''' <summary>
+        ''' The character's pet slots.
+        ''' </summary>
+        ''' <value>This property gets the PetSlots field.</value>
+        ''' <returns>Returns the character's pet slots.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of PetSlot)" /> of <see cref="PetSlot" /> that represents the character's pet slots.</remarks>
+        Public ReadOnly Property PetSlots As Collection(Of PetSlot)
+            Get
+                Return colPetSlots
+            End Get
+        End Property
+
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem), pPets As Pets, psPetSlots As Collection(Of PetSlot))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -300,6 +313,7 @@ Namespace roncliProductions.LibWowAPI.Character
             colQuests = intQuests
             colFeed = fiFeed
             Pets = pPets
+            colPetSlots = psPetSlots
         End Sub
 
     End Class

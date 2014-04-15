@@ -1137,6 +1137,19 @@ Namespace roncliProductions.LibWowAPI.Character
                                 )
                             ).ToCollection()
                         )
+                    ),
+                If(
+                    cpCharacter.petSlots Is Nothing, Nothing, (
+                        From ps In cpCharacter.petSlots
+                        Order By ps.slot
+                        Select New PetSlot(
+                            ps.slot,
+                            ps.battlePetGuid,
+                            ps.isEmpty,
+                            ps.isLocked,
+                            ps.abilities.ToCollection()
+                            )
+                        ).ToCollection()
                     )
                 )
         End Sub
@@ -1191,6 +1204,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 If Options.Quests Then lstFields.Add("quests")
                 If Options.Feed Then lstFields.Add("feed")
                 If Options.Pets Then lstFields.Add("pets")
+                If Options.PetSlots Then lstFields.Add("petSlots")
                 Return String.Join(",", lstFields)
             End Get
         End Property
