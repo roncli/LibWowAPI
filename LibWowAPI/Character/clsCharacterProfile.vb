@@ -1104,6 +1104,39 @@ Namespace roncliProductions.LibWowAPI.Character
                         From f In cpCharacter.feed
                         Select CreateFeedItem(f)
                         ).ToCollection()
+                    ),
+                If(
+                    cpCharacter.pets Is Nothing, Nothing, New Pets(
+                        cpCharacter.pets.numCollected,
+                        cpCharacter.pets.numNotCollected,
+                        (
+                            From c In cpCharacter.pets.collected
+                            Select New Collected(
+                                c.name,
+                                c.spellId,
+                                c.creatureId,
+                                c.itemId,
+                                CType(c.qualityId, Quality),
+                                c.icon,
+                                New BattlePet.Stats(
+                                    c.stats.speciesId,
+                                    CType(c.stats.breedId, BattlePetBreed),
+                                    CType(c.stats.petQualityId, Quality),
+                                    c.stats.level,
+                                    c.stats.health,
+                                    c.stats.power,
+                                    c.stats.speed
+                                    ),
+                                c.battlePetGuid,
+                                c.isFavorite,
+                                c.isFirstAbilitySlotSelected,
+                                c.isSecondAbilitySlotSelected,
+                                c.isThirdAbilitySlotSelected,
+                                c.creatureName,
+                                c.canBattle
+                                )
+                            ).ToCollection()
+                        )
                     )
                 )
         End Sub
@@ -1150,8 +1183,6 @@ Namespace roncliProductions.LibWowAPI.Character
                 If Options.Titles Then lstFields.Add("titles")
                 If Options.Professions Then lstFields.Add("professions")
                 If Options.Appearance Then lstFields.Add("appearance")
-                ' TODO: Add pets and petSlots
-                '                If Options.Companions Then lstFields.Add("companions")
                 If Options.Mounts Then lstFields.Add("mounts")
                 If Options.HunterPets Then lstFields.Add("hunterPets")
                 If Options.Achievements Then lstFields.Add("achievements")
@@ -1159,6 +1190,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 If Options.PvP Then lstFields.Add("pvp")
                 If Options.Quests Then lstFields.Add("quests")
                 If Options.Feed Then lstFields.Add("feed")
+                If Options.Pets Then lstFields.Add("pets")
                 Return String.Join(",", lstFields)
             End Get
         End Property

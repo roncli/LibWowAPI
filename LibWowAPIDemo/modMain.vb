@@ -1225,8 +1225,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("6 - Include Titles - {0}", If(cpCharacter.Options.Titles, "Yes", "No"))
                 Console.WriteLine("7 - Include Professions - {0}", If(cpCharacter.Options.Professions, "Yes", "No"))
                 Console.WriteLine("8 - Include Appearance - {0}", If(cpCharacter.Options.Appearance, "Yes", "No"))
-                ' TODO: Add pets and petSlots
-                '                Console.WriteLine("9 - Include Companion Pets - {0}", If(cpCharacter.Options.Companions, "Yes", "No"))
                 Console.WriteLine("9 - Include Mounts - {0}", If(cpCharacter.Options.Mounts, "Yes", "No"))
                 Console.WriteLine("10 - Include Hunter Pets - {0}", If(cpCharacter.Options.HunterPets, "Yes", "No"))
                 Console.WriteLine("11 - Include Achievements - {0}", If(cpCharacter.Options.Achievements, "Yes", "No"))
@@ -1234,6 +1232,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("13 - Include PvP - {0}", If(cpCharacter.Options.PvP, "Yes", "No"))
                 Console.WriteLine("14 - Include Quests - {0}", If(cpCharacter.Options.Quests, "Yes", "No"))
                 Console.WriteLine("15 - Include Feed - {0}", If(cpCharacter.Options.Feed, "Yes", "No"))
+                Console.WriteLine("16 - Include Pets - {0}", If(cpCharacter.Options.Pets, "Yes", "No"))
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -1256,9 +1255,6 @@ Namespace roncliProductions.LibWowAPIDemo
                             cpCharacter.Options.Professions = Not cpCharacter.Options.Professions
                         Case 8
                             cpCharacter.Options.Appearance = Not cpCharacter.Options.Appearance
-                            ' TODO: Add pets and petSlots
-                            'Case 9
-                            '    cpCharacter.Options.Companions = Not cpCharacter.Options.Companions
                         Case 9
                             cpCharacter.Options.Mounts = Not cpCharacter.Options.Mounts
                         Case 10
@@ -1273,6 +1269,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             cpCharacter.Options.Quests = Not cpCharacter.Options.Quests
                         Case 15
                             cpCharacter.Options.Feed = Not cpCharacter.Options.Feed
+                        Case 16
+                            cpCharacter.Options.Pets = Not cpCharacter.Options.Pets
                     End Select
                     Console.Clear()
                 Else
@@ -1472,13 +1470,6 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            ' TODO: Add pets and petSlots
-            'If cpCharacter.Character.Companions IsNot Nothing Then
-            '    Console.WriteLine("Companions:")
-            '    Console.WriteLine("  {0}", String.Join(", ", cpCharacter.Character.Companions.Select(Function(c) c.ToString(CultureInfo.InvariantCulture)).ToArray()))
-            '    Console.WriteLine()
-            'End If
-
             If cpCharacter.Character.Mounts IsNot Nothing Then
                 Console.WriteLine("Mounts:")
                 Console.WriteLine("  Collected: {0}", cpCharacter.Character.Mounts.NumCollected)
@@ -1581,6 +1572,14 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                 Next
                 Console.WriteLine()
+            End If
+
+            If cpCharacter.Character.Pets IsNot Nothing Then
+                Console.WriteLine("Pets:")
+                Console.WriteLine("  Collected: {0} - Not Collected: {1}", cpCharacter.Character.Pets.NumCollected, cpCharacter.Character.Pets.NumNotCollected)
+                For Each cPet In cpCharacter.Character.Pets.Collected
+                    Console.WriteLine("  {0} ({1}) - Level {2}", cPet.Name, cPet.CreatureName, cPet.Stats.Level)
+                Next
             End If
 
             Console.WriteLine("Press any key to continue.")

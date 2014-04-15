@@ -131,6 +131,7 @@
     <Compile Include="Character\clsCharacter.vb" />
     <Compile Include="Character\clsCharacterProfile.vb" />
     <Compile Include="Character\clsCharacterProfileOptions.vb" />
+    <Compile Include="Character\clsCollected.vb" />
     <Compile Include="Character\clsCompletedAchievement.vb" />
     <Compile Include="Character\clsCompletedCriteria.vb" />
     <Compile Include="Character\clsFeedCriteria.vb" />
@@ -146,6 +147,7 @@
     <Compile Include="Character\clsHunterPet.vb" />
     <Compile Include="Character\clsMount.vb" />
     <Compile Include="Character\clsMounts.vb" />
+    <Compile Include="Character\clsPets.vb" />
     <Compile Include="Character\clsProfession.vb" />
     <Compile Include="Character\clsProfessions.vb" />
     <Compile Include="Character\clsProgression.vb" />
@@ -162,6 +164,8 @@
     <Compile Include="Character\clsTitle.vb" />
     <Compile Include="Character\clsTooltipParams.vb" />
     <Compile Include="Character\clsUpgrade.vb" />
+    <Compile Include="Character\Schema\collected.vb" />
+    <Compile Include="Character\Schema\pets.vb" />
     <Compile Include="Character\Schema\achievements.vb" />
     <Compile Include="Character\Schema\appearance.vb" />
     <Compile Include="Character\Schema\boss.vb" />

@@ -33,12 +33,11 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property talents As talentSpec()
         <DataMember()> Public Property appearance As appearance
         <DataMember()> Public Property mounts As mounts
-        ' TODO: Add pets and petSlots
-        '        <DataMember()> Public Property companions As Integer()
         <DataMember()> Public Property progression As progression
         <DataMember()> Public Property pvp As pvp
         <DataMember()> Public Property quests As Integer()
         <DataMember()> Public Property feed As feed()
+        <DataMember()> Public Property pets As pets
 
     End Class
 

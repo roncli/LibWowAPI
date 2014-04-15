@@ -221,14 +221,6 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>If the <see cref="CharacterProfileOptions.Mounts" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Mounts" /> class will be available, containing information about the character's mounts.</remarks>
         Public Property Mounts As Mounts
 
-        ' TODO: Add pets and petSlots
-        'Private colCompanions As Collection(Of Integer)
-        'Public ReadOnly Property Companions As Collection(Of Integer)
-        '    Get
-        '        Return colCompanions
-        '    End Get
-        'End Property
-
         ''' <summary>
         ''' The character's instance progression.
         ''' </summary>
@@ -271,7 +263,15 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem))
+        ''' <summary>
+        ''' The character's pets.
+        ''' </summary>
+        ''' <value>This property gets or sets the Pets field.</value>
+        ''' <returns>Returns the character's pets.</returns>
+        ''' <remarks>If the <see cref="CharacterProfileOptions.Pets" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Pets" /> object will be available, containing the character's pets.</remarks>
+        Public Property Pets As Pets
+
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem), pPets As Pets)
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -295,12 +295,11 @@ Namespace roncliProductions.LibWowAPI.Character
             colTalents = tTalents
             Appearance = aAppearance
             Mounts = mMounts
-            ' TODO: Add pets and petSolts
-            '            colCompanions = intCompanions
             Progression = pProgression
             PvP = pPvP
             colQuests = intQuests
             colFeed = fiFeed
+            Pets = pPets
         End Sub
 
     End Class
