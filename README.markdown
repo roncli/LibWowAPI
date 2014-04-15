@@ -140,7 +140,10 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added Guild and GuildRealm to characters displayed within the Guild class.  No, I don't understand why they added redundant information, either.
  * Added FamilyID ans FamilyName to character's hunter pets.
  * Added item level, upgrade information, and stats to a character's equipped items.
- * Added LFR and Flex kills as well as most recent timestamps to all modes for character progression.
+ * Added LFR and Flex kills as well as most recent timestamps to all modes for progression in character profile.
+ * Added haste, spell haste, ranged haste, ranged expertise, and new PvP values to combat stats in character profile.
+ * Added class talents lookup. (Data.ClassTalents)
+ * Added pet type lookup. (Data.PetTypes)
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Character.Character, Data.CharacterAchievements, Data.GuildAchievements, Data.GuildRewards, and Guild.Guild to use the objects in the Achievements namespace for achievements, crtieria, and reward items.
@@ -149,6 +152,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Refactored Character to use the guild basic info and emblem classes in the Guild namespace.
  * PvP data for the character profile has been updated to eliminate teams and use the new brackets.
  * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
+ * Changed the Rank field to the Subtext field in the Spell class within the Character namespace.
 
 ## Classes
 
@@ -166,6 +170,7 @@ The following classes are provided:
 * Data.CharacterAchievements
 * Data.CharacterClasses
 * Data.CharacterRaces
+* Data.ClassTalents
 * Data.GuildAchievements
 * Data.GuildPerks
 * Data.GuildRewards

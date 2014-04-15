@@ -214,6 +214,22 @@
     <Compile Include="Data\GuildAchievements\clsGuildAchievements.vb" />
     <Compile Include="Data\ItemClasses\clsSubclass.vb" />
     <Compile Include="Data\ItemClasses\Schema\subclass.vb" />
+    <Compile Include="Data\PetTypes\clsPetType.vb" />
+    <Compile Include="Data\PetTypes\clsPetTypes.vb" />
+    <Compile Include="Data\PetTypes\Schema\petType.vb" />
+    <Compile Include="Data\PetTypes\Schema\petTypes.vb" />
+    <Compile Include="Data\Talents\clsClassTalents.vb" />
+    <Compile Include="Data\Talents\clsGlyph.vb" />
+    <Compile Include="Data\Talents\clsSpell.vb" />
+    <Compile Include="Data\Talents\clsTalent.vb" />
+    <Compile Include="Data\Talents\clsTalents.vb" />
+    <Compile Include="Data\Talents\clsTalentTier.vb" />
+    <Compile Include="Data\Talents\Schema\spell.vb" />
+    <Compile Include="Data\Talents\Schema\talent.vb" />
+    <Compile Include="Data\Talents\Schema\glyph.vb" />
+    <Compile Include="Data\Talents\Schema\spec.vb" />
+    <Compile Include="Data\Talents\Schema\talents.vb" />
+    <Compile Include="Data\Talents\clsSpec.vb" />
     <Compile Include="Guild\clsNewsAchievement.vb" />
     <Compile Include="Guild\clsNewsCriteria.vb" />
     <Compile Include="Guild\clsGuildAchievementNews.vb" />
@@ -372,9 +388,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\PetTypes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

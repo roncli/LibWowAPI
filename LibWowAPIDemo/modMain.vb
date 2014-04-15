@@ -20,6 +20,8 @@ Imports roncliProductions.LibWowAPI.Data.CharacterAchievements
 Imports roncliProductions.LibWowAPI.Data.GuildAchievements
 Imports roncliProductions.LibWowAPI.Data.GuildPerks
 Imports roncliProductions.LibWowAPI.Data.GuildRewards
+Imports roncliProductions.LibWowAPI.Data.PetTypes
+Imports roncliProductions.LibWowAPI.Data.Talents
 Imports roncliProductions.LibWowAPI.Guild
 Imports roncliProductions.LibWowAPI.Internationalization
 Imports roncliProductions.LibWowAPI.Item
@@ -56,22 +58,24 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("9 - Battle Pet Abilities")
                 Console.WriteLine("10 - Battle Pet Species")
                 Console.WriteLine("11 - Battle Pet Stats")
-                Console.WriteLine("12 - Challenge Mode for Realm")
-                Console.WriteLine("13 - Challenge Mode for Region")
-                Console.WriteLine("14 - Character Achievements")
-                Console.WriteLine("15 - Character Classes")
-                Console.WriteLine("16 - Character Profile")
-                Console.WriteLine("17 - Character Races")
-                Console.WriteLine("18 - Guild Achievements")
-                Console.WriteLine("19 - Guild Perks")
-                Console.WriteLine("20 - Guild Profile")
-                Console.WriteLine("21 - Guild Rewards")
-                Console.WriteLine("22 - Item Classes")
-                Console.WriteLine("23 - Item Lookup")
-                Console.WriteLine("24 - Quest Lookup")
-                Console.WriteLine("25 - Rated Battlegroup Ladder")
-                Console.WriteLine("26 - Realm Status")
-                Console.WriteLine("27 - Recipe Lookup")
+                Console.WriteLine("12 - Battle Pet Types")
+                Console.WriteLine("13 - Challenge Mode for Realm")
+                Console.WriteLine("14 - Challenge Mode for Region")
+                Console.WriteLine("15 - Character Achievements")
+                Console.WriteLine("16 - Character Classes")
+                Console.WriteLine("17 - Character Profile")
+                Console.WriteLine("18 - Character Races")
+                Console.WriteLine("19 - Character Talents")
+                Console.WriteLine("20 - Guild Achievements")
+                Console.WriteLine("21 - Guild Perks")
+                Console.WriteLine("22 - Guild Profile")
+                Console.WriteLine("23 - Guild Rewards")
+                Console.WriteLine("24 - Item Classes")
+                Console.WriteLine("25 - Item Lookup")
+                Console.WriteLine("26 - Quest Lookup")
+                Console.WriteLine("27 - Rated Battlegroup Ladder")
+                Console.WriteLine("28 - Realm Status")
+                Console.WriteLine("29 - Recipe Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -101,36 +105,40 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 11
                             BattlePetStatsDemo()
                         Case 12
-                            ChallengeRealmDemo()
+                            BattlePetTypesDemo()
                         Case 13
-                            ChallengeRegionDemo()
+                            ChallengeRealmDemo()
                         Case 14
-                            CharacterAchievementsDemo()
+                            ChallengeRegionDemo()
                         Case 15
-                            CharacterClassesDemo()
+                            CharacterAchievementsDemo()
                         Case 16
-                            CharacterProfileDemo()
+                            CharacterClassesDemo()
                         Case 17
-                            CharacterRacesDemo()
+                            CharacterProfileDemo()
                         Case 18
-                            GuildAchievementsDemo()
+                            CharacterRacesDemo()
                         Case 19
-                            GuildPerksDemo()
+                            CharacterTalentsDemo()
                         Case 20
-                            GuildProfileDemo()
+                            GuildAchievementsDemo()
                         Case 21
-                            GuildRewardsDemo()
+                            GuildPerksDemo()
                         Case 22
-                            ItemClassesDemo()
+                            GuildProfileDemo()
                         Case 23
-                            ItemLookupDemo()
+                            GuildRewardsDemo()
                         Case 24
-                            QuestLookupDemo()
+                            ItemClassesDemo()
                         Case 25
-                            RatedBattlegroundLadderDemo()
+                            ItemLookupDemo()
                         Case 26
-                            RealmStatusDemo()
+                            QuestLookupDemo()
                         Case 27
+                            RatedBattlegroundLadderDemo()
+                        Case 28
+                            RealmStatusDemo()
+                        Case 29
                             RecipeLookupDemo()
                     End Select
                     Console.Clear()
@@ -896,9 +904,31 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.ReadKey(True)
         End Sub
 
+        Public Sub BattlePetTypesDemo()
+            Console.Clear()
+            Console.WriteLine("Battle Pet Types Demo")
+            Console.WriteLine()
+
+            ' Get the battle pet types.
+            Dim ptTypes = New PetTypes()
+            ptTypes.Load()
+
+            ' Show the pet types.
+            For Each ptType In ptTypes.PetTypes
+                Console.WriteLine("{0}) {1}", ptType.ID, ptType.Name)
+                Console.WriteLine("  Type Ability ID: {0}", ptType.TypeAbilityID)
+                Console.WriteLine("  Strong against: {0}", ptTypes.PetTypes.Where(Function(pt) pt.ID = ptType.StrongAgainstID).First().Name)
+                Console.WriteLine("  Weak against: {0}", ptTypes.PetTypes.Where(Function(pt) pt.ID = ptType.WeakAgainstID).First().Name)
+                Console.WriteLine()
+            Next
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
         Public Sub ChallengeRealmDemo()
             Console.Clear()
-            Console.WriteLine("Challenge Mode for Realm")
+            Console.WriteLine("Challenge Mode for Realm Demo")
             Console.WriteLine()
 
             ' Declare some variabales.
@@ -1563,7 +1593,6 @@ Namespace roncliProductions.LibWowAPIDemo
             crRaces.Load()
 
             ' Show the character races.
-            Console.Clear()
             If crRaces.CacheHit.HasValue AndAlso crRaces.CacheHit.Value Then
                 Console.WriteLine("Cache hit!")
                 Console.WriteLine()
@@ -1571,6 +1600,54 @@ Namespace roncliProductions.LibWowAPIDemo
 
             For Each rRace In crRaces.Races
                 Console.WriteLine("{0}) {1} - {2} - Mask: {3}", rRace.ID, rRace.Name, rRace.Faction, rRace.Mask)
+            Next
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub CharacterTalentsDemo()
+            Console.Clear()
+            Console.WriteLine("Character Talents Demo")
+            Console.WriteLine()
+
+            ' Get the class talents.
+            Dim ctTalents As New ClassTalents()
+            ctTalents.Load()
+
+            ' Show the class talents.
+            If ctTalents.CacheHit.HasValue AndAlso ctTalents.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            For Each tTalents In ctTalents.Talents
+                Console.WriteLine("{0}) {1}", tTalents.ClassID, tTalents.Class)
+                Console.WriteLine("  Specs:")
+                For Each sSpec In tTalents.Specs
+                    Console.WriteLine("    {0} - Role: {1}", sSpec.Name, sSpec.Role)
+                    Console.WriteLine("      {0}", sSpec.Description)
+                Next
+                If tTalents.PetSpecs IsNot Nothing Then
+                    Console.WriteLine("  Pet Specs:")
+                    For Each sSpec In tTalents.PetSpecs
+                        Console.WriteLine("    {0} - Role: {1}", sSpec.Name, sSpec.Role)
+                        Console.WriteLine("      {0}", sSpec.Description)
+                    Next
+                End If
+                Console.WriteLine("  Talents:")
+                For Each ttTalentTier In tTalents.TalentTiers
+                    Console.WriteLine("    Tier {0}", ttTalentTier.Tier)
+                    For Each tTalent In ttTalentTier.Talents
+                        Console.WriteLine("      Column {0} - {1}", tTalent.Column, tTalent.Spell.Name)
+                        Console.WriteLine("        {0}", tTalent.Spell.Description)
+                    Next
+                Next
+                Console.WriteLine("  Glyphs:")
+                For Each gGlyph In tTalents.Glyphs
+                    Console.WriteLine("  {0}) {1} - {2}", gGlyph.Glyph, gGlyph.Name, If(gGlyph.TypeID = 0, "Major", "Minor"))
+                Next
+                Console.WriteLine()
             Next
 
             Console.WriteLine("Press any key to continue.")
