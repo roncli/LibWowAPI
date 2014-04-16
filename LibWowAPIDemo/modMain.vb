@@ -30,6 +30,7 @@ Imports roncliProductions.LibWowAPI.PvP
 Imports roncliProductions.LibWowAPI.Quest
 Imports roncliProductions.LibWowAPI.Realm
 Imports roncliProductions.LibWowAPI.Recipe
+Imports roncliProductions.LibWowAPI.Spell
 
 <Assembly: CLSCompliant(True)> 
 
@@ -78,6 +79,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("28 - Rated Battlegroup Ladder")
                 Console.WriteLine("29 - Realm Status")
                 Console.WriteLine("30 - Recipe Lookup")
+                Console.WriteLine("31 - Spell Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -144,6 +146,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             RealmStatusDemo()
                         Case 30
                             RecipeLookupDemo()
+                        Case 31
+                            SpellLookupDemo()
                     End Select
                     Console.Clear()
                 Else
@@ -1756,10 +1760,10 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each pPerk In gpPerks.Perks
-                If String.IsNullOrWhiteSpace(pPerk.Spell.Rank) Then
+                If String.IsNullOrWhiteSpace(pPerk.Spell.Subtext) Then
                     Console.WriteLine("Level {0} - {1} - ID: {2}", pPerk.GuildLevel, pPerk.Spell.Name, pPerk.Spell.ID)
                 Else
-                    Console.WriteLine("Level {0} - {1} {2} - ID: {3}", pPerk.GuildLevel, pPerk.Spell.Name, pPerk.Spell.Rank, pPerk.Spell.ID)
+                    Console.WriteLine("Level {0} - {1} {2} - ID: {3}", pPerk.GuildLevel, pPerk.Spell.Name, pPerk.Spell.Subtext, pPerk.Spell.ID)
                 End If
                 If Not String.IsNullOrWhiteSpace(pPerk.Spell.Range) Then
                     Console.WriteLine("Range: {0}", pPerk.Spell.Range)
@@ -2098,8 +2102,8 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Spells:")
                 For Each isSpell In iItem.Item.ItemSpells
                     Console.WriteLine("  {0} - ID: {1} - Category ID: {2}", isSpell.Spell.Name, isSpell.SpellID, isSpell.CategoryID)
-                    If Not String.IsNullOrWhiteSpace(isSpell.Spell.Rank) Then
-                        Console.WriteLine("    {0}", isSpell.Spell.Rank)
+                    If Not String.IsNullOrWhiteSpace(isSpell.Spell.Subtext) Then
+                        Console.WriteLine("    {0}", isSpell.Spell.Subtext)
                     End If
                     If Not String.IsNullOrWhiteSpace(isSpell.Spell.CastTime) Then
                         Console.WriteLine("    {0}", isSpell.Spell.CastTime)
@@ -2496,6 +2500,59 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)
         End Sub
+
+        Public Sub SpellLookupDemo()
+            Console.Clear()
+            Console.WriteLine("Spell Lookup Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables
+            Dim intSpellID As Integer
+
+            ' Next, get the spell ID.
+            Do
+                Console.WriteLine("Please enter the ID number of the spell you wish to lookup.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If Integer.TryParse(strResponse, intSpellID) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the Spell.
+            Dim sSpell As New SpellLookup(intSpellID)
+
+            ' Show the spell.
+            Console.Clear()
+            If sSpell.CacheHit.HasValue AndAlso sSpell.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            Console.WriteLine("  {0} - ID: {1}", sSpell.Spell.Name, sSpell.Spell.ID)
+            If Not String.IsNullOrWhiteSpace(sSpell.Spell.Subtext) Then
+                Console.WriteLine("    {0}", sSpell.Spell.Subtext)
+            End If
+            If Not String.IsNullOrWhiteSpace(sSpell.Spell.CastTime) Then
+                Console.WriteLine("    {0}", sSpell.Spell.CastTime)
+            End If
+            If Not String.IsNullOrWhiteSpace(sSpell.Spell.Range) Then
+                Console.WriteLine("    {0}", sSpell.Spell.Range)
+            End If
+            If Not String.IsNullOrWhiteSpace(sSpell.Spell.Description) Then
+                Console.WriteLine("    {0}", sSpell.Spell.Description)
+            End If
+            If Not String.IsNullOrWhiteSpace(sSpell.Spell.Cooldown) Then
+                Console.WriteLine("    {0}", sSpell.Spell.Cooldown)
+            End If
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
     End Module
 
 End Namespace

@@ -28,12 +28,12 @@ Namespace roncliProductions.LibWowAPI.Data.GuildPerks
         Public Property Name As String
 
         ''' <summary>
-        ''' The spell's rank.
+        ''' The spell's subtext.
         ''' </summary>
-        ''' <value>This gets or sets the Rank field.</value>
-        ''' <returns>Returns the spell's rank.</returns>
-        ''' <remarks>This is the localized rank of the spell.</remarks>
-        Public Property Rank As String
+        ''' <value>This gets or sets the Subtext field.</value>
+        ''' <returns>Returns the spell's subtext.</returns>
+        ''' <remarks>This is the localized subtext of the spell.</remarks>
+        Public Property Subtext As String
 
         ''' <summary>
         ''' A path leading to the spell's icon on the server.
@@ -75,10 +75,10 @@ Namespace roncliProductions.LibWowAPI.Data.GuildPerks
         ''' <remarks>This is the localized cooldown of the spell.</remarks>
         Public Property Cooldown As String
 
-        Friend Sub New(intID As Integer, strName As String, strRank As String, strIcon As String, strDescription As String, strRange As String, strCastTime As String, strCooldown As String)
+        Friend Sub New(intID As Integer, strName As String, strSubtext As String, strIcon As String, strDescription As String, strRange As String, strCastTime As String, strCooldown As String)
             ID = intID
             Name = strName
-            Rank = strRank
+            Subtext = strSubtext
             Icon = strIcon
             Description = strDescription
             Range = strRange

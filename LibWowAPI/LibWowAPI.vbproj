@@ -375,6 +375,10 @@
     <Compile Include="Achievement\Schema\rewardItem.vb" />
     <Compile Include="Achievement\Schema\stat.vb" />
     <Compile Include="Achievement\Schema\tooltipParams.vb" />
+    <Compile Include="Spell\clsSpellLookup.vb" />
+    <Compile Include="Spell\clsSpellLookupOptions.vb" />
+    <Compile Include="Spell\clsSpell.vb" />
+    <Compile Include="Spell\Schema\spell.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
