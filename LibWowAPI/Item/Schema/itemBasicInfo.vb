@@ -5,15 +5,18 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Guild.Schema
+Namespace roncliProductions.LibWowAPI.Item.Schema
 
-    <DataContract()> Friend Class rewardItem
+    <DataContract()> Friend Class itemBasicInfo
 
         <DataMember()> Public Property id As Integer
         <DataMember()> Public Property name As String
         <DataMember()> Public Property icon As String
         <DataMember()> Public Property quality As Integer
+        <DataMember()> Public Property itemLevel As Integer
         <DataMember()> Public Property tooltipParams As tooltipParams
+        <DataMember()> Public Property stats As stat()
+        <DataMember()> Public Property armor As Integer
 
     End Class
 

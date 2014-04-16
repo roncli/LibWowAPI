@@ -6,7 +6,7 @@
 Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.Character
+Namespace roncliProductions.LibWowAPI.Item
 
     ''' <summary>
     ''' A class containing information about an item's stat.

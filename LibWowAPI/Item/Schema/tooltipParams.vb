@@ -5,7 +5,7 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Character.Schema
+Namespace roncliProductions.LibWowAPI.Item.Schema
 
     <DataContract()> Friend Class tooltipParams
 

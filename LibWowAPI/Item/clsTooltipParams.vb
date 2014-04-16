@@ -5,7 +5,7 @@
 
 Imports System.Collections.ObjectModel
 
-Namespace roncliProductions.LibWowAPI.Character
+Namespace roncliProductions.LibWowAPI.Item
 
     ''' <summary>
     ''' A class containing information about a specific instance of an item.
