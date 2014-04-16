@@ -151,6 +151,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added spell lookup. (Spell.SpellLookup)
 * Removed:
  * Removed Reforged property from an item's bonus stats.
+ * Removed namespace PvP and all classes within, since Blizzard has removed those APIs.
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Character.Character, Data.CharacterAchievements, Data.GuildAchievements, Data.GuildRewards, and Guild.Guild to use the objects in the Achievements namespace for achievements, crtieria, and reward items.

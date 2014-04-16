@@ -26,7 +26,6 @@ Imports roncliProductions.LibWowAPI.Guild
 Imports roncliProductions.LibWowAPI.Internationalization
 Imports roncliProductions.LibWowAPI.Item
 Imports roncliProductions.LibWowAPI.Leaderboard
-Imports roncliProductions.LibWowAPI.PvP
 Imports roncliProductions.LibWowAPI.Quest
 Imports roncliProductions.LibWowAPI.Realm
 Imports roncliProductions.LibWowAPI.Recipe
@@ -53,33 +52,30 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("2 - Change Language")
                 Console.WriteLine("3 - Setup Authorization")
                 Console.WriteLine("4 - Achievement Lookup")
-                Console.WriteLine("5 - Arena Ladder")
-                Console.WriteLine("6 - Arena Team")
-                Console.WriteLine("7 - Auctions")
-                Console.WriteLine("8 - Battlegroups")
-                Console.WriteLine("9 - Battle Pet Abilities")
-                Console.WriteLine("10 - Battle Pet Species")
-                Console.WriteLine("11 - Battle Pet Stats")
-                Console.WriteLine("12 - Battle Pet Types")
-                Console.WriteLine("13 - Challenge Mode for Realm")
-                Console.WriteLine("14 - Challenge Mode for Region")
-                Console.WriteLine("15 - Character Achievements")
-                Console.WriteLine("16 - Character Classes")
-                Console.WriteLine("17 - Character Profile")
-                Console.WriteLine("18 - Character Races")
-                Console.WriteLine("19 - Character Talents")
-                Console.WriteLine("20 - Guild Achievements")
-                Console.WriteLine("21 - Guild Perks")
-                Console.WriteLine("22 - Guild Profile")
-                Console.WriteLine("23 - Guild Rewards")
-                Console.WriteLine("24 - Item Classes")
-                Console.WriteLine("25 - Item Lookup")
-                Console.WriteLine("26 - PvP Leaderboards")
-                Console.WriteLine("27 - Quest Lookup")
-                Console.WriteLine("28 - Rated Battlegroup Ladder")
-                Console.WriteLine("29 - Realm Status")
-                Console.WriteLine("30 - Recipe Lookup")
-                Console.WriteLine("31 - Spell Lookup")
+                Console.WriteLine("5 - Auctions")
+                Console.WriteLine("6 - Battlegroups")
+                Console.WriteLine("7 - Battle Pet Abilities")
+                Console.WriteLine("8 - Battle Pet Species")
+                Console.WriteLine("9 - Battle Pet Stats")
+                Console.WriteLine("10 - Battle Pet Types")
+                Console.WriteLine("11 - Challenge Mode for Realm")
+                Console.WriteLine("12 - Challenge Mode for Region")
+                Console.WriteLine("13 - Character Achievements")
+                Console.WriteLine("14 - Character Classes")
+                Console.WriteLine("15 - Character Profile")
+                Console.WriteLine("16 - Character Races")
+                Console.WriteLine("17 - Character Talents")
+                Console.WriteLine("18 - Guild Achievements")
+                Console.WriteLine("19 - Guild Perks")
+                Console.WriteLine("20 - Guild Profile")
+                Console.WriteLine("21 - Guild Rewards")
+                Console.WriteLine("22 - Item Classes")
+                Console.WriteLine("23 - Item Lookup")
+                Console.WriteLine("24 - PvP Leaderboards")
+                Console.WriteLine("25 - Quest Lookup")
+                Console.WriteLine("26 - Realm Status")
+                Console.WriteLine("27 - Recipe Lookup")
+                Console.WriteLine("28 - Spell Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -95,58 +91,52 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 4
                             AchievementLookupDemo()
                         Case 5
-                            ArenaLadderDemo()
-                        Case 6
-                            ArenaTeamDemo()
-                        Case 7
                             AuctionsDemo()
-                        Case 8
+                        Case 6
                             BattlegroupsDemo()
-                        Case 9
+                        Case 7
                             BattlePetAbilitiesDemo()
-                        Case 10
+                        Case 8
                             BattlePetSpeciesDemo()
-                        Case 11
+                        Case 9
                             BattlePetStatsDemo()
-                        Case 12
+                        Case 10
                             BattlePetTypesDemo()
-                        Case 13
+                        Case 11
                             ChallengeRealmDemo()
-                        Case 14
+                        Case 12
                             ChallengeRegionDemo()
-                        Case 15
+                        Case 13
                             CharacterAchievementsDemo()
-                        Case 16
+                        Case 14
                             CharacterClassesDemo()
-                        Case 17
+                        Case 15
                             CharacterProfileDemo()
-                        Case 18
+                        Case 16
                             CharacterRacesDemo()
-                        Case 19
+                        Case 17
                             CharacterTalentsDemo()
-                        Case 20
+                        Case 18
                             GuildAchievementsDemo()
-                        Case 21
+                        Case 19
                             GuildPerksDemo()
-                        Case 22
+                        Case 20
                             GuildProfileDemo()
-                        Case 23
+                        Case 21
                             GuildRewardsDemo()
-                        Case 24
+                        Case 22
                             ItemClassesDemo()
-                        Case 25
+                        Case 23
                             ItemLookupDemo()
-                        Case 26
+                        Case 24
                             PvpLeaderboardsDemo()
-                        Case 27
+                        Case 25
                             QuestLookupDemo()
-                        Case 28
-                            RatedBattlegroundLadderDemo()
-                        Case 29
+                        Case 26
                             RealmStatusDemo()
-                        Case 30
+                        Case 27
                             RecipeLookupDemo()
-                        Case 31
+                        Case 28
                             SpellLookupDemo()
                     End Select
                     Console.Clear()
@@ -352,257 +342,6 @@ Namespace roncliProductions.LibWowAPIDemo
                     Console.WriteLine("  - {0}) {1}", cCriteria.ID, cCriteria.Description)
                 Next
             End If
-            Console.WriteLine()
-
-            Console.WriteLine("Press any key to continue.")
-            Console.ReadKey(True)
-        End Sub
-
-        Public Sub ArenaLadderDemo()
-            Console.Clear()
-            Console.WriteLine("Arena Ladder Demo")
-            Console.WriteLine()
-
-            ' Declare some variabales.
-            Dim strBattlegroup As String
-            Dim intTeamSize As Integer
-            Dim intTeams As Integer
-            Dim intPage As Integer
-            Dim blnAscending As New Boolean?
-
-            ' Next, get the battlegroup.
-            Do
-                Console.WriteLine("Please enter the name of the battlegroup of the arena ladder you wish to retrieve.")
-                Console.Write(">")
-                strBattlegroup = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(strBattlegroup) Then
-                    Console.WriteLine("You must enter a realm name.")
-                    Console.WriteLine()
-                Else
-                    Exit Do
-                End If
-            Loop
-
-            ' Next, get the team size.
-            Do
-                Console.WriteLine("Please enter an arena team size.")
-                Console.WriteLine("2 - 2v2")
-                Console.WriteLine("3 - 3v3")
-                Console.WriteLine("5 - 5v5")
-                Console.Write(">")
-                Dim strResponse = Console.ReadLine
-                Dim intResponse As Integer
-                If Integer.TryParse(strResponse, intResponse) Then
-                    Select Case intResponse
-                        Case 2, 3, 5
-                            intTeamSize = intResponse
-                            Exit Do
-                        Case Else
-                            Console.WriteLine("Invalid response.")
-                            Console.WriteLine()
-                    End Select
-                Else
-                    Console.WriteLine("Invalid response.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Next, get the number of teams to return.
-            Do
-                Console.WriteLine("Please enter the number of teams to return.")
-                Console.WriteLine("  Or press enter to default.")
-                Console.Write(">")
-                Dim strTeams = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(strTeams) Then
-                    Exit Do
-                End If
-
-                If Integer.TryParse(strTeams, intTeams) Then
-                    Exit Do
-                Else
-                    Console.WriteLine("You must enter a valid number of teams to return.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Next, get the page number to return.
-            Do
-                Console.WriteLine("Please enter the page number to return.")
-                Console.WriteLine("  Or press enter to default.")
-                Console.Write(">")
-                Dim strPage = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(strPage) Then
-                    Exit Do
-                End If
-
-                If Integer.TryParse(strPage, intPage) Then
-                    Exit Do
-                Else
-                    Console.WriteLine("You must enter a valid page number to return.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Next, get whether to return results ascending or descending.
-            Do
-                Console.WriteLine("Select the sort order to use.")
-                Console.WriteLine("0 - Default (Ascending)")
-                Console.WriteLine("1 - Ascending")
-                Console.WriteLine("2 - Descending")
-                Console.Write(">")
-                Dim strResponse = Console.ReadLine
-                Dim intResponse As Integer
-                If Integer.TryParse(strResponse, intResponse) Then
-                    Select Case intResponse
-                        Case 0
-                            Exit Do
-                        Case 1
-                            blnAscending = True
-                            Exit Do
-                        Case 2
-                            blnAscending = False
-                            Exit Do
-                        Case Else
-                            Console.WriteLine("Invalid response.")
-                            Console.WriteLine()
-                    End Select
-                Else
-                    Console.WriteLine("Invalid response.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Perform the arena ladder lookup.
-            Dim alLadder As New ArenaLadder()
-            alLadder.Options.Battlegroup = strBattlegroup
-            alLadder.Options.TeamSize = intTeamSize
-            alLadder.Options.Teams = intTeams
-            alLadder.Options.Page = intPage
-            alLadder.Options.Ascending = blnAscending
-            alLadder.Load()
-
-            ' Show the arena teams.
-            Console.Clear()
-            If alLadder.CacheHit.HasValue AndAlso alLadder.CacheHit.Value Then
-                Console.WriteLine("Cache hit!")
-                Console.WriteLine()
-            End If
-
-            For Each atTeam In alLadder.Teams
-                Console.WriteLine("{0}) {1} - {2} - {3} - {4}v{4} - Created: {5:M/d/yyyy}", atTeam.Ranking, atTeam.Realm, atTeam.Faction, atTeam.Name, atTeam.TeamSize, atTeam.Created)
-                Console.WriteLine("  Rating: {0}", atTeam.Rating)
-                Console.WriteLine("  Record: {0}-{1} ({2} played) - Session record: {3}-{4} ({5} played)", atTeam.GamesWon, atTeam.GamesLost, atTeam.GamesPlayed, atTeam.SessionGamesWon, atTeam.SessionGamesLost, atTeam.SessionGamesPlayed)
-                Console.WriteLine("  Current week ranking: {0} - Last session ranking: {1}", atTeam.CurrentWeekRanking, atTeam.LastSessionRanking)
-                Console.WriteLine()
-
-                Console.WriteLine("  Members:")
-                For Each mMember In atTeam.Members
-                    Console.WriteLine("    {0} - Level {1} {2} {3} {4} {5}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name, If(mMember.Character.Spec Is Nothing, Nothing, mMember.Character.Spec.Name))
-                    If mMember.Rank = 1 Then
-                        Console.WriteLine("      Team Owner")
-                    End If
-                    Console.WriteLine("      Record: {0}-{1} ({2} played) - Session record: {3}-{4} ({5} played)", mMember.GamesWon, mMember.GamesLost, mMember.GamesPlayed, mMember.SessionGamesWon, mMember.SessionGamesLost, mMember.SessionGamesPlayed)
-                    Console.WriteLine("      Personal rating: {0}", mMember.PersonalRating)
-                    Console.WriteLine("      Achievement Points: {0}", mMember.Character.AchievementPoints)
-                Next
-                Console.WriteLine()
-            Next
-
-            Console.WriteLine("Press any key to continue.")
-            Console.ReadKey(True)
-        End Sub
-
-        Public Sub ArenaTeamDemo()
-            Console.Clear()
-            Console.WriteLine("Arena Team Demo")
-            Console.WriteLine()
-
-            ' Declare some variabales.
-            Dim strRealm As String
-            Dim intTeamSize As Integer
-            Dim strName As String
-
-            ' Next, get the realm.
-            Do
-                Console.WriteLine("Please enter the name of the realm of the arena team you wish to retrieve.")
-                Console.Write(">")
-                strRealm = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(strRealm) Then
-                    Console.WriteLine("You must enter a realm name.")
-                    Console.WriteLine()
-                Else
-                    Exit Do
-                End If
-            Loop
-
-            ' Next, get the team size.
-            Do
-                Console.WriteLine("Please enter an arena team size.")
-                Console.WriteLine("2 - 2v2")
-                Console.WriteLine("3 - 3v3")
-                Console.WriteLine("5 - 5v5")
-                Console.Write(">")
-                Dim strResponse = Console.ReadLine
-                Dim intResponse As Integer
-                If Integer.TryParse(strResponse, intResponse) Then
-                    Select Case intResponse
-                        Case 2, 3, 5
-                            intTeamSize = intResponse
-                            Exit Do
-                        Case Else
-                            Console.WriteLine("Invalid response.")
-                            Console.WriteLine()
-                    End Select
-                Else
-                    Console.WriteLine("Invalid response.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Next, get the character name.
-            Do
-                Console.WriteLine("Please enter the name of the arena team you wish to retrieve.")
-                Console.Write(">")
-                strName = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(strName) Then
-                    Console.WriteLine("You must enter an arena team name.")
-                    Console.WriteLine()
-                Else
-                    Exit Do
-                End If
-            Loop
-
-            ' Perform the arena team lookup.
-            Dim atTeam As New LibWowAPI.PvP.ArenaTeam(strRealm, intTeamSize, strName)
-
-            ' Show the arena team.
-            Console.Clear()
-            If atTeam.CacheHit.HasValue AndAlso atTeam.CacheHit.Value Then
-                Console.WriteLine("Cache hit!")
-                Console.WriteLine()
-            End If
-
-            Console.WriteLine("{0} - {1} - {2} - {3}v{3} - Created: {4:M/d/yyyy}", atTeam.Team.Realm, atTeam.Team.Faction, atTeam.Team.Name, atTeam.Team.TeamSize, atTeam.Team.Created)
-            Console.WriteLine("Rating: {0} - Ranking: {1}", atTeam.Team.Rating, atTeam.Team.Ranking)
-            Console.WriteLine("Record: {0}-{1} ({2} played) - Session record: {3}-{4} ({5} played)", atTeam.Team.GamesWon, atTeam.Team.GamesLost, atTeam.Team.GamesPlayed, atTeam.Team.SessionGamesWon, atTeam.Team.SessionGamesLost, atTeam.Team.SessionGamesPlayed)
-            Console.WriteLine("Current week ranking: {0} - Last session ranking: {1}", atTeam.Team.CurrentWeekRanking, atTeam.Team.LastSessionRanking)
-            Console.WriteLine()
-
-            Console.WriteLine("Members:")
-            For Each mMember In atTeam.Team.Members
-                Console.WriteLine("  {0} - Level {1} {2} {3} {4} {5}", mMember.Character.Name, mMember.Character.Level, mMember.Character.Gender, mMember.Character.Race.Name, mMember.Character.Class.Name, If(mMember.Character.Spec Is Nothing, Nothing, mMember.Character.Spec.Name))
-                If mMember.Rank = 1 Then
-                    Console.WriteLine("    Team Owner")
-                End If
-                Console.WriteLine("    Record: {0}-{1} ({2} played) - Session record: {3}-{4} ({5} played)", mMember.GamesWon, mMember.GamesLost, mMember.GamesPlayed, mMember.SessionGamesWon, mMember.SessionGamesLost, mMember.SessionGamesPlayed)
-                Console.WriteLine("    Personal rating: {0}", mMember.PersonalRating)
-                Console.WriteLine("    Achievement Points: {0}", mMember.Character.AchievementPoints)
-            Next
             Console.WriteLine()
 
             Console.WriteLine("Press any key to continue.")
@@ -2307,109 +2046,6 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("{0} - ID: {1} - Category: {2} - Level: {3}", qQuest.Quest.Title, qQuest.Quest.ID, qQuest.Quest.Category, qQuest.Quest.Level)
             Console.WriteLine("Required level: {0} - Suggested party members: {1}", qQuest.Quest.RequiredLevel, qQuest.Quest.SuggestedPartyMembers)
             Console.WriteLine()
-
-            Console.WriteLine("Press any key to continue.")
-            Console.ReadKey(True)
-        End Sub
-
-        Public Sub RatedBattlegroundLadderDemo()
-            Console.Clear()
-            Console.WriteLine("Rated Battlegroup Ladder Demo")
-            Console.WriteLine()
-
-            Dim intCharacters As Integer
-            Dim intPage As Integer
-            Dim blnAscending As New Boolean?
-
-            ' First, get the number of characters to return.
-            Do
-                Console.WriteLine("Please enter the number of characters to return.")
-                Console.WriteLine("  Or press enter to default.")
-                Console.Write(">")
-                Dim strTeams = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(strTeams) Then
-                    Exit Do
-                End If
-
-                If Integer.TryParse(strTeams, intCharacters) Then
-                    Exit Do
-                Else
-                    Console.WriteLine("You must enter a valid number of characters to return.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Next, get the page number to return.
-            Do
-                Console.WriteLine("Please enter the page number to return.")
-                Console.WriteLine("  Or press enter to default.")
-                Console.Write(">")
-                Dim strPage = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(strPage) Then
-                    Exit Do
-                End If
-
-                If Integer.TryParse(strPage, intPage) Then
-                    Exit Do
-                Else
-                    Console.WriteLine("You must enter a valid page number to return.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Next, get whether to return results ascending or descending.
-            Do
-                Console.WriteLine("Select the sort order to use.")
-                Console.WriteLine("0 - Default (Ascending)")
-                Console.WriteLine("1 - Ascending")
-                Console.WriteLine("2 - Descending")
-                Console.Write(">")
-                Dim strResponse = Console.ReadLine
-                Dim intResponse As Integer
-                If Integer.TryParse(strResponse, intResponse) Then
-                    Select Case intResponse
-                        Case 0
-                            Exit Do
-                        Case 1
-                            blnAscending = True
-                            Exit Do
-                        Case 2
-                            blnAscending = False
-                            Exit Do
-                        Case Else
-                            Console.WriteLine("Invalid response.")
-                            Console.WriteLine()
-                    End Select
-                Else
-                    Console.WriteLine("Invalid response.")
-                    Console.WriteLine()
-                End If
-            Loop
-
-            ' Perform the rated battleground ladder lookup.
-            Dim rblLadder As New RatedBattlegroundLadder()
-            rblLadder.Options.Characters = intCharacters
-            rblLadder.Options.Page = intPage
-            rblLadder.Options.Ascending = blnAscending
-            rblLadder.Load()
-
-            ' Show the characters.
-            Console.Clear()
-            If rblLadder.CacheHit.HasValue AndAlso rblLadder.CacheHit.Value Then
-                Console.WriteLine("Cache hit!")
-                Console.WriteLine()
-            End If
-
-            For Each bgRecord In rblLadder.Characters
-                Console.WriteLine("{0}) {1} - {2} - Battlegroup: {3}", bgRecord.Rank, bgRecord.Character.Name, bgRecord.Realm.Name, bgRecord.Battlegroup.Name)
-                Console.WriteLine("  Level {0} {1} {2} {3} {4}", bgRecord.Character.Level, bgRecord.Character.Gender, bgRecord.Character.Race.Name, bgRecord.Character.Class.Name, If(bgRecord.Character.Spec Is Nothing, Nothing, bgRecord.Character.Spec.Name))
-                Console.WriteLine("  Achievement Points: {0}", bgRecord.Character.AchievementPoints)
-                Console.WriteLine("  Rating: {0}", bgRecord.Rating)
-                Console.WriteLine("  Record: {0}-{1} ({2} played)", bgRecord.Wins, bgRecord.Losses, bgRecord.Played)
-                Console.WriteLine()
-            Next
 
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)

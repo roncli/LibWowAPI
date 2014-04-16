@@ -331,8 +331,6 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="NamespaceDoc.vb" />
-    <Compile Include="PvP\clsArenaLadder.vb" />
-    <Compile Include="PvP\clsArenaLadderOptions.vb" />
     <Compile Include="PvP\clsBattlegroundRecord.vb" />
     <Compile Include="PvP\clsBattlegroup.vb" />
     <Compile Include="PvP\clsRatedBattlegroundLadder.vb" />
@@ -345,8 +343,6 @@
     <Compile Include="PvP\clsRealm.vb" />
     <Compile Include="PvP\Schema\arenaTeamLadder.vb" />
     <Compile Include="PvP\Schema\member.vb" />
-    <Compile Include="PvP\clsArenaTeam.vb" />
-    <Compile Include="PvP\clsArenaTeamOptions.vb" />
     <Compile Include="PvP\clsCharacter.vb" />
     <Compile Include="PvP\clsMember.vb" />
     <Compile Include="PvP\clsTeam.vb" />

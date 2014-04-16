@@ -335,9 +335,7 @@ Namespace roncliProductions.LibWowAPI
 
                     If Data Is Nothing Then
                         Try
-                            Using srReader As New StreamReader(wex.Response.GetResponseStream())
-                                Data = srReader.ReadToEnd()
-                            End Using
+                            Data = wex.Response.GetResponse()
                         Catch
                             ' TODO: Find a better way to resolve C1031 and handle exceptions here.
                         End Try

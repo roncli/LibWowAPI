@@ -235,17 +235,6 @@ Namespace roncliProductions.LibWowAPI.Leaderboard
 
 End Namespace
 
-Namespace roncliProductions.LibWowAPI.PvP
-
-    ''' <summary>
-    ''' The PvP namespace provides the <see cref="ArenaLadder" /> and <see cref="ArenaTeam" /> classes, which retrieves information about arena teams from the Blizzard WoW API.
-    ''' </summary>
-    ''' <remarks></remarks>
-    Friend Class NamespaceDoc
-    End Class
-
-End Namespace
-
 Namespace roncliProductions.LibWowAPI.Quest
 
     ''' <summary>
