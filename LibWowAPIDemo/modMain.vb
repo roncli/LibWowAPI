@@ -977,6 +977,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("15 - Include Feed - {0}", If(cpCharacter.Options.Feed, "Yes", "No"))
                 Console.WriteLine("16 - Include Pets - {0}", If(cpCharacter.Options.Pets, "Yes", "No"))
                 Console.WriteLine("17 - Include Pet Slots - {0}", If(cpCharacter.Options.PetSlots, "Yes", "No"))
+                Console.WriteLine("18 - Include Audit - {0}", If(cpCharacter.Options.Audit, "Yes", "No"))
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -1017,6 +1018,8 @@ Namespace roncliProductions.LibWowAPIDemo
                             cpCharacter.Options.Pets = Not cpCharacter.Options.Pets
                         Case 17
                             cpCharacter.Options.PetSlots = Not cpCharacter.Options.PetSlots
+                        Case 18
+                            cpCharacter.Options.Audit = Not cpCharacter.Options.Audit
                     End Select
                     Console.Clear()
                 Else
@@ -1336,6 +1339,82 @@ Namespace roncliProductions.LibWowAPIDemo
                 Next
                 Console.WriteLine()
             End If
+
+            If cpCharacter.Character.Audit IsNot Nothing Then
+                Console.WriteLine("Audit:")
+                Console.WriteLine("  {0} issues", cpCharacter.Character.Audit.NumberOfIssues)
+                Console.WriteLine("  {0} empty glyphs", cpCharacter.Character.Audit.EmptyGlyphSlots)
+                Console.WriteLine("  {0} unspent talent points", cpCharacter.Character.Audit.UnspentTalentPoints)
+                Console.WriteLine("  {0} empty sockets", cpCharacter.Character.Audit.EmptySockets)
+                Console.WriteLine("  Appropriate armor type: {0}", cpCharacter.Character.Audit.AppropriateArmorType)
+                If cpCharacter.Character.Audit.Slots.Count > 0 Then
+                    Console.WriteLine("  Issues per slot:")
+                    For Each ecSlot In cpCharacter.Character.Audit.Slots
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.UnenchantedItems.Count > 0 Then
+                    Console.WriteLine("  Unenchanted slots:")
+                    For Each ecSlot In cpCharacter.Character.Audit.UnenchantedItems
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.ItemsWithEmptySockets.Count > 0 Then
+                    Console.WriteLine("  Items with empty sockets:")
+                    For Each ecSlot In cpCharacter.Character.Audit.ItemsWithEmptySockets
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.InappropriateArmorType.Count > 0 Then
+                    Console.WriteLine("  Inappropriate armor types:")
+                    For Each ecSlot In cpCharacter.Character.Audit.InappropriateArmorType
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.MissingExtraSockets.Count > 0 Then
+                    Console.WriteLine("  Missing extra sockets:")
+                    For Each ecSlot In cpCharacter.Character.Audit.MissingExtraSockets
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.MissingBlacksmithSockets.Count > 0 Then
+                    Console.WriteLine("  Missing blacksmith sockets:")
+                    For Each ecSlot In cpCharacter.Character.Audit.MissingBlacksmithSockets
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.MissingEnchanterEnchants.Count > 0 Then
+                    Console.WriteLine("  Missing enchanter enchants:")
+                    For Each ecSlot In cpCharacter.Character.Audit.MissingEnchanterEnchants
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.MissingEngineerEnchants.Count > 0 Then
+                    Console.WriteLine("  Missing engineer enchants:")
+                    For Each ecSlot In cpCharacter.Character.Audit.MissingEngineerEnchants
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.MissingScribeEnchants.Count > 0 Then
+                    Console.WriteLine("  Missing scribe enchants:")
+                    For Each ecSlot In cpCharacter.Character.Audit.MissingScribeEnchants
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.MissingLeatherworkerEnchants.Count > 0 Then
+                    Console.WriteLine("  Missing leatherworker enchants:")
+                    For Each ecSlot In cpCharacter.Character.Audit.MissingLeatherworkerEnchants
+                        Console.WriteLine("    {0}) {1}", ecSlot.EquipmentSlot, ecSlot.Count)
+                    Next
+                End If
+                If cpCharacter.Character.Audit.RecommendedBeltBuckle IsNot Nothing Then
+                    Console.WriteLine("  Recommended belt buckle: {0}) {1}", cpCharacter.Character.Audit.RecommendedBeltBuckle.ID, cpCharacter.Character.Audit.RecommendedBeltBuckle.Name)
+                End If
+                If cpCharacter.Character.Audit.RecommendedJewelcrafterGem IsNot Nothing Then
+                    Console.WriteLine("  Recommended jewelcrafter gem: {0}) {1}", cpCharacter.Character.Audit.RecommendedJewelcrafterGem.ID, cpCharacter.Character.Audit.RecommendedJewelcrafterGem.Name)
+                End If
+            End If
+            Console.WriteLine()
 
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)

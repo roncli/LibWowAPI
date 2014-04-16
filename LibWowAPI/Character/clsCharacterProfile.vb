@@ -15,6 +15,7 @@ Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Guild
+Imports roncliProductions.LibWowAPI.Item
 
 Namespace roncliProductions.LibWowAPI.Character
 
@@ -106,15 +107,18 @@ Namespace roncliProductions.LibWowAPI.Character
             If Modified.HasValue AndAlso Not Modified Then
                 Return
             End If
+
+            Dim dcjssSettings As New DataContractJsonSerializerSettings()
+            dcjssSettings.UseSimpleDictionaryFormat = True
+
             Try
                 Using msJSON As New MemoryStream(Unicode.GetBytes(Data))
-                    cpCharacter = CType(New DataContractJsonSerializer(GetType(Schema.character)).ReadObject(msJSON), Schema.character)
+                    cpCharacter = CType(New DataContractJsonSerializer(GetType(Schema.character), dcjssSettings).ReadObject(msJSON), Schema.character)
                 End Using
             Catch sex As SerializationException
                 Throw New LibWowAPIException("The data returned by the Armory is invalid.", sex)
             End Try
 
-            ' TODO: Add pets and petSlots
             cCharacter = New Character(
                 cpCharacter.lastModified.BlizzardTimestampToUTC(),
                 cpCharacter.name,
@@ -1150,6 +1154,334 @@ Namespace roncliProductions.LibWowAPI.Character
                             ps.abilities.ToCollection()
                             )
                         ).ToCollection()
+                    ),
+                If(
+                    cpCharacter.audit Is Nothing, Nothing, New Audit(
+                        cpCharacter.audit.numberOfIssues,
+                        (
+                            From s In cpCharacter.audit.slots
+                            Select New EquipmentCount(CType(CInt(s.Key), EquipmentSlot), s.Value)
+                            ).ToCollection(),
+                        cpCharacter.audit.emptyGlyphSlots,
+                        cpCharacter.audit.unspentTalentPoints,
+                        cpCharacter.audit.noSpec,
+                        (
+                            From i In cpCharacter.audit.unenchantedItems
+                            Select New EquipmentCount(CType(CInt(i.Key), EquipmentSlot), i.Value)
+                            ).ToCollection(),
+                        cpCharacter.audit.emptySockets,
+                        (
+                            From i In cpCharacter.audit.itemsWithEmptySockets
+                            Select New EquipmentCount(CType(CInt(i.Key), EquipmentSlot), i.Value)
+                            ).ToCollection(),
+                        CType(cpCharacter.audit.appropriateArmorType, ArmorType),
+                        (
+                            From t In cpCharacter.audit.inappropriateArmorType
+                            Select New EquipmentCount(CType(CInt(t.Key), EquipmentSlot), t.Value)
+                            ).ToCollection(),
+                        New LowLevelItems(),
+                        (
+                            From s In cpCharacter.audit.missingExtraSockets
+                            Select New EquipmentCount(CType(CInt(s.Key), EquipmentSlot), s.Value)
+                            ).ToCollection(),
+                        If(
+                            cpCharacter.audit.recommendedBeltBuckle Is Nothing, Nothing, New LibWowAPI.Item.Item(
+                                cpCharacter.audit.recommendedBeltBuckle.id,
+                                cpCharacter.audit.recommendedBeltBuckle.disenchantingSkillRank,
+                                cpCharacter.audit.recommendedBeltBuckle.description,
+                                cpCharacter.audit.recommendedBeltBuckle.name,
+                                cpCharacter.audit.recommendedBeltBuckle.icon,
+                                cpCharacter.audit.recommendedBeltBuckle.stackable,
+                                cpCharacter.audit.recommendedBeltBuckle.allowableClasses.GetClasses(),
+                                If(cpCharacter.audit.recommendedBeltBuckle.boundZone Is Nothing, Nothing,
+                                    New BoundZone(cpCharacter.audit.recommendedBeltBuckle.boundZone.id, cpCharacter.audit.recommendedBeltBuckle.boundZone.name)
+                                    ),
+                                cpCharacter.audit.recommendedBeltBuckle.allowableRaces.GetRaces(),
+                                CType(cpCharacter.audit.recommendedBeltBuckle.itemBind, Binding),
+                                If(
+                                    cpCharacter.audit.recommendedBeltBuckle.bonusStats.Count = 0, Nothing, (
+                                        From s In cpCharacter.audit.recommendedBeltBuckle.bonusStats
+                                        Select New BonusStats(
+                                            CType(s.stat, Enums.Stat),
+                                            s.amount
+                                            )
+                                        ).ToCollection()
+                                    ),
+                                If(
+                                    cpCharacter.audit.recommendedBeltBuckle.itemSpells.Count = 0, Nothing, (
+                                        From s In cpCharacter.audit.recommendedBeltBuckle.itemSpells
+                                        Select New ItemSpell(
+                                            s.spellId,
+                                            New LibWowAPI.Item.Spell(
+                                                s.spell.id,
+                                                s.spell.name,
+                                                s.spell.subtext,
+                                                s.spell.icon,
+                                                s.spell.description,
+                                                s.spell.range,
+                                                s.spell.powerCost,
+                                                s.spell.castTime,
+                                                s.spell.cooldown
+                                                ),
+                                            s.nCharges,
+                                            s.consumable,
+                                            s.categoryId,
+                                            s.trigger.GetItemSpellTrigger()
+                                            )
+                                        ).ToCollection()
+                                    ),
+                                cpCharacter.audit.recommendedBeltBuckle.buyPrice,
+                                cpCharacter.audit.recommendedBeltBuckle.itemClass.GetItemClass(),
+                                cpCharacter.audit.recommendedBeltBuckle.itemClass.GetItemSubclassForClass(cpCharacter.audit.recommendedBeltBuckle.itemSubClass),
+                                cpCharacter.audit.recommendedBeltBuckle.containerSlots,
+                                If(cpCharacter.audit.recommendedBeltBuckle.weaponInfo Is Nothing, Nothing,
+                                    New WeaponInfo(
+                                        (
+                                            From d In cpCharacter.audit.recommendedBeltBuckle.weaponInfo.damage
+                                            Select New Damage(
+                                                d.min,
+                                                d.max,
+                                                d.exactMin,
+                                                d.exactMax
+                                                )
+                                            ).ToCollection(),
+                                        cpCharacter.audit.recommendedBeltBuckle.weaponInfo.weaponSpeed,
+                                        cpCharacter.audit.recommendedBeltBuckle.weaponInfo.dps
+                                        )
+                                    ),
+                                If(cpCharacter.audit.recommendedBeltBuckle.gemInfo Is Nothing, Nothing,
+                                    New GemInfo(
+                                        New Bonus(
+                                            cpCharacter.audit.recommendedBeltBuckle.gemInfo.bonus.name,
+                                            cpCharacter.audit.recommendedBeltBuckle.gemInfo.bonus.srcItemId,
+                                            CType(cpCharacter.audit.recommendedBeltBuckle.gemInfo.bonus.requiredSkillId, Enums.Profession),
+                                            cpCharacter.audit.recommendedBeltBuckle.gemInfo.bonus.requiredSkillRank,
+                                            cpCharacter.audit.recommendedBeltBuckle.gemInfo.bonus.minLevel,
+                                            cpCharacter.audit.recommendedBeltBuckle.gemInfo.bonus.itemLevel
+                                            ),
+                                        cpCharacter.audit.recommendedBeltBuckle.gemInfo.type.type,
+                                        cpCharacter.audit.recommendedBeltBuckle.gemInfo.minItemLevel
+                                        )
+                                    ),
+                                CType(cpCharacter.audit.recommendedBeltBuckle.inventoryType, InventoryType),
+                                cpCharacter.audit.recommendedBeltBuckle.equippable,
+                                cpCharacter.audit.recommendedBeltBuckle.itemLevel,
+                                If(cpCharacter.audit.recommendedBeltBuckle.itemSet Is Nothing, Nothing,
+                                   New LibWowAPI.Item.ItemSet(
+                                       cpCharacter.audit.recommendedBeltBuckle.itemSet.id,
+                                       cpCharacter.audit.recommendedBeltBuckle.itemSet.name,
+                                       If(cpCharacter.audit.recommendedBeltBuckle.itemSet.setBonuses Is Nothing, Nothing,
+                                           (
+                                               From sb In cpCharacter.audit.recommendedBeltBuckle.itemSet.setBonuses
+                                               Select New SetBonus(
+                                                   sb.description,
+                                                   sb.threshold
+                                                   )
+                                               ).ToCollection()
+                                           ),
+                                       cpCharacter.audit.recommendedBeltBuckle.itemSet.items.ToCollection()
+                                       )
+                                   ),
+                                cpCharacter.audit.recommendedBeltBuckle.maxCount,
+                                cpCharacter.audit.recommendedBeltBuckle.maxDurability,
+                                cpCharacter.audit.recommendedBeltBuckle.minFactionId,
+                                CType(cpCharacter.audit.recommendedBeltBuckle.minReputation, Standing),
+                                CType(cpCharacter.audit.recommendedBeltBuckle.quality, Quality),
+                                cpCharacter.audit.recommendedBeltBuckle.sellPrice,
+                                CType(cpCharacter.audit.recommendedBeltBuckle.requiredSkill, Enums.Profession),
+                                If(cpCharacter.audit.recommendedBeltBuckle.requiredAbility Is Nothing, Nothing,
+                                    New RequiredAbility(
+                                        cpCharacter.audit.recommendedBeltBuckle.requiredAbility.spellId,
+                                        cpCharacter.audit.recommendedBeltBuckle.requiredAbility.name,
+                                        cpCharacter.audit.recommendedBeltBuckle.requiredAbility.description
+                                        )
+                                    ),
+                                cpCharacter.audit.recommendedBeltBuckle.requiredLevel,
+                                cpCharacter.audit.recommendedBeltBuckle.requiredSkillRank,
+                                If(cpCharacter.audit.recommendedBeltBuckle.socketInfo Is Nothing OrElse cpCharacter.audit.recommendedBeltBuckle.socketInfo.sockets.Count = 0, Nothing,
+                                    (
+                                        From s In cpCharacter.audit.recommendedBeltBuckle.socketInfo.sockets
+                                        Select s.type
+                                        ).ToCollection()
+                                    ),
+                                If(cpCharacter.audit.recommendedBeltBuckle.socketInfo Is Nothing, Nothing, cpCharacter.audit.recommendedBeltBuckle.socketInfo.socketBonus),
+                                If(cpCharacter.audit.recommendedBeltBuckle.itemSource Is Nothing, Nothing,
+                                    New ItemSource(
+                                        cpCharacter.audit.recommendedBeltBuckle.itemSource.sourceId,
+                                        cpCharacter.audit.recommendedBeltBuckle.itemSource.sourceType
+                                        )
+                                    ),
+                                cpCharacter.audit.recommendedBeltBuckle.baseArmor,
+                                cpCharacter.audit.recommendedBeltBuckle.hasSockets,
+                                cpCharacter.audit.recommendedBeltBuckle.isAuctionable,
+                                cpCharacter.audit.recommendedBeltBuckle.armor,
+                                cpCharacter.audit.recommendedBeltBuckle.displayInfoId,
+                                cpCharacter.audit.recommendedBeltBuckle.nameDescription,
+                                cpCharacter.audit.recommendedBeltBuckle.nameDescriptionColor.RgbHexToColor(),
+                                cpCharacter.audit.recommendedBeltBuckle.upgradable,
+                                cpCharacter.audit.recommendedBeltBuckle.heroicTooltip
+                                )
+                            ),
+                        (
+                            From s In cpCharacter.audit.missingBlacksmithSockets
+                            Select New EquipmentCount(CType(CInt(s.Key), EquipmentSlot), s.Value)
+                            ).ToCollection(),
+                        (
+                            From e In cpCharacter.audit.missingEnchanterEnchants
+                            Select New EquipmentCount(CType(CInt(e.Key), EquipmentSlot), e.Value)
+                            ).ToCollection(),
+                        (
+                            From e In cpCharacter.audit.missingEngineerEnchants
+                            Select New EquipmentCount(CType(CInt(e.Key), EquipmentSlot), e.Value)
+                            ).ToCollection(),
+                        (
+                            From e In cpCharacter.audit.missingScribeEnchants
+                            Select New EquipmentCount(CType(CInt(e.Key), EquipmentSlot), e.Value)
+                            ).ToCollection(),
+                        cpCharacter.audit.nMissingJewelcrafterGems,
+                        If(
+                            cpCharacter.audit.recommendedJewelcrafterGem Is Nothing, Nothing, New LibWowAPI.Item.Item(
+                                cpCharacter.audit.recommendedJewelcrafterGem.id,
+                                cpCharacter.audit.recommendedJewelcrafterGem.disenchantingSkillRank,
+                                cpCharacter.audit.recommendedJewelcrafterGem.description,
+                                cpCharacter.audit.recommendedJewelcrafterGem.name,
+                                cpCharacter.audit.recommendedJewelcrafterGem.icon,
+                                cpCharacter.audit.recommendedJewelcrafterGem.stackable,
+                                cpCharacter.audit.recommendedJewelcrafterGem.allowableClasses.GetClasses(),
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.boundZone Is Nothing, Nothing,
+                                    New BoundZone(cpCharacter.audit.recommendedJewelcrafterGem.boundZone.id, cpCharacter.audit.recommendedJewelcrafterGem.boundZone.name)
+                                    ),
+                                cpCharacter.audit.recommendedJewelcrafterGem.allowableRaces.GetRaces(),
+                                CType(cpCharacter.audit.recommendedJewelcrafterGem.itemBind, Binding),
+                                If(
+                                    cpCharacter.audit.recommendedJewelcrafterGem.bonusStats.Count = 0, Nothing, (
+                                        From s In cpCharacter.audit.recommendedJewelcrafterGem.bonusStats
+                                        Select New BonusStats(
+                                            CType(s.stat, Enums.Stat),
+                                            s.amount
+                                            )
+                                        ).ToCollection()
+                                    ),
+                                If(
+                                    cpCharacter.audit.recommendedJewelcrafterGem.itemSpells.Count = 0, Nothing, (
+                                        From s In cpCharacter.audit.recommendedJewelcrafterGem.itemSpells
+                                        Select New ItemSpell(
+                                            s.spellId,
+                                            New LibWowAPI.Item.Spell(
+                                                s.spell.id,
+                                                s.spell.name,
+                                                s.spell.subtext,
+                                                s.spell.icon,
+                                                s.spell.description,
+                                                s.spell.range,
+                                                s.spell.powerCost,
+                                                s.spell.castTime,
+                                                s.spell.cooldown
+                                                ),
+                                            s.nCharges,
+                                            s.consumable,
+                                            s.categoryId,
+                                            s.trigger.GetItemSpellTrigger()
+                                            )
+                                        ).ToCollection()
+                                    ),
+                                cpCharacter.audit.recommendedJewelcrafterGem.buyPrice,
+                                cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemClass(),
+                                cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemSubclassForClass(cpCharacter.audit.recommendedJewelcrafterGem.itemSubClass),
+                                cpCharacter.audit.recommendedJewelcrafterGem.containerSlots,
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo Is Nothing, Nothing,
+                                    New WeaponInfo(
+                                        (
+                                            From d In cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage
+                                            Select New Damage(
+                                                d.min,
+                                                d.max,
+                                                d.exactMin,
+                                                d.exactMax
+                                                )
+                                            ).ToCollection(),
+                                        cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.weaponSpeed,
+                                        cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.dps
+                                        )
+                                    ),
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.gemInfo Is Nothing, Nothing,
+                                    New GemInfo(
+                                        New Bonus(
+                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.name,
+                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.srcItemId,
+                                            CType(cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.requiredSkillId, Enums.Profession),
+                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.requiredSkillRank,
+                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.minLevel,
+                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.itemLevel
+                                            ),
+                                        cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.type.type,
+                                        cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.minItemLevel
+                                        )
+                                    ),
+                                CType(cpCharacter.audit.recommendedJewelcrafterGem.inventoryType, InventoryType),
+                                cpCharacter.audit.recommendedJewelcrafterGem.equippable,
+                                cpCharacter.audit.recommendedJewelcrafterGem.itemLevel,
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet Is Nothing, Nothing,
+                                   New LibWowAPI.Item.ItemSet(
+                                       cpCharacter.audit.recommendedJewelcrafterGem.itemSet.id,
+                                       cpCharacter.audit.recommendedJewelcrafterGem.itemSet.name,
+                                       If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet.setBonuses Is Nothing, Nothing,
+                                           (
+                                               From sb In cpCharacter.audit.recommendedJewelcrafterGem.itemSet.setBonuses
+                                               Select New SetBonus(
+                                                   sb.description,
+                                                   sb.threshold
+                                                   )
+                                               ).ToCollection()
+                                           ),
+                                       cpCharacter.audit.recommendedJewelcrafterGem.itemSet.items.ToCollection()
+                                       )
+                                   ),
+                                cpCharacter.audit.recommendedJewelcrafterGem.maxCount,
+                                cpCharacter.audit.recommendedJewelcrafterGem.maxDurability,
+                                cpCharacter.audit.recommendedJewelcrafterGem.minFactionId,
+                                CType(cpCharacter.audit.recommendedJewelcrafterGem.minReputation, Standing),
+                                CType(cpCharacter.audit.recommendedJewelcrafterGem.quality, Quality),
+                                cpCharacter.audit.recommendedJewelcrafterGem.sellPrice,
+                                CType(cpCharacter.audit.recommendedJewelcrafterGem.requiredSkill, Enums.Profession),
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility Is Nothing, Nothing,
+                                    New RequiredAbility(
+                                        cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.spellId,
+                                        cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.name,
+                                        cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.description
+                                        )
+                                    ),
+                                cpCharacter.audit.recommendedJewelcrafterGem.requiredLevel,
+                                cpCharacter.audit.recommendedJewelcrafterGem.requiredSkillRank,
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.socketInfo Is Nothing OrElse cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.sockets.Count = 0, Nothing,
+                                    (
+                                        From s In cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.sockets
+                                        Select s.type
+                                        ).ToCollection()
+                                    ),
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.socketInfo Is Nothing, Nothing, cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.socketBonus),
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.itemSource Is Nothing, Nothing,
+                                    New ItemSource(
+                                        cpCharacter.audit.recommendedJewelcrafterGem.itemSource.sourceId,
+                                        cpCharacter.audit.recommendedJewelcrafterGem.itemSource.sourceType
+                                        )
+                                    ),
+                                cpCharacter.audit.recommendedJewelcrafterGem.baseArmor,
+                                cpCharacter.audit.recommendedJewelcrafterGem.hasSockets,
+                                cpCharacter.audit.recommendedJewelcrafterGem.isAuctionable,
+                                cpCharacter.audit.recommendedJewelcrafterGem.armor,
+                                cpCharacter.audit.recommendedJewelcrafterGem.displayInfoId,
+                                cpCharacter.audit.recommendedJewelcrafterGem.nameDescription,
+                                cpCharacter.audit.recommendedJewelcrafterGem.nameDescriptionColor.RgbHexToColor(),
+                                cpCharacter.audit.recommendedJewelcrafterGem.upgradable,
+                                cpCharacter.audit.recommendedJewelcrafterGem.heroicTooltip
+                                )
+                            ),
+                        (
+                            From e In cpCharacter.audit.missingLeatherworkerEnchants
+                            Select New EquipmentCount(CType(CInt(e.Key), EquipmentSlot), e.Value)
+                            ).ToCollection()
+                        )
                     )
                 )
         End Sub
@@ -1205,6 +1537,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 If Options.Feed Then lstFields.Add("feed")
                 If Options.Pets Then lstFields.Add("pets")
                 If Options.PetSlots Then lstFields.Add("petSlots")
+                If Options.Audit Then lstFields.Add("audit")
                 Return String.Join(",", lstFields)
             End Get
         End Property

@@ -277,14 +277,22 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets the PetSlots field.</value>
         ''' <returns>Returns the character's pet slots.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of PetSlot)" /> of <see cref="PetSlot" /> that represents the character's pet slots.</remarks>
+        ''' <remarks>If the <see cref="CharacterProfileOptions.PetSlots" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of PetSlot)" /> of <see cref="PetSlot" /> will be available, containing the character's pet slots.</remarks>
         Public ReadOnly Property PetSlots As Collection(Of PetSlot)
             Get
                 Return colPetSlots
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem), pPets As Pets, psPetSlots As Collection(Of PetSlot))
+        ''' <summary>
+        ''' The character's equipment audit.
+        ''' </summary>
+        ''' <value>This property gets or sets the Audit field.</value>
+        ''' <returns>Returns the character's equipment audit.</returns>
+        ''' <remarks>If the <see cref="CharacterProfileOptions.Audit" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, an <see cref="Audit" /> object will be available, containing the character's equipement audit.</remarks>
+        Public Property Audit As Audit
+
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), aAchievements As Achievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem), pPets As Pets, psPetSlots As Collection(Of PetSlot), aAudit As Audit)
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -314,6 +322,7 @@ Namespace roncliProductions.LibWowAPI.Character
             colFeed = fiFeed
             Pets = pPets
             colPetSlots = psPetSlots
+            Audit = aAudit
         End Sub
 
     End Class

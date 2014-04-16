@@ -727,7 +727,7 @@ Namespace roncliProductions.LibWowAPI.Enums
         Shirt = 3
         Chest = 4
         Waist = 5
-        Lets = 6
+        Legs = 6
         Feet = 7
         Wrist = 8
         Hands = 9
@@ -751,6 +751,19 @@ Namespace roncliProductions.LibWowAPI.Enums
         Arena3v3 = 2
         Arena5v5 = 3
         RatedBattlegrounds = 4
+    End Enum
+
+    ''' <summary>
+    ''' An enumeration that describes an armor type.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum ArmorType
+        Unknown = -1
+        None = 0
+        Cloth = 1
+        Leather = 2
+        Mail = 3
+        Plate = 4
     End Enum
 
 End Namespace
