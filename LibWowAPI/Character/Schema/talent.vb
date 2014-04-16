@@ -11,7 +11,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
 
         <DataMember()> Public Property tier As Integer
         <DataMember()> Public Property column As Integer
-        <DataMember()> Public Property spell As spell
+        <DataMember()> Public Property spell As Spell.Schema.spell
 
     End Class
 

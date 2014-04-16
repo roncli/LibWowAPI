@@ -10,7 +10,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildPerks.Schema
     <DataContract()> Friend Class perk
 
         <DataMember()> Public Property guildLevel As Integer
-        <DataMember()> Public Property spell As spell
+        <DataMember()> Public Property spell As Spell.Schema.spell
 
     End Class
 

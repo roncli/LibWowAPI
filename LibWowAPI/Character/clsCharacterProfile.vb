@@ -950,7 +950,7 @@ Namespace roncliProductions.LibWowAPI.Character
                           Select New Talent(
                               tal.tier,
                               tal.column,
-                              New Spell(
+                              New Spell.Spell(
                                   tal.spell.id,
                                   tal.spell.name,
                                   tal.spell.subtext,
@@ -1212,7 +1212,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                         From s In cpCharacter.audit.recommendedBeltBuckle.itemSpells
                                         Select New ItemSpell(
                                             s.spellId,
-                                            New LibWowAPI.Item.Spell(
+                                            New Spell.Spell(
                                                 s.spell.id,
                                                 s.spell.name,
                                                 s.spell.subtext,
@@ -1367,7 +1367,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                         From s In cpCharacter.audit.recommendedJewelcrafterGem.itemSpells
                                         Select New ItemSpell(
                                             s.spellId,
-                                            New LibWowAPI.Item.Spell(
+                                            New Spell.Spell(
                                                 s.spell.id,
                                                 s.spell.name,
                                                 s.spell.subtext,

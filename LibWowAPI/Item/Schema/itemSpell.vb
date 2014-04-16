@@ -10,7 +10,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
     <DataContract()> Friend Class itemSpell
 
         <DataMember()> Public Property spellId As Integer
-        <DataMember()> Public Property spell As spell
+        <DataMember()> Public Property spell As Spell.Schema.spell
         <DataMember()> Public Property nCharges As Integer
         <DataMember()> Public Property consumable As Boolean
         <DataMember()> Public Property categoryId As Integer

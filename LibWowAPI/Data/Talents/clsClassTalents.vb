@@ -148,7 +148,7 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
                                 Select New Talent(
                                     tal.tier,
                                     tal.column,
-                                    New Spell(
+                                    New Spell.Spell(
                                         tal.spell.id,
                                         tal.spell.name,
                                         tal.spell.subtext,

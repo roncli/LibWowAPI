@@ -108,7 +108,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildPerks
                 From p In gpPerks.perks
                 Select New Perk(
                     p.guildLevel,
-                    New Spell(p.spell.id, p.spell.name, p.spell.subtext, p.spell.icon, p.spell.description, p.spell.range, p.spell.castTime, p.spell.cooldown)
+                    New Spell.Spell(p.spell.id, p.spell.name, p.spell.subtext, p.spell.icon, p.spell.description, p.spell.range, p.spell.powerCost, p.spell.castTime, p.spell.cooldown)
                     )
                 ).ToCollection()
         End Sub

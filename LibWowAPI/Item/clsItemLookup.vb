@@ -138,7 +138,7 @@ Namespace roncliProductions.LibWowAPI.Item
                         From s In ilItem.itemSpells
                         Select New ItemSpell(
                             s.spellId,
-                            New Spell(
+                            New Spell.Spell(
                                 s.spell.id,
                                 s.spell.name,
                                 s.spell.subtext,

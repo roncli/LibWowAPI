@@ -157,7 +157,6 @@
     <Compile Include="Character\clsReputation.vb" />
     <Compile Include="Character\clsRewardItem.vb" />
     <Compile Include="Character\clsSpec.vb" />
-    <Compile Include="Character\clsSpell.vb" />
     <Compile Include="Character\clsStat.vb" />
     <Compile Include="Character\clsStats.vb" />
     <Compile Include="Character\clsTalent.vb" />
@@ -193,7 +192,6 @@
     <Compile Include="Character\Schema\reputation.vb" />
     <Compile Include="Character\Schema\rewardItem.vb" />
     <Compile Include="Character\Schema\spec.vb" />
-    <Compile Include="Character\Schema\spell.vb" />
     <Compile Include="Character\Schema\stat.vb" />
     <Compile Include="Character\Schema\stats.vb" />
     <Compile Include="Character\Schema\talent.vb" />
@@ -229,11 +227,9 @@
     <Compile Include="Data\PetTypes\Schema\petTypes.vb" />
     <Compile Include="Data\Talents\clsClassTalents.vb" />
     <Compile Include="Data\Talents\clsGlyph.vb" />
-    <Compile Include="Data\Talents\clsSpell.vb" />
     <Compile Include="Data\Talents\clsTalent.vb" />
     <Compile Include="Data\Talents\clsTalents.vb" />
     <Compile Include="Data\Talents\clsTalentTier.vb" />
-    <Compile Include="Data\Talents\Schema\spell.vb" />
     <Compile Include="Data\Talents\Schema\talent.vb" />
     <Compile Include="Data\Talents\Schema\glyph.vb" />
     <Compile Include="Data\Talents\Schema\spec.vb" />
@@ -270,7 +266,6 @@
     <Compile Include="Item\clsItemSpell.vb" />
     <Compile Include="Item\clsRequiredAbility.vb" />
     <Compile Include="Item\clsSetBonus.vb" />
-    <Compile Include="Item\clsSpell.vb" />
     <Compile Include="Item\clsWeaponInfo.vb" />
     <Compile Include="Item\Schema\bonus.vb" />
     <Compile Include="Item\Schema\boundZone.vb" />
@@ -286,7 +281,6 @@
     <Compile Include="Item\Schema\weaponInfo.vb" />
     <Compile Include="Data\GuildPerks\clsGuildPerks.vb" />
     <Compile Include="Data\GuildPerks\clsPerk.vb" />
-    <Compile Include="Data\GuildPerks\clsSpell.vb" />
     <Compile Include="Data\GuildRewards\clsGuildRewards.vb" />
     <Compile Include="Data\GuildRewards\clsReward.vb" />
     <Compile Include="Data\ItemClasses\clsClass.vb" />
@@ -297,7 +291,6 @@
     <Compile Include="Data\CharacterRaces\Schema\races.vb" />
     <Compile Include="Data\GuildPerks\Schema\perk.vb" />
     <Compile Include="Data\GuildPerks\Schema\perks.vb" />
-    <Compile Include="Data\GuildPerks\Schema\spell.vb" />
     <Compile Include="Data\GuildRewards\Schema\reward.vb" />
     <Compile Include="Data\GuildRewards\Schema\rewards.vb" />
     <Compile Include="Data\GuildRewards\Schema\tooltipParams.vb" />
@@ -321,7 +314,6 @@
     <Compile Include="Item\Schema\bonusStats.vb" />
     <Compile Include="Item\Schema\item.vb" />
     <Compile Include="Item\Schema\itemSpell.vb" />
-    <Compile Include="Item\Schema\spell.vb" />
     <Compile Include="Leaderboard\clsLeaderboardLookupOptions.vb" />
     <Compile Include="Leaderboard\clsLeaderboard.vb" />
     <Compile Include="Leaderboard\clsLeaderboardLookup.vb" />

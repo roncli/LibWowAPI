@@ -24,10 +24,10 @@ Namespace roncliProductions.LibWowAPI.Data.GuildPerks
         ''' </summary>
         ''' <value>This property gets or sets the Spell field.</value>
         ''' <returns>Returns the spell associated with this guild perk.</returns>
-        ''' <remarks>This is a <see cref="Data.GuildPerks.Spell" /> object that retrieves the guild perk.</remarks>
-        Public Property Spell As Spell
+        ''' <remarks>This is a <see cref="Spell.Spell" /> object that retrieves the guild perk.</remarks>
+        Public Property Spell As Spell.Spell
 
-        Friend Sub New(intGuildLevel As Integer, sSpell As Spell)
+        Friend Sub New(intGuildLevel As Integer, sSpell As Spell.Spell)
             GuildLevel = intGuildLevel
             Spell = sSpell
         End Sub

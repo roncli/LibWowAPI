@@ -162,6 +162,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
  * Changed the Rank field to the Subtext field in the Spell class within the Character namespace.
  * Changed item weapon damage to show both integer and exact min and max values.
+ * Refactored Guild.Guild to use the character basic info and spec classes in the Character namespace.
+ * Refactored Character.Character, Data.GuildPerks.GuildPerks, Data.Talents.ClassTalents, and Item.Item to use the spell info in the Spell namespace.
 
 ## Classes
 

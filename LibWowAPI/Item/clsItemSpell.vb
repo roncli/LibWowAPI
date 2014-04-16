@@ -26,8 +26,8 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' </summary>
         ''' <value>This property gets or sets the Spell field.</value>
         ''' <returns>Returns the spell details.</returns>
-        ''' <remarks>This is a <see cref="Spell" /> object that contains further details about the spell.</remarks>
-        Public Property Spell As Spell
+        ''' <remarks>This is a <see cref="Spell.Spell" /> object that contains further details about the spell.</remarks>
+        Public Property Spell As Spell.Spell
 
         ''' <summary>
         ''' The number of charges available.
@@ -61,7 +61,7 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is a <see cref="Enums.ItemSpellTrigger" /> enumeration that represents how the spell is triggered.</remarks>
         Public Property Trigger As ItemSpellTrigger
 
-        Friend Sub New(intSpellID As Integer, sSpell As Spell, intCharges As Integer, blnConsumable As Boolean, intCategoryID As Integer, istTrigger As ItemSpellTrigger)
+        Friend Sub New(intSpellID As Integer, sSpell As Spell.Spell, intCharges As Integer, blnConsumable As Boolean, intCategoryID As Integer, istTrigger As ItemSpellTrigger)
             SpellID = intSpellID
             Spell = sSpell
             Charges = intCharges

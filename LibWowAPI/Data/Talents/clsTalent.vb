@@ -32,10 +32,10 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
         ''' </summary>
         ''' <value>This property gets or sets the Spell field.</value>
         ''' <returns>Returns the talent's spell.</returns>
-        ''' <remarks>This is a <see cref="Spell" /> object representing the talent's spell.</remarks>
-        Public Property Spell As Spell
+        ''' <remarks>This is a <see cref="Spell.Spell" /> object representing the talent's spell.</remarks>
+        Public Property Spell As Spell.Spell
 
-        Friend Sub New(intTier As Integer, intColumn As Integer, sSpell As Spell)
+        Friend Sub New(intTier As Integer, intColumn As Integer, sSpell As Spell.Spell)
             Tier = intTier
             Column = intColumn
             Spell = sSpell
