@@ -12,6 +12,7 @@ Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
+Imports roncliProductions.LibWowAPI.ItemSet
 
 Namespace roncliProductions.LibWowAPI.Item
 
@@ -193,7 +194,7 @@ Namespace roncliProductions.LibWowAPI.Item
                 ilItem.equippable,
                 ilItem.itemLevel,
                 If(ilItem.itemSet Is Nothing, Nothing,
-                   New ItemSet(
+                   New ItemSet.ItemSet(
                        ilItem.itemSet.id,
                        ilItem.itemSet.name,
                        If(ilItem.itemSet.setBonuses Is Nothing, Nothing,

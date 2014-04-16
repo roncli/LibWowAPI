@@ -16,6 +16,7 @@ Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Guild
 Imports roncliProductions.LibWowAPI.Item
+Imports roncliProductions.LibWowAPI.ItemSet
 
 Namespace roncliProductions.LibWowAPI.Character
 
@@ -1267,7 +1268,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.audit.recommendedBeltBuckle.equippable,
                                 cpCharacter.audit.recommendedBeltBuckle.itemLevel,
                                 If(cpCharacter.audit.recommendedBeltBuckle.itemSet Is Nothing, Nothing,
-                                   New LibWowAPI.Item.ItemSet(
+                                   New ItemSet.ItemSet(
                                        cpCharacter.audit.recommendedBeltBuckle.itemSet.id,
                                        cpCharacter.audit.recommendedBeltBuckle.itemSet.name,
                                        If(cpCharacter.audit.recommendedBeltBuckle.itemSet.setBonuses Is Nothing, Nothing,
@@ -1422,7 +1423,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.audit.recommendedJewelcrafterGem.equippable,
                                 cpCharacter.audit.recommendedJewelcrafterGem.itemLevel,
                                 If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet Is Nothing, Nothing,
-                                   New LibWowAPI.Item.ItemSet(
+                                   New ItemSet.ItemSet(
                                        cpCharacter.audit.recommendedJewelcrafterGem.itemSet.id,
                                        cpCharacter.audit.recommendedJewelcrafterGem.itemSet.name,
                                        If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet.setBonuses Is Nothing, Nothing,
