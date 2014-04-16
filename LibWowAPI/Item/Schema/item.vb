@@ -48,6 +48,10 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property isAuctionable As Boolean
         <DataMember()> Public Property armor As Integer
         <DataMember()> Public Property displayInfoId As Integer
+        <DataMember()> Public Property nameDescription As String
+        <DataMember()> Public Property nameDescriptionColor As String
+        <DataMember()> Public Property upgradable As Boolean
+        <DataMember()> Public Property heroicTooltip As Boolean
 
     End Class
 

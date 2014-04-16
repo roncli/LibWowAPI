@@ -2139,7 +2139,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
             If iItem.Item.WeaponInfo IsNot Nothing Then
                 For Each dDamage In iItem.Item.WeaponInfo.Damage
-                    Console.WriteLine("Damage: {0}-{1}", dDamage.MinDamage, dDamage.MaxDamage)
+                    Console.WriteLine("Damage: {0}-{1}", dDamage.ExactMin, dDamage.ExactMax)
                 Next
                 Console.WriteLine("Weapon Speed: {0:N1}", iItem.Item.WeaponInfo.WeaponSpeed)
                 Console.WriteLine("DPS: {0:N1}", iItem.Item.WeaponInfo.DPS)

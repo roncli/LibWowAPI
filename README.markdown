@@ -146,6 +146,10 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added pet type lookup. (Data.PetTypes)
  * Added guild challenge modes to the guild profile lookup.
  * Added pets, pet slot, and character audit information to character profile lookup.
+ * Added minimum item level to gem info for items.
+ * Added list of items to an item set in the items.
+* Removed:
+ * Removed Reforged property from an item's bonus stats.
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
  * Refactored Character.Character, Data.CharacterAchievements, Data.GuildAchievements, Data.GuildRewards, and Guild.Guild to use the objects in the Achievements namespace for achievements, crtieria, and reward items.
@@ -155,6 +159,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * PvP data for the character profile has been updated to eliminate teams and use the new brackets.
  * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
  * Changed the Rank field to the Subtext field in the Spell class within the Character namespace.
+ * Changed item weapon damage to show both integer and exact min and max values.
 
 ## Classes
 

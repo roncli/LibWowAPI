@@ -7,6 +7,7 @@ Imports System
 Imports System.Collections.Generic
 Imports System.Collections.ObjectModel
 Imports System.Drawing
+Imports System.Globalization
 Imports System.IO
 Imports System.IO.Compression
 Imports System.Linq
@@ -53,6 +54,10 @@ Namespace roncliProductions.LibWowAPI.Extensions
 
         <Extension()> Friend Function ArgbHexToColor(strColor As String) As Color
             Return Color.FromArgb(Convert.ToInt32(strColor, 16))
+        End Function
+
+        <Extension()> Friend Function RgbHexToColor(strColor As String) As Color
+            Return String.Format(CultureInfo.InvariantCulture, "00{0}", strColor).ArgbHexToColor()
         End Function
 
         <Extension()> Friend Function GetClass(intClassID As Integer) As [Class]

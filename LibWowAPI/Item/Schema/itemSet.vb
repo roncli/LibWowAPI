@@ -12,6 +12,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property id As Integer
         <DataMember()> Public Property name As String
         <DataMember()> Public Property setBonuses As setBonus()
+        <DataMember()> Public Property items As Integer()
 
     End Class
 

@@ -27,9 +27,18 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This describes the type of gem.  It can be a color, a meta gem, a prismatic gem, or an engineering gem type.</remarks>
         Public Property Type As String
 
-        Friend Sub New(bBonus As Bonus, strType As String)
+        ''' <summary>
+        ''' The minimum item level required for an item to use this gem.
+        ''' </summary>
+        ''' <value>This property gets or sets the MinItemLevel field.</value>
+        ''' <returns>Returns the minimum item level required for an item to use this gem.</returns>
+        ''' <remarks>This represents the minimum item level required for an item to use this gem.</remarks>
+        Public Property MinItemLevel As Integer
+
+        Friend Sub New(bBonus As Bonus, strType As String, intMinItemLevel As Integer)
             Bonus = bBonus
             Type = strType
+            MinItemLevel = intMinItemLevel
         End Sub
 
     End Class

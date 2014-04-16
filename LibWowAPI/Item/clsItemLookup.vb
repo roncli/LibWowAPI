@@ -124,18 +124,17 @@ Namespace roncliProductions.LibWowAPI.Item
                     ),
                 ilItem.allowableRaces.GetRaces(),
                 CType(ilItem.itemBind, Binding),
-                If(ilItem.bonusStats.Count = 0, Nothing,
-                    (
+                If(
+                    ilItem.bonusStats.Count = 0, Nothing, (
                         From s In ilItem.bonusStats
                         Select New BonusStats(
                             CType(s.stat, Stat),
-                            s.amount,
-                            s.reforged
+                            s.amount
                             )
                         ).ToCollection()
                     ),
-                If(ilItem.itemSpells.Count = 0, Nothing,
-                    (
+                If(
+                    ilItem.itemSpells.Count = 0, Nothing, (
                         From s In ilItem.itemSpells
                         Select New ItemSpell(
                             s.spellId,
@@ -166,8 +165,10 @@ Namespace roncliProductions.LibWowAPI.Item
                         (
                             From d In ilItem.weaponInfo.damage
                             Select New Damage(
-                                d.minDamage,
-                                d.maxDamage
+                                d.min,
+                                d.max,
+                                d.exactMin,
+                                d.exactMax
                                 )
                             ).ToCollection(),
                         ilItem.weaponInfo.weaponSpeed,
@@ -184,7 +185,8 @@ Namespace roncliProductions.LibWowAPI.Item
                             ilItem.gemInfo.bonus.minLevel,
                             ilItem.gemInfo.bonus.itemLevel
                             ),
-                        ilItem.gemInfo.type.type
+                        ilItem.gemInfo.type.type,
+                        ilItem.gemInfo.minItemLevel
                         )
                     ),
                 CType(ilItem.inventoryType, InventoryType),
@@ -202,7 +204,8 @@ Namespace roncliProductions.LibWowAPI.Item
                                    sb.threshold
                                    )
                                ).ToCollection()
-                           )
+                           ),
+                       ilItem.itemSet.items.ToCollection()
                        )
                    ),
                 ilItem.maxCount,
@@ -238,7 +241,11 @@ Namespace roncliProductions.LibWowAPI.Item
                 ilItem.hasSockets,
                 ilItem.isAuctionable,
                 ilItem.armor,
-                ilItem.displayInfoId
+                ilItem.displayInfoId,
+                ilItem.nameDescription,
+                ilItem.nameDescriptionColor.RgbHexToColor(),
+                ilItem.upgradable,
+                ilItem.heroicTooltip
                 )
         End Sub
 

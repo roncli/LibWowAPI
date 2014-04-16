@@ -11,6 +11,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
 
         <DataMember()> Public Property bonus As bonus
         <DataMember()> Public Property type As type
+        <DataMember()> Public Property minItemLevel As Integer
 
     End Class
 

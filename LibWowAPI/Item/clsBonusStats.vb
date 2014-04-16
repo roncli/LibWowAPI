@@ -29,18 +29,9 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This represents the amount the specified <see cref="BonusStats.Stat" /> is increased by.</remarks>
         Public Property Amount As Integer
 
-        ''' <summary>
-        ''' Whether or not this stat was reforged.
-        ''' </summary>
-        ''' <value>This property gets or sets the Reforged field.</value>
-        ''' <returns>Returns a boolean indicating whether ot not this stat was reforged.</returns>
-        ''' <remarks>This field is always false when looking up an item, because items do not come pre-reforged.</remarks>
-        Public Property Reforged As Boolean
-
-        Friend Sub New(sStat As Stat, intAmount As Integer, blnReforged As Boolean)
+        Friend Sub New(sStat As Stat, intAmount As Integer)
             Stat = sStat
             Amount = intAmount
-            Reforged = blnReforged
         End Sub
 
     End Class

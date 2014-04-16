@@ -9,8 +9,10 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
 
     <DataContract()> Friend Class damage
 
-        <DataMember()> Public Property minDamage As Integer
-        <DataMember()> Public Property maxDamage As Integer
+        <DataMember()> Public Property min As Integer
+        <DataMember()> Public Property max As Integer
+        <DataMember()> Public Property exactMin As Double
+        <DataMember()> Public Property exactMax As Double
 
     End Class
 

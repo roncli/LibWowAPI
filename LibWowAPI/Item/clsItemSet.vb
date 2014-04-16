@@ -42,10 +42,24 @@ Namespace roncliProductions.LibWowAPI.Item
             End Get
         End Property
 
-        Friend Sub New(intID As Integer, strName As String, sbSetBonuses As Collection(Of SetBonus))
+        Private Property colItems As Collection(Of Integer)
+        ''' <summary>
+        ''' The list of item IDs in this set.
+        ''' </summary>
+        ''' <value>This property gets the Items field.</value>
+        ''' <returns>Returns the list of item IDs in this set.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of Integer)" /> that represents the list of item IDs in this set.</remarks>
+        Public ReadOnly Property Items As Collection(Of Integer)
+            Get
+                Return colItems
+            End Get
+        End Property
+
+        Friend Sub New(intID As Integer, strName As String, sbSetBonuses As Collection(Of SetBonus), intItems As Collection(Of Integer))
             ID = intID
             Name = strName
             colSetBonuses = sbSetBonuses
+            colItems = intItems
         End Sub
 
     End Class

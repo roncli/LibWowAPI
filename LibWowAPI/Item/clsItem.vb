@@ -5,6 +5,7 @@
 
 Imports System
 Imports System.Collections.ObjectModel
+Imports System.Drawing
 Imports roncliProductions.LibWowAPI.Data
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
@@ -362,7 +363,39 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is an internal identification number used by Blizzard to retrieve the information required to display the item.</remarks>
         Public Property DisplayInfoID As Integer
 
-        Friend Sub New(intID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, bsBonusStats As Collection(Of BonusStats), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, sItemSubClass As ItemClasses.Subclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer)
+        ''' <summary>
+        ''' The name description of the item.
+        ''' </summary>
+        ''' <value>This property gets or sets the NameDescription field.</value>
+        ''' <returns>Returns the name description of the item.</returns>
+        ''' <remarks>The name description is for items from the Mists of Panderia expansion or later that have a description under their name, such as "Heroic" or "Warforged".  See the <see cref="HeroicTooltip" /> property for heroic items from Cataclysm or earlier.</remarks>
+        Public Property NameDescription As String
+
+        ''' <summary>
+        ''' The color the name description should be displayed in.
+        ''' </summary>
+        ''' <value>This property gets or sets the NameDescriptionColor field.</value>
+        ''' <returns>Returns the color the name description should be displayed in.</returns>
+        ''' <remarks>This represents the color the name description should be displayed in.</remarks>
+        Public Property NameDescriptionColor As Color
+
+        ''' <summary>
+        ''' Determines if the item is upgradable.
+        ''' </summary>
+        ''' <value>This property gets or sets the Upgradable field.</value>
+        ''' <returns>Returns whether the item is upgradable.</returns>
+        ''' <remarks>This determins if the item is upgradable.</remarks>
+        Public Property Upgradable As Boolean
+
+        ''' <summary>
+        ''' Determins if this item is heroic.
+        ''' </summary>
+        ''' <value>This property gets or sets the HeroicTooltip field.</value>
+        ''' <returns>Returns whether the item is heroic.</returns>
+        ''' <remarks>This property is only set for items from the Cataclysm expansion or earlier.  See the <see cref="NameDescription" /> property for heroic items from Mists of Pandaria or later.</remarks>
+        Public Property HeroicTooltip As Boolean
+
+        Friend Sub New(intID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, bsBonusStats As Collection(Of BonusStats), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, sItemSubClass As ItemClasses.Subclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
             ID = intID
             DisenchantingSkillRank = intDisenchantingSkillRank
             Description = strDescription
@@ -403,6 +436,10 @@ Namespace roncliProductions.LibWowAPI.Item
             IsAuctionable = blnIsAuctionable
             TotalArmor = intTotalArmor
             DisplayInfoID = intDisplayInfoID
+            NameDescription = strNameDescription
+            NameDescriptionColor = cNameDescriptionColor
+            Upgradable = blnUpgradable
+            HeroicTooltip = blnHeroicTooltip
         End Sub
 
     End Class
