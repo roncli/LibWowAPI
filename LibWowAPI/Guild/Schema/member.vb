@@ -9,7 +9,7 @@ Namespace roncliProductions.LibWowAPI.Guild.Schema
 
     <DataContract()> Friend Class member
 
-        <DataMember()> Public Property character As character
+        <DataMember()> Public Property character As Character.Schema.characterBasicInfo
         <DataMember()> Public Property rank As Integer
 
     End Class

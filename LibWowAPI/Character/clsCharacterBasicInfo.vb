@@ -3,17 +3,19 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
+Imports roncliProductions.LibWowAPI.Guild
 
-Namespace roncliProductions.LibWowAPI.Guild
+Namespace roncliProductions.LibWowAPI.Character
 
     ''' <summary>
-    ''' A class containing information about a character who is a member of the guild.
+    ''' A class containing basic information about a character.
     ''' </summary>
-    ''' <remarks>This class contains basic information about the character.</remarks>
-    Public Class Character
+    ''' <remarks>This class contains basic information about the character</remarks>
+    Public Class CharacterBasicInfo
 
         ''' <summary>
         ''' The character's name.

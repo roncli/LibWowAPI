@@ -5,6 +5,7 @@
 
 Imports System
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Challenge
@@ -20,8 +21,8 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' </summary>
         ''' <value>This property gets or sets the Character field.</value>
         ''' <returns>Returns information about the character.</returns>
-        ''' <remarks>This is a <see cref="Character" /> object that contains further information about the guild member.</remarks>
-        Public Property Character As Character
+        ''' <remarks>This is a <see cref="CharacterBasicInfo" /> object that contains further information about the guild member.</remarks>
+        Public Property Character As CharacterBasicInfo
 
         ''' <summary>
         ''' The member's spec at the time of the run.
@@ -31,8 +32,8 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <remarks>This represents the member's spec at the time of the run.</remarks>
         Public Property Spec As Spec
 
-        Friend Sub New(cCharacter As Character, sSpec As Spec)
-            Character = cCharacter
+        Friend Sub New(cbiCharacter As CharacterBasicInfo, sSpec As Spec)
+            Character = cbiCharacter
             sSpec = sSpec
         End Sub
 

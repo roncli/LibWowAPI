@@ -104,21 +104,17 @@
     <Compile Include="Challenge\clsChallengeRegion.vb" />
     <Compile Include="Challenge\clsChallengeRealm.vb" />
     <Compile Include="Challenge\clsChallengeRealmOptions.vb" />
-    <Compile Include="Challenge\clsCharacter.vb" />
     <Compile Include="Challenge\clsMember.vb" />
     <Compile Include="Challenge\clsGroup.vb" />
     <Compile Include="Challenge\clsMap.vb" />
     <Compile Include="Challenge\clsRealm.vb" />
     <Compile Include="Challenge\clsChallenge.vb" />
-    <Compile Include="Challenge\clsSpec.vb" />
     <Compile Include="Challenge\Schema\challengeRealm.vb" />
     <Compile Include="Challenge\Schema\challengeRegion.vb" />
     <Compile Include="Challenge\Schema\challengeRealmMap.vb" />
     <Compile Include="Challenge\Schema\challengeRegionMap.vb" />
     <Compile Include="Challenge\Schema\group.vb" />
-    <Compile Include="Challenge\Schema\character.vb" />
     <Compile Include="Challenge\Schema\realm.vb" />
-    <Compile Include="Challenge\Schema\spec.vb" />
     <Compile Include="Challenge\Schema\member.vb" />
     <Compile Include="Challenge\Schema\timeSpan.vb" />
     <Compile Include="Challenge\Schema\map.vb" />
@@ -126,6 +122,7 @@
     <Compile Include="Character\clsAchievements.vb" />
     <Compile Include="Character\clsAppearance.vb" />
     <Compile Include="Character\clsArenaBracket.vb" />
+    <Compile Include="Character\clsCharacterBasicInfo.vb" />
     <Compile Include="Character\clsLowLevelItems.vb" />
     <Compile Include="Character\clsEquipmentCount.vb" />
     <Compile Include="Character\clsAudit.vb" />
@@ -168,6 +165,7 @@
     <Compile Include="Character\clsTitle.vb" />
     <Compile Include="Character\clsTooltipParams.vb" />
     <Compile Include="Character\clsUpgrade.vb" />
+    <Compile Include="Character\Schema\characterBasicInfo.vb" />
     <Compile Include="Character\Schema\lowLevelItems.vb" />
     <Compile Include="Character\Schema\audit.vb" />
     <Compile Include="Character\Schema\collected.vb" />
@@ -250,13 +248,11 @@
     <Compile Include="Guild\clsItemPurchaseNews.vb" />
     <Compile Include="Guild\clsNewsItem.vb" />
     <Compile Include="Guild\clsRewardItem.vb" />
-    <Compile Include="Guild\clsSpec.vb" />
     <Compile Include="Guild\clsPlayerAchievementNews.vb" />
     <Compile Include="Guild\clsGuildBasicInfo.vb" />
     <Compile Include="Guild\Schema\guildBasicInfo.vb" />
     <Compile Include="Guild\Schema\news.vb" />
     <Compile Include="Guild\Schema\rewardItem.vb" />
-    <Compile Include="Guild\Schema\spec.vb" />
     <Compile Include="Guild\Schema\tooltipParams.vb" />
     <Compile Include="ItemSet\clsItemSet.vb" />
     <Compile Include="ItemSet\clsSetBonus.vb" />
@@ -309,7 +305,6 @@
     <Compile Include="Data\ItemClasses\Schema\classes.vb" />
     <Compile Include="Guild\clsCompletedAchievement.vb" />
     <Compile Include="Guild\clsAchievements.vb" />
-    <Compile Include="Guild\clsCharacter.vb" />
     <Compile Include="Guild\clsCompletedCriteria.vb" />
     <Compile Include="Guild\clsEmblem.vb" />
     <Compile Include="Guild\clsGuild.vb" />
@@ -317,7 +312,6 @@
     <Compile Include="Guild\clsGuildProfileOptions.vb" />
     <Compile Include="Guild\clsMember.vb" />
     <Compile Include="Guild\Schema\achievements.vb" />
-    <Compile Include="Guild\Schema\character.vb" />
     <Compile Include="Guild\Schema\emblem.vb" />
     <Compile Include="Guild\Schema\guild.vb" />
     <Compile Include="Guild\Schema\member.vb" />

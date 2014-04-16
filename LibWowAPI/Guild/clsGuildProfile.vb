@@ -13,6 +13,7 @@ Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Challenge
+Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
@@ -125,7 +126,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                     gpGuild.members Is Nothing OrElse gpGuild.members.Count = 0, Nothing, (
                         From m In gpGuild.members
                         Select New Member(
-                            New Character(
+                            New CharacterBasicInfo(
                                 m.character.name,
                                 m.character.realm,
                                 m.character.battlegroup,
@@ -198,7 +199,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                                         From m In g.members
                                         Select New Challenge.Member(
                                             If(
-                                                m.character Is Nothing, Nothing, New Challenge.Character(
+                                                m.character Is Nothing, Nothing, New CharacterBasicInfo(
                                                     m.character.name,
                                                     m.character.realm,
                                                     m.character.battlegroup,
@@ -209,7 +210,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                                                     m.character.achievementPoints,
                                                     m.character.thumbnail,
                                                     If(
-                                                        m.character.spec Is Nothing, Nothing, New Challenge.Spec(
+                                                        m.character.spec Is Nothing, Nothing, New Spec(
                                                             m.character.spec.name,
                                                             m.character.spec.role,
                                                             m.character.spec.backgroundImage,
@@ -222,7 +223,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                                                     m.character.guildRealm
                                                     )
                                                 ),
-                                            New Challenge.Spec(
+                                            New Spec(
                                                 m.spec.name,
                                                 m.spec.role,
                                                 m.spec.backgroundImage,
@@ -252,8 +253,8 @@ Namespace roncliProductions.LibWowAPI.Guild
                                     )
                                 ).ToCollection()
                             )
-                        )
-                    ).ToCollection()
+                        ).ToCollection()
+                    )
                 )
         End Sub
 

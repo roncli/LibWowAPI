@@ -11,6 +11,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Guild
@@ -133,7 +134,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
                                 From m In g.members
                                 Select New Member(
                                     If(
-                                        m.character Is Nothing, Nothing, New Character(
+                                        m.character Is Nothing, Nothing, New CharacterBasicInfo(
                                             m.character.name,
                                             m.character.realm,
                                             m.character.battlegroup,

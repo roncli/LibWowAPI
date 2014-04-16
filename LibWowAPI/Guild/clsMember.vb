@@ -3,6 +3,8 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports roncliProductions.LibWowAPI.Character
+
 Namespace roncliProductions.LibWowAPI.Guild
 
     ''' <summary>
@@ -16,8 +18,8 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' </summary>
         ''' <value>This property gets or sets the Character field.</value>
         ''' <returns>Returns information about the character.</returns>
-        ''' <remarks>This is a <see cref="Character" /> object that contains further information about the guild member.</remarks>
-        Public Property Character As Character
+        ''' <remarks>This is a <see cref="CharacterBasicInfo" /> object that contains further information about the guild member.</remarks>
+        Public Property Character As CharacterBasicInfo
 
         ''' <summary>
         ''' The member's guild rank.
@@ -27,8 +29,8 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <remarks>This is an integer that represents the guild rank.  There is currently no way to translate this number into the guild rank name.</remarks>
         Public Property Rank As Integer
 
-        Friend Sub New(cCharacter As Character, intRank As Integer)
-            Character = cCharacter
+        Friend Sub New(cbiCharacter As CharacterBasicInfo, intRank As Integer)
+            Character = cbiCharacter
             Rank = intRank
         End Sub
 
