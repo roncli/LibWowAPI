@@ -25,6 +25,7 @@ Imports roncliProductions.LibWowAPI.Data.Talents
 Imports roncliProductions.LibWowAPI.Guild
 Imports roncliProductions.LibWowAPI.Internationalization
 Imports roncliProductions.LibWowAPI.Item
+Imports roncliProductions.LibWowAPI.ItemSet
 Imports roncliProductions.LibWowAPI.Leaderboard
 Imports roncliProductions.LibWowAPI.Quest
 Imports roncliProductions.LibWowAPI.Realm
@@ -71,11 +72,12 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("21 - Guild Rewards")
                 Console.WriteLine("22 - Item Classes")
                 Console.WriteLine("23 - Item Lookup")
-                Console.WriteLine("24 - PvP Leaderboards")
-                Console.WriteLine("25 - Quest Lookup")
-                Console.WriteLine("26 - Realm Status")
-                Console.WriteLine("27 - Recipe Lookup")
-                Console.WriteLine("28 - Spell Lookup")
+                Console.WriteLine("24 - item Set Lookup")
+                Console.WriteLine("25 - PvP Leaderboards")
+                Console.WriteLine("26 - Quest Lookup")
+                Console.WriteLine("27 - Realm Status")
+                Console.WriteLine("28 - Recipe Lookup")
+                Console.WriteLine("29 - Spell Lookup")
                 Console.Write(">")
                 Dim strResponse = Console.ReadLine
                 If String.IsNullOrWhiteSpace(strResponse) Then Exit Do
@@ -129,14 +131,16 @@ Namespace roncliProductions.LibWowAPIDemo
                         Case 23
                             ItemLookupDemo()
                         Case 24
-                            PvpLeaderboardsDemo()
+                            ItemSetLookupDemo()
                         Case 25
-                            QuestLookupDemo()
+                            PvpLeaderboardsDemo()
                         Case 26
-                            RealmStatusDemo()
+                            QuestLookupDemo()
                         Case 27
-                            RecipeLookupDemo()
+                            RealmStatusDemo()
                         Case 28
+                            RecipeLookupDemo()
+                        Case 29
                             SpellLookupDemo()
                     End Select
                     Console.Clear()
@@ -2033,6 +2037,54 @@ Namespace roncliProductions.LibWowAPIDemo
             If iItem.Item.IsAuctionable Then
                 Console.WriteLine("Is Auctionable")
             End If
+            Console.WriteLine()
+
+            Console.WriteLine("Press any key to continue.")
+            Console.ReadKey(True)
+        End Sub
+
+        Public Sub ItemSetLookupDemo()
+            Console.Clear()
+            Console.WriteLine("Item Set Lookup Demo")
+            Console.WriteLine()
+
+            ' First, setup some variables
+            Dim intSetID As Integer
+
+            ' Next, get the item ID.
+            Do
+                Console.WriteLine("Please enter the ID number of the item set you wish to lookup.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                If Integer.TryParse(strResponse, intSetID) Then
+                    Exit Do
+                Else
+                    Console.WriteLine("Invalid response.")
+                    Console.WriteLine()
+                End If
+            Loop
+
+            ' Get the Item.
+            Dim isSet As New ItemSetLookup(intSetID)
+
+            ' Show the item.
+            Console.Clear()
+            If isSet.CacheHit.HasValue AndAlso isSet.CacheHit.Value Then
+                Console.WriteLine("Cache hit!")
+                Console.WriteLine()
+            End If
+
+            Console.WriteLine("{0}) {1}", isSet.ItemSet.ItemSetID, isSet.ItemSet.Name)
+            If isSet.ItemSet.SetBonuses.Count > 0 Then
+                Console.WriteLine("Set Bonuses:")
+                For Each sbBonus In isSet.ItemSet.SetBonuses
+                    Console.WriteLine("  {0} - {1}", sbBonus.Threshold, sbBonus.Description)
+                Next
+            End If
+            Console.WriteLine("Items in set:")
+            For Each intItemID In isSet.ItemSet.Items
+                Console.WriteLine("  {0}", intItemID)
+            Next
             Console.WriteLine()
 
             Console.WriteLine("Press any key to continue.")
