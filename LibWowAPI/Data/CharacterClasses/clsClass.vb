@@ -16,17 +16,17 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterClasses
         ''' <summary>
         ''' The class ID number.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the ClassID field.</value>
         ''' <returns>Returns the class ID number.</returns>
         ''' <remarks>Each class has a unique ID number that represents the class.</remarks>
-        Public Property ID As Integer
+        Public Property ClassID As Integer
 
         ''' <summary>
         ''' The value of the mask.  Used for flags.
         ''' </summary>
         ''' <value>This property gets or sets the Mask field.</value>
         ''' <returns>Returns the value of the mask.  Used for flags.</returns>
-        ''' <remarks>This seems to always be 2 ^ (<see cref="[Class].ID" /> - 1).  Given that so far every API that has a collection of classes returns an array of integers, it is unclear what this property is actually used for.</remarks>
+        ''' <remarks>This seems to always be 2 ^ (<see cref="[Class].ClassID" /> - 1).  Given that so far every API that has a collection of classes returns an array of integers, it is unclear what this property is actually used for.</remarks>
         Public Property Mask As Integer
 
         ''' <summary>
@@ -45,8 +45,8 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterClasses
         ''' <remarks>This is the localized name of the class.</remarks>
         Public Property Name As String
 
-        Friend Sub New(intID As Integer, intMask As Integer, ptPowerType As PowerType, strName As String)
-            ID = intID
+        Friend Sub New(intClassID As Integer, intMask As Integer, ptPowerType As PowerType, strName As String)
+            ClassID = intClassID
             Mask = intMask
             PowerType = ptPowerType
             Name = strName

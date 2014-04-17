@@ -16,10 +16,10 @@ Namespace roncliProductions.LibWowAPI.ItemSet
         ''' <summary>
         ''' The ID number of the set.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the ItemSetID field.</value>
         ''' <returns>Returns the ID number of the set.</returns>
         ''' <remarks>Each set has a unique ID number that is used to identify the set.</remarks>
-        Public Property ID As Integer
+        Public Property ItemSetID As Integer
 
         ''' <summary>
         ''' The name of the set.
@@ -55,8 +55,8 @@ Namespace roncliProductions.LibWowAPI.ItemSet
             End Get
         End Property
 
-        Friend Sub New(intID As Integer, strName As String, sbSetBonuses As Collection(Of SetBonus), intItems As Collection(Of Integer))
-            ID = intID
+        Friend Sub New(intItemSetID As Integer, strName As String, sbSetBonuses As Collection(Of SetBonus), intItems As Collection(Of Integer))
+            ItemSetID = intItemSetID
             Name = strName
             colSetBonuses = sbSetBonuses
             colItems = intItems

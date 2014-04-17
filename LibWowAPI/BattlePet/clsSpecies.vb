@@ -17,17 +17,17 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         ''' <summary>
         ''' The ID number of the species.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the SpeciesID field.</value>
         ''' <returns>Returns the ID number of the species.</returns>
         ''' <remarks>Each species has a unique ID number that is used to identify the species.</remarks>
-        Public Property ID As Integer
+        Public Property SpeciesID As Integer
 
         ''' <summary>
         ''' The ID number of the pet type.
         ''' </summary>
         ''' <value>This property gets or sets the PetTypeID field.</value>
         ''' <returns>Returns the ID number of the pet type.</returns>
-        ''' <remarks>The pet type can be determined by matching this field to the <see cref="Data.PetTypes.PetType.ID" /> field of the <see cref="Data.PetTypes.PetType" /> class.</remarks>
+        ''' <remarks>The pet type can be determined by matching this field to the <see cref="Data.PetTypes.PetType.PetTypeID" /> field of the <see cref="Data.PetTypes.PetType" /> class.</remarks>
         Public Property PetTypeID As Integer
 
         ''' <summary>
@@ -91,8 +91,8 @@ Namespace roncliProductions.LibWowAPI.BattlePet
             End Get
         End Property
 
-        Public Sub New(intID As Integer, intPetTypeID As Integer, intCreatureID As Integer, strName As String, blnCanBattle As Boolean, strIcon As String, strDescription As String, strSource As String, saAbilities As Collection(Of SpeciesAbility))
-            ID = intID
+        Public Sub New(intSpeciesID As Integer, intPetTypeID As Integer, intCreatureID As Integer, strName As String, blnCanBattle As Boolean, strIcon As String, strDescription As String, strSource As String, saAbilities As Collection(Of SpeciesAbility))
+            SpeciesID = intSpeciesID
             PetTypeID = intPetTypeID
             CreatureID = intCreatureID
             Name = strName

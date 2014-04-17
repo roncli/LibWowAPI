@@ -16,10 +16,10 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <summary>
         ''' The ID number of the achievement category.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the CategoryID field.</value>
         ''' <returns>Returns the ID number of the achievement category.</returns>
         ''' <remarks>Each achievement category has an ID number that can be used to identify it.</remarks>
-        Public Property ID As Integer
+        Public Property CategoryID As Integer
 
         Private colCategories As Collection(Of Category)
         ''' <summary>
@@ -55,8 +55,8 @@ Namespace roncliProductions.LibWowAPI.Achievement
             End Get
         End Property
 
-        Friend Sub New(intID As Integer, cCategories As Collection(Of Category), strName As String, aAchievements As Collection(Of Achievement))
-            ID = intID
+        Friend Sub New(intCategoryID As Integer, cCategories As Collection(Of Category), strName As String, aAchievements As Collection(Of Achievement))
+            CategoryID = intCategoryID
             colCategories = cCategories
             Name = strName
             colAchievements = aAchievements

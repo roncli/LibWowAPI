@@ -14,10 +14,10 @@ Namespace roncliProductions.LibWowAPI.Spell
         ''' <summary>
         ''' The spell ID number.
         ''' </summary>
-        ''' <value>This gets or sets the ID field.</value>
+        ''' <value>This gets or sets the SpellID field.</value>
         ''' <returns>Returns the spell ID number.</returns>
         ''' <remarks>Each spell has a unique ID number that is used to identify it.</remarks>
-        Public Property ID As Integer
+        Public Property SpellID As Integer
 
         ''' <summary>
         ''' The name of the spell.
@@ -83,8 +83,8 @@ Namespace roncliProductions.LibWowAPI.Spell
         ''' <remarks>This is the localized cooldown of the spell.</remarks>
         Public Property Cooldown As String
 
-        Friend Sub New(intID As Integer, strName As String, strSubtext As String, strIcon As String, strDescription As String, strRange As String, strPowerCost As String, strCastTime As String, strCooldown As String)
-            ID = intID
+        Friend Sub New(intSpellID As Integer, strName As String, strSubtext As String, strIcon As String, strDescription As String, strRange As String, strPowerCost As String, strCastTime As String, strCooldown As String)
+            SpellID = intSpellID
             Name = strName
             Subtext = strSubtext
             Icon = strIcon

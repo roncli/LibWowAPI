@@ -17,10 +17,10 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <summary>
         ''' The ID number of the achievement.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the AchievementID field.</value>
         ''' <returns>Returns the ID number of the achievement.</returns>
         ''' <remarks>Each achievement has a unique ID number to identify it.</remarks>
-        Public Property ID As Integer
+        Public Property AchievementID As Integer
 
         ''' <summary>
         ''' The title of the achievement.
@@ -104,8 +104,8 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <remarks>This represents the faction that the achievement is specific to.  If the achievement is not specific to any given faction, this returns <see cref="Faction.Neutral" />.</remarks>
         Public Property Faction As Faction
 
-        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean, fFaction As Faction)
-            ID = intID
+        Friend Sub New(intAchievementID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of Criteria), blnAccountWide As Boolean, fFaction As Faction)
+            AchievementID = intAchievementID
             Title = strTitle
             Points = intPoints
             Description = strDescription

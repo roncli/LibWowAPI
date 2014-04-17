@@ -16,10 +16,10 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         ''' <summary>
         ''' The ID number of the ability.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the AbilityID field.</value>
         ''' <returns>Returns the ID number of the ability.</returns>
         ''' <remarks>Each ability has a unique ID number that is used to identify the ability.</remarks>
-        Public Property ID As Integer
+        Public Property AbilityID As Integer
 
         ''' <summary>
         ''' The name of the ability.
@@ -58,7 +58,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         ''' </summary>
         ''' <value>This property gets or sets the PetTypeID field.</value>
         ''' <returns>Returns the ID number of the pet type.</returns>
-        ''' <remarks>The pet type can be determined by matching this field to the <see cref="Data.PetTypes.PetType.ID" /> field of the <see cref="Data.PetTypes.PetType" /> class.</remarks>
+        ''' <remarks>The pet type can be determined by matching this field to the <see cref="Data.PetTypes.PetType.PetTypeID" /> field of the <see cref="Data.PetTypes.PetType" /> class.</remarks>
         Public Property PetTypeID As Integer
 
         ''' <summary>
@@ -77,8 +77,8 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         ''' <remarks>This determines whether to show the damage types a pet is strong or weak against in the tooltip.</remarks>
         Public Property HideHints As Boolean
 
-        Friend Sub New(intID As Integer, strName As String, strIcon As String, intCooldown As Integer, intRounds As Integer, intPetTypeID As Integer, blnIsPassive As Boolean, blnHideHints As Boolean)
-            ID = intID
+        Friend Sub New(intAbilityID As Integer, strName As String, strIcon As String, intCooldown As Integer, intRounds As Integer, intPetTypeID As Integer, blnIsPassive As Boolean, blnHideHints As Boolean)
+            AbilityID = intAbilityID
             Name = strName
             Icon = strIcon
             Cooldown = intCooldown

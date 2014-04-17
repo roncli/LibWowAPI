@@ -14,10 +14,10 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <summary>
         ''' The ID number of the achievement criteria.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the CriteriaID field.</value>
         ''' <returns>Returns the ID number of the achievement criteria.</returns>
         ''' <remarks>Each criteria has a unique ID number.  Achievements are completed when one or more criteria are completed.  However, there is currently no mapping to tell which criteria complete which achievements.</remarks>
-        Public Property ID As Integer
+        Public Property CriteriaID As Integer
 
         ''' <summary>
         ''' The amount of the achievement criteria completed.
@@ -43,8 +43,8 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <remarks>This date is the time in UTC that the criteria was started.  This will be equal to the <see cref="CompletedCriteria.Timestamp" /> property if the required <see cref="CompletedCriteria.Quantity" /> is 1.</remarks>
         Public Property Created As Date
 
-        Friend Sub New(intID As Integer, lngQuantity As Long, dtTimestamp As Date, dtCreated As Date)
-            ID = intID
+        Friend Sub New(intCriteriaID As Integer, lngQuantity As Long, dtTimestamp As Date, dtCreated As Date)
+            CriteriaID = intCriteriaID
             Quantity = lngQuantity
             Timestamp = dtTimestamp
             Created = dtCreated

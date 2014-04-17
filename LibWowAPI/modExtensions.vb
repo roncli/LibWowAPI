@@ -63,7 +63,7 @@ Namespace roncliProductions.LibWowAPI.Extensions
         <Extension()> Friend Function GetClass(intClassID As Integer) As [Class]
             Dim ccClasses As New CharacterClasses()
             ccClasses.Load()
-            Dim varClass = ccClasses.Classes.Where(Function(c) c.ID = intClassID)
+            Dim varClass = ccClasses.Classes.Where(Function(c) c.ClassID = intClassID)
             If varClass.Count = 0 Then
                 Return Nothing
             Else
@@ -74,7 +74,7 @@ Namespace roncliProductions.LibWowAPI.Extensions
         <Extension()> Friend Function GetRace(intRaceID As Integer) As Race
             Dim crRaces As New CharacterRaces()
             crRaces.Load()
-            Dim varRace = crRaces.Races.Where(Function(r) r.ID = intRaceID)
+            Dim varRace = crRaces.Races.Where(Function(r) r.RaceID = intRaceID)
             If varRace.Count = 0 Then
                 Return Nothing
             Else
@@ -173,14 +173,14 @@ Namespace roncliProductions.LibWowAPI.Extensions
             If intRaces Is Nothing Then Return Nothing
             Dim crRaces As New CharacterRaces()
             crRaces.Load()
-            Return (From r In crRaces.Races Where intRaces.Contains(r.ID)).ToCollection()
+            Return (From r In crRaces.Races Where intRaces.Contains(r.RaceID)).ToCollection()
         End Function
 
         <Extension()> Friend Function GetClasses(intClasses As Integer()) As Collection(Of [Class])
             If intClasses Is Nothing Then Return Nothing
             Dim ccClasses As New CharacterClasses()
             ccClasses.Load()
-            Return (From c In ccClasses.Classes Where intClasses.Contains(c.ID)).ToCollection()
+            Return (From c In ccClasses.Classes Where intClasses.Contains(c.ClassID)).ToCollection()
         End Function
 
         <Extension()> Friend Function GetResponse(wrResponse As WebResponse) As String

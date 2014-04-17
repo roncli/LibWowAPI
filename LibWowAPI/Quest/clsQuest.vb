@@ -14,10 +14,10 @@ Namespace roncliProductions.LibWowAPI.Quest
         ''' <summary>
         ''' The ID number of the quest.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the QuestID field.</value>
         ''' <returns>Returns the ID number of the quest.</returns>
         ''' <remarks>Each question has a unique ID number that identifies the quest.</remarks>
-        Public Property ID As Integer
+        Public Property QuestID As Integer
 
         ''' <summary>
         ''' The title of the quest.
@@ -59,8 +59,8 @@ Namespace roncliProductions.LibWowAPI.Quest
         ''' <remarks>This returns -1 if the quest is not level-dependent, for example holiday quests.</remarks>
         Public Property Level As Integer
 
-        Friend Sub New(intID As Integer, strTitle As String, intRequiredLevel As Integer, intSuggestedPartyMembers As Integer, strCategory As String, intLevel As Integer)
-            ID = intID
+        Friend Sub New(intQuestID As Integer, strTitle As String, intRequiredLevel As Integer, intSuggestedPartyMembers As Integer, strCategory As String, intLevel As Integer)
+            QuestID = intQuestID
             Title = strTitle
             RequiredLevel = intRequiredLevel
             SuggestedPartyMembers = intSuggestedPartyMembers

@@ -14,10 +14,10 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <summary>
         ''' The ID number of the criteria.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the CriteriaID field.</value>
         ''' <returns>Returns the ID number of the criteria.</returns>
         ''' <remarks>Each achievement criteria has a unique ID number to identify it.</remarks>
-        Public Property ID As Integer
+        Public Property CriteriaID As Integer
 
         ''' <summary>
         ''' The description of the criteria.
@@ -43,8 +43,8 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <remarks>This represents the number of times the criteria needs to be done before it is completed.</remarks>
         Public Property Max As Long
 
-        Friend Sub New(intID As Integer, strDescription As String, intOrderIndex As Integer, lngMax As Long)
-            ID = intID
+        Friend Sub New(intCriteriaID As Integer, strDescription As String, intOrderIndex As Integer, lngMax As Long)
+            CriteriaID = intCriteriaID
             Description = strDescription
             OrderIndex = intOrderIndex
             Max = lngMax

@@ -16,10 +16,10 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <summary>
         ''' The ID number of the faction.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the FactionID field.</value>
         ''' <returns>Returns the ID number of the faction.</returns>
         ''' <remarks>This is a unique value that identifies the faction.</remarks>
-        Public Property ID As Integer
+        Public Property FactionID As Integer
 
         ''' <summary>
         ''' The name of the faction.
@@ -53,8 +53,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>When the character's <see cref="Reputation.Value" /> reaches this value, their <see cref="Reputation.Standing" /> with the faction increses, unless it's already at <see cref="Standing.Exalted" />.</remarks>
         Public Property Max As Integer
 
-        Friend Sub New(intID As Integer, strName As String, sStanding As Standing, intValue As Integer, intMax As Integer)
-            ID = intID
+        Friend Sub New(intFactionID As Integer, strName As String, sStanding As Standing, intValue As Integer, intMax As Integer)
+            FactionID = intFactionID
             Name = strName
             Standing = sStanding
             Value = intValue

@@ -41,10 +41,10 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <summary>
         ''' The ID number of the instance.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the InstanceID field.</value>
         ''' <returns>Returns the ID number of the instance.</returns>
         ''' <remarks>This ID number is unique to the instance.</remarks>
-        Public Property ID As Integer
+        Public Property InstanceID As Integer
 
         Private colBosses As Collection(Of Boss)
         ''' <summary>
@@ -59,11 +59,11 @@ Namespace roncliProductions.LibWowAPI.Character
             End Get
         End Property
 
-        Friend Sub New(strName As String, pNormal As Progress, pHeroic As Progress, intID As Integer, bBosses As Collection(Of Boss))
+        Friend Sub New(strName As String, pNormal As Progress, pHeroic As Progress, intInstanceID As Integer, bBosses As Collection(Of Boss))
             Name = strName
             Normal = pNormal
             Heroic = pHeroic
-            ID = intID
+            InstanceID = intInstanceID
             colBosses = bBosses
         End Sub
 

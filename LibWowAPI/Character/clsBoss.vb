@@ -14,10 +14,10 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <summary>
         ''' The ID number of the encounter.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the EncounterID field.</value>
         ''' <returns>Returns the ID number of the encounter.</returns>
         ''' <remarks>If the encounter is listed as a boss, this is the NPC ID number.  Otherwise, this is likely a Spell ID number, which has no translation yet.</remarks>
-        Public Property ID As Integer
+        Public Property EncounterID As Integer
 
         ''' <summary>
         ''' The name of the boss.
@@ -91,8 +91,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This represents the date of the most recent flex kill.</remarks>
         Public Property FlexTimestamp As Date
 
-        Friend Sub New(intID As Integer, strName As String, intNormalKills As Integer, dtNormalTimestamp As Date, intHeroicKills As Integer, dtHeroicTimestamp As Date, intLFRKills As Integer, dtLFRTimestamp As Date, intFlexKills As Integer, dtFlexTimestamp As Date)
-            ID = intID
+        Friend Sub New(intEncounterID As Integer, strName As String, intNormalKills As Integer, dtNormalTimestamp As Date, intHeroicKills As Integer, dtHeroicTimestamp As Date, intLFRKills As Integer, dtLFRTimestamp As Date, intFlexKills As Integer, dtFlexTimestamp As Date)
+            EncounterID = intEncounterID
             Name = strName
             NormalKills = intNormalKills
             NormalTimestamp = dtNormalTimestamp

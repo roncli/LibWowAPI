@@ -16,10 +16,10 @@ Namespace roncliProductions.LibWowAPI.Data.PetTypes
         ''' <summary>
         ''' The ID number of the pet type.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the PetTypeID field.</value>
         ''' <returns>Returns the ID number of the pet type.</returns>
         ''' <remarks>This represents the ID number of the pet type.</remarks>
-        Public Property ID As Integer
+        Public Property PetTypeID As Integer
 
         ''' <summary>
         ''' The pet type's key.
@@ -61,8 +61,8 @@ Namespace roncliProductions.LibWowAPI.Data.PetTypes
         ''' <remarks>This represents the pet type this pet type is weak against.</remarks>
         Public Property WeakAgainstID As Integer
 
-        Friend Sub New(intID As Integer, strKey As String, strName As String, intTypeAbilityID As Integer, intStrongAgainstID As Integer, intWeakAgainstID As Integer)
-            ID = intID
+        Friend Sub New(intPetTypeID As Integer, strKey As String, strName As String, intTypeAbilityID As Integer, intStrongAgainstID As Integer, intWeakAgainstID As Integer)
+            PetTypeID = intPetTypeID
             Key = strKey
             Name = strName
             TypeAbilityID = intTypeAbilityID

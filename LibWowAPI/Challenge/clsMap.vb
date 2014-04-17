@@ -17,10 +17,10 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <summary>
         ''' The ID number of the map.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the MapID field.</value>
         ''' <returns>Returns the ID number of the map.</returns>
         ''' <remarks>Each map has a unique ID number that is used to identify the map.</remarks>
-        Public Property ID As Integer
+        Public Property MapID As Integer
 
         ''' <summary>
         ''' The name of the map.
@@ -70,8 +70,8 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <remarks>This represents the time limit to recieve a gold medal for this map's challenge mode.</remarks>
         Public Property GoldCriteria As TimeSpan
 
-        Public Sub New(intID As Integer, strName As String, strSlug As String, blnHasChallengeMode As Boolean, tsBronzeCriteria As TimeSpan, tsSilverCriteria As TimeSpan, tsGoldCriteria As TimeSpan)
-            ID = intID
+        Public Sub New(intMapID As Integer, strName As String, strSlug As String, blnHasChallengeMode As Boolean, tsBronzeCriteria As TimeSpan, tsSilverCriteria As TimeSpan, tsGoldCriteria As TimeSpan)
+            MapID = intMapID
             Name = strName
             Slug = strSlug
             HasChallengeMode = blnHasChallengeMode

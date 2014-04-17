@@ -16,10 +16,10 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <summary>
         ''' The ID number of the achievement.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the AchievementID field.</value>
         ''' <returns>Returns the ID number of the achievement.</returns>
         ''' <remarks>Each achievement has a unique ID number to identify it.</remarks>
-        Public Property ID As Integer
+        Public Property AchievementID As Integer
 
         ''' <summary>
         ''' The title of the achievement.
@@ -87,8 +87,8 @@ Namespace roncliProductions.LibWowAPI.Guild
             End Get
         End Property
 
-        Friend Sub New(intID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of NewsCriteria))
-            ID = intID
+        Friend Sub New(intAchievementID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of NewsCriteria))
+            AchievementID = intAchievementID
             Title = strTitle
             Points = intPoints
             Description = strDescription

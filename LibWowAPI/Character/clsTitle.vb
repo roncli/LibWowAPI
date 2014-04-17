@@ -14,10 +14,10 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <summary>
         ''' The ID number of the title.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the TitleID field.</value>
         ''' <returns>Returns the ID number of the title.</returns>
         ''' <remarks>Each title has a unique ID number to represent it.</remarks>
-        Public Property ID As Integer
+        Public Property TitleID As Integer
 
         ''' <summary>
         ''' The tokenized name of the title.
@@ -35,8 +35,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>When true, this is the character's current title.</remarks>
         Public Property Selected As Boolean
 
-        Friend Sub New(intID As Integer, strName As String, blnSelected As Boolean)
-            ID = intID
+        Friend Sub New(intTitleID As Integer, strName As String, blnSelected As Boolean)
+            TitleID = intTitleID
             Name = strName
             Selected = blnSelected
         End Sub

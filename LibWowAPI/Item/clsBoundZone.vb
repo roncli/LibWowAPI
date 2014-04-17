@@ -14,10 +14,10 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <summary>
         ''' The ID number of the zone.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the ZoneID field.</value>
         ''' <returns>Returns the ID number of the zone.</returns>
         ''' <remarks>Each zone has a unique ID number that identifies the zone.</remarks>
-        Public Property ID As Integer
+        Public Property ZoneID As Integer
 
         ''' <summary>
         ''' The name of the zone.
@@ -27,8 +27,8 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is the localized name of the zone.</remarks>
         Public Property Name As String
 
-        Friend Sub New(intID As Integer, strName As String)
-            ID = intID
+        Friend Sub New(intZoneID As Integer, strName As String)
+            ZoneID = intZoneID
             Name = strName
         End Sub
 

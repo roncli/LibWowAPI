@@ -16,10 +16,10 @@ Namespace roncliProductions.LibWowAPI.Auction
         ''' <summary>
         ''' The ID number of the auction.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the AuctionID field.</value>
         ''' <returns>Returns the ID number of the auction.</returns>
         ''' <remarks>This number remains constant over the course of the auction, and it is believed to be unique per realm.  This makes it easy to track an auction over time.</remarks>
-        Public Property ID As Long
+        Public Property AuctionID As Long
 
         ''' <summary>
         ''' The ID number of the item being auctioned.
@@ -125,8 +125,8 @@ Namespace roncliProductions.LibWowAPI.Auction
         ''' <remarks>If the item being auctioned is not a pet, this will return <see cref="Quality.Unknown" />.</remarks>
         Public Property PetQuality As Quality
 
-        Friend Sub New(lngID As Long, intItemID As Integer, strOwner As String, strOwnerRealm As String, lngBid As Long, lngBuyout As Long, intQuantity As Integer, atlTimeLeft As AuctionTimeLeft, intSuffixID As Integer, intUniqueID As Long, intPetSpeciesID As Integer, bpbPetBreed As BattlePetBreed, intPetLevel As Integer, qPetQuality As Quality)
-            ID = lngID
+        Friend Sub New(lngAuctionID As Long, intItemID As Integer, strOwner As String, strOwnerRealm As String, lngBid As Long, lngBuyout As Long, intQuantity As Integer, atlTimeLeft As AuctionTimeLeft, intSuffixID As Integer, intUniqueID As Long, intPetSpeciesID As Integer, bpbPetBreed As BattlePetBreed, intPetLevel As Integer, qPetQuality As Quality)
+            AuctionID = lngAuctionID
             ItemID = intItemID
             Owner = strOwner
             OwnerRealm = strOwnerRealm

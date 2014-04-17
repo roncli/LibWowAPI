@@ -323,7 +323,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("{0} - ID {1} - Points: {2}", aAchievement.Achievement.Title, aAchievement.Achievement.ID, aAchievement.Achievement.Points)
+            Console.WriteLine("{0} - ID {1} - Points: {2}", aAchievement.Achievement.Title, aAchievement.Achievement.AchievementID, aAchievement.Achievement.Points)
             If aAchievement.Achievement.AccountWide Then
                 Console.WriteLine("  Account-wide Achievement")
             End If
@@ -339,7 +339,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
             If aAchievement.Achievement.Criteria IsNot Nothing Then
                 For Each cCriteria In aAchievement.Achievement.Criteria
-                    Console.WriteLine("  - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                    Console.WriteLine("  - {0}) {1}", cCriteria.CriteriaID, cCriteria.Description)
                 Next
             End If
             Console.WriteLine()
@@ -385,7 +385,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Auctions for {0} - Slug {1}", aAuctions.Realm.Name, aAuctions.Realm.Slug)
                 Console.WriteLine("Alliance:")
                 For Each aAuction In aAuctions.Alliance.Auctions
-                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
+                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.AuctionID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
                     Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
                     If aAuction.PetSpeciesID <> 0 Then
                         Console.WriteLine("    Pet Species: {0} - Level: {1} - Breed: {2} - Quality: {3}", aAuction.PetSpeciesID, aAuction.PetLevel, aAuction.PetBreed, aAuction.PetQuality)
@@ -393,7 +393,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Next
                 Console.WriteLine("Horde:")
                 For Each aAuction In aAuctions.Horde.Auctions
-                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
+                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.AuctionID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
                     Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
                     If aAuction.PetSpeciesID <> 0 Then
                         Console.WriteLine("    Pet Species: {0} - Level: {1} - Breed: {2} - Quality: {3}", aAuction.PetSpeciesID, aAuction.PetLevel, aAuction.PetBreed, aAuction.PetQuality)
@@ -401,7 +401,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Next
                 Console.WriteLine("Neutral:")
                 For Each aAuction In aAuctions.Neutral.Auctions
-                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.ID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
+                    Console.WriteLine("  {0}) Item {1} ({2}:{3}) x{4} - {5}", aAuction.AuctionID, aAuction.ItemID, aAuction.SuffixID, aAuction.UniqueID, aAuction.Quantity, aAuction.TimeLeft)
                     Console.WriteLine("    Seller: {0}-{1} Bid: {2}g{3}s{4}c Buyout: {5}g{6}s{7}c", aAuction.Owner, aAuction.OwnerRealm, Math.Floor(aAuction.Bid / 10000), Math.Floor((aAuction.Bid / 100) Mod 100), aAuction.Bid Mod 100, Math.Floor(aAuction.Buyout / 10000), Math.Floor((aAuction.Buyout / 100) Mod 100), aAuction.Buyout Mod 100)
                     If aAuction.PetSpeciesID <> 0 Then
                         Console.WriteLine("    Pet Species: {0} - Level: {1} - Breed: {2} - Quality: {3}", aAuction.PetSpeciesID, aAuction.PetLevel, aAuction.PetBreed, aAuction.PetQuality)
@@ -470,7 +470,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("{0}) {1}", aAbility.Ability.ID, aAbility.Ability.Name)
+            Console.WriteLine("{0}) {1}", aAbility.Ability.AbilityID, aAbility.Ability.Name)
             If aAbility.Ability.IsPassive Then
                 Console.WriteLine("  Passive Ability")
             End If
@@ -512,12 +512,12 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("{0}) {1}", sSpecies.Species.ID, sSpecies.Species.Name)
+            Console.WriteLine("{0}) {1}", sSpecies.Species.SpeciesID, sSpecies.Species.Name)
             Console.WriteLine("Source: {0}", sSpecies.Species.Source)
             Console.WriteLine()
             Console.WriteLine("Abilities:")
             For Each saAbility In sSpecies.Species.Abilities
-                Console.WriteLine("  {0}) {1}", saAbility.ID, saAbility.Name)
+                Console.WriteLine("  {0}) {1}", saAbility.AbilityID, saAbility.Name)
                 Console.WriteLine("    Required level: {0}", saAbility.RequiredLevel)
                 If saAbility.IsPassive Then
                     Console.WriteLine("    Passive Ability")
@@ -662,10 +662,10 @@ Namespace roncliProductions.LibWowAPIDemo
 
             ' Show the pet types.
             For Each ptType In ptTypes.PetTypes
-                Console.WriteLine("{0}) {1}", ptType.ID, ptType.Name)
+                Console.WriteLine("{0}) {1}", ptType.PetTypeID, ptType.Name)
                 Console.WriteLine("  Type Ability ID: {0}", ptType.TypeAbilityID)
-                Console.WriteLine("  Strong against: {0}", ptTypes.PetTypes.Where(Function(pt) pt.ID = ptType.StrongAgainstID).First().Name)
-                Console.WriteLine("  Weak against: {0}", ptTypes.PetTypes.Where(Function(pt) pt.ID = ptType.WeakAgainstID).First().Name)
+                Console.WriteLine("  Strong against: {0}", ptTypes.PetTypes.Where(Function(pt) pt.PetTypeID = ptType.StrongAgainstID).First().Name)
+                Console.WriteLine("  Weak against: {0}", ptTypes.PetTypes.Where(Function(pt) pt.PetTypeID = ptType.WeakAgainstID).First().Name)
                 Console.WriteLine()
             Next
 
@@ -706,7 +706,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each cChallenge In crChallenge.Challenge
-                Console.WriteLine("{0}) {1}", cChallenge.Map.ID, cChallenge.Map.Name)
+                Console.WriteLine("{0}) {1}", cChallenge.Map.MapID, cChallenge.Map.Name)
                 Console.WriteLine("  Bronze Time: {0:g}", cChallenge.Map.BronzeCriteria)
                 Console.WriteLine("  Silver Time: {0:g}", cChallenge.Map.SilverCriteria)
                 Console.WriteLine("  Gold Time: {0:g}", cChallenge.Map.GoldCriteria)
@@ -745,7 +745,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each cChallenge In crChallenge.Challenge
-                Console.WriteLine("{0}) {1}", cChallenge.Map.ID, cChallenge.Map.Name)
+                Console.WriteLine("{0}) {1}", cChallenge.Map.MapID, cChallenge.Map.Name)
                 Console.WriteLine("  Bronze Time: {0:g}", cChallenge.Map.BronzeCriteria)
                 Console.WriteLine("  Silver Time: {0:g}", cChallenge.Map.SilverCriteria)
                 Console.WriteLine("  Gold Time: {0:g}", cChallenge.Map.GoldCriteria)
@@ -785,9 +785,9 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each cCategory In caAchievements.Categories
-                Console.WriteLine("{0} - Category ID {1}", cCategory.Name, cCategory.ID)
+                Console.WriteLine("{0} - Category ID {1}", cCategory.Name, cCategory.CategoryID)
                 For Each aAchievement In cCategory.Achievements
-                    Console.WriteLine("  {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                    Console.WriteLine("  {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.AchievementID, aAchievement.Points)
                     If aAchievement.AccountWide Then
                         Console.WriteLine("    Account-wide Achievement")
                     End If
@@ -803,15 +803,15 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                     If aAchievement.Criteria IsNot Nothing Then
                         For Each cCriteria In aAchievement.Criteria
-                            Console.WriteLine("    - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                            Console.WriteLine("    - {0}) {1}", cCriteria.CriteriaID, cCriteria.Description)
                         Next
                     End If
                 Next
                 If cCategory.Categories IsNot Nothing Then
                     For Each cSubCategory In cCategory.Categories
-                        Console.WriteLine("  {0} - Category ID {1}", cSubCategory.Name, cSubCategory.ID)
+                        Console.WriteLine("  {0} - Category ID {1}", cSubCategory.Name, cSubCategory.CategoryID)
                         For Each aAchievement In cSubCategory.Achievements
-                            Console.WriteLine("    {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                            Console.WriteLine("    {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.AchievementID, aAchievement.Points)
                             If aAchievement.AccountWide Then
                                 Console.WriteLine("      Account-wide Achievement")
                             End If
@@ -827,7 +827,7 @@ Namespace roncliProductions.LibWowAPIDemo
                             End If
                             If aAchievement.Criteria IsNot Nothing Then
                                 For Each cCriteria In aAchievement.Criteria
-                                    Console.WriteLine("      - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                                    Console.WriteLine("      - {0}) {1}", cCriteria.CriteriaID, cCriteria.Description)
                                 Next
                             End If
                         Next
@@ -857,7 +857,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each cClass In ccClasses.Classes
-                Console.WriteLine("{0}) {1} - uses {2} - Mask: {3}", cClass.ID, cClass.Name, cClass.PowerType, cClass.Mask)
+                Console.WriteLine("{0}) {1} - uses {2} - Mask: {3}", cClass.ClassID, cClass.Name, cClass.PowerType, cClass.Mask)
             Next
 
             Console.WriteLine("Press any key to continue.")
@@ -1175,7 +1175,7 @@ Namespace roncliProductions.LibWowAPIDemo
             If cpCharacter.Character.Reputation IsNot Nothing Then
                 Console.WriteLine("Reputation:")
                 For Each rReputation In cpCharacter.Character.Reputation
-                    Console.WriteLine("  {0} - ID: {1} - {2}/{3} {4}", rReputation.Name, rReputation.ID, rReputation.Value, rReputation.Max, rReputation.Standing)
+                    Console.WriteLine("  {0} - ID: {1} - {2}/{3} {4}", rReputation.Name, rReputation.FactionID, rReputation.Value, rReputation.Max, rReputation.Standing)
                 Next
                 Console.WriteLine()
             End If
@@ -1183,7 +1183,7 @@ Namespace roncliProductions.LibWowAPIDemo
             If cpCharacter.Character.Titles IsNot Nothing Then
                 Console.WriteLine("Titles:")
                 For Each tTitle In cpCharacter.Character.Titles
-                    Console.WriteLine("  {0} - ID: {1}{2}", tTitle.Name.Replace("%s", cpCharacter.Character.Name), tTitle.ID, If(tTitle.Selected, " - Selected", ""))
+                    Console.WriteLine("  {0} - ID: {1}{2}", tTitle.Name.Replace("%s", cpCharacter.Character.Name), tTitle.TitleID, If(tTitle.Selected, " - Selected", ""))
                 Next
                 Console.WriteLine()
             End If
@@ -1246,12 +1246,12 @@ Namespace roncliProductions.LibWowAPIDemo
             If cpCharacter.Character.Achievements IsNot Nothing Then
                 Console.WriteLine("Achievements:")
                 For Each aAchievement In cpCharacter.Character.Achievements.Achievements
-                    Console.WriteLine("  ID: {0} - Completed: {1:M/d/yyyy h:mm:ss tt}", aAchievement.ID, aAchievement.Timestamp.ToLocalTime())
+                    Console.WriteLine("  ID: {0} - Completed: {1:M/d/yyyy h:mm:ss tt}", aAchievement.AchievementID, aAchievement.Timestamp.ToLocalTime())
                 Next
                 Console.WriteLine()
                 Console.WriteLine("Guild Achievement Criteria:")
                 For Each cCriteria In cpCharacter.Character.Achievements.Criteria
-                    Console.WriteLine("  ID: {0} - Started: {1: M/d/yyyy h:mm:ss tt} - Completed: {2: M/d/yyyy h:mm:ss tt} - Quantity: {3}", cCriteria.ID, cCriteria.Timestamp.ToLocalTime(), cCriteria.Created.ToLocalTime(), cCriteria.Quantity)
+                    Console.WriteLine("  ID: {0} - Started: {1: M/d/yyyy h:mm:ss tt} - Completed: {2: M/d/yyyy h:mm:ss tt} - Quantity: {3}", cCriteria.CriteriaID, cCriteria.Timestamp.ToLocalTime(), cCriteria.Created.ToLocalTime(), cCriteria.Quantity)
                 Next
                 Console.WriteLine()
             End If
@@ -1260,9 +1260,9 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Progression:")
                 Console.WriteLine("  Raids:")
                 For Each rRaid In cpCharacter.Character.Progression.Raids
-                    Console.WriteLine("    {0} - ID: {1} - Normal: {2} - Heroic: {3}", rRaid.Name, rRaid.ID, rRaid.Normal, rRaid.Heroic)
+                    Console.WriteLine("    {0} - ID: {1} - Normal: {2} - Heroic: {3}", rRaid.Name, rRaid.InstanceID, rRaid.Normal, rRaid.Heroic)
                     For Each bBoss In rRaid.Bosses
-                        Console.WriteLine("      {0} - ID: {1}", bBoss.Name, bBoss.ID)
+                        Console.WriteLine("      {0} - ID: {1}", bBoss.Name, bBoss.EncounterID)
                         If bBoss.NormalKills > 0 Then
                             Console.WriteLine("        Normal: {0} kills - Last Kill: {1:M/d/yyyy}", bBoss.NormalKills, bBoss.NormalTimestamp)
                         Else
@@ -1436,7 +1436,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each rRace In crRaces.Races
-                Console.WriteLine("{0}) {1} - {2} - Mask: {3}", rRace.ID, rRace.Name, rRace.Faction, rRace.Mask)
+                Console.WriteLine("{0}) {1} - {2} - Mask: {3}", rRace.RaceID, rRace.Name, rRace.Faction, rRace.Mask)
             Next
 
             Console.WriteLine("Press any key to continue.")
@@ -1508,9 +1508,9 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each cCategory In gaAchievements.Categories
-                Console.WriteLine("{0} - Category ID {1}", cCategory.Name, cCategory.ID)
+                Console.WriteLine("{0} - Category ID {1}", cCategory.Name, cCategory.CategoryID)
                 For Each aAchievement In cCategory.Achievements
-                    Console.WriteLine("  {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                    Console.WriteLine("  {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.AchievementID, aAchievement.Points)
                     Console.WriteLine("    {0}", aAchievement.Description)
                     If aAchievement.AccountWide Then
                         Console.WriteLine("    Account-wide Achievement")
@@ -1525,15 +1525,15 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                     If aAchievement.Criteria IsNot Nothing Then
                         For Each cCriteria In aAchievement.Criteria
-                            Console.WriteLine("    - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                            Console.WriteLine("    - {0}) {1}", cCriteria.CriteriaID, cCriteria.Description)
                         Next
                     End If
                 Next
                 If cCategory.Categories IsNot Nothing Then
                     For Each cSubCategory In cCategory.Categories
-                        Console.WriteLine("  {0} - Category ID {1}", cSubCategory.Name, cSubCategory.ID)
+                        Console.WriteLine("  {0} - Category ID {1}", cSubCategory.Name, cSubCategory.CategoryID)
                         For Each aAchievement In cSubCategory.Achievements
-                            Console.WriteLine("    {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.ID, aAchievement.Points)
+                            Console.WriteLine("    {0} - ID {1} - Points: {2}", aAchievement.Title, aAchievement.AchievementID, aAchievement.Points)
                             If aAchievement.AccountWide Then
                                 Console.WriteLine("      Account-wide Achievement")
                             End If
@@ -1548,7 +1548,7 @@ Namespace roncliProductions.LibWowAPIDemo
                             End If
                             If aAchievement.Criteria IsNot Nothing Then
                                 For Each cCriteria In aAchievement.Criteria
-                                    Console.WriteLine("      - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                                    Console.WriteLine("      - {0}) {1}", cCriteria.CriteriaID, cCriteria.Description)
                                 Next
                             End If
                         Next
@@ -1579,9 +1579,9 @@ Namespace roncliProductions.LibWowAPIDemo
 
             For Each pPerk In gpPerks.Perks
                 If String.IsNullOrWhiteSpace(pPerk.Spell.Subtext) Then
-                    Console.WriteLine("Level {0} - {1} - ID: {2}", pPerk.GuildLevel, pPerk.Spell.Name, pPerk.Spell.ID)
+                    Console.WriteLine("Level {0} - {1} - ID: {2}", pPerk.GuildLevel, pPerk.Spell.Name, pPerk.Spell.SpellID)
                 Else
-                    Console.WriteLine("Level {0} - {1} {2} - ID: {3}", pPerk.GuildLevel, pPerk.Spell.Name, pPerk.Spell.Subtext, pPerk.Spell.ID)
+                    Console.WriteLine("Level {0} - {1} {2} - ID: {3}", pPerk.GuildLevel, pPerk.Spell.Name, pPerk.Spell.Subtext, pPerk.Spell.SpellID)
                 End If
                 If Not String.IsNullOrWhiteSpace(pPerk.Spell.Range) Then
                     Console.WriteLine("Range: {0}", pPerk.Spell.Range)
@@ -1700,12 +1700,12 @@ Namespace roncliProductions.LibWowAPIDemo
             If gpGuild.Guild.Achievements IsNot Nothing Then
                 Console.WriteLine("Guild Achievements:")
                 For Each aAchievement In gpGuild.Guild.Achievements.Achievements
-                    Console.WriteLine("  ID: {0} - Completed: {1:M/d/yyyy h:mm:ss tt}", aAchievement.ID, aAchievement.Timestamp.ToLocalTime())
+                    Console.WriteLine("  ID: {0} - Completed: {1:M/d/yyyy h:mm:ss tt}", aAchievement.AchievementID, aAchievement.Timestamp.ToLocalTime())
                 Next
                 Console.WriteLine()
                 Console.WriteLine("Guild Achievement Criteria:")
                 For Each cCriteria In gpGuild.Guild.Achievements.Criteria
-                    Console.WriteLine("  ID: {0} - Started: {1: M/d/yyyy h:mm:ss tt} - Completed: {2: M/d/yyyy h:mm:ss tt} - Quantity: {3}", cCriteria.ID, cCriteria.Timestamp.ToLocalTime(), cCriteria.Created.ToLocalTime(), cCriteria.Quantity)
+                    Console.WriteLine("  ID: {0} - Started: {1: M/d/yyyy h:mm:ss tt} - Completed: {2: M/d/yyyy h:mm:ss tt} - Quantity: {3}", cCriteria.CriteriaID, cCriteria.Timestamp.ToLocalTime(), cCriteria.Created.ToLocalTime(), cCriteria.Quantity)
                 Next
                 Console.WriteLine()
             End If
@@ -1747,7 +1747,7 @@ Namespace roncliProductions.LibWowAPIDemo
             If gpGuild.Guild.Challenge IsNot Nothing Then
                 Console.WriteLine("Challenge:")
                 For Each cChallenge In gpGuild.Guild.Challenge
-                    Console.WriteLine("{0}) {1}", cChallenge.Map.ID, cChallenge.Map.Name)
+                    Console.WriteLine("{0}) {1}", cChallenge.Map.MapID, cChallenge.Map.Name)
                     Console.WriteLine("  Bronze Time: {0:g}", cChallenge.Map.BronzeCriteria)
                     Console.WriteLine("  Silver Time: {0:g}", cChallenge.Map.SilverCriteria)
                     Console.WriteLine("  Gold Time: {0:g}", cChallenge.Map.GoldCriteria)
@@ -1797,7 +1797,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     Console.WriteLine("Required races: {0}", String.Join(", ", rReward.Races.Select(Function(r) r.Name)))
                 End If
                 If rReward.Achievement IsNot Nothing Then
-                    Console.WriteLine("Guild Achievement: {0} - ID: {1} - {2} Points", rReward.Achievement.Title, rReward.Achievement.ID, rReward.Achievement.Points)
+                    Console.WriteLine("Guild Achievement: {0} - ID: {1} - {2} Points", rReward.Achievement.Title, rReward.Achievement.AchievementID, rReward.Achievement.Points)
                     Console.WriteLine("  {0}", rReward.Achievement.Description)
                     If rReward.Achievement.AccountWide Then
                         Console.WriteLine("    Account-wide Achievement")
@@ -1812,7 +1812,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                     If rReward.Achievement.Criteria IsNot Nothing Then
                         For Each cCriteria In rReward.Achievement.Criteria
-                            Console.WriteLine("    - {0}) {1}", cCriteria.ID, cCriteria.Description)
+                            Console.WriteLine("    - {0}) {1}", cCriteria.CriteriaID, cCriteria.Description)
                         Next
                     End If
                 End If
@@ -1905,7 +1905,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Next
             End If
             If iItem.Item.BoundZone IsNot Nothing Then
-                Console.WriteLine("Bound to zone: {0} - ID: {1}", iItem.Item.BoundZone.Name, iItem.Item.BoundZone.ID)
+                Console.WriteLine("Bound to zone: {0} - ID: {1}", iItem.Item.BoundZone.Name, iItem.Item.BoundZone.ZoneID)
             End If
             If iItem.Item.BaseArmor > 0 Then
                 Console.WriteLine("Base Armor: {0}", iItem.Item.BaseArmor)
@@ -2122,7 +2122,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("{0} - ID: {1} - Category: {2} - Level: {3}", qQuest.Quest.Title, qQuest.Quest.ID, qQuest.Quest.Category, qQuest.Quest.Level)
+            Console.WriteLine("{0} - ID: {1} - Category: {2} - Level: {3}", qQuest.Quest.Title, qQuest.Quest.QuestID, qQuest.Quest.Category, qQuest.Quest.Level)
             Console.WriteLine("Required level: {0} - Suggested party members: {1}", qQuest.Quest.RequiredLevel, qQuest.Quest.SuggestedPartyMembers)
             Console.WriteLine()
 
@@ -2247,7 +2247,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("  {0} - ID: {1}", sSpell.Spell.Name, sSpell.Spell.ID)
+            Console.WriteLine("  {0} - ID: {1}", sSpell.Spell.Name, sSpell.Spell.SpellID)
             If Not String.IsNullOrWhiteSpace(sSpell.Spell.Subtext) Then
                 Console.WriteLine("    {0}", sSpell.Spell.Subtext)
             End If

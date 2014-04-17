@@ -16,17 +16,17 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterRaces
         ''' <summary>
         ''' The race ID number.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the RaceID field.</value>
         ''' <returns>Returns the race ID number.</returns>
         ''' <remarks>Each race has a unique ID number that represents the race.</remarks>
-        Public Property ID As Integer
+        Public Property RaceID As Integer
 
         ''' <summary>
         ''' The value of the mask.  Used for flags.
         ''' </summary>
         ''' <value>This property gets or sets the Mask field.</value>
         ''' <returns>Returns the value of the mask.  Used for flags.</returns>
-        ''' <remarks>This seems to always be 2 ^ (<see cref="Race.ID" /> - 1).  Given that so far every API that has a collection of races returns an array of integers, it is unclear what this property is actually used for.</remarks>
+        ''' <remarks>This seems to always be 2 ^ (<see cref="Race.RaceID" /> - 1).  Given that so far every API that has a collection of races returns an array of integers, it is unclear what this property is actually used for.</remarks>
         Public Property Mask As Integer
 
         ''' <summary>
@@ -45,8 +45,8 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterRaces
         ''' <remarks>This is the localized name of the race.</remarks>
         Public Property Name As String
 
-        Friend Sub New(intID As Integer, intMask As Integer, fFaction As Faction, strName As String)
-            ID = intID
+        Friend Sub New(intRaceID As Integer, intMask As Integer, fFaction As Faction, strName As String)
+            RaceID = intRaceID
             Mask = intMask
             Faction = fFaction
             Name = strName

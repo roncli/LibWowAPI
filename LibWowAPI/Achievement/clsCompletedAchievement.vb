@@ -8,16 +8,16 @@ Namespace roncliProductions.LibWowAPI.Achievement
     ''' <summary>
     ''' A class containing information about a completed achievement.
     ''' </summary>
-    ''' <remarks>This class contains the achievement <see cref="CompletedAchievement.ID" /> number and the <see cref="CompletedAchievement.Timestamp" /> the achievement was completed.  Use the <see cref="Data.CharacterAchievements.CharacterAchievements" /> class to get more detailed information about the achievement.</remarks>
+    ''' <remarks>This class contains the achievement <see cref="CompletedAchievement.AchievementID" /> number and the <see cref="CompletedAchievement.Timestamp" /> the achievement was completed.  Use the <see cref="Data.CharacterAchievements.CharacterAchievements" /> class to get more detailed information about the achievement.</remarks>
     Public Class CompletedAchievement
 
         ''' <summary>
         ''' The ID number of the achievement.
         ''' </summary>
-        ''' <value>This property gets or sets the ID field.</value>
+        ''' <value>This property gets or sets the AchievementID field.</value>
         ''' <returns>Returns the ID number of the achievement.</returns>
         ''' <remarks>This represents the achievement ID number which can be used with the <see cref="Data.CharacterAchievements.CharacterAchievements" /> class to get more information about the achievement.</remarks>
-        Public Property ID As Integer
+        Public Property AchievementID As Integer
 
         ''' <summary>
         ''' The date the achievement was completed.
@@ -27,8 +27,8 @@ Namespace roncliProductions.LibWowAPI.Achievement
         ''' <remarks>The date returned is the time in UTC that the achievement was fully completed.</remarks>
         Public Property Timestamp As Date
 
-        Friend Sub New(intID As Integer, dtTimestamp As Date)
-            ID = intID
+        Friend Sub New(intAchievementID As Integer, dtTimestamp As Date)
+            AchievementID = intAchievementID
             Timestamp = dtTimestamp
         End Sub
 
