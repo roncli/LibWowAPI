@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Achievement\clsAchievementLookup.vb" />
     <Compile Include="Achievement\clsAchievementLookupOptions.vb" />
+    <Compile Include="Achievement\Schema\completedAchievements.vb" />
     <Compile Include="Auction\clsAuction.vb" />
     <Compile Include="Auction\clsAuctionData.vb" />
     <Compile Include="Auction\clsAuctionFilesOptions.vb" />
@@ -119,7 +120,7 @@
     <Compile Include="Challenge\Schema\timeSpan.vb" />
     <Compile Include="Challenge\Schema\map.vb" />
     <Compile Include="Character\clsAchievementFeed.vb" />
-    <Compile Include="Character\clsAchievements.vb" />
+    <Compile Include="Achievement\clsCompletedAchievements.vb" />
     <Compile Include="Character\clsAppearance.vb" />
     <Compile Include="Character\clsArenaBracket.vb" />
     <Compile Include="Character\clsCharacterBasicInfo.vb" />
@@ -132,8 +133,8 @@
     <Compile Include="Character\clsCharacterProfile.vb" />
     <Compile Include="Character\clsCharacterProfileOptions.vb" />
     <Compile Include="Character\clsCollected.vb" />
-    <Compile Include="Character\clsCompletedAchievement.vb" />
-    <Compile Include="Character\clsCompletedCriteria.vb" />
+    <Compile Include="Achievement\clsCompletedAchievement.vb" />
+    <Compile Include="Achievement\clsCompletedCriteria.vb" />
     <Compile Include="Character\clsFeedCriteria.vb" />
     <Compile Include="Character\clsCriteriaFeed.vb" />
     <Compile Include="Character\clsFeedAchievement.vb" />
@@ -170,7 +171,6 @@
     <Compile Include="Character\Schema\collected.vb" />
     <Compile Include="Character\Schema\petSlot.vb" />
     <Compile Include="Character\Schema\pets.vb" />
-    <Compile Include="Character\Schema\achievements.vb" />
     <Compile Include="Character\Schema\appearance.vb" />
     <Compile Include="Character\Schema\boss.vb" />
     <Compile Include="Character\Schema\character.vb" />
@@ -292,15 +292,11 @@
     <Compile Include="Data\GuildRewards\Schema\tooltipParams.vb" />
     <Compile Include="Data\ItemClasses\Schema\class.vb" />
     <Compile Include="Data\ItemClasses\Schema\classes.vb" />
-    <Compile Include="Guild\clsCompletedAchievement.vb" />
-    <Compile Include="Guild\clsAchievements.vb" />
-    <Compile Include="Guild\clsCompletedCriteria.vb" />
     <Compile Include="Guild\clsEmblem.vb" />
     <Compile Include="Guild\clsGuild.vb" />
     <Compile Include="Guild\clsGuildProfile.vb" />
     <Compile Include="Guild\clsGuildProfileOptions.vb" />
     <Compile Include="Guild\clsMember.vb" />
-    <Compile Include="Guild\Schema\achievements.vb" />
     <Compile Include="Guild\Schema\emblem.vb" />
     <Compile Include="Guild\Schema\guild.vb" />
     <Compile Include="Guild\Schema\member.vb" />

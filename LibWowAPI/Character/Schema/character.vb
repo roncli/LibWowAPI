@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Runtime.Serialization
+Imports roncliProductions.LibWowAPI.Achievement.Schema
 Imports roncliProductions.LibWowAPI.Guild.Schema
 
 Namespace roncliProductions.LibWowAPI.Character.Schema
@@ -28,7 +29,7 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property professions As professions
         <DataMember()> Public Property reputation As reputation()
         <DataMember()> Public Property titles As title()
-        <DataMember()> Public Property achievements As achievements
+        <DataMember()> Public Property achievements As completedAchievements
         <DataMember()> Public Property hunterPets As hunterPet()
         <DataMember()> Public Property talents As talentSpec()
         <DataMember()> Public Property appearance As appearance

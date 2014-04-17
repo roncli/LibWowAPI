@@ -12,6 +12,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Challenge
 Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Enums
@@ -331,7 +332,7 @@ Namespace roncliProductions.LibWowAPI.Guild
 
 #Region "Private"
 
-        Private Shared Function SetAchievements(aAchievements As Schema.achievements) As Achievements
+        Private Shared Function SetAchievements(aAchievements As Achievement.Schema.completedAchievements) As CompletedAchievements
             Dim colAchievements As New Collection(Of CompletedAchievement)
             Dim enumAchievement = aAchievements.achievementsCompleted.GetEnumerator()
             Dim enumAchievementTimestamp = aAchievements.achievementsCompletedTimestamp.GetEnumerator()
@@ -355,7 +356,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                     )
             End While
 
-            Return New Achievements(colAchievements, colCriteria)
+            Return New CompletedAchievements(colAchievements, colCriteria)
         End Function
 
         Private Shared Function CreateNewsItem(nNews As Schema.news) As NewsItem

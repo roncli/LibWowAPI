@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Challenge
 Imports roncliProductions.LibWowAPI.Enums
 
@@ -76,8 +77,8 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' </summary>
         ''' <value>This property gets or sets the Achievements field.</value>
         ''' <returns>Returns the guild's completed achievements and achievement criteria.</returns>
-        ''' <remarks>If the <see cref="GuildProfileOptions.Achievements" /> property of the <see cref="GuildProfile.Options" /> property is set to true, an <see cref="Achievements" /> class will be available, containing information about the guild's completed guild achievements and guild achievement criteria.</remarks>
-        Public Property Achievements As Achievements
+        ''' <remarks>If the <see cref="GuildProfileOptions.Achievements" /> property of the <see cref="GuildProfile.Options" /> property is set to true, a <see cref="CompletedAchievements" /> class will be available, containing information about the guild's completed guild achievements and guild achievement criteria.</remarks>
+        Public Property Achievements As CompletedAchievements
 
         Private Property lstMembers As Collection(Of Member)
         ''' <summary>
@@ -126,7 +127,7 @@ Namespace roncliProductions.LibWowAPI.Guild
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, fFaction As Faction, intAchievementPoints As Integer, aAchievements As Achievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem), cChallenge As Collection(Of Challenge.Challenge))
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, fFaction As Faction, intAchievementPoints As Integer, caAchievements As CompletedAchievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem), cChallenge As Collection(Of Challenge.Challenge))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -134,7 +135,7 @@ Namespace roncliProductions.LibWowAPI.Guild
             Level = intLevel
             Faction = fFaction
             AchievementPoints = intAchievementPoints
-            Achievements = aAchievements
+            Achievements = caAchievements
             lstMembers = mMembers
             Emblem = eEmblem
             colNews = nNews

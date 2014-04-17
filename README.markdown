@@ -165,6 +165,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Refactored Guild.Guild to use the character basic info and spec classes in the Character namespace.
  * Refactored Character.Character, Data.GuildPerks.GuildPerks, Data.Talents.ClassTalents, and Item.Item to use the spell class in the Spell namespace.
  * Refactored Item.Item to use the item set and set bonus classes in the ItemSet namespace.
+ * Refactored Character.Character and Guild.Guild to use the completed achievements class in the Achievement namespace.
 
 ## Classes
 

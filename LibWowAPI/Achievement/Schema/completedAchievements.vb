@@ -5,14 +5,14 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Guild.Schema
+Namespace roncliProductions.LibWowAPI.Achievement.Schema
 
-    <DataContract()> Friend Class achievements
+    <DataContract()> Friend Class completedAchievements
 
         <DataMember()> Public Property achievementsCompleted As Integer()
         <DataMember()> Public Property achievementsCompletedTimestamp As Long()
         <DataMember()> Public Property criteria As Integer()
-        <DataMember()> Public Property criteriaQuantity As Long()
+        <DataMember()> Public ReadOnly criteriaQuantity As Long()
         <DataMember()> Public Property criteriaTimestamp As Long()
         <DataMember()> Public Property criteriaCreated As Long()
 

@@ -5,13 +5,13 @@
 
 Imports System.Collections.ObjectModel
 
-Namespace roncliProductions.LibWowAPI.Character
+Namespace roncliProductions.LibWowAPI.Achievement
 
     ''' <summary>
     ''' A class containing information about completed achievements and criteria.
     ''' </summary>
     ''' <remarks>Achievements are collections of tasks that characters must complete for achievement points or other rewards.  Criteria represent the individual tasks.  Currently, there is no way to tell what criteria are required for an achievement.</remarks>
-    Public Class Achievements
+    Public Class CompletedAchievements
 
         Private colAchievements As Collection(Of CompletedAchievement)
         ''' <summary>
