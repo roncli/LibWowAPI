@@ -13,6 +13,7 @@ Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
+Imports roncliProductions.LibWowAPI.Item
 
 Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
 
@@ -60,7 +61,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
     Public NotInheritable Class CharacterAchievements
         Inherits WowAPIData
 
-        Private aAchievements As New Schema.achievements
+        Private aAchievements As New Achievement.Schema.achievements
 
 #Region "WowAPIData Overrides"
 
@@ -104,7 +105,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
             End If
             Try
                 Using msJSON As New MemoryStream(Unicode.GetBytes(Data))
-                    aAchievements = CType(New DataContractJsonSerializer(GetType(Schema.achievements)).ReadObject(msJSON), Schema.achievements)
+                    aAchievements = CType(New DataContractJsonSerializer(GetType(Achievement.Schema.achievements)).ReadObject(msJSON), Achievement.Schema.achievements)
                 End Using
             Catch sex As SerializationException
                 Throw New LibWowAPIException("The data returned by the Armory is invalid.", sex)
@@ -131,16 +132,44 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                         a.reward,
                                         If(
                                             a.rewardItems Is Nothing, Nothing, (
-                                                From ri In a.rewardItems
-                                                Select New RewardItem(
-                                                    ri.id,
-                                                    ri.name,
-                                                    ri.icon,
-                                                    CType(ri.quality, Quality),
-                                                    ri.itemLevel,
-                                                    ri.armor
+                                    From ri In a.rewardItems
+                                    Select New ItemBasicInfo(
+                                        ri.id,
+                                        ri.name,
+                                        ri.icon,
+                                        CType(ri.quality, Quality),
+                                        ri.itemLevel,
+                                        If(
+                                            ri.tooltipParams Is Nothing, Nothing, New TooltipParams(
+                                                ri.tooltipParams.GetGems(),
+                                                ri.tooltipParams.suffix,
+                                                ri.tooltipParams.seed,
+                                                ri.tooltipParams.enchant,
+                                                ri.tooltipParams.extraSocket,
+                                                If(ri.tooltipParams.set Is Nothing, Nothing, ri.tooltipParams.set.ToCollection()),
+                                                ri.tooltipParams.reforge,
+                                                ri.tooltipParams.transmogItem,
+                                                If(
+                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                        ri.tooltipParams.upgrade.current,
+                                                        ri.tooltipParams.upgrade.total,
+                                                        ri.tooltipParams.upgrade.itemLevelIncrement
+                                                        )
                                                     )
-                                                ).ToCollection()
+                                                )
+                                            ),
+                                        (
+                                            From s In ri.stats
+                                            Select New Item.Stat(
+                                                CType(s.stat, Enums.Stat),
+                                                s.amount,
+                                                s.reforgedAmount,
+                                                s.reforged
+                                                )
+                                            ).ToCollection(),
+                                        ri.armor
+                                        )
+                                    ).ToCollection()
                                             ),
                                         a.icon,
                                         If(a.criteria Is Nothing, Nothing,
@@ -174,12 +203,40 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                             If(
                                 a.rewardItems Is Nothing, Nothing, (
                                     From ri In a.rewardItems
-                                    Select New RewardItem(
+                                    Select New ItemBasicInfo(
                                         ri.id,
                                         ri.name,
                                         ri.icon,
                                         CType(ri.quality, Quality),
                                         ri.itemLevel,
+                                        If(
+                                            ri.tooltipParams Is Nothing, Nothing, New TooltipParams(
+                                                ri.tooltipParams.GetGems(),
+                                                ri.tooltipParams.suffix,
+                                                ri.tooltipParams.seed,
+                                                ri.tooltipParams.enchant,
+                                                ri.tooltipParams.extraSocket,
+                                                If(ri.tooltipParams.set Is Nothing, Nothing, ri.tooltipParams.set.ToCollection()),
+                                                ri.tooltipParams.reforge,
+                                                ri.tooltipParams.transmogItem,
+                                                If(
+                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                        ri.tooltipParams.upgrade.current,
+                                                        ri.tooltipParams.upgrade.total,
+                                                        ri.tooltipParams.upgrade.itemLevelIncrement
+                                                        )
+                                                    )
+                                                )
+                                            ),
+                                        (
+                                            From s In ri.stats
+                                            Select New Item.Stat(
+                                                CType(s.stat, Enums.Stat),
+                                                s.amount,
+                                                s.reforgedAmount,
+                                                s.reforged
+                                                )
+                                            ).ToCollection(),
                                         ri.armor
                                         )
                                     ).ToCollection()

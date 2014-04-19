@@ -155,7 +155,6 @@
     <Compile Include="Character\clsBrackets.vb" />
     <Compile Include="Character\clsPvP.vb" />
     <Compile Include="Character\clsReputation.vb" />
-    <Compile Include="Character\clsRewardItem.vb" />
     <Compile Include="Character\clsSpec.vb" />
     <Compile Include="Item\clsStat.vb" />
     <Compile Include="Character\clsStats.vb" />
@@ -190,7 +189,6 @@
     <Compile Include="Character\Schema\brackets.vb" />
     <Compile Include="Character\Schema\pvp.vb" />
     <Compile Include="Character\Schema\reputation.vb" />
-    <Compile Include="Character\Schema\rewardItem.vb" />
     <Compile Include="Character\Schema\spec.vb" />
     <Compile Include="Item\Schema\stat.vb" />
     <Compile Include="Character\Schema\stats.vb" />

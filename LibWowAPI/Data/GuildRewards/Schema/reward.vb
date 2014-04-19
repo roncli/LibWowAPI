@@ -5,6 +5,7 @@
 
 Imports System.Runtime.Serialization
 Imports roncliProductions.LibWowAPI.Achievement.Schema
+Imports roncliProductions.LibWowAPI.Item.Schema
 
 Namespace roncliProductions.LibWowAPI.Data.GuildRewards.Schema
 
@@ -13,8 +14,8 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards.Schema
         <DataMember()> Public Property minGuildLevel As Integer
         <DataMember()> Public Property minGuildRepLevel As Integer
         <DataMember()> Public Property races As Integer()
-        <DataMember()> Public Property achievement As achievement.schema.achievement
-        <DataMember()> Public Property item As rewardItem
+        <DataMember()> Public Property achievement As Achievement.Schema.achievement
+        <DataMember()> Public Property item As itemBasicInfo
 
     End Class
 

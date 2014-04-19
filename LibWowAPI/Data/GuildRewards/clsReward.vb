@@ -7,6 +7,7 @@ Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
+Imports roncliProductions.LibWowAPI.Item
 
 Namespace roncliProductions.LibWowAPI.Data.GuildRewards
 
@@ -58,15 +59,15 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
         ''' </summary>
         ''' <value>This property gets or sets the RewardItem.</value>
         ''' <returns>Returns the guild reward item.</returns>
-        ''' <remarks>This is a <see cref="RewardItem" /> object that contains details about the rewarded item.</remarks>
-        Public Property RewardItem As RewardItem
+        ''' <remarks>This is a <see cref="ItemBasicInfo" /> object that contains details about the rewarded item.</remarks>
+        Public Property RewardItem As ItemBasicInfo
 
-        Friend Sub New(intRequiredGuildLevel As Integer, sRequiredGuildStanding As Standing, rRaces As Collection(Of Race), aAchievement As Achievement.Achievement, riRewardItem As RewardItem)
+        Friend Sub New(intRequiredGuildLevel As Integer, sRequiredGuildStanding As Standing, rRaces As Collection(Of Race), aAchievement As Achievement.Achievement, ibiRewardItem As ItemBasicInfo)
             RequiredGuildLevel = intRequiredGuildLevel
             RequiredGuildStanding = sRequiredGuildStanding
             colRaces = rRaces
             Achievement = aAchievement
-            RewardItem = riRewardItem
+            RewardItem = ibiRewardItem
         End Sub
 
     End Class
