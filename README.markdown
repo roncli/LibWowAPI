@@ -189,6 +189,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
   * Renamed Stat enumeration to ItemStat.
   * Refactored Stat objects for items to be called ItemStat.
   * Refactored Stats objects for characters to be called CharacterStats.
+  * Refactored Member objects for guilds to be called GuildMember.
 
 ## Classes
 

@@ -15,7 +15,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
     ''' A class containing information about a challenge mode group's member.
     ''' </summary>
     ''' <remarks>This class contains information about a challenge mode group's member.</remarks>
-    Public Class Member
+    Public Class GroupMember
 
         ''' <summary>
         ''' Information about the character.

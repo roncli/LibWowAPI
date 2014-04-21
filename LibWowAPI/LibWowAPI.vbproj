@@ -103,7 +103,7 @@
     <Compile Include="Challenge\clsChallengeRegion.vb" />
     <Compile Include="Challenge\clsChallengeRealm.vb" />
     <Compile Include="Challenge\clsChallengeRealmOptions.vb" />
-    <Compile Include="Challenge\clsMember.vb" />
+    <Compile Include="Challenge\clsGroupMember.vb" />
     <Compile Include="Challenge\clsGroup.vb" />
     <Compile Include="Challenge\clsMap.vb" />
     <Compile Include="Challenge\clsChallenge.vb" />
@@ -279,7 +279,7 @@
     <Compile Include="Guild\clsGuild.vb" />
     <Compile Include="Guild\clsGuildProfile.vb" />
     <Compile Include="Guild\clsGuildProfileOptions.vb" />
-    <Compile Include="Guild\clsMember.vb" />
+    <Compile Include="Guild\clsGuildMember.vb" />
     <Compile Include="Guild\Schema\emblem.vb" />
     <Compile Include="Guild\Schema\guild.vb" />
     <Compile Include="Guild\Schema\member.vb" />

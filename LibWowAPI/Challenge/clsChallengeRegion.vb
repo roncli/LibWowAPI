@@ -129,7 +129,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
                             g.isRecurring,
                             (
                                 From m In g.members
-                                Select New Member(
+                                Select New GroupMember(
                                     If(
                                         m.character Is Nothing, Nothing, New CharacterBasicInfo(
                                             m.character.name,

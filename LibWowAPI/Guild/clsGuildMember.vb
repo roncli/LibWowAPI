@@ -11,7 +11,7 @@ Namespace roncliProductions.LibWowAPI.Guild
     ''' A class containing information about a guild member.
     ''' </summary>
     ''' <remarks>This class contains basic information about a guild member.</remarks>
-    Public Class Member
+    Public Class GuildMember
 
         ''' <summary>
         ''' Information about the character.

@@ -80,14 +80,14 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <remarks>If the <see cref="GuildProfileOptions.Achievements" /> property of the <see cref="GuildProfile.Options" /> property is set to true, a <see cref="CompletedAchievements" /> class will be available, containing information about the guild's completed guild achievements and guild achievement criteria.</remarks>
         Public Property Achievements As CompletedAchievements
 
-        Private Property lstMembers As Collection(Of Member)
+        Private Property lstMembers As Collection(Of GuildMember)
         ''' <summary>
         ''' A list of members in the guild.
         ''' </summary>
         ''' <value>This property gets the Members field.</value>
         ''' <returns>Returns a list of members in the guild.</returns>
-        ''' <remarks>If the <see cref="GuildProfileOptions.Members" /> property of the <see cref="GuildProfile.Options" /> property is set to true, a <see cref="Collection(Of Member)" /> of <see cref="Member" /> will be available, containing information about the guild's members.</remarks>
-        Public ReadOnly Property Members As Collection(Of Member)
+        ''' <remarks>If the <see cref="GuildProfileOptions.Members" /> property of the <see cref="GuildProfile.Options" /> property is set to true, a <see cref="Collection(Of GuildMember)" /> of <see cref="GuildMember" /> will be available, containing information about the guild's members.</remarks>
+        Public ReadOnly Property Members As Collection(Of GuildMember)
             Get
                 Return lstMembers
             End Get
@@ -127,7 +127,7 @@ Namespace roncliProductions.LibWowAPI.Guild
             End Get
         End Property
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, fFaction As Faction, intAchievementPoints As Integer, caAchievements As CompletedAchievements, mMembers As Collection(Of Member), eEmblem As Emblem, nNews As Collection(Of NewsItem), cChallenge As Collection(Of Challenge.Challenge))
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, intLevel As Integer, fFaction As Faction, intAchievementPoints As Integer, caAchievements As CompletedAchievements, gmMembers As Collection(Of GuildMember), eEmblem As Emblem, nNews As Collection(Of NewsItem), cChallenge As Collection(Of Challenge.Challenge))
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -136,7 +136,7 @@ Namespace roncliProductions.LibWowAPI.Guild
             Faction = fFaction
             AchievementPoints = intAchievementPoints
             Achievements = caAchievements
-            lstMembers = mMembers
+            lstMembers = gmMembers
             Emblem = eEmblem
             colNews = nNews
             colChallenge = cChallenge

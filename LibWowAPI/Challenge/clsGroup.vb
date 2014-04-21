@@ -64,14 +64,14 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <remarks>This determines whether any of the members of this group have a higher ranking for this map.</remarks>
         Public Property IsRecurring As Boolean
 
-        Private colMembers As Collection(Of Member)
+        Private colMembers As Collection(Of GroupMember)
         ''' <summary>
         ''' The members in the group.
         ''' </summary>
         ''' <value>This property gets the Members field.</value>
         ''' <returns>Returns the members in the group.</returns>
-        ''' <remarks>This represents the members in the group.</remarks>
-        Public ReadOnly Property Members As Collection(Of Member)
+        ''' <remarks>This is a <see cref="GroupMember" /> object that represents the members in the group.</remarks>
+        Public ReadOnly Property Members As Collection(Of GroupMember)
             Get
                 Return colMembers
             End Get
@@ -85,14 +85,14 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <remarks>This represents the guild the members in the group are from.</remarks>
         Public Property Guild As GuildBasicInfo
 
-        Public Sub New(intRanking As Integer, tsTime As TimeSpan, dtDate As DateTime, strMedal As String, fFaction As Faction, blnIsRecurring As Boolean, mMembers As Collection(Of Member), gbiGuild As GuildBasicInfo)
+        Public Sub New(intRanking As Integer, tsTime As TimeSpan, dtDate As DateTime, strMedal As String, fFaction As Faction, blnIsRecurring As Boolean, gmMembers As Collection(Of GroupMember), gbiGuild As GuildBasicInfo)
             Ranking = intRanking
             Time = tsTime
             [Date] = dtDate
             Medal = strMedal
             Faction = fFaction
             IsRecurring = blnIsRecurring
-            colMembers = mMembers
+            colMembers = gmMembers
             Guild = gbiGuild
         End Sub
 

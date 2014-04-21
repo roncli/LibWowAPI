@@ -129,7 +129,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                 If(
                     gpGuild.members Is Nothing OrElse gpGuild.members.Count = 0, Nothing, (
                         From m In gpGuild.members
-                        Select New Member(
+                        Select New GuildMember(
                             New CharacterBasicInfo(
                                 m.character.name,
                                 m.character.realm,
@@ -201,7 +201,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                                     g.isRecurring,
                                     (
                                         From m In g.members
-                                        Select New Challenge.Member(
+                                        Select New GroupMember(
                                             If(
                                                 m.character Is Nothing, Nothing, New CharacterBasicInfo(
                                                     m.character.name,
