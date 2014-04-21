@@ -154,21 +154,23 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Removed namespace PvP and all classes within, since Blizzard has removed those APIs.
 * Fixes:
  * Language.EnglishEU now correctly sends en_GB.
- * Refactored Character.Character, Data.CharacterAchievements, Data.GuildAchievements, Data.GuildRewards, and Guild.Guild to use the objects in the Achievements namespace for achievements, crtieria, and reward items.
+ * Refactored Character, CharacterAchievements, GuildAchievements, GuildRewards, and Guild objects to use the various classes from the Achievements namespace for achievements, crtieria, and reward items.
  * Achievement criteria are now sorted by their OrderIndex property.
  * All public references to Side have been changed to Faction.
- * Refactored Character to use the guild basic info and emblem classes in the Guild namespace.
+ * Refactored Character objects to use the GuildBasicInfo and Emblem classes from the Guild namespace.
  * PvP data for the character profile has been updated to eliminate teams and use the new brackets.
  * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
  * Changed the Rank field to the Subtext field in the Spell class within the Character namespace.
  * Changed item weapon damage to show both integer and exact min and max values.
- * Refactored Guild.Guild to use the character basic info in the Character namespace.
- * Refactored Character.Character, Data.GuildPerks.GuildPerks, Data.Talents.ClassTalents, and Item.Item to use the spell class in the Spell namespace.
- * Refactored Item.Item to use the item set and set bonus classes in the ItemSet namespace.
- * Refactored Achievement.Achievement and Guild.Guild to use the new ItemBasicInfo class for item information.
- * Refactored Character.Character and Guild.Guild to use the completed achievements class in the Achievement namespace.
+ * Refactored Guild objects to use the CharacteerBasicInfo class from the Character namespace.
+ * Refactored Character, GuildPerks, and Item objects to use the Spell class from the Spell namespace.
+ * Refactored Character, CharacterAchievements, GuildAchievements, GuildRewards, and Guild objects to use the ItemBasicInfo class from the Item namespace.
+ * Refactored Item objects to use the ItemSet and SetBonus classes from the ItemSet namespace.
+ * Refactored Achievement and Guild objects to use the new ItemBasicInfo class from the Item namespace.
+ * Refactored Character and Guild objects to use the CompletedAchievements class from the Achievement namespace.
  * Replaced all fields named just "ID" with a more descriptive property.
- * Refactored Character.Character and Guild.Guild to use spec and glyph information from the Data.Talents namespace.
+ * Refactored Character and Guild objects to use the Spec and Glyph classes from the Data.Talents namespace.
+ * Refactored Character objects to use new Talent class from the Data.Talent namespace.
 
 ## Classes
 

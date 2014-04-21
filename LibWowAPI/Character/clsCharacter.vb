@@ -199,7 +199,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets the Talents field.</value>
         ''' <returns>Returns the character's talents and glyphs.</returns>
-        ''' <remarks>If the <see cref="CharacterProfileOptions.Talents" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of Talent)" /> of <see cref="Talent" /> will be available, containing information about the character's talent specs.</remarks>
+        ''' <remarks>If the <see cref="CharacterProfileOptions.Talents" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Collection(Of TalentSpec)" /> of <see cref="TalentSpec" /> will be available, containing information about the character's talent specs.</remarks>
         Public ReadOnly Property Talents As Collection(Of TalentSpec)
             Get
                 Return colTalents
