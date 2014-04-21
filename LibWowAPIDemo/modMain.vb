@@ -338,7 +338,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
             If aAchievement.Achievement.RewardItems IsNot Nothing Then
                 For Each riItem In aAchievement.Achievement.RewardItems
-                    Console.WriteLine("    {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                    Console.WriteLine("    {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ItemID, riItem.Quality)
                 Next
             End If
             If aAchievement.Achievement.Criteria IsNot Nothing Then
@@ -802,7 +802,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                     If aAchievement.RewardItems IsNot Nothing Then
                         For Each riItem In aAchievement.RewardItems
-                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ItemID, riItem.Quality)
                         Next
                     End If
                     If aAchievement.Criteria IsNot Nothing Then
@@ -826,7 +826,7 @@ Namespace roncliProductions.LibWowAPIDemo
                             End If
                             If aAchievement.RewardItems IsNot Nothing Then
                                 For Each riItem In aAchievement.RewardItems
-                                    Console.WriteLine("        {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                                    Console.WriteLine("        {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ItemID, riItem.Quality)
                                 Next
                             End If
                             If aAchievement.Criteria IsNot Nothing Then
@@ -869,7 +869,7 @@ Namespace roncliProductions.LibWowAPIDemo
         End Sub
 
         Private Sub DisplayEquippedItem(strSlot As String, iItem As LibWowAPI.Item.ItemBasicInfo)
-            Console.WriteLine("  {0}: {1} - ID {2} - Quality: {3} - iLevel: {4}", strSlot, iItem.Name, iItem.ID, iItem.Quality, iItem.ItemLevel)
+            Console.WriteLine("  {0}: {1} - ID {2} - Quality: {3} - iLevel: {4}", strSlot, iItem.Name, iItem.ItemID, iItem.Quality, iItem.ItemLevel)
             If iItem.TooltipParams.Upgrade IsNot Nothing Then
                 Console.WriteLine("    Upgraded: {0}/{1} for {2} iLevels", iItem.TooltipParams.Upgrade.Current, iItem.TooltipParams.Upgrade.Total, iItem.TooltipParams.Upgrade.ItemLevelIncrement)
             End If
@@ -1412,10 +1412,10 @@ Namespace roncliProductions.LibWowAPIDemo
                     Next
                 End If
                 If cpCharacter.Character.Audit.RecommendedBeltBuckle IsNot Nothing Then
-                    Console.WriteLine("  Recommended belt buckle: {0}) {1}", cpCharacter.Character.Audit.RecommendedBeltBuckle.ID, cpCharacter.Character.Audit.RecommendedBeltBuckle.Name)
+                    Console.WriteLine("  Recommended belt buckle: {0}) {1}", cpCharacter.Character.Audit.RecommendedBeltBuckle.ItemID, cpCharacter.Character.Audit.RecommendedBeltBuckle.Name)
                 End If
                 If cpCharacter.Character.Audit.RecommendedJewelcrafterGem IsNot Nothing Then
-                    Console.WriteLine("  Recommended jewelcrafter gem: {0}) {1}", cpCharacter.Character.Audit.RecommendedJewelcrafterGem.ID, cpCharacter.Character.Audit.RecommendedJewelcrafterGem.Name)
+                    Console.WriteLine("  Recommended jewelcrafter gem: {0}) {1}", cpCharacter.Character.Audit.RecommendedJewelcrafterGem.ItemID, cpCharacter.Character.Audit.RecommendedJewelcrafterGem.Name)
                 End If
             End If
             Console.WriteLine()
@@ -1524,7 +1524,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                     If aAchievement.RewardItems IsNot Nothing Then
                         For Each riItem In aAchievement.RewardItems
-                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                            Console.WriteLine("      {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ItemID, riItem.Quality)
                         Next
                     End If
                     If aAchievement.Criteria IsNot Nothing Then
@@ -1547,7 +1547,7 @@ Namespace roncliProductions.LibWowAPIDemo
                             End If
                             If aAchievement.RewardItems IsNot Nothing Then
                                 For Each riItem In aAchievement.RewardItems
-                                    Console.WriteLine("        {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ID, riItem.Quality)
+                                    Console.WriteLine("        {0} - ID: {1} - Quality: {2}", riItem.Name, riItem.ItemID, riItem.Quality)
                                 Next
                             End If
                             If aAchievement.Criteria IsNot Nothing Then
@@ -1792,7 +1792,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each rReward In grRewards.Rewards
-                Console.WriteLine("{0} - ID: {1} - Quality: {2} - iLevel: {3} - Armor: {4}", rReward.RewardItem.Name, rReward.RewardItem.ID, rReward.RewardItem.Quality, rReward.RewardItem.ItemLevel, rReward.RewardItem.Armor)
+                Console.WriteLine("{0} - ID: {1} - Quality: {2} - iLevel: {3} - Armor: {4}", rReward.RewardItem.Name, rReward.RewardItem.ItemID, rReward.RewardItem.Quality, rReward.RewardItem.ItemLevel, rReward.RewardItem.Armor)
                 If rReward.RequiredGuildLevel > 0 Then
                     Console.WriteLine("Required Guild Level: {0}", rReward.RequiredGuildLevel)
                 End If
@@ -1811,7 +1811,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     End If
                     If rReward.Achievement.RewardItems IsNot Nothing Then
                         For Each riItem In rReward.Achievement.RewardItems
-                            Console.WriteLine("      {0} - ID: {1} - Quality: {2} - iLevel: {3} - Armor: {4}", riItem.Name, riItem.ID, riItem.Quality, riItem.ItemLevel, riItem.Armor)
+                            Console.WriteLine("      {0} - ID: {1} - Quality: {2} - iLevel: {3} - Armor: {4}", riItem.Name, riItem.ItemID, riItem.Quality, riItem.ItemLevel, riItem.Armor)
                         Next
                     End If
                     If rReward.Achievement.Criteria IsNot Nothing Then
@@ -1886,7 +1886,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine()
             End If
 
-            Console.WriteLine("{0} - ID: {1} - Quality: {2}", iItem.Item.Name, iItem.Item.ID, iItem.Item.Quality)
+            Console.WriteLine("{0} - ID: {1} - Quality: {2}", iItem.Item.Name, iItem.Item.ItemID, iItem.Item.Quality)
             If iItem.Item.ItemBind <> Enums.Binding.NoBinding Then
                 Console.WriteLine("Binding: {0}", iItem.Item.ItemBind)
             End If

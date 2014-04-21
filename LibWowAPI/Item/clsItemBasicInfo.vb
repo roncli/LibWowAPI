@@ -11,16 +11,16 @@ Namespace roncliProductions.LibWowAPI.Item
     ''' <summary>
     ''' A class containing basic information about an item.
     ''' </summary>
-    ''' <remarks>This class has basic information about an equipped item.  More detailed information about the item can be found by taking the <see cref="Item.ID" /> property and using it in the <see cref="LibWowAPI.Item.ItemLookup" /> class.</remarks>
+    ''' <remarks>This class has basic information about an equipped item.  More detailed information about the item can be found by taking the <see cref="Item.ItemID" /> property and using it in the <see cref="LibWowAPI.Item.ItemLookup" /> class.</remarks>
     Public Class ItemBasicInfo
 
         ''' <summary>
         ''' The ID number of the item.
         ''' </summary>
         ''' <value>This property gets or sets the ID field.</value>
-        ''' <returns>Returns the ID number of the item.</returns>
+        ''' <returns>Returns the ItemID number of the item.</returns>
         ''' <remarks>Each item has its own ID number and can be used in the <see cref="LibWowAPI.Item.ItemLookup" /> class to get more detail about the item.</remarks>
-        Public Property ID As Integer
+        Public Property ItemID As Integer
 
         ''' <summary>
         ''' The name of the item.
@@ -83,8 +83,8 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is the amount of armor on the item.</remarks>
         Public Property Armor As Integer
 
-        Friend Sub New(intID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, sStats As Collection(Of Stat), intArmor As Integer)
-            ID = intID
+        Friend Sub New(intItemID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, sStats As Collection(Of Stat), intArmor As Integer)
+            ItemID = intItemID
             Name = strName
             Icon = strIcon
             Quality = qQuality

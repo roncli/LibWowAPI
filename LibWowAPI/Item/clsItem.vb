@@ -22,9 +22,9 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' The ID number of the item.
         ''' </summary>
         ''' <value>This property gets or sets the ID field.</value>
-        ''' <returns>Returns the ID number of the item.</returns>
+        ''' <returns>Returns the ItemID number of the item.</returns>
         ''' <remarks>Each item has a unique ID number that is used to identify the item.</remarks>
-        Public Property ID As Integer
+        Public Property ItemID As Integer
 
         ''' <summary>
         ''' The rank at which enchanters can disenchant the item.
@@ -395,8 +395,8 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This property is only set for items from the Cataclysm expansion or earlier.  See the <see cref="NameDescription" /> property for heroic items from Mists of Pandaria or later.</remarks>
         Public Property HeroicTooltip As Boolean
 
-        Friend Sub New(intID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, sBonusStats As Collection(Of Stat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, sItemSubClass As ItemClasses.Subclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
-            ID = intID
+        Friend Sub New(intItemID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, sBonusStats As Collection(Of Stat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, sItemSubClass As ItemClasses.Subclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
+            ItemID = intItemID
             DisenchantingSkillRank = intDisenchantingSkillRank
             Description = strDescription
             Name = strName
