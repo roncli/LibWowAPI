@@ -110,14 +110,14 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is a <see cref="Enums.Binding" /> enumeration that describes the item's binding type.</remarks>
         Public Property ItemBind As Binding
 
-        Private colBonusStats As Collection(Of Stat)
+        Private colBonusStats As Collection(Of ItemStat)
         ''' <summary>
         ''' The bonus stats on an item.
         ''' </summary>
         ''' <value>This property gets the BonusStats field.</value>
         ''' <returns>Returns the bonus stats on an item.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of Stat)" /> of <see cref="Stat" /> that contains a list of the bonus stats on the item.</remarks>
-        Public ReadOnly Property BonusStats As Collection(Of Stat)
+        ''' <remarks>This is a <see cref="Collection(Of ItemStat)" /> of <see cref="ItemStat" /> that contains a list of the bonus stats on the item.</remarks>
+        Public ReadOnly Property BonusStats As Collection(Of ItemStat)
             Get
                 Return colBonusStats
             End Get
@@ -397,7 +397,7 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This property is only set for items from the Cataclysm expansion or earlier.  See the <see cref="NameDescription" /> property for heroic items from Mists of Pandaria or later.</remarks>
         Public Property HeroicTooltip As Boolean
 
-        Friend Sub New(intItemID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, ccAllowableClasses As Collection(Of CharacterClass), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, sBonusStats As Collection(Of Stat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, icItemClass As ItemClass, isItemSubClass As ItemSubclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
+        Friend Sub New(intItemID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, ccAllowableClasses As Collection(Of CharacterClass), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, isBonusStats As Collection(Of ItemStat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, icItemClass As ItemClass, isItemSubClass As ItemSubclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
             ItemID = intItemID
             DisenchantingSkillRank = intDisenchantingSkillRank
             Description = strDescription
@@ -408,7 +408,7 @@ Namespace roncliProductions.LibWowAPI.Item
             BoundZone = bzBoundZone
             colAllowableRaces = rAllowableRaces
             ItemBind = bItemBind
-            colBonusStats = sBonusStats
+            colBonusStats = isBonusStats
             colItemSpells = isItemSpells
             BuyPrice = intBuyPrice
             ItemClass = icItemClass

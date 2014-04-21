@@ -62,14 +62,14 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is a <see cref="TooltipParams" /> object that describes extra parameters specific to this instance of the item.</remarks>
         Public Property TooltipParams As TooltipParams
 
-        Private colStats As Collection(Of Stat)
+        Private colStats As Collection(Of ItemStat)
         ''' <summary>
         ''' The stats available on the item.
         ''' </summary>
         ''' <value>This property gets the Stats field.</value>
         ''' <returns>Returns the stats available on the item.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of Stat)" /> of <see cref="Stat" /> objects that represent the stats available on the item.</remarks>
-        Public ReadOnly Property Stats As Collection(Of Stat)
+        ''' <remarks>This is a <see cref="Collection(Of ItemStat)" /> of <see cref="ItemStat" /> objects that represent the stats available on the item.</remarks>
+        Public ReadOnly Property Stats As Collection(Of ItemStat)
             Get
                 Return colStats
             End Get
@@ -83,14 +83,14 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is the amount of armor on the item.</remarks>
         Public Property Armor As Integer
 
-        Friend Sub New(intItemID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, sStats As Collection(Of Stat), intArmor As Integer)
+        Friend Sub New(intItemID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, isStats As Collection(Of ItemStat), intArmor As Integer)
             ItemID = intItemID
             Name = strName
             Icon = strIcon
             Quality = qQuality
             ItemLevel = intItemLevel
             TooltipParams = tpTooltipParams
-            colStats = sStats
+            colStats = isStats
             Armor = intArmor
         End Sub
 

@@ -182,8 +182,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.head.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -218,8 +218,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.neck.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -254,8 +254,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.shoulder.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -290,8 +290,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.back.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -326,8 +326,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.chest.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -362,8 +362,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.shirt.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -398,8 +398,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.tabard.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -434,8 +434,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.wrist.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -470,8 +470,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.hands.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -506,8 +506,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.waist.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -542,8 +542,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.legs.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -578,8 +578,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.feet.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -614,8 +614,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.finger1.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -650,8 +650,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.finger2.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -686,8 +686,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.trinket1.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -722,8 +722,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.trinket2.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -758,8 +758,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.mainHand.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -794,8 +794,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                     ),
                                 (
                                     From s In cpCharacter.items.offHand.stats
-                                    Select New Item.Stat(
-                                        CType(s.stat, Enums.Stat),
+                                    Select New Item.ItemStat(
+                                        CType(s.stat, Enums.ItemStat),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -1208,8 +1208,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                 If(
                                     cpCharacter.audit.recommendedBeltBuckle.bonusStats.Count = 0, Nothing, (
                                         From s In cpCharacter.audit.recommendedBeltBuckle.bonusStats
-                                        Select New Item.Stat(
-                                            CType(s.stat, Enums.Stat),
+                                        Select New Item.ItemStat(
+                                            CType(s.stat, Enums.ItemStat),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -1365,8 +1365,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                 If(
                                     cpCharacter.audit.recommendedJewelcrafterGem.bonusStats.Count = 0, Nothing, (
                                         From s In cpCharacter.audit.recommendedJewelcrafterGem.bonusStats
-                                        Select New Item.Stat(
-                                            CType(s.stat, Enums.Stat),
+                                        Select New Item.ItemStat(
+                                            CType(s.stat, Enums.ItemStat),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -1654,8 +1654,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                         ),
                                     (
                                         From s In ri.stats
-                                        Select New Item.Stat(
-                                            CType(s.stat, Enums.Stat),
+                                        Select New Item.ItemStat(
+                                            CType(s.stat, Enums.ItemStat),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -1719,8 +1719,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                         ),
                                     (
                                         From s In ri.stats
-                                        Select New Item.Stat(
-                                            CType(s.stat, Enums.Stat),
+                                        Select New Item.ItemStat(
+                                            CType(s.stat, Enums.ItemStat),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -1778,8 +1778,8 @@ Namespace roncliProductions.LibWowAPI.Character
                                         ),
                                     (
                                         From s In ri.stats
-                                        Select New Item.Stat(
-                                            CType(s.stat, Enums.Stat),
+                                        Select New Item.ItemStat(
+                                            CType(s.stat, Enums.ItemStat),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged

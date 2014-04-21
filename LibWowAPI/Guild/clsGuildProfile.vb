@@ -411,8 +411,8 @@ Namespace roncliProductions.LibWowAPI.Guild
                                         ),
                                     (
                                         From s In ri.stats
-                                        Select New Item.Stat(
-                                            CType(s.stat, Enums.Stat),
+                                        Select New Item.ItemStat(
+                                            CType(s.stat, Enums.ItemStat),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -470,8 +470,8 @@ Namespace roncliProductions.LibWowAPI.Guild
                                         ),
                                     (
                                         From s In ri.stats
-                                        Select New Item.Stat(
-                                            CType(s.stat, Enums.Stat),
+                                        Select New Item.ItemStat(
+                                            CType(s.stat, Enums.ItemStat),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged

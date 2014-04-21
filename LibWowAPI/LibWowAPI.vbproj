@@ -151,7 +151,7 @@
     <Compile Include="Character\clsBrackets.vb" />
     <Compile Include="Character\clsPvP.vb" />
     <Compile Include="Character\clsReputation.vb" />
-    <Compile Include="Item\clsStat.vb" />
+    <Compile Include="Item\clsItemStat.vb" />
     <Compile Include="Character\clsStats.vb" />
     <Compile Include="Character\clsTalentSpec.vb" />
     <Compile Include="Character\clsTitle.vb" />

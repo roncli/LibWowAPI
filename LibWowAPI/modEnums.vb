@@ -448,7 +448,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' An enumeration to describe a combat statistic type.
     ''' </summary>
     ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Item.ItemLookup" /> class to determine a type of combat statistic.</remarks>
-    Public Enum Stat
+    Public Enum ItemStat
         None = 0
         Health = 1
         Mana = 2

@@ -128,8 +128,8 @@ Namespace roncliProductions.LibWowAPI.Item
                 If(
                     ilItem.bonusStats.Count = 0, Nothing, (
                         From s In ilItem.bonusStats
-                        Select New Stat(
-                            CType(s.stat, Enums.Stat),
+                        Select New ItemStat(
+                            CType(s.stat, Enums.ItemStat),
                             s.amount,
                             s.reforgedAmount,
                             s.reforged
