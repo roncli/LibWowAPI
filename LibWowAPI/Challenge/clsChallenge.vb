@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Realm
 
 Namespace roncliProductions.LibWowAPI.Challenge
 
@@ -19,7 +20,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <value>This property gets or sets the Realm field.</value>
         ''' <returns>Returns the realm that the data for this challenge mode is for.</returns>
         ''' <remarks>When this property is null, the challenge mode data is for the entire region.</remarks>
-        Public Property Realm As Realm
+        Public Property Realm As RealmBasicInfo
 
         ''' <summary>
         ''' The map that the data for this challenge mode is for.
@@ -42,8 +43,8 @@ Namespace roncliProductions.LibWowAPI.Challenge
             End Get
         End Property
 
-        Friend Sub New(rRealm As Realm, mMap As Map, gGroups As Collection(Of Group))
-            Realm = rRealm
+        Friend Sub New(rbiRealm As RealmBasicInfo, mMap As Map, gGroups As Collection(Of Group))
+            Realm = rbiRealm
             Map = mMap
             colGroups = gGroups
         End Sub

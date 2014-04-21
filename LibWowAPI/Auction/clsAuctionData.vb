@@ -11,8 +11,9 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
-Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Enums
+Imports roncliProductions.LibWowAPI.Extensions
+Imports roncliProductions.LibWowAPI.Realm
 
 Namespace roncliProductions.LibWowAPI.Auction
 
@@ -133,7 +134,7 @@ Namespace roncliProductions.LibWowAPI.Auction
 
                 colAuctions.Add(
                     New Auctions(
-                        New Realm(aAuctions.realm.name, aAuctions.realm.slug),
+                        New RealmName(aAuctions.realm.Name, aAuctions.realm.Slug),
                         fFile.LastModified,
                         New AuctionHouse(
                             (

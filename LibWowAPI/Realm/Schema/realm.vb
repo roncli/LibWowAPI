@@ -8,6 +8,7 @@ Imports System.Runtime.Serialization
 Namespace roncliProductions.LibWowAPI.Realm.Schema
 
     <DataContract()> Friend Class realm
+        Inherits realmBasicInfo
 
         <DataMember()> Public Property type As String
         <DataMember()> Public Property population As String
@@ -15,11 +16,6 @@ Namespace roncliProductions.LibWowAPI.Realm.Schema
         <DataMember()> Public Property wintergrasp As pvpZone
         <DataMember(name:="tol-barad")> Public Property tolBarad As pvpZone
         <DataMember()> Public Property status As Boolean
-        <DataMember()> Public Property name As String
-        <DataMember()> Public Property slug As String
-        <DataMember()> Public Property battlegroup As String
-        <DataMember()> Public Property locale As String
-        <DataMember()> Public Property timezone As String
 
     End Class
 

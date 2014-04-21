@@ -16,6 +16,7 @@ Imports roncliProductions.LibWowAPI.Data.Talents
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Guild
+Imports roncliProductions.LibWowAPI.Realm
 
 Namespace roncliProductions.LibWowAPI.Challenge
 
@@ -111,7 +112,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
                 From crm In crChallengeRealm.challenge
                 Select New Challenge(
                     If(
-                        crm.realm Is Nothing, Nothing, New Realm(crm.realm.name, crm.realm.slug, crm.realm.battlegroup, crm.realm.locale, crm.realm.timezone)
+                        crm.realm Is Nothing, Nothing, New RealmBasicInfo(crm.realm.name, crm.realm.slug, crm.realm.battlegroup, crm.realm.locale, crm.realm.timezone)
                         ),
                     New Map(
                         crm.map.id,

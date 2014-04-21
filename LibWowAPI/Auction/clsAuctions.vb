@@ -3,6 +3,8 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports roncliProductions.LibWowAPI.Realm
+
 Namespace roncliProductions.LibWowAPI.Auction
 
     ''' <summary>
@@ -16,8 +18,8 @@ Namespace roncliProductions.LibWowAPI.Auction
         ''' </summary>
         ''' <value>This property gets or sets the Realm field.</value>
         ''' <returns>Returns the realm the auctions are on.</returns>
-        ''' <remarks>This is a <see cref="Realm" /> object that defines the realm the auctions are on.</remarks>
-        Public Property Realm As Realm
+        ''' <remarks>This is a <see cref="RealmName" /> object that defines the realm the auctions are on.</remarks>
+        Public Property Realm As RealmName
 
         ''' <summary>
         ''' The date the auctions were last updated.
@@ -51,8 +53,8 @@ Namespace roncliProductions.LibWowAPI.Auction
         ''' <remarks>This is an <see cref="AuctionHouse" /> object that lists all of the auctions currently available on the neutral auction house for this realm.</remarks>
         Public Property Neutral As AuctionHouse
 
-        Friend Sub New(rRealm As Realm, dtLastUpdated As Date, ahAlliance As AuctionHouse, ahHorde As AuctionHouse, ahNeutral As AuctionHouse)
-            Realm = rRealm
+        Friend Sub New(rnRealm As RealmName, dtLastUpdated As Date, ahAlliance As AuctionHouse, ahHorde As AuctionHouse, ahNeutral As AuctionHouse)
+            Realm = rnRealm
             LastUpdated = dtLastUpdated
             Alliance = ahAlliance
             Horde = ahHorde

@@ -134,6 +134,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
  * Added many classes that were added since 1.0.4 that did not get added in 1.1.
  * Fixed many broken classes that were changed by Blizzard since 1.1.
  * Refactored many repetitive classes into a single class.  In general, the namespace used was the namespace that makes the most sense for the object.  For instance, completed achievements are in the new Achivement namespace, while talents reside in the Data.Talent namespace.
+ * Renamed some classes that may cause confusion, for example two Stats classes were renamed BattlePetStats and CharacterStats.
  * IDs are now more descriptive.
  * Many bug fixes, especially with processing API errors from Blizzard.
 * Details:
@@ -181,6 +182,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
   * Replaced all fields named just "ID" with a more descriptive property.
   * Refactored Character and Guild objects to use the Spec and Glyph classes from the Data.Talents namespace.
   * Refactored Character objects to use new Talent class from the Data.Talent namespace.
+  * Refactored Auction objects to use new RealmName class from the Realm namespace.
 
 ## Classes
 

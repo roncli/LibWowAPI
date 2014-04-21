@@ -4,12 +4,13 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Runtime.Serialization
+Imports roncliProductions.LibWowAPI.Realm.Schema
 
 Namespace roncliProductions.LibWowAPI.Auction.Schema
 
     <DataContract()> Friend Class auctions
 
-        <DataMember()> Public Property realm As realm
+        <DataMember()> Public Property realm As realmName
         <DataMember()> Public Property alliance As auctionHouse
         <DataMember()> Public Property horde As auctionHouse
         <DataMember()> Public Property neutral As auctionHouse

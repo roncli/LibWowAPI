@@ -5,12 +5,11 @@
 
 Imports System.Runtime.Serialization
 
-Namespace roncliProductions.LibWowAPI.Challenge.Schema
+Namespace roncliProductions.LibWowAPI.Realm.Schema
 
-    <DataContract()> Friend Class realm
+    <DataContract()> Friend Class realmBasicInfo
+        Inherits realmName
 
-        <DataMember()> Public Property name As String
-        <DataMember()> Public Property slug As String
         <DataMember()> Public Property battlegroup As String
         <DataMember()> Public Property locale As String
         <DataMember()> Public Property timezone As String

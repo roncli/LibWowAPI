@@ -19,6 +19,7 @@ Imports roncliProductions.LibWowAPI.Data.Talents
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Item
+Imports roncliProductions.LibWowAPI.Realm
 
 Namespace roncliProductions.LibWowAPI.Guild
 
@@ -173,7 +174,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                     gpGuild.challenge Is Nothing, Nothing, (
                         From c In gpGuild.challenge
                         Select New Challenge.Challenge(
-                            New Challenge.Realm(
+                            New RealmBasicInfo(
                                 c.realm.name,
                                 c.realm.slug,
                                 c.realm.battlegroup,

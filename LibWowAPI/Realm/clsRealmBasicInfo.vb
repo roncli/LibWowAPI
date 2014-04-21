@@ -3,31 +3,16 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
-Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.Challenge
+Namespace roncliProductions.LibWowAPI.Realm
 
     ''' <summary>
-    ''' A class containing some of the information about a realm.
+    ''' A class containing basic information about a realm's status.
     ''' </summary>
-    ''' <remarks>This class contains basic information about a realm.</remarks>
-    Public Class Realm
-
-        ''' <summary>
-        ''' The name of the realm.
-        ''' </summary>
-        ''' <value>This property gets or sets the Name field.</value>
-        ''' <returns>Returns the name of the realm.</returns>
-        ''' <remarks>This represents the localized name of the realm.</remarks>
-        Public Property Name As String
-
-        ''' <summary>
-        ''' Blizzard's internal name for the realm.
-        ''' </summary>
-        ''' <value>This property gets or sets the Slug field.</value>
-        ''' <returns>Returns Blizzard's internal name for the realm.</returns>
-        ''' <remarks>This represents Blizzard's internal name for the realm.</remarks>
-        Public Property Slug As String
+    ''' <remarks>This class contains detailed basic information about a realm.</remarks>
+    Public Class RealmBasicInfo
+        Inherits RealmName
 
         ''' <summary>
         ''' The name of the battlegroup the realm is in.
@@ -53,9 +38,8 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <remarks>This represents the Olson timeznoe of the realm.</remarks>
         Public Property TimeZone As String
 
-        Public Sub New(strName As String, strSlug As String, strBattlegroup As String, strLocale As String, strTimeZone As String)
-            Name = strName
-            Slug = strSlug
+        Friend Sub New(strName As String, strSlug As String, strBattlegroup As String, strLocale As String, strTimeZone As String)
+            MyBase.New(strName, strSlug)
             Battlegroup = strBattlegroup
             Locale = strLocale
             TimeZone = strTimeZone

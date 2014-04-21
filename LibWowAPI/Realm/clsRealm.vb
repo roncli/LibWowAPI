@@ -12,6 +12,7 @@ Namespace roncliProductions.LibWowAPI.Realm
     ''' </summary>
     ''' <remarks>This class contains detailed information about a realm.</remarks>
     Public Class Realm
+        Inherits RealmBasicInfo
 
         ''' <summary>
         ''' The type of realm.
@@ -61,58 +62,14 @@ Namespace roncliProductions.LibWowAPI.Realm
         ''' <remarks>This indicates if the realm is online or not.</remarks>
         Public Property Status As Boolean
 
-        ''' <summary>
-        ''' The name of the realm.
-        ''' </summary>
-        ''' <value>This property gets or sets the Name field.</value>
-        ''' <returns>Returns the name of the realm.</returns>
-        ''' <remarks>This represents the localized name of the realm.</remarks>
-        Public Property Name As String
-
-        ''' <summary>
-        ''' Blizzard's internal name for the realm.
-        ''' </summary>
-        ''' <value>This property gets or sets the Slug field.</value>
-        ''' <returns>Returns Blizzard's internal name for the realm.</returns>
-        ''' <remarks>This represents Blizzard's internal name for the realm.</remarks>
-        Public Property Slug As String
-
-        ''' <summary>
-        ''' The name of the battlegroup the realm is in.
-        ''' </summary>
-        ''' <value>This property gets or sets the Battlegroup field.</value>
-        ''' <returns>Returns the name of the battlegroup the realm is in.</returns>
-        ''' <remarks>This represents the name of the battlegroup the realm is in.  This is not localized, and will always be in the realm's language.</remarks>
-        Public Property Battlegroup As String
-
-        ''' <summary>
-        ''' The locale of the realm.
-        ''' </summary>
-        ''' <value>This property gets or sets the Locale field.</value>
-        ''' <returns>Returns the locale of the realm.</returns>
-        ''' <remarks>This represents the locale of the realm.</remarks>
-        Public Property Locale As String
-
-        ''' <summary>
-        ''' The Olson timezone of the realm.
-        ''' </summary>
-        ''' <value>This property gets or sets the TimeZone field.</value>
-        ''' <returns>Returns the Olson timezone of the realm.</returns>
-        ''' <remarks>This represents the Olson timeznoe of the realm.</remarks>
-        Public Property TimeZone As String
-
         Friend Sub New(rtType As RealmType, strPopulation As String, blnQueue As Boolean, pzWintergrasp As PvpZone, pzTolBarad As PvpZone, blnStatus As Boolean, strName As String, strSlug As String, strBattlegroup As String, strLocale As String, strTimeZone As String)
+            MyBase.New(strName, strSlug, strBattlegroup, strLocale, strTimeZone)
             Type = rtType
             Population = strPopulation
             Queue = blnQueue
             Wintergrasp = pzWintergrasp
             TolBarad = pzTolBarad
             Status = blnStatus
-            Name = strName
-            Slug = strSlug
-            Battlegroup = strBattlegroup
-            Locale = strLocale
-            TimeZone = strTimeZone
         End Sub
 
     End Class
