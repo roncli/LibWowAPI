@@ -636,7 +636,7 @@ Namespace roncliProductions.LibWowAPIDemo
             Loop
 
             ' Get the stats.
-            Dim sStats As New BattlePetStats(intSpeciesID, intLevel, bpbBreed, qQuality)
+            Dim sStats As New BattlePetStatsLookup(intSpeciesID, intLevel, bpbBreed, qQuality)
 
             ' Show the Achievement.
             Console.Clear()

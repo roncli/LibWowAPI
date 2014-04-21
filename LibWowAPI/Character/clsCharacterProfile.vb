@@ -13,6 +13,7 @@ Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Achievement
+Imports roncliProductions.LibWowAPI.BattlePet
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Guild
@@ -807,7 +808,7 @@ Namespace roncliProductions.LibWowAPI.Character
                         )
                     ),
                 If(cpCharacter.stats Is Nothing, Nothing,
-                    New Stats(
+                    New CharacterStats(
                             cpCharacter.stats.health,
                             cpCharacter.stats.powerType.GetPowerType(),
                             cpCharacter.stats.power,
@@ -1129,7 +1130,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 c.itemId,
                                 CType(c.qualityId, Quality),
                                 c.icon,
-                                New BattlePet.Stats(
+                                New BattlePetStats(
                                     c.stats.speciesId,
                                     CType(c.stats.breedId, BattlePetBreed),
                                     CType(c.stats.petQualityId, Quality),

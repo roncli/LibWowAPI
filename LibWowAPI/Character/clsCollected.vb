@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.BattlePet
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Character
@@ -67,8 +68,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets or sets the Stats field.</value>
         ''' <returns>Returns the pet's battle stats.</returns>
-        ''' <remarks>This is a <see cref="BattlePet.Stats" /> object that represents the pet's battle stats.</remarks>
-        Public Property Stats As BattlePet.Stats
+        ''' <remarks>This is a <see cref="BattlePetStats" /> object that represents the pet's battle stats.</remarks>
+        Public Property Stats As BattlePetStats
 
         ''' <summary>
         ''' The pet's GUID.
@@ -126,14 +127,14 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This determines if the pet can battle.</remarks>
         Public Property CanBattle As Boolean
 
-        Friend Sub New(strName As String, intSpellID As Integer, intCreatureID As Integer, intItemID As Integer, qQuality As Quality, strIcon As String, sStats As BattlePet.Stats, strBattlePetGuid As String, blnIsFavorite As Boolean, blnIsFirstAbilitySlotSelected As Boolean, blnIsSecondAbilitySlotSelected As Boolean, blnIsThirdAbilitySlotSelected As Boolean, strCreatureName As String, blnCanBattle As Boolean)
+        Friend Sub New(strName As String, intSpellID As Integer, intCreatureID As Integer, intItemID As Integer, qQuality As Quality, strIcon As String, bpsStats As BattlePetStats, strBattlePetGuid As String, blnIsFavorite As Boolean, blnIsFirstAbilitySlotSelected As Boolean, blnIsSecondAbilitySlotSelected As Boolean, blnIsThirdAbilitySlotSelected As Boolean, strCreatureName As String, blnCanBattle As Boolean)
             Name = strName
             SpellID = intSpellID
             CreatureID = intCreatureID
             ItemID = intItemID
             Quality = qQuality
             Icon = strIcon
-            Stats = sStats
+            Stats = bpsStats
             BattlePetGuid = strBattlePetGuid
             IsFavorite = blnIsFavorite
             IsFirstAbilitySlotSelected = blnIsFirstAbilitySlotSelected

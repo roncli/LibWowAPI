@@ -188,6 +188,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
   * Refactored Subclass objects for items to be called ItemSubclass.  The ID field is now correctly called SubclassID.
   * Renamed Stat enumeration to ItemStat.
   * Refactored Stat objects for items to be called ItemStat.
+  * Refactored Stats objects for characters to be called CharacterStats.
 
 ## Classes
 

@@ -135,8 +135,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets or sets the Stats field.</value>
         ''' <returns>Returns the character's combat statistics.</returns>
-        ''' <remarks>If the <see cref="CharacterProfileOptions.Stats" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="Stats" /> class will be available, containing information about the character's combat statistics.</remarks>
-        Public Property Stats As Stats
+        ''' <remarks>If the <see cref="CharacterProfileOptions.Stats" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, a <see cref="CharacterStats" /> class will be available, containing information about the character's combat statistics.</remarks>
+        Public Property Stats As CharacterStats
 
         ''' <summary>
         ''' The character's professions.
@@ -293,7 +293,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>If the <see cref="CharacterProfileOptions.Audit" /> property of the <see cref="CharacterProfile.Options" /> property is set to true, an <see cref="Audit" /> object will be available, containing the character's equipement audit.</remarks>
         Public Property Audit As Audit
 
-        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, ccClass As CharacterClass, rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, sStats As Stats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), caAchievements As CompletedAchievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem), pPets As Pets, psPetSlots As Collection(Of PetSlot), aAudit As Audit)
+        Friend Sub New(dtLastModified As Date, strName As String, strRealm As String, strBattlegroup As String, ccClass As CharacterClass, rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, strCalcClass As String, intTotalHonorableKills As Integer, gbiGuild As GuildBasicInfo, iItems As Items, csStats As CharacterStats, pProfessions As Professions, rReputation As Collection(Of Reputation), tTitles As Collection(Of Title), caAchievements As CompletedAchievements, pHunterPets As Collection(Of HunterPet), tTalents As Collection(Of TalentSpec), aAppearance As Appearance, mMounts As Mounts, pProgression As Progression, pPvP As PvP, intQuests As Collection(Of Integer), fiFeed As Collection(Of FeedItem), pPets As Pets, psPetSlots As Collection(Of PetSlot), aAudit As Audit)
             LastModified = dtLastModified
             Name = strName
             Realm = strRealm
@@ -308,7 +308,7 @@ Namespace roncliProductions.LibWowAPI.Character
             TotalHonorableKills = intTotalHonorableKills
             Guild = gbiGuild
             Items = iItems
-            Stats = sStats
+            Stats = csStats
             Professions = pProfessions
             colReputation = rReputation
             colTitles = tTitles

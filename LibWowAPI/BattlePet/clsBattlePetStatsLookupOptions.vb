@@ -10,8 +10,8 @@ Namespace roncliProductions.LibWowAPI.BattlePet
     ''' <summary>
     ''' A class that defines options for the battle pet stats lookup.
     ''' </summary>
-    ''' <remarks>This class allows you to define several properties to look up a battle pet's stats. There is no need to create an instance of this class, as the <see cref="BattlePetStats.Options" /> property automatically does so for you.</remarks>
-    Public Class BattlePetStatsOptions
+    ''' <remarks>This class allows you to define several properties to look up a battle pet's stats. There is no need to create an instance of this class, as the <see cref="BattlePetStatsLookup.Options" /> property automatically does so for you.</remarks>
+    Public Class BattlePetStatsLookupOptions
 
         ''' <summary>
         ''' The species ID to lookup.

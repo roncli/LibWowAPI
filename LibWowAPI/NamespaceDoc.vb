@@ -40,7 +40,7 @@ End Namespace
 Namespace roncliProductions.LibWowAPI.BattlePet
 
     ''' <summary>
-    ''' The BattlePet namespace provides the <see cref="BattlePetAbility" />, <see cref="BattlePetSpecies" />, and <see cref="BattlePetStats" /> classes, which retrieve battle pet data from the Blizzard WoW API.
+    ''' The BattlePet namespace provides the <see cref="BattlePetAbility" />, <see cref="BattlePetSpecies" />, and <see cref="BattlePetStatsLookup" /> classes, which retrieve battle pet data from the Blizzard WoW API.
     ''' </summary>
     ''' <remarks></remarks>
     Friend Class NamespaceDoc

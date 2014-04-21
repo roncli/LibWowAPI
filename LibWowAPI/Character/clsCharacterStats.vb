@@ -11,7 +11,7 @@ Namespace roncliProductions.LibWowAPI.Character
     ''' A class containing information about a character's combat statistics.
     ''' </summary>
     ''' <remarks>Most of a character's combat statistics are available in this class.</remarks>
-    Public Class Stats
+    Public Class CharacterStats
 
         ''' <summary>
         ''' The amount of health the character has.

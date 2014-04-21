@@ -87,15 +87,15 @@
     <Compile Include="Auction\Schema\file.vb" />
     <Compile Include="Auction\Schema\files.vb" />
     <Compile Include="BattlePet\clsAbility.vb" />
-    <Compile Include="BattlePet\clsBattlePetStats.vb" />
+    <Compile Include="BattlePet\clsBattlePetStatsLookup.vb" />
     <Compile Include="BattlePet\clsBattlePetSpecies.vb" />
     <Compile Include="BattlePet\clsBattlePetAbility.vb" />
-    <Compile Include="BattlePet\clsBattlePetStatsOptions.vb" />
+    <Compile Include="BattlePet\clsBattlePetStatsLookupOptions.vb" />
     <Compile Include="BattlePet\clsBattlePetSpeciesOptions.vb" />
     <Compile Include="BattlePet\clsBattlePetAbilityOptions.vb" />
     <Compile Include="BattlePet\clsSpecies.vb" />
     <Compile Include="BattlePet\clsSpeciesAbility.vb" />
-    <Compile Include="BattlePet\clsStats.vb" />
+    <Compile Include="BattlePet\clsBattlePetStats.vb" />
     <Compile Include="BattlePet\Schema\ability.vb" />
     <Compile Include="BattlePet\Schema\species.vb" />
     <Compile Include="BattlePet\Schema\speciesAbility.vb" />
@@ -152,7 +152,7 @@
     <Compile Include="Character\clsPvP.vb" />
     <Compile Include="Character\clsReputation.vb" />
     <Compile Include="Item\clsItemStat.vb" />
-    <Compile Include="Character\clsStats.vb" />
+    <Compile Include="Character\clsCharacterStats.vb" />
     <Compile Include="Character\clsTalentSpec.vb" />
     <Compile Include="Character\clsTitle.vb" />
     <Compile Include="Item\clsTooltipParams.vb" />
