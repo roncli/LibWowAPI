@@ -8,6 +8,7 @@ Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Guild
+Imports roncliProductions.LibWowAPI.Data.Talents
 
 Namespace roncliProductions.LibWowAPI.Character
 

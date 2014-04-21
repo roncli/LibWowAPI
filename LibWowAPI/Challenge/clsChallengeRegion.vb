@@ -12,6 +12,7 @@ Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Character
+Imports roncliProductions.LibWowAPI.Data.Talents
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Guild

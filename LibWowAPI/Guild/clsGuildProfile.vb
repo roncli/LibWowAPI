@@ -15,6 +15,7 @@ Imports System.Text.Encoding
 Imports roncliProductions.LibWowAPI.Achievement
 Imports roncliProductions.LibWowAPI.Challenge
 Imports roncliProductions.LibWowAPI.Character
+Imports roncliProductions.LibWowAPI.Data.Talents
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Item

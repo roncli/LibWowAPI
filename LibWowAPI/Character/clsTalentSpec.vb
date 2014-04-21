@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Data.Talents
 
 Namespace roncliProductions.LibWowAPI.Character
 

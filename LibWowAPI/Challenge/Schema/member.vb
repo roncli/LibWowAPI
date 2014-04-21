@@ -5,6 +5,7 @@
 
 Imports System.Runtime.Serialization
 Imports roncliProductions.LibWowAPI.Character.Schema
+Imports roncliProductions.LibWowAPI.Data.Talents.Schema
 
 Namespace roncliProductions.LibWowAPI.Challenge.Schema
 

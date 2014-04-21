@@ -7,6 +7,7 @@ Imports System
 Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Character
 Imports roncliProductions.LibWowAPI.Enums
+Imports roncliProductions.LibWowAPI.Data.Talents
 
 Namespace roncliProductions.LibWowAPI.Challenge
 

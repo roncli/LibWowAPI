@@ -140,7 +140,6 @@
     <Compile Include="Character\clsCriteriaFeed.vb" />
     <Compile Include="Character\clsFeedAchievement.vb" />
     <Compile Include="Character\clsFeedItem.vb" />
-    <Compile Include="Character\clsGlyph.vb" />
     <Compile Include="Character\clsGlyphs.vb" />
     <Compile Include="Character\clsInstance.vb" />
     <Compile Include="Character\clsItems.vb" />
@@ -156,7 +155,6 @@
     <Compile Include="Character\clsBrackets.vb" />
     <Compile Include="Character\clsPvP.vb" />
     <Compile Include="Character\clsReputation.vb" />
-    <Compile Include="Character\clsSpec.vb" />
     <Compile Include="Item\clsStat.vb" />
     <Compile Include="Character\clsStats.vb" />
     <Compile Include="Character\clsTalent.vb" />
@@ -174,7 +172,6 @@
     <Compile Include="Character\Schema\boss.vb" />
     <Compile Include="Character\Schema\character.vb" />
     <Compile Include="Character\Schema\feed.vb" />
-    <Compile Include="Character\Schema\glyph.vb" />
     <Compile Include="Character\Schema\glyphs.vb" />
     <Compile Include="Character\Schema\instance.vb" />
     <Compile Include="Item\Schema\itemBasicInfo.vb" />
@@ -189,7 +186,6 @@
     <Compile Include="Character\Schema\brackets.vb" />
     <Compile Include="Character\Schema\pvp.vb" />
     <Compile Include="Character\Schema\reputation.vb" />
-    <Compile Include="Character\Schema\spec.vb" />
     <Compile Include="Item\Schema\stat.vb" />
     <Compile Include="Character\Schema\stats.vb" />
     <Compile Include="Character\Schema\talent.vb" />

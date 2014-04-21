@@ -18,6 +18,7 @@ Imports roncliProductions.LibWowAPI.Extensions
 Imports roncliProductions.LibWowAPI.Guild
 Imports roncliProductions.LibWowAPI.Item
 Imports roncliProductions.LibWowAPI.ItemSet
+Imports roncliProductions.LibWowAPI.Data.Talents
 
 Namespace roncliProductions.LibWowAPI.Character
 
@@ -966,22 +967,26 @@ Namespace roncliProductions.LibWowAPI.Character
                               )
                           ).ToCollection(),
                          New Glyphs(
-                             (From g In t.glyphs.major
-                              Select New Glyph(
-                                  g.glyph,
-                                  g.item,
-                                  g.name,
-                                  g.icon
-                                  )
-                              ).ToCollection(),
-                             (From g In t.glyphs.minor
-                              Select New Glyph(
-                                  g.glyph,
-                                  g.item,
-                                  g.name,
-                                  g.icon
-                                  )
-                              ).ToCollection()
+                             (
+                                 From g In t.glyphs.major
+                                 Select New Glyph(
+                                     g.glyph,
+                                     g.item,
+                                     g.name,
+                                     g.icon,
+                                     GlyphType.Major
+                                     )
+                                 ).ToCollection(),
+                             (
+                                 From g In t.glyphs.minor
+                                 Select New Glyph(
+                                     g.glyph,
+                                     g.item,
+                                     g.name,
+                                     g.icon,
+                                     GlyphType.Minor
+                                     )
+                                 ).ToCollection()
                              ),
                          If(
                              t.spec Is Nothing, Nothing, New Spec(

@@ -1486,7 +1486,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Next
                 Console.WriteLine("  Glyphs:")
                 For Each gGlyph In tTalents.Glyphs
-                    Console.WriteLine("  {0}) {1} - {2}", gGlyph.Glyph, gGlyph.Name, If(gGlyph.TypeID = 0, "Major", "Minor"))
+                    Console.WriteLine("  {0}) {1} - {2}", gGlyph.Glyph, gGlyph.Name, gGlyph.GlyphType)
                 Next
                 Console.WriteLine()
             Next

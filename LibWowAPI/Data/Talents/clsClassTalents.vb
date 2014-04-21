@@ -11,6 +11,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Extensions
 
 Namespace roncliProductions.LibWowAPI.Data.Talents
@@ -134,7 +135,7 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
                             g.item,
                             g.name,
                             g.icon,
-                            g.typeId
+                            CType(g.typeId, GlyphType)
                             )
                         ).ToCollection(),
                     (

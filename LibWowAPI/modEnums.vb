@@ -766,4 +766,13 @@ Namespace roncliProductions.LibWowAPI.Enums
         Plate = 4
     End Enum
 
+    ''' <summary>
+    ''' An enumeration that describes a glyph type.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum GlyphType
+        Major = 0
+        Minor = 1
+    End Enum
+
 End Namespace

@@ -3,6 +3,8 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports roncliProductions.LibWowAPI.Enums
+
 Namespace roncliProductions.LibWowAPI.Data.Talents
 
     ''' <summary>
@@ -44,19 +46,19 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
         Public Property Icon As String
 
         ''' <summary>
-        ''' The ID number of the glyph type.
+        ''' The type of the glyph.
         ''' </summary>
-        ''' <value>This property gets or sets the TypeID field.</value>
-        ''' <returns>Returns the ID number of the glyph type.</returns>
-        ''' <remarks>This will return 0 if the glyph is a major glyph, or a 1 if the glyph is a minor glyph.</remarks>
-        Public Property TypeID As Integer
+        ''' <value>This property gets or sets the GlyphType field.</value>
+        ''' <returns>Returns the type of glyph.</returns>
+        ''' <remarks>This is a <see cref="GlyphType" /> enumeration that describes the type of glyph</remarks>
+        Public Property GlyphType As GlyphType
 
-        Friend Sub New(intGlyph As Integer, intItem As Integer, strName As String, strIcon As String, intTypeID As Integer)
+        Friend Sub New(intGlyph As Integer, intItem As Integer, strName As String, strIcon As String, gtGlyphType As GlyphType)
             Glyph = intGlyph
             Item = intItem
             Name = strName
             Icon = strIcon
-            TypeID = intTypeID
+            GlyphType = gtGlyphType
         End Sub
 
     End Class
