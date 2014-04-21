@@ -157,7 +157,6 @@
     <Compile Include="Character\clsReputation.vb" />
     <Compile Include="Item\clsStat.vb" />
     <Compile Include="Character\clsStats.vb" />
-    <Compile Include="Character\clsTalent.vb" />
     <Compile Include="Character\clsTalentSpec.vb" />
     <Compile Include="Character\clsTitle.vb" />
     <Compile Include="Item\clsTooltipParams.vb" />
@@ -188,7 +187,6 @@
     <Compile Include="Character\Schema\reputation.vb" />
     <Compile Include="Item\Schema\stat.vb" />
     <Compile Include="Character\Schema\stats.vb" />
-    <Compile Include="Character\Schema\talent.vb" />
     <Compile Include="Character\Schema\talentSpec.vb" />
     <Compile Include="Character\Schema\title.vb" />
     <Compile Include="Item\Schema\tooltipParams.vb" />
