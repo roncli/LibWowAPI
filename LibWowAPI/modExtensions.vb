@@ -17,6 +17,7 @@ Imports roncliProductions.LibWowAPI.Data
 Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Data.ItemClasses
+Imports roncliProductions.LibWowAPI.Data.PetTypes
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Item.Schema
 
@@ -62,7 +63,7 @@ Namespace roncliProductions.LibWowAPI.Extensions
             Return String.Format(CultureInfo.InvariantCulture, "00{0}", strColor).ArgbHexToColor()
         End Function
 
-        <Extension()> Friend Function GetClass(intClassID As Integer) As CharacterClass
+        <Extension()> Friend Function GetCharacterClass(intClassID As Integer) As CharacterClass
             Dim ccClasses As New CharacterClasses()
             ccClasses.Load()
             Dim varClass = ccClasses.Classes.Where(Function(c) c.ClassID = intClassID)
@@ -226,6 +227,18 @@ Namespace roncliProductions.LibWowAPI.Extensions
             If tpTooltipParams.gem2 <> 0 Then colGems.Add(tpTooltipParams.gem2)
             Return colGems
         End Function
+
+        <Extension()> Friend Function GetPetType(intPetTypeID As Integer) As PetType
+            Dim ptPetTypes = New PetTypes()
+            ptPetTypes.Load()
+            Dim varPetType = ptPetTypes.PetTypes.Where(Function(pt) pt.PetTypeID = intPetTypeID)
+            If varPetType.Count = 0 Then
+                Return Nothing
+            Else
+                Return varPetType.First()
+            End If
+        End Function
+
 
     End Module
 

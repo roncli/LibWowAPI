@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Runtime.Serialization
+Imports roncliProductions.LibWowAPI.Data.PetTypes
 
 Namespace roncliProductions.LibWowAPI.BattlePet
 
@@ -54,12 +55,12 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         Public Property Rounds As Integer
 
         ''' <summary>
-        ''' The ID number of the pet type.
+        ''' The pet type.
         ''' </summary>
-        ''' <value>This property gets or sets the PetTypeID field.</value>
-        ''' <returns>Returns the ID number of the pet type.</returns>
-        ''' <remarks>The pet type can be determined by matching this field to the <see cref="Data.PetTypes.PetType.PetTypeID" /> field of the <see cref="Data.PetTypes.PetType" /> class.</remarks>
-        Public Property PetTypeID As Integer
+        ''' <value>This property gets or sets the PetType field.</value>
+        ''' <returns>Returns the pet type.</returns>
+        ''' <remarks>This is a <see cref="PetType" /> object that represents the pet type.</remarks>
+        Public Property PetType As PetType
 
         ''' <summary>
         ''' Determines whether the ability is passive.
@@ -77,13 +78,13 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         ''' <remarks>This determines whether to show the damage types a pet is strong or weak against in the tooltip.</remarks>
         Public Property HideHints As Boolean
 
-        Friend Sub New(intAbilityID As Integer, strName As String, strIcon As String, intCooldown As Integer, intRounds As Integer, intPetTypeID As Integer, blnIsPassive As Boolean, blnHideHints As Boolean)
+        Friend Sub New(intAbilityID As Integer, strName As String, strIcon As String, intCooldown As Integer, intRounds As Integer, ptPetType As PetType, blnIsPassive As Boolean, blnHideHints As Boolean)
             AbilityID = intAbilityID
             Name = strName
             Icon = strIcon
             Cooldown = intCooldown
             Rounds = intRounds
-            PetTypeID = intPetTypeID
+            PetType = ptPetType
             IsPassive = blnIsPassive
             HideHints = blnHideHints
         End Sub

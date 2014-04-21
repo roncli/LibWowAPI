@@ -9,6 +9,7 @@ Imports System.IO
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Json
 Imports System.Text.Encoding
+Imports roncliProductions.LibWowAPI.Extensions
 
 Namespace roncliProductions.LibWowAPI.BattlePet
 
@@ -114,7 +115,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
                 bpaAbility.icon,
                 bpaAbility.cooldown,
                 bpaAbility.rounds,
-                bpaAbility.petTypeId,
+                bpaAbility.petTypeId.GetPetType(),
                 bpaAbility.isPassive,
                 bpaAbility.hideHints
                 )

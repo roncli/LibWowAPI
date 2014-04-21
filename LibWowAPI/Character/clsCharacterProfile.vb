@@ -128,7 +128,7 @@ Namespace roncliProductions.LibWowAPI.Character
                 cpCharacter.name,
                 cpCharacter.realm,
                 cpCharacter.battlegroup,
-                cpCharacter.class.GetClass(),
+                cpCharacter.class.GetCharacterClass(),
                 cpCharacter.race.GetRace(),
                 CType(cpCharacter.gender, Gender),
                 cpCharacter.level,

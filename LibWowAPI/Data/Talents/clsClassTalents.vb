@@ -113,7 +113,7 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
             colTalents = (
                 From t In tTalents
                 Select New Talents(
-                    CInt(t.Key),
+                    CInt(t.Key).GetCharacterClass(),
                     If(
                         t.Value.petSpecs Is Nothing, Nothing, (
                             From p In t.Value.petSpecs
@@ -164,7 +164,6 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
                                 ).ToCollection()
                             )
                         ).ToCollection(),
-                    t.Value.class,
                     (
                         From s In t.Value.specs
                         Order By s.order

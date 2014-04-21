@@ -3,6 +3,8 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports roncliProductions.LibWowAPI.Data.CharacterClasses
+Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Leaderboard
@@ -66,16 +68,16 @@ Namespace roncliProductions.LibWowAPI.Leaderboard
         ''' </summary>
         ''' <value>This property gets or sets the RaceID field.</value>
         ''' <returns>Returns the race ID of the character.</returns>
-        ''' <remarks>This represents the Race ID of the character.  Use the <see cref="Data.CharacterRaces.CharacterRaces" /> class to get information about the character's race.</remarks>
-        Public Property RaceID As Integer
+        ''' <remarks>This is a <see cref="Race" /> object that represents the Race ID of the character.  Use the <see cref="Data.CharacterRaces.CharacterRaces" /> class to get information about the character's race.</remarks>
+        Public Property Race As Race
 
         ''' <summary>
-        ''' The class ID of the character.
+        ''' The class of the character.
         ''' </summary>
-        ''' <value>This property gets or sets the ClassID field.</value>
-        ''' <returns>Returns the class ID of the character.</returns>
-        ''' <remarks>This represents the Class ID of the characteer.  Use the <see cref="Data.CharacterClasses.CharacterClasses" /> class to get information about the character's class.</remarks>
-        Public Property ClassID As Integer
+        ''' <value>This property gets or sets the Class field.</value>
+        ''' <returns>Returns the class of the character.</returns>
+        ''' <remarks>This is a <see cref="CharacterClass" /> object that represents the Class of the characteer.</remarks>
+        Public Property [Class] As CharacterClass
 
         ''' <summary>
         ''' The spec ID of the character.
@@ -133,15 +135,15 @@ Namespace roncliProductions.LibWowAPI.Leaderboard
         ''' <remarks>This represents the number of losses for the week.</remarks>
         Public Property WeeklyLosses As Integer
 
-        Friend Sub New(intRanking As Integer, intRating As Integer, strName As String, intRealmID As Integer, strRealmName As String, strRealmSlug As String, intRaceID As Integer, intClassID As Integer, intSpecID As Integer, fFaction As Faction, gGender As Gender, intSeasonWins As Integer, intSeasonLosses As Integer, intWeeklyWins As Integer, intWeeklyLosses As Integer)
+        Friend Sub New(intRanking As Integer, intRating As Integer, strName As String, intRealmID As Integer, strRealmName As String, strRealmSlug As String, rRace As Race, ccClass As CharacterClass, intSpecID As Integer, fFaction As Faction, gGender As Gender, intSeasonWins As Integer, intSeasonLosses As Integer, intWeeklyWins As Integer, intWeeklyLosses As Integer)
             Ranking = intRanking
             Rating = intRating
             Name = strName
             RealmID = intRealmID
             RealmName = strRealmName
             RealmSlug = strRealmSlug
-            RaceID = intRaceID
-            ClassID = intClassID
+            Race = rRace
+            [Class] = ccClass
             SpecID = intSpecID
             Faction = fFaction
             Gender = gGender

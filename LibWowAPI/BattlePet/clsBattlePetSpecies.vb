@@ -112,7 +112,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
 
             sSpecies = New Species(
                 bpsSpecies.speciesId,
-                bpsSpecies.petTypeId,
+                bpsSpecies.petTypeId.GetPetType(),
                 bpsSpecies.creatureId,
                 bpsSpecies.name,
                 bpsSpecies.canBattle,
@@ -132,7 +132,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
                             a.icon,
                             a.cooldown,
                             a.rounds,
-                            a.petTypeId,
+                            a.petTypeId.GetPetType(),
                             a.isPassive,
                             a.hideHints
                             )

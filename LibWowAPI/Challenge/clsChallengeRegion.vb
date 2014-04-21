@@ -135,7 +135,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
                                             m.character.name,
                                             m.character.realm,
                                             m.character.battlegroup,
-                                            m.character.class.GetClass(),
+                                            m.character.class.GetCharacterClass(),
                                             m.character.race.GetRace(),
                                             CType(m.character.gender, Gender),
                                             m.character.level,

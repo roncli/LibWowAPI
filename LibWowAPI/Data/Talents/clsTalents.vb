@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 
 Namespace roncliProductions.LibWowAPI.Data.Talents
 
@@ -14,12 +15,12 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
     Public Class Talents
 
         ''' <summary>
-        ''' The class ID these talents are for.
+        ''' The class these talents are for.
         ''' </summary>
-        ''' <value>This property gets or sets the ClassID field.</value>
-        ''' <returns>Returns the class ID these talents are for.</returns>
-        ''' <remarks>This represents the class ID these talents are for.</remarks>
-        Public Property ClassID As Integer
+        ''' <value>This property gets or sets the Class field.</value>
+        ''' <returns>Returns the class these talents are for.</returns>
+        ''' <remarks>This represents the class these talents are for.</remarks>
+        Public Property [Class] As CharacterClass
 
         Private colPetSpecs As Collection(Of Spec)
         ''' <summary>
@@ -60,14 +61,6 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
             End Get
         End Property
 
-        ''' <summary>
-        ''' The class name.
-        ''' </summary>
-        ''' <value>This property gets or sets the Class field.</value>
-        ''' <returns>Returns the class name.</returns>
-        ''' <remarks>This represents the class name.  Note that this is a slug for internal use, and not a localized name.</remarks>
-        Public Property [Class] As String
-
         Private colSpecs As Collection(Of Spec)
         ''' <summary>
         ''' The possible specializations for this class.
@@ -81,12 +74,11 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
             End Get
         End Property
 
-        Friend Sub New(intClassID As Integer, sPetSpecs As Collection(Of Spec), gGlyphs As Collection(Of Glyph), ttTalentTiers As Collection(Of TalentTier), strClass As String, sSpecs As Collection(Of Spec))
-            ClassID = intClassID
+        Friend Sub New(ccClass As CharacterClass, sPetSpecs As Collection(Of Spec), gGlyphs As Collection(Of Glyph), ttTalentTiers As Collection(Of TalentTier), sSpecs As Collection(Of Spec))
+            [Class] = ccClass
             colPetSpecs = sPetSpecs
             colGlyphs = gGlyphs
             colTalentTiers = ttTalentTiers
-            [Class] = strClass
             colSpecs = sSpecs
         End Sub
 

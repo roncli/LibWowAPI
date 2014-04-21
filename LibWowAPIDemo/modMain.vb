@@ -1463,7 +1463,7 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each tTalents In ctTalents.Talents
-                Console.WriteLine("{0}) {1}", tTalents.ClassID, tTalents.Class)
+                Console.WriteLine("{0}) {1}", tTalents.Class.ClassID, tTalents.Class.Name)
                 Console.WriteLine("  Specs:")
                 For Each sSpec In tTalents.Specs
                     Console.WriteLine("    {0} - Role: {1}", sSpec.Name, sSpec.Role)
