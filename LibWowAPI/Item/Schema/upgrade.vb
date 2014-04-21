@@ -7,10 +7,11 @@ Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.Item.Schema
 
-    <DataContract()> Friend Class bonusStats
+    <DataContract()> Friend Class upgrade
 
-        <DataMember()> Public Property stat As Integer
-        <DataMember()> Public Property amount As Integer
+        <DataMember()> Public Property current As Integer
+        <DataMember()> Public Property total As Integer
+        <DataMember()> Public Property itemLevelIncrement As Integer
 
     End Class
 

@@ -6,13 +6,13 @@
 Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Enums
 
-Namespace roncliProductions.LibWowAPI.Character
+Namespace roncliProductions.LibWowAPI.Item
 
     ''' <summary>
-    ''' A class containing information about an equipped item.
+    ''' A class containing basic information about an item.
     ''' </summary>
     ''' <remarks>This class has basic information about an equipped item.  More detailed information about the item can be found by taking the <see cref="Item.ID" /> property and using it in the <see cref="LibWowAPI.Item.ItemLookup" /> class.</remarks>
-    Public Class Item
+    Public Class ItemBasicInfo
 
         ''' <summary>
         ''' The ID number of the item.

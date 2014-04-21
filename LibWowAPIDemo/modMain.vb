@@ -868,7 +868,7 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.ReadKey(True)
         End Sub
 
-        Private Sub DisplayEquippedItem(strSlot As String, iItem As LibWowAPI.Character.Item)
+        Private Sub DisplayEquippedItem(strSlot As String, iItem As LibWowAPI.Item.ItemBasicInfo)
             Console.WriteLine("  {0}: {1} - ID {2} - Quality: {3} - iLevel: {4}", strSlot, iItem.Name, iItem.ID, iItem.Quality, iItem.ItemLevel)
             If iItem.TooltipParams.Upgrade IsNot Nothing Then
                 Console.WriteLine("    Upgraded: {0}/{1} for {2} iLevels", iItem.TooltipParams.Upgrade.Current, iItem.TooltipParams.Upgrade.Total, iItem.TooltipParams.Upgrade.ItemLevelIncrement)

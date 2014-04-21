@@ -4,6 +4,7 @@
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
 Imports System.Collections.ObjectModel
+Imports roncliProductions.LibWowAPI.Item
 
 Namespace roncliProductions.LibWowAPI.Guild
 
@@ -53,14 +54,14 @@ Namespace roncliProductions.LibWowAPI.Guild
         ''' <remarks>This is the reward received for completing the achievement.  This is not localized.</remarks>
         Public Property Reward As String
 
-        Private colRewardItems As Collection(Of RewardItem)
+        Private colRewardItems As Collection(Of ItemBasicInfo)
         ''' <summary>
         ''' The items obtained as a reward for completing the achievement.
         ''' </summary>
         ''' <value>This property gets or sets the RewardItem field.</value>
         ''' <returns>Returns the items obtained as a reward for completing the achievement.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of RewardItem)" /> of <see cref="RewardItem" /> that contains details about the items received for completing the achievement.</remarks>
-        Public ReadOnly Property RewardItems As Collection(Of RewardItem)
+        ''' <remarks>This is a <see cref="Collection(Of ItemBasicInfo)" /> of <see cref="ItemBasicInfo" /> that contains details about the items received for completing the achievement.</remarks>
+        Public ReadOnly Property RewardItems As Collection(Of ItemBasicInfo)
             Get
                 Return colRewardItems
             End Get
@@ -87,13 +88,13 @@ Namespace roncliProductions.LibWowAPI.Guild
             End Get
         End Property
 
-        Friend Sub New(intAchievementID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, riRewardItems As Collection(Of RewardItem), strIcon As String, cCriteria As Collection(Of NewsCriteria))
+        Friend Sub New(intAchievementID As Integer, strTitle As String, intPoints As Integer, strDescription As String, strReward As String, ibiRewardItems As Collection(Of ItemBasicInfo), strIcon As String, cCriteria As Collection(Of NewsCriteria))
             AchievementID = intAchievementID
             Title = strTitle
             Points = intPoints
             Description = strDescription
             Reward = strReward
-            colRewardItems = riRewardItems
+            colRewardItems = ibiRewardItems
             Icon = strIcon
             colCriteria = cCriteria
         End Sub

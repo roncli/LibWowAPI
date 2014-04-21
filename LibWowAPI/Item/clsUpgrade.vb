@@ -3,7 +3,7 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
-Namespace roncliProductions.LibWowAPI.Character
+Namespace roncliProductions.LibWowAPI.Item
 
     ''' <summary>
     ''' A class containing information about an item's upgrades.

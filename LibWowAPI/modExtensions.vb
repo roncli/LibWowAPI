@@ -17,6 +17,7 @@ Imports roncliProductions.LibWowAPI.Data
 Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
 Imports roncliProductions.LibWowAPI.Enums
+Imports roncliProductions.LibWowAPI.Item.Schema
 
 Namespace roncliProductions.LibWowAPI.Extensions
 
@@ -215,6 +216,14 @@ Namespace roncliProductions.LibWowAPI.Extensions
                 Case Else
                     Return ItemSpellTrigger.Unknown
             End Select
+        End Function
+
+        <Extension()> Friend Function GetGems(tpTooltipParams As tooltipParams) As Collection(Of Integer)
+            Dim colGems As New Collection(Of Integer)
+            If tpTooltipParams.gem0 <> 0 Then colGems.Add(tpTooltipParams.gem0)
+            If tpTooltipParams.gem1 <> 0 Then colGems.Add(tpTooltipParams.gem1)
+            If tpTooltipParams.gem2 <> 0 Then colGems.Add(tpTooltipParams.gem2)
+            Return colGems
         End Function
 
     End Module
