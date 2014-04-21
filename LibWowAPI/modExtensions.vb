@@ -16,6 +16,7 @@ Imports System.Runtime.CompilerServices
 Imports roncliProductions.LibWowAPI.Data
 Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
+Imports roncliProductions.LibWowAPI.Data.ItemClasses
 Imports roncliProductions.LibWowAPI.Enums
 Imports roncliProductions.LibWowAPI.Item.Schema
 
@@ -61,7 +62,7 @@ Namespace roncliProductions.LibWowAPI.Extensions
             Return String.Format(CultureInfo.InvariantCulture, "00{0}", strColor).ArgbHexToColor()
         End Function
 
-        <Extension()> Friend Function GetClass(intClassID As Integer) As [Class]
+        <Extension()> Friend Function GetClass(intClassID As Integer) As CharacterClass
             Dim ccClasses As New CharacterClasses()
             ccClasses.Load()
             Dim varClass = ccClasses.Classes.Where(Function(c) c.ClassID = intClassID)
@@ -128,10 +129,10 @@ Namespace roncliProductions.LibWowAPI.Extensions
             End Select
         End Function
 
-        <Extension()> Friend Function GetItemClass(intItemClass As Integer) As ItemClasses.Class
-            Dim icItemClasses = New ItemClasses.ItemClasses()
+        <Extension()> Friend Function GetItemClass(intItemClassID As Integer) As ItemClass
+            Dim icItemClasses = New ItemClasses()
             icItemClasses.Load()
-            Dim varItemClass = icItemClasses.Classes.Where(Function(c) c.Class = intItemClass)
+            Dim varItemClass = icItemClasses.Classes.Where(Function(c) c.ClassID = intItemClassID)
             If varItemClass.Count = 0 Then
                 Return Nothing
             Else
@@ -139,14 +140,14 @@ Namespace roncliProductions.LibWowAPI.Extensions
             End If
         End Function
 
-        <Extension()> Friend Function GetItemSubclassForClass(intItemClass As Integer, intItemSubclass As Integer) As ItemClasses.Subclass
-            Dim icItemClasses = New ItemClasses.ItemClasses()
+        <Extension()> Friend Function GetItemSubclassForClass(intItemClassID As Integer, intItemSubclassID As Integer) As ItemSubclass
+            Dim icItemClasses = New ItemClasses()
             icItemClasses.Load()
-            Dim varItemClass = icItemClasses.Classes.Where(Function(c) c.Class = intItemClass)
+            Dim varItemClass = icItemClasses.Classes.Where(Function(c) c.ClassID = intItemClassID)
             If varItemClass.Count = 0 Then
                 Return Nothing
             Else
-                Dim varItemSubclass = varItemClass.First().Subclasses.Where(Function(s) s.Subclass = intItemSubclass)
+                Dim varItemSubclass = varItemClass.First().Subclasses.Where(Function(s) s.SubclassID = intItemSubclassID)
                 If varItemSubclass.Count = 0 Then
                     Return Nothing
                 Else
@@ -177,7 +178,7 @@ Namespace roncliProductions.LibWowAPI.Extensions
             Return (From r In crRaces.Races Where intRaces.Contains(r.RaceID)).ToCollection()
         End Function
 
-        <Extension()> Friend Function GetClasses(intClasses As Integer()) As Collection(Of [Class])
+        <Extension()> Friend Function GetClasses(intClasses As Integer()) As Collection(Of CharacterClass)
             If intClasses Is Nothing Then Return Nothing
             Dim ccClasses As New CharacterClasses()
             ccClasses.Load()

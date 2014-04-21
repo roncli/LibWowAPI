@@ -1844,9 +1844,9 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             For Each cClass In icClasses.Classes
-                Console.WriteLine("{0}) {1}", cClass.Class, cClass.Name)
+                Console.WriteLine("{0}) {1}", cClass.ClassID, cClass.Name)
                 For Each sSubclass In cClass.Subclasses
-                    Console.WriteLine("  {0}) {1}", sSubclass.Subclass, sSubclass.Name)
+                    Console.WriteLine("  {0}) {1}", sSubclass.SubclassID, sSubclass.Name)
                 Next
             Next
             Console.WriteLine()

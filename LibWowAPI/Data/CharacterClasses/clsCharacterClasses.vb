@@ -90,7 +90,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterClasses
         ''' <summary>
         ''' Loads the character classes.
         ''' </summary>
-        ''' <remarks>This method calls the Blizzard WoW API, receives the JSON, and translates it into a <see cref="Collection(Of [Class])" /> of <see cref="[Class]" />. Each item in the collection represents a character class received from the API.</remarks>
+        ''' <remarks>This method calls the Blizzard WoW API, receives the JSON, and translates it into a <see cref="Collection(Of CharacterClass)" /> of <see cref="CharacterClass" />. Each item in the collection represents a character class received from the API.</remarks>
         ''' <exception cref="LibWowAPIException">If the JSON received from the API is invalid, the exception that caused it is packaged into the <see cref="LibWowAPIException.InnerException" /> of a <see cref="LibWowAPIException" />.</exception>
         Public Overrides Sub Load()
             MyBase.Retrieve()
@@ -107,7 +107,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterClasses
 
             colClasses = (
                 From c In ccClasses.classes
-                Select New [Class](c.id, c.mask, c.powerType.GetPowerType(), c.name)
+                Select New CharacterClass(c.id, c.mask, c.powerType.GetPowerType(), c.name)
                 ).ToCollection()
         End Sub
 
@@ -115,14 +115,14 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterClasses
 
 #Region "Properties"
 
-        Private colClasses As Collection(Of [Class])
+        Private colClasses As Collection(Of CharacterClass)
         ''' <summary>
         ''' A list of character classes as returned from the Blizzard WoW API.
         ''' </summary>
         ''' <value>This property gets the Classes field.</value>
         ''' <returns>Returns a list of character classes as returned from the Blizzard WoW API.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of [Class])" /> of <see cref="[Class]" />, which is a list of all character classes.</remarks>
-        Public ReadOnly Property Classes As Collection(Of [Class])
+        ''' <remarks>This is a <see cref="Collection(Of CharacterClass)" /> of <see cref="CharacterClass" />, which is a list of all character classes.</remarks>
+        Public ReadOnly Property Classes As Collection(Of CharacterClass)
             Get
                 Return colClasses
             End Get

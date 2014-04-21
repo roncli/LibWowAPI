@@ -11,7 +11,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterClasses
     ''' A class containing information about a character class.
     ''' </summary>
     ''' <remarks>This class provides detailed information about a character class.</remarks>
-    Public Class [Class]
+    Public Class CharacterClass
 
         ''' <summary>
         ''' The class ID number.
@@ -26,7 +26,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterClasses
         ''' </summary>
         ''' <value>This property gets or sets the Mask field.</value>
         ''' <returns>Returns the value of the mask.  Used for flags.</returns>
-        ''' <remarks>This seems to always be 2 ^ (<see cref="[Class].ClassID" /> - 1).  Given that so far every API that has a collection of classes returns an array of integers, it is unclear what this property is actually used for.</remarks>
+        ''' <remarks>This seems to always be 2 ^ (<see cref="ClassID" /> - 1).  Given that so far every API that has a collection of classes returns an array of integers, it is unclear what this property is actually used for.</remarks>
         Public Property Mask As Integer
 
         ''' <summary>

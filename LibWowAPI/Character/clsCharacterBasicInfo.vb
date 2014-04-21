@@ -47,8 +47,8 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' </summary>
         ''' <value>This property gets or sets the Class field.</value>
         ''' <returns>Returns the character's class.</returns>
-        ''' <remarks>The character's class is represented by a <see cref="Data.CharacterClasses.[Class]" /> object.  See the <see cref="Data.CharacterClasses.[Class].Name" /> property to get the name of the class.</remarks>
-        Public Property [Class] As [Class]
+        ''' <remarks>The character's class is represented by a <see cref="Data.CharacterClasses.CharacterClass" /> object.  See the <see cref="Data.CharacterClasses.CharacterClass.Name" /> property to get the name of the class.</remarks>
+        Public Property [Class] As CharacterClass
 
         ''' <summary>
         ''' The character's race.
@@ -114,11 +114,11 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This represents the realm the character's guild resides on.</remarks>
         Public Property GuildRealm As String
 
-        Friend Sub New(strName As String, strRealm As String, strBattlegroup As String, cClass As [Class], rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, sSpec As Spec, strGuild As String, strGuildRealm As String)
+        Friend Sub New(strName As String, strRealm As String, strBattlegroup As String, ccClass As CharacterClass, rRace As Race, gGender As Gender, intLevel As Integer, intAchievementPoints As Integer, strThumbnail As String, sSpec As Spec, strGuild As String, strGuildRealm As String)
             Name = strName
             Realm = strRealm
             Battlegroup = strBattlegroup
-            [Class] = cClass
+            [Class] = ccClass
             Race = rRace
             Gender = gGender
             Level = intLevel

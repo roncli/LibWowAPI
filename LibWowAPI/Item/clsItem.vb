@@ -7,7 +7,9 @@ Imports System
 Imports System.Collections.ObjectModel
 Imports System.Drawing
 Imports roncliProductions.LibWowAPI.Data
+Imports roncliProductions.LibWowAPI.Data.CharacterClasses
 Imports roncliProductions.LibWowAPI.Data.CharacterRaces
+Imports roncliProductions.LibWowAPI.Data.ItemClasses
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Item
@@ -66,14 +68,14 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This represents the number of items that may be put in a single stack.</remarks>
         Public Property StackSize As Integer
 
-        Private colAllowableClasses As Collection(Of CharacterClasses.Class)
+        Private colAllowableClasses As Collection(Of CharacterClass)
         ''' <summary>
         ''' The classes that are allowed to use this item.
         ''' </summary>
         ''' <value>This property gets the AllowableClasses field.</value>
         ''' <returns>Returns the classes that are allowed to use this item.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of CharacterClasses.Class)" /> of <see cref="CharacterClasses.[Class]" /> that represents the classes that are allowed to use this item.</remarks>
-        Public ReadOnly Property AllowableClasses As Collection(Of CharacterClasses.Class)
+        ''' <remarks>This is a <see cref="Collection(Of CharacterClass)" /> of <see cref="CharacterClass" /> that represents the classes that are allowed to use this item.</remarks>
+        Public ReadOnly Property AllowableClasses As Collection(Of CharacterClass)
             Get
                 Return colAllowableClasses
             End Get
@@ -147,16 +149,16 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' </summary>
         ''' <value>This property gets or sets the ItemClass field.</value>
         ''' <returns>Returns the class of the item.</returns>
-        ''' <remarks>This is a <see cref="ItemClasses.[Class]" /> object that describes the item class.</remarks>
-        Public Property ItemClass As ItemClasses.Class
+        ''' <remarks>This is a <see cref="ItemClass" /> object that describes the item class.</remarks>
+        Public Property ItemClass As ItemClass
 
         ''' <summary>
         ''' The subclass of the item.
         ''' </summary>
         ''' <value>This property gets the ItemSubClass field.</value>
         ''' <returns>Returns the subclass of the item.</returns>
-        ''' <remarks>This is a <see cref="ItemClasses.Subclass" /> object that describes the item subclass.</remarks>
-        Public Property ItemSubClass As ItemClasses.Subclass
+        ''' <remarks>This is a <see cref="ItemSubclass" /> object that describes the item subclass.</remarks>
+        Public Property ItemSubClass As ItemSubclass
 
         ''' <summary>
         ''' The number of container slots on the item, if this is a container.
@@ -395,22 +397,22 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This property is only set for items from the Cataclysm expansion or earlier.  See the <see cref="NameDescription" /> property for heroic items from Mists of Pandaria or later.</remarks>
         Public Property HeroicTooltip As Boolean
 
-        Friend Sub New(intItemID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, cAllowableClasses As Collection(Of CharacterClasses.Class), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, sBonusStats As Collection(Of Stat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, cItemClass As ItemClasses.Class, sItemSubClass As ItemClasses.Subclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
+        Friend Sub New(intItemID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, ccAllowableClasses As Collection(Of CharacterClass), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, sBonusStats As Collection(Of Stat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, icItemClass As ItemClass, isItemSubClass As ItemSubclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
             ItemID = intItemID
             DisenchantingSkillRank = intDisenchantingSkillRank
             Description = strDescription
             Name = strName
             Icon = strIcon
             StackSize = intStackSize
-            colAllowableClasses = cAllowableClasses
+            colAllowableClasses = ccAllowableClasses
             BoundZone = bzBoundZone
             colAllowableRaces = rAllowableRaces
             ItemBind = bItemBind
             colBonusStats = sBonusStats
             colItemSpells = isItemSpells
             BuyPrice = intBuyPrice
-            ItemClass = cItemClass
-            ItemSubClass = sItemSubClass
+            ItemClass = icItemClass
+            ItemSubClass = isItemSubClass
             ContainerSlots = intContainerSlots
             WeaponInfo = wiWeaponInfo
             GemInfo = giGemInfo

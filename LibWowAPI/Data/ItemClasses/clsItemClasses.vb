@@ -89,7 +89,7 @@ Namespace roncliProductions.LibWowAPI.Data.ItemClasses
         ''' <summary>
         ''' Loads the item classes.
         ''' </summary>
-        ''' <remarks>This method calls the Blizzard WoW API, receives the JSON, and translates it into a <see cref="Collection(Of [Class])" /> of <see cref="[Class]" />.  Each item in the collection represents an item class received from the API.</remarks>
+        ''' <remarks>This method calls the Blizzard WoW API, receives the JSON, and translates it into a <see cref="Collection(Of ItemClass)" /> of <see cref="ItemClass" />.  Each item in the collection represents an item class received from the API.</remarks>
         ''' <exception cref="LibWowAPIException">If the JSON received from the API is invalid, the exception that caused it is packaged into the <see cref="LibWowAPIException.InnerException" /> of a <see cref="LibWowAPIException" />.</exception>
         Public Overrides Sub Load()
             MyBase.Retrieve()
@@ -106,7 +106,7 @@ Namespace roncliProductions.LibWowAPI.Data.ItemClasses
 
             colClasses = (
                 From c In icClasses.classes
-                Select New [Class](c.class, c.name, (From s In c.subclasses Select New Subclass(s.subclass, s.name)).ToCollection())
+                Select New ItemClass(c.class, c.name, (From s In c.subclasses Select New ItemSubclass(s.subclass, s.name)).ToCollection())
                 ).ToCollection()
         End Sub
 
@@ -114,14 +114,14 @@ Namespace roncliProductions.LibWowAPI.Data.ItemClasses
 
 #Region "Properties"
 
-        Private colClasses As Collection(Of [Class])
+        Private colClasses As Collection(Of ItemClass)
         ''' <summary>
         ''' A list of item classes as returned from the Blizzard WoW API.
         ''' </summary>
         ''' <value>This property gets the Classes field.</value>
         ''' <returns>Returns a list of item classes as returned from the Blizzard WoW API.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of [Class])" /> of <see cref="[Class]" />, which is a list of all item classes.</remarks>
-        Public ReadOnly Property Classes As Collection(Of [Class])
+        ''' <remarks>This is a <see cref="Collection(Of ItemClass)" /> of <see cref="ItemClass" />, which is a list of all item classes.</remarks>
+        Public ReadOnly Property Classes As Collection(Of ItemClass)
             Get
                 Return colClasses
             End Get

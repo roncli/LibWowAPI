@@ -183,6 +183,9 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
   * Refactored Character and Guild objects to use the Spec and Glyph classes from the Data.Talents namespace.
   * Refactored Character objects to use new Talent class from the Data.Talent namespace.
   * Refactored Auction objects to use new RealmName class from the Realm namespace.
+  * Refactored Class objects for characters to be called CharacterClass.
+  * Refactored Class objects for items to be called ItemClass.  The ID field is now correctly called ClassID.
+  * Refactored Subclass objects for items to be called ItemSubclass.  The ID field is now correctly called SubclassID.
 
 ## Classes
 

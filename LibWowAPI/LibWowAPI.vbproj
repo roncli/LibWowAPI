@@ -201,12 +201,12 @@
     <Compile Include="Achievement\clsAchievement.vb" />
     <Compile Include="Data\CharacterAchievements\clsCharacterAchievements.vb" />
     <Compile Include="Achievement\clsCriteria.vb" />
-    <Compile Include="Data\CharacterClasses\clsClass.vb" />
+    <Compile Include="Data\CharacterClasses\clsCharacterClass.vb" />
     <Compile Include="Data\CharacterClasses\clsCharacterClasses.vb" />
     <Compile Include="Data\CharacterRaces\clsCharacterRaces.vb" />
     <Compile Include="Data\CharacterRaces\clsRace.vb" />
     <Compile Include="Data\GuildAchievements\clsGuildAchievements.vb" />
-    <Compile Include="Data\ItemClasses\clsSubclass.vb" />
+    <Compile Include="Data\ItemClasses\clsItemSubclass.vb" />
     <Compile Include="Data\ItemClasses\Schema\subclass.vb" />
     <Compile Include="Data\PetTypes\clsPetType.vb" />
     <Compile Include="Data\PetTypes\clsPetTypes.vb" />
@@ -262,7 +262,7 @@
     <Compile Include="Data\GuildPerks\clsPerk.vb" />
     <Compile Include="Data\GuildRewards\clsGuildRewards.vb" />
     <Compile Include="Data\GuildRewards\clsReward.vb" />
-    <Compile Include="Data\ItemClasses\clsClass.vb" />
+    <Compile Include="Data\ItemClasses\clsItemClass.vb" />
     <Compile Include="Data\ItemClasses\clsItemClasses.vb" />
     <Compile Include="Data\CharacterClasses\Schema\class.vb" />
     <Compile Include="Data\CharacterClasses\Schema\classes.vb" />
