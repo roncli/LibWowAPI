@@ -85,7 +85,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/data/character/achievements", UriKind.Relative)
+                Return New Uri("/wow/data/character/achievements", UriKind.Relative)
             End Get
         End Property
 

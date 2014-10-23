@@ -268,28 +268,14 @@ Namespace roncliProductions.LibWowAPIDemo
             Console.WriteLine("Setup Authorization")
             Console.WriteLine()
 
-            ' First, get the public key
+            ' Get the public API key
             Do
-                Console.WriteLine("Please enter the public key.")
+                Console.WriteLine("Please enter the public API key.")
                 Console.Write(">")
-                WowAPIData.PublicKey = Console.ReadLine
+                WowAPIData.ApiKey = Console.ReadLine
 
-                If String.IsNullOrWhiteSpace(WowAPIData.PublicKey) Then
-                    WowAPIData.PublicKey = Nothing
-                Else
-                    Exit Do
-                End If
-            Loop
-
-            ' Next, get the private key
-            Do
-                Console.WriteLine()
-                Console.WriteLine("Please enter the private key.")
-                Console.Write(">")
-                WowAPIData.PrivateKey = Console.ReadLine
-
-                If String.IsNullOrWhiteSpace(WowAPIData.PrivateKey) Then
-                    WowAPIData.PrivateKey = Nothing
+                If String.IsNullOrWhiteSpace(WowAPIData.ApiKey) Then
+                    WowAPIData.ApiKey = Nothing
                 Else
                     Exit Do
                 End If

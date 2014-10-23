@@ -88,7 +88,7 @@ Namespace roncliProductions.LibWowAPI.Leaderboard
                     Case Else
                         Throw New LibWowAPIException("Invalid leaderboard type.", Nothing)
                 End Select
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/leaderboard/{0}", strType), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/leaderboard/{0}", strType), UriKind.Relative)
             End Get
         End Property
 

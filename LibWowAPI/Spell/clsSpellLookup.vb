@@ -76,7 +76,7 @@ Namespace roncliProductions.LibWowAPI.Spell
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/spell/{0}", Options.SpellID), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/spell/{0}", Options.SpellID), UriKind.Relative)
             End Get
         End Property
 

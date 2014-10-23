@@ -82,7 +82,7 @@ Namespace roncliProductions.LibWowAPI.Data.Battlegroups
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/data/battlegroups/", UriKind.Relative)
+                Return New Uri("/wow/data/battlegroups/", UriKind.Relative)
             End Get
         End Property
 

@@ -79,7 +79,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/challenge/region", UriKind.Relative)
+                Return New Uri("/wow/challenge/region", UriKind.Relative)
             End Get
         End Property
 

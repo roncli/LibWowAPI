@@ -26,7 +26,7 @@ Namespace roncliProductions.LibWowAPI
     ''' <h5>Internationalization</h5>
     ''' LibWowAPI supports all regions and languages.  Internationalization is set globally by setting the <see cref="WowAPIData.Region" /> and <see cref="WowAPIData.Language" /> static properties.  The <see cref="WowAPIData.Region" /> property accepts a <see cref="Internationalization.Region" /> enumeration while the <see cref="WowAPIData.Language" /> property accepts a <see cref="Internationalization.Language" /> enumeration.
     ''' <h5>Authentication</h5>
-    ''' BNET Authentication is supported by LibWowAPI.  See http://blizzard.github.com/api-wow-docs/#id3379854 for details.  If you have received a public key and private key from Blizzard, you may assign them to the <see cref="WowAPIData.PublicKey" /> and <see cref="WowAPIData.PrivateKey" /> static properties.
+    ''' BNET Authentication is supported by LibWowAPI.  See http://blizzard.github.com/api-wow-docs/#id3379854 for details.  If you have received a public API key from Blizzard, you may assign it to the <see cref="WowAPIData.ApiKey" /> static property.
     ''' <h5>Metadata</h5>
     ''' LibWowAPI automatically identifies itself to Blizzard in special HTTP headers.  You may optionally choose to identify your application as well by using the <see cref="WowAPIData.Application" /> and <see cref="WowAPIData.ApplicationURL" /> static properties.
     ''' <h5>Loading Data</h5>
@@ -67,20 +67,12 @@ Namespace roncliProductions.LibWowAPI
         Public Shared Property Language As Language = Language.EnglishUS
 
         ''' <summary>
-        ''' The public key to use for authentication.
+        ''' The public API key to use for authentication.
         ''' </summary>
-        ''' <value>This property gets or sets the PublicKey static field.</value>
-        ''' <returns>Returns the public key to use for authentication.</returns>
-        ''' <remarks>The public key is used for BNET authentication.  You can apply for authentication at http://blizzard.github.com/api-wow-docs/#id3379854.</remarks>
-        Public Shared Property PublicKey As String
-
-        ''' <summary>
-        ''' The private key to use for authentication.
-        ''' </summary>
-        ''' <value>This property gets or sets the PrivateKey static field.</value>
-        ''' <returns>Returns the private key to use for authentication.</returns>
-        ''' <remarks>The private key is used for BNET authentication.  You can apply for authentication at http://blizzard.github.com/api-wow-docs/#id3379854.</remarks>
-        Public Shared Property PrivateKey As String
+        ''' <value>This property gets or sets the ApiKey static field.</value>
+        ''' <returns>Returns the public API key to use for authentication.</returns>
+        ''' <remarks>The public API key is used for authentication.  You can apply for authentication at http://dev.battle.net.</remarks>
+        Public Shared Property ApiKey As String
 
         ''' <summary>
         ''' The name of the application.  This gets passed as an HTTP header.
@@ -233,15 +225,15 @@ Namespace roncliProductions.LibWowAPI
         Private Shared Function GetBaseURI() As Uri
             Select Case Region
                 Case Region.China
-                    Return New Uri("https://www.battlenet.com.cn/")
+                    Return New Uri("https://www.battlenet.com.cn/api/")
                 Case Region.Europe
-                    Return New Uri("https://eu.battle.net/")
+                    Return New Uri("https://eu.api.battle.net/")
                 Case Region.Korea
-                    Return New Uri("https://kr.battle.net/")
+                    Return New Uri("https://kr.api.battle.net/")
                 Case Region.Taiwan
-                    Return New Uri("https://tw.battle.net/")
+                    Return New Uri("https://tw.api.battle.net/")
                 Case Else
-                    Return New Uri("https://us.battle.net/")
+                    Return New Uri("https://us.api.battle.net/")
             End Select
         End Function
 
@@ -292,6 +284,9 @@ Namespace roncliProductions.LibWowAPI
                     uqsURI.Add(strKey, QueryString(strKey))
                 Next
                 uqsURI.Add("locale", GetLocale())
+                If Not String.IsNullOrEmpty(ApiKey) Then
+                    uqsURI.Add("apikey", ApiKey)
+                End If
 
                 Dim hwrRequest = CType(HttpWebRequest.Create(uqsURI.ToURI()), HttpWebRequest)
                 If IfModifiedSince <> Date.MinValue Then
@@ -309,16 +304,6 @@ Namespace roncliProductions.LibWowAPI
                     hwrRequest.Headers.Add("X-ApplicationURL", ApplicationURL)
                 End If
 
-                If Not (String.IsNullOrWhiteSpace(PublicKey) And String.IsNullOrWhiteSpace(PrivateKey)) Then
-                    Dim strEncoding As String
-                    hwrRequest.Date = Date.UtcNow
-
-                    Dim strStringToSign = String.Format(CultureInfo.InvariantCulture, "GET{0}{1:r}{0}{2}{0}", System.Convert.ToChar(10), hwrRequest.Date.ToUniversalTime(), uriPath.AbsolutePath)
-                    Using shaEncryptor As New HMACSHA1(Encoding.UTF8.GetBytes(PrivateKey))
-                        strEncoding = String.Format(CultureInfo.InvariantCulture, "BNET {0}:{1}", PublicKey, System.Convert.ToBase64String(shaEncryptor.ComputeHash(Encoding.UTF8.GetBytes(strStringToSign))))
-                    End Using
-                    hwrRequest.Headers.Add(HttpRequestHeader.Authorization, strEncoding)
-                End If
                 Try
                     Using wrResponse = hwrRequest.GetResponse
                         Data = wrResponse.GetResponse()

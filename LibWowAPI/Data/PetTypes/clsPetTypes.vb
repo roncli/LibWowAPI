@@ -81,7 +81,7 @@ Namespace roncliProductions.LibWowAPI.Data.PetTypes
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/data/pet/types", UriKind.Relative)
+                Return New Uri("/wow/data/pet/types", UriKind.Relative)
             End Get
         End Property
 

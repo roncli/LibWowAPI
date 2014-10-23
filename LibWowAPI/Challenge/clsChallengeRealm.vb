@@ -82,7 +82,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/challenge/{0}", Options.Realm), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/challenge/{0}", Options.Realm), UriKind.Relative)
             End Get
         End Property
 

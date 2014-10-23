@@ -82,7 +82,7 @@ Namespace roncliProductions.LibWowAPI.Quest
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/quest/{0}", Options.QuestID), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/quest/{0}", Options.QuestID), UriKind.Relative)
             End Get
         End Property
 

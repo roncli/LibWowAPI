@@ -81,7 +81,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterRaces
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/data/character/races", UriKind.Relative)
+                Return New Uri("/wow/data/character/races", UriKind.Relative)
             End Get
         End Property
 

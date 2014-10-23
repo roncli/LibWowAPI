@@ -38,7 +38,7 @@ Namespace roncliProductions.LibWowAPI.Auction
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/auction/data/{0}", Options.Realm), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/auction/data/{0}", Options.Realm), UriKind.Relative)
             End Get
         End Property
 

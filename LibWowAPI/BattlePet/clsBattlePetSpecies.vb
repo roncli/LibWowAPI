@@ -84,7 +84,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/battlePet/species/{0}", Options.SpeciesID), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/battlePet/species/{0}", Options.SpeciesID), UriKind.Relative)
             End Get
         End Property
 

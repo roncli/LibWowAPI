@@ -93,7 +93,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
                 If Options.Quality <> Quality.Unknown Then
                     QueryString.Add("qualityId", CInt(Options.Quality).ToString(CultureInfo.InvariantCulture))
                 End If
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/battlePet/stats/{0}", Options.SpeciesID), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/battlePet/stats/{0}", Options.SpeciesID), UriKind.Relative)
             End Get
         End Property
 

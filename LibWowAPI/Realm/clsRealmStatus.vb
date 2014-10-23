@@ -85,7 +85,7 @@ Namespace roncliProductions.LibWowAPI.Realm
                 If Options.Realms.Count > 0 Then
                     QueryString.Add("realms", RealmList)
                 End If
-                Return New Uri("/api/wow/realm/status", UriKind.Relative)
+                Return New Uri("/wow/realm/status", UriKind.Relative)
             End Get
         End Property
 

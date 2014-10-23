@@ -86,7 +86,7 @@ Namespace roncliProductions.LibWowAPI.Achievement
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/achievement/{0}", Options.AchievementID), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/achievement/{0}", Options.AchievementID), UriKind.Relative)
             End Get
         End Property
 

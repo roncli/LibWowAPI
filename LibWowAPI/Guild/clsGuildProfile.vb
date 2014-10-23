@@ -87,7 +87,7 @@ Namespace roncliProductions.LibWowAPI.Guild
                 If Not String.IsNullOrWhiteSpace(FieldList) Then
                     QueryString.Add("fields", FieldList)
                 End If
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/guild/{0}/{1}", Options.Realm, Options.Name), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/guild/{0}/{1}", Options.Realm, Options.Name), UriKind.Relative)
             End Get
         End Property
 

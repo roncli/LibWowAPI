@@ -78,7 +78,7 @@ Namespace roncliProductions.LibWowAPI.ItemSet
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/api/wow/item/set/{0}", Options.ItemSetID), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/item/set/{0}", Options.ItemSetID), UriKind.Relative)
             End Get
         End Property
 

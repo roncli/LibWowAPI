@@ -80,7 +80,7 @@ Namespace roncliProductions.LibWowAPI.Data.ItemClasses
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/data/item/classes", UriKind.Relative)
+                Return New Uri("/wow/data/item/classes", UriKind.Relative)
             End Get
         End Property
 

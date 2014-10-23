@@ -82,7 +82,7 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/data/talents", UriKind.Relative)
+                Return New Uri("/wow/data/talents", UriKind.Relative)
             End Get
         End Property
 

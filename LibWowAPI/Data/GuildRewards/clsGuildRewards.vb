@@ -83,7 +83,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri("/api/wow/data/guild/rewards", UriKind.Relative)
+                Return New Uri("/wow/data/guild/rewards", UriKind.Relative)
             End Get
         End Property
 

@@ -131,6 +131,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 * Summary:
  * This is a large update, upgrading to the .NET Framework v4.5.1, and keeping up with Blizzard's latest API changes.
  * There are many breaking changes, so if your code doesn't compile, use this list of changes to determine what might have changed.
+ * Moved to use the new Mashery API.  This will require an API key.  Visit http://dev.battle.net for information on how to get a key.  Note: The China region does not have a Mashery URI right now.  Just use the API without an API key for now, until China is supported.
  * Added many classes that were added since 1.0.4 that did not get added in 1.1.
  * Fixed many broken classes that were changed by Blizzard since 1.1.
  * Refactored many repetitive classes into a single class.  In general, the namespace used was the namespace that makes the most sense for the object.  For instance, completed achievements are in the new Achivement namespace, while talents reside in the Data.Talent namespace.
@@ -140,6 +141,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 * Details:
  * New:
   * Upgraded solution and projects to Visual Studio 2013 and .NET 4.5.
+  * Added ApiKey to the WowAPIData class.  Visit http://dev.battle.net to get a Mashery API key.
   * Added Language.Italiano to send it_IT for Italian.
   * Added achievement lookup. (Achievement.AchievementLookup)
   * Added faction to achievements.
@@ -161,6 +163,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
   * Added list of items to an item set in the items.
   * Added spell lookup. (Spell.SpellLookup)
  * Removed:
+  * Removed PublicKey and PrivateKey from the WowAPIData class.
   * Removed Reforged property from an item's bonus stats.
   * Removed namespace PvP and all classes within, since Blizzard has removed those APIs.
  * Fixes:
