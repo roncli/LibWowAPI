@@ -8,22 +8,22 @@ Namespace roncliProductions.LibWowAPI.Internationalization
     ''' <summary>
     ''' The region of the Armory, determines which base URL to hit.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.WowAPIData" /> class to identify which region to do lookups for.</remarks>
     Public Enum Region
         ''' <summary>
-        ''' North America, us.battle.net.
+        ''' North America, us.api.battle.net.
         ''' </summary>
         ''' <remarks></remarks>
         NorthAmerica
 
         ''' <summary>
-        ''' Europe, eu.battle.net.
+        ''' Europe, eu.api.battle.net.
         ''' </summary>
         ''' <remarks></remarks>
         Europe
 
         ''' <summary>
-        ''' Korea, kr.battle.net.
+        ''' Korea, kr.api.battle.net.
         ''' </summary>
         ''' <remarks></remarks>
         Korea
@@ -35,7 +35,7 @@ Namespace roncliProductions.LibWowAPI.Internationalization
         China
 
         ''' <summary>
-        ''' Taiwan, tw.battle.net.
+        ''' Taiwan, tw.api.battle.net.
         ''' </summary>
         ''' <remarks></remarks>
         Taiwan
@@ -44,7 +44,7 @@ Namespace roncliProductions.LibWowAPI.Internationalization
     ''' <summary>
     ''' The localization scheme to use on the Armory
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.WowAPIData" /> class to identify which language to return results in.</remarks>
     Public Enum Language
         ''' <summary>
         ''' US English, en_us.

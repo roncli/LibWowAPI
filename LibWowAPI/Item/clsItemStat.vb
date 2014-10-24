@@ -58,7 +58,7 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This represents whether the item has been reforged.</remarks>
         Public Property Reforged As Boolean
 
-        Public Sub New(isStat As Enums.ItemStat, intAmount As Integer, intReforgedAmount As Integer, blnReforged As Boolean)
+        Friend Sub New(isStat As Enums.ItemStat, intAmount As Integer, intReforgedAmount As Integer, blnReforged As Boolean)
             Stat = isStat
             Amount = intAmount
             ReforgedAmount = intReforgedAmount

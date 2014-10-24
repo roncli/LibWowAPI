@@ -7,6 +7,10 @@ Imports System.Collections.ObjectModel
 
 Namespace roncliProductions.LibWowAPI.Data.Talents
 
+    ''' <summary>
+    ''' A class containing the talents that are in a specific talent tier.
+    ''' </summary>
+    ''' <remarks>Each tier of a talent tree has 3 talents.  This class exposes the tier as well as each <see cref="Talent" /> available in the tier.</remarks>
     Public Class TalentTier
 
         ''' <summary>

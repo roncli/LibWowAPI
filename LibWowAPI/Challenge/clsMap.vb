@@ -70,7 +70,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <remarks>This represents the time limit to recieve a gold medal for this map's challenge mode.</remarks>
         Public Property GoldCriteria As TimeSpan
 
-        Public Sub New(intMapID As Integer, strName As String, strSlug As String, blnHasChallengeMode As Boolean, tsBronzeCriteria As TimeSpan, tsSilverCriteria As TimeSpan, tsGoldCriteria As TimeSpan)
+        Friend Sub New(intMapID As Integer, strName As String, strSlug As String, blnHasChallengeMode As Boolean, tsBronzeCriteria As TimeSpan, tsSilverCriteria As TimeSpan, tsGoldCriteria As TimeSpan)
             MapID = intMapID
             Name = strName
             Slug = strSlug

@@ -13,6 +13,12 @@ Namespace roncliProductions.LibWowAPI.Character
     ''' <remarks>PvP statistics are stored for each character's arena matches and rated battlegrounds.</remarks>
     Public Class PvP
 
+        ''' <summary>
+        ''' The character's PvP statistics broken down by bracket.
+        ''' </summary>
+        ''' <value>This property gets or sets the Brakcets field.</value>
+        ''' <returns>Returns the character's PvP statistics broken down by bracket.</returns>
+        ''' <remarks>This represents the character's PvP statistics broken down by bracket.</remarks>
         Public Property Brackets As Brackets
 
         Friend Sub New(bBrackets As Brackets)

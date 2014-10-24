@@ -224,6 +224,17 @@ Namespace roncliProductions.LibWowAPI.Item
 
 End Namespace
 
+Namespace roncliProductions.LibWowAPI.ItemSet
+
+    ''' <summary>
+    ''' The ItemSet namespace provides the <see cref="ItemSetLookup" /> class, which retrieves item set information from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
 Namespace roncliProductions.LibWowAPI.Leaderboard
 
     ''' <summary>
@@ -261,6 +272,17 @@ Namespace roncliProductions.LibWowAPI.Recipe
 
     ''' <summary>
     ''' The Recipe namespace provides the <see cref="RecipeLookup" /> class, which retrieves recipe information from the Blizzard WoW API.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Class NamespaceDoc
+    End Class
+
+End Namespace
+
+Namespace roncliProductions.LibWowAPI.Spell
+
+    ''' <summary>
+    ''' The Spell namespace provides the <see cref="SpellLookup" /> class, which retrieves spell information from the Blizzard WoW API.
     ''' </summary>
     ''' <remarks></remarks>
     Friend Class NamespaceDoc

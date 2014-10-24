@@ -539,7 +539,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' <summary>
     ''' An enumeration to describe the current status of a PvP zone.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Realm.RealmStatus" /> class to indicate the status of a world PvP zone.</remarks>
     Public Enum PvpZoneStatus
         Unknown = -1
 
@@ -571,7 +571,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' <summary>
     ''' An enumeration to describe how an item spell is proced.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Item.ItemLookup" /> class to identify how to proc an item's effect.</remarks>
     Public Enum ItemSpellTrigger
         Unknown = -1
 
@@ -591,7 +591,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' <summary>
     ''' An enumeration to describe a battle pet's breed.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Auction.AuctionData" /> class and other battle pet related classes, to identify the breed of a battle pet.</remarks>
     Public Enum BattlePetBreed
         Unknown = 0
 
@@ -719,7 +719,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' <summary>
     ''' An enumeration to describe a character's equipment slot.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Character.CharacterProfile" /> class to identify the slot an item is being worn on.</remarks>
     Public Enum EquipmentSlot
         Unknwon = -1
         Head = 0
@@ -744,7 +744,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' <summary>
     ''' An enumeration that describes a leaderboard type.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Leaderboard.LeaderboardLookup" /> class to identify which bracket the leaderboard is for.</remarks>
     Public Enum LeaderboardType
         Unknown = 0
         Arena2v2 = 1
@@ -756,7 +756,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' <summary>
     ''' An enumeration that describes an armor type.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Character.CharacterProfile" /> class to identify the type of armor the character wears.</remarks>
     Public Enum ArmorType
         Unknown = -1
         None = 0
@@ -769,7 +769,7 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' <summary>
     ''' An enumeration that describes a glyph type.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Data.Talents" /> class to identify the type of glyph.</remarks>
     Public Enum GlyphType
         Major = 0
         Minor = 1

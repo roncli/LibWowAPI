@@ -92,7 +92,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
             End Get
         End Property
 
-        Public Sub New(intSpeciesID As Integer, ptPetType As PetType, intCreatureID As Integer, strName As String, blnCanBattle As Boolean, strIcon As String, strDescription As String, strSource As String, saAbilities As Collection(Of SpeciesAbility))
+        Friend Sub New(intSpeciesID As Integer, ptPetType As PetType, intCreatureID As Integer, strName As String, blnCanBattle As Boolean, strIcon As String, strDescription As String, strSource As String, saAbilities As Collection(Of SpeciesAbility))
             SpeciesID = intSpeciesID
             PetType = ptPetType
             CreatureID = intCreatureID

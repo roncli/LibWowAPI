@@ -35,7 +35,7 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This represents the number of item levels upgraded on the item.</remarks>
         Public Property ItemLevelIncrement As Integer
 
-        Public Sub New(intCurrent As Integer, intTotal As Integer, intItemLevelIncrement As Integer)
+        Friend Sub New(intCurrent As Integer, intTotal As Integer, intItemLevelIncrement As Integer)
             Current = intCurrent
             Total = intTotal
             ItemLevelIncrement = intItemLevelIncrement

@@ -85,7 +85,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
         ''' <remarks>This represents the guild the members in the group are from.</remarks>
         Public Property Guild As GuildBasicInfo
 
-        Public Sub New(intRanking As Integer, tsTime As TimeSpan, dtDate As DateTime, strMedal As String, fFaction As Faction, blnIsRecurring As Boolean, gmMembers As Collection(Of GroupMember), gbiGuild As GuildBasicInfo)
+        Friend Sub New(intRanking As Integer, tsTime As TimeSpan, dtDate As DateTime, strMedal As String, fFaction As Faction, blnIsRecurring As Boolean, gmMembers As Collection(Of GroupMember), gbiGuild As GuildBasicInfo)
             Ranking = intRanking
             Time = tsTime
             [Date] = dtDate

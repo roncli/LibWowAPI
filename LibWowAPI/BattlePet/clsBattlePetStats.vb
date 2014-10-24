@@ -88,7 +88,7 @@ Namespace roncliProductions.LibWowAPI.BattlePet
         ''' <remarks>This represents the speed of the pet.</remarks>
         Public Property Speed As Integer
 
-        Public Sub New(intSpeciesID As Integer, bpbBreed As BattlePetBreed, qPetQuality As Quality, intLevel As Integer, intHealth As Integer, intPower As Integer, intSpeed As Integer)
+        Friend Sub New(intSpeciesID As Integer, bpbBreed As BattlePetBreed, qPetQuality As Quality, intLevel As Integer, intHealth As Integer, intPower As Integer, intSpeed As Integer)
             SpeciesID = intSpeciesID
             Breed = bpbBreed
             PetQuality = qPetQuality
