@@ -134,53 +134,11 @@ Namespace roncliProductions.LibWowAPI.Auction
 
                 colAuctions.Add(
                     New Auctions(
-                        New RealmName(aAuctions.realm.Name, aAuctions.realm.Slug),
+                        New RealmName(aAuctions.realm.name, aAuctions.realm.slug),
                         fFile.LastModified,
                         New AuctionHouse(
                             (
-                                From a In aAuctions.alliance.auctions
-                                Select New Auction(
-                                    a.auc,
-                                    a.item,
-                                    a.owner,
-                                    a.ownerRealm,
-                                    a.bid,
-                                    a.buyout,
-                                    a.quantity,
-                                    a.timeLeft.GetAuctionTimeLeft(),
-                                    a.rand,
-                                    a.seed,
-                                    a.petSpeciesId,
-                                    CType(a.petBreedId, BattlePetBreed),
-                                    a.petLevel,
-                                    If(a.petSpeciesId = 0, Quality.Unknown, CType(a.petQualityId, Quality))
-                                    )
-                                ).ToCollection()
-                            ),
-                        New AuctionHouse(
-                            (
-                                From a In aAuctions.horde.auctions
-                                Select New Auction(
-                                    a.auc,
-                                    a.item,
-                                    a.owner,
-                                    a.ownerRealm,
-                                    a.bid,
-                                    a.buyout,
-                                    a.quantity,
-                                    a.timeLeft.GetAuctionTimeLeft(),
-                                    a.rand,
-                                    a.seed,
-                                    a.petSpeciesId,
-                                    CType(a.petBreedId, BattlePetBreed),
-                                    a.petLevel,
-                                    If(a.petSpeciesId = 0, Quality.Unknown, CType(a.petQualityId, Quality))
-                                    )
-                                ).ToCollection()
-                            ),
-                        New AuctionHouse(
-                            (
-                                From a In aAuctions.neutral.auctions
+                                From a In aAuctions.auctions.auctions
                                 Select New Auction(
                                     a.auc,
                                     a.item,

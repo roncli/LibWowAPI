@@ -180,3 +180,6 @@ FakesAssemblies/
 
 *Docs/Help
 *.shfbproj_*
+
+# Save the private config file
+privateConfig.config

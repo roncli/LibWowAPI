@@ -30,35 +30,17 @@ Namespace roncliProductions.LibWowAPI.Auction
         Public Property LastUpdated As Date
 
         ''' <summary>
-        ''' The auctions available on the realm for the alliance.
+        ''' The auctions available on the realm.
         ''' </summary>
-        ''' <value>This property gets or sets the Alliance field.</value>
-        ''' <returns>Returns the auctions available on the realm for the alliance.</returns>
-        ''' <remarks>This is an <see cref="AuctionHouse" /> object that lists all of the auctions currently available on the alliance auction house for this realm.</remarks>
-        Public Property Alliance As AuctionHouse
+        ''' <value>This property gets or sets the Auctions field.</value>
+        ''' <returns>Returns the auctions available on the realm.</returns>
+        ''' <remarks>This is an <see cref="AuctionHouse" /> object that lists all of the auctions currently available on the auction house for this realm.</remarks>
+        Public Property Auctions As AuctionHouse
 
-        ''' <summary>
-        ''' The auctions available on the realm for the horde.
-        ''' </summary>
-        ''' <value>This property gets or sets the Horde field.</value>
-        ''' <returns>Returns the auctions available on the realm for the horde.</returns>
-        ''' <remarks>This is an <see cref="AuctionHouse" /> object that lists all of the auctions currently available on the horde auction house for this realm.</remarks>
-        Public Property Horde As AuctionHouse
-
-        ''' <summary>
-        ''' The auctions available on the realm for both factions at the neutral auction house.
-        ''' </summary>
-        ''' <value>This property gets or sets the Neutral field.</value>
-        ''' <returns>Returns the auctions available on the realm for both factions at the neutral auction house.</returns>
-        ''' <remarks>This is an <see cref="AuctionHouse" /> object that lists all of the auctions currently available on the neutral auction house for this realm.</remarks>
-        Public Property Neutral As AuctionHouse
-
-        Friend Sub New(rnRealm As RealmName, dtLastUpdated As Date, ahAlliance As AuctionHouse, ahHorde As AuctionHouse, ahNeutral As AuctionHouse)
+        Friend Sub New(rnRealm As RealmName, dtLastUpdated As Date, ahAuctions As AuctionHouse)
             Realm = rnRealm
             LastUpdated = dtLastUpdated
-            Alliance = ahAlliance
-            Horde = ahHorde
-            Neutral = ahNeutral
+            Auctions = ahAuctions
         End Sub
 
     End Class

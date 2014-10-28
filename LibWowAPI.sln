@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9CDA2775-6107-4BA1-AB37-8B0192E3B907}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
@@ -11,6 +13,8 @@ EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LibWowAPI", "LibWowAPI\LibWowAPI.vbproj", "{9F1A13B1-446E-4D70-AF44-23B207DC898C}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LibWowAPIDemo", "LibWowAPIDemo\LibWowAPIDemo.vbproj", "{220576FA-9B19-44B1-AB7B-EC893676B327}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LibWowAPITest", "LibWowAPITest\LibWowAPITest.vbproj", "{43854BF1-1C99-407D-A79A-8AE78D446810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +46,16 @@ Global
 		{220576FA-9B19-44B1-AB7B-EC893676B327}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{220576FA-9B19-44B1-AB7B-EC893676B327}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{220576FA-9B19-44B1-AB7B-EC893676B327}.Release|x86.ActiveCfg = Release|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{43854BF1-1C99-407D-A79A-8AE78D446810}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
