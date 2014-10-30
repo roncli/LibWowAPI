@@ -3,6 +3,7 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Realm
@@ -38,11 +39,25 @@ Namespace roncliProductions.LibWowAPI.Realm
         ''' <remarks>This represents the Olson timeznoe of the realm.</remarks>
         Public Property TimeZone As String
 
-        Friend Sub New(strName As String, strSlug As String, strBattlegroup As String, strLocale As String, strTimeZone As String)
+        Private colConnectedRealms As Collection(Of String)
+        ''' <summary>
+        ''' The list of realms connected to this realm.
+        ''' </summary>
+        ''' <value>This property gets the ConnectedRealms field.</value>
+        ''' <returns>Returns the list of realms connected to this realm.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of String)" /> of <see cref="String" /> that represents the realms connected to this realm.</remarks>
+        Public ReadOnly Property ConnectedRealms As Collection(Of String)
+            Get
+                Return colConnectedRealms
+            End Get
+        End Property
+
+        Friend Sub New(strName As String, strSlug As String, strBattlegroup As String, strLocale As String, strTimeZone As String, strConnectedRealms As Collection(Of String))
             MyBase.New(strName, strSlug)
             Battlegroup = strBattlegroup
             Locale = strLocale
             TimeZone = strTimeZone
+            colConnectedRealms = strConnectedRealms
         End Sub
 
     End Class

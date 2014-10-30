@@ -141,7 +141,8 @@ Namespace roncliProductions.LibWowAPI.Realm
                     r.slug,
                     r.battlegroup,
                     r.locale,
-                    r.timezone
+                    r.timezone,
+                    If(r.connected_realms Is Nothing, Nothing, r.connected_realms.ToCollection())
                     )
                 ).ToCollection()
         End Sub

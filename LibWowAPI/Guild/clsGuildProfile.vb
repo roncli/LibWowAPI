@@ -179,7 +179,8 @@ Namespace roncliProductions.LibWowAPI.Guild
                                 c.realm.slug,
                                 c.realm.battlegroup,
                                 c.realm.locale,
-                                c.realm.timezone
+                                c.realm.timezone,
+                                If(c.realm.connected_realms Is Nothing, Nothing, c.realm.connected_realms.ToCollection())
                                 ),
                             New Map(
                                 c.map.id,

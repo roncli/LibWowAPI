@@ -15,13 +15,24 @@ Namespace roncliProductions.LibWowAPITest.Tests
             clsCommon.LoadApiKey()
         End Sub
 
-        <TestMethod(), Timeout(60000)> Public Sub Constructor_Default()
-            Dim auctions As New AuctionData()
-            auctions.Options.Realm = "Lightbringer"
-            auctions.Load()
+        <TestMethod(), Timeout(60000)> Public Sub AuctionData_Constructor_Default()
+            Dim adData As New AuctionData()
+            adData.Options.Realm = "Lightbringer"
+            adData.Load()
 
-            Assert.IsTrue(auctions.Auctions.Count > 0)
-            Assert.IsTrue(auctions.Auctions.First().Auctions.Auctions.Count > 0)
+            Dim aAuctions = adData.Auctions
+
+            Assert.IsTrue(aAuctions.Count > 0)
+            Assert.IsTrue(aAuctions.First().Auctions.Auctions.Count > 0)
+        End Sub
+
+        <TestMethod(), Timeout(60000)> Public Sub AuctionData_Constructor_ByRealm()
+            Dim adData As New AuctionData("Korialstrasz")
+
+            Dim aAuctions = adData.Auctions
+
+            Assert.IsTrue(aAuctions.Count > 0)
+            Assert.IsTrue(aAuctions.First().Auctions.Auctions.Count > 0)
         End Sub
 
     End Class

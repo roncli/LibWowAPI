@@ -3,6 +3,7 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPI.Realm
@@ -62,8 +63,8 @@ Namespace roncliProductions.LibWowAPI.Realm
         ''' <remarks>This indicates if the realm is online or not.</remarks>
         Public Property Status As Boolean
 
-        Friend Sub New(rtType As RealmType, strPopulation As String, blnQueue As Boolean, pzWintergrasp As PvpZone, pzTolBarad As PvpZone, blnStatus As Boolean, strName As String, strSlug As String, strBattlegroup As String, strLocale As String, strTimeZone As String)
-            MyBase.New(strName, strSlug, strBattlegroup, strLocale, strTimeZone)
+        Friend Sub New(rtType As RealmType, strPopulation As String, blnQueue As Boolean, pzWintergrasp As PvpZone, pzTolBarad As PvpZone, blnStatus As Boolean, strName As String, strSlug As String, strBattlegroup As String, strLocale As String, strTimeZone As String, strConnectedRealms As Collection(Of String))
+            MyBase.New(strName, strSlug, strBattlegroup, strLocale, strTimeZone, strConnectedRealms)
             Type = rtType
             Population = strPopulation
             Queue = blnQueue

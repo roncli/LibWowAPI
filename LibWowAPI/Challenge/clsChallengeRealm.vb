@@ -112,7 +112,7 @@ Namespace roncliProductions.LibWowAPI.Challenge
                 From crm In crChallengeRealm.challenge
                 Select New Challenge(
                     If(
-                        crm.realm Is Nothing, Nothing, New RealmBasicInfo(crm.realm.name, crm.realm.slug, crm.realm.battlegroup, crm.realm.locale, crm.realm.timezone)
+                        crm.realm Is Nothing, Nothing, New RealmBasicInfo(crm.realm.name, crm.realm.slug, crm.realm.battlegroup, crm.realm.locale, crm.realm.timezone, If(crm.realm.connected_realms Is Nothing, Nothing, crm.realm.connected_realms.ToCollection()))
                         ),
                     New Map(
                         crm.map.id,

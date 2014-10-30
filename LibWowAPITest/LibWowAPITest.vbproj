@@ -69,8 +69,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="clsAuctionDataTest.vb" />
-    <Compile Include="Common.vb" />
+    <Compile Include="clsCommon.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -86,7 +85,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="clsAchievementLookupTest.vb" />
+    <Compile Include="Tests\clsAchievementLookupTest.vb" />
+    <Compile Include="Tests\clsAuctionDataTest.vb" />
+    <Compile Include="Tests\clsBattlePetAbilityTest.vb" />
+    <Compile Include="Tests\clsBattlePetSpeciesTest.vb" />
+    <Compile Include="Tests\clsBattlePetStatsLookupTest.vb" />
+    <Compile Include="Tests\clsChallengeRealmTest.vb" />
+    <Compile Include="Tests\clsChallengeRegionTest.vb" />
+    <Compile Include="Tests\clsCharacterProfileTest.vb" />
+    <Compile Include="Tests\clsDataBattlegroupsTest.vb" />
+    <Compile Include="Tests\clsDataCharacterAchievementsTest.vb" />
+    <Compile Include="Tests\clsDataCharacterClassesTest.vb" />
+    <Compile Include="Tests\clsDataCharacterRacesTest.vb" />
+    <Compile Include="Tests\clsDataClassTalentsTest.vb" />
+    <Compile Include="Tests\clsDataGuildAchievementsTest.vb" />
+    <Compile Include="Tests\clsDataGuildPerksTest.vb" />
+    <Compile Include="Tests\clsDataGuildRewardsTest.vb" />
+    <Compile Include="Tests\clsDataItemClassesTest.vb" />
+    <Compile Include="Tests\clsGuildProfileTest.vb" />
+    <Compile Include="Tests\clsItemLookupTest.vb" />
+    <Compile Include="Tests\clsPvPArenaLadderTest.vb" />
+    <Compile Include="Tests\clsPvPArenaTeamTest.vb" />
+    <Compile Include="Tests\clsQuestLookupTest.vb" />
+    <Compile Include="Tests\clsRealmStatusTest.vb" />
+    <Compile Include="Tests\clsRecipeLookupTest.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

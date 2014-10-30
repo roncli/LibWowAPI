@@ -2191,6 +2191,12 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Status: {0} - Queue: {1}", If(rRealm.Status, "Online", "Offline"), If(rRealm.Queue, "Yes", "No"))
                 Console.WriteLine("Wintergrasp: {0} controlled, next battle at {1:h:mm:ss tt} GMT, Status: {2}", rRealm.Wintergrasp.ControllingFaction, rRealm.Wintergrasp.Next, rRealm.Wintergrasp.Status)
                 Console.WriteLine("Tol Barad: {0} controlled, next battle at {1:h:mm:ss tt} GMT, Status: {2}", rRealm.TolBarad.ControllingFaction, rRealm.TolBarad.Next, rRealm.TolBarad.Status)
+                If rRealm.ConnectedRealms IsNot Nothing Then
+                    Console.WriteLine("Connected realms:")
+                    For Each strRealm In rRealm.ConnectedRealms
+                        Console.WriteLine("  {0}", strRealm)
+                    Next
+                End If
                 Console.WriteLine()
             Next
 

@@ -163,6 +163,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
    * Added minimum item level to gem info for items.
    * Added list of items to an item set in the items.
    * Added spell lookup. (Spell.SpellLookup)
+   * Added ConnectedRealms to most realm objects.
  * Removed:
    * Removed PublicKey and PrivateKey from the WowAPIData class.
    * Removed Reforged property from an item's bonus stats.
