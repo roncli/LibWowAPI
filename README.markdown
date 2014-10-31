@@ -168,6 +168,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
    * Removed PublicKey and PrivateKey from the WowAPIData class.
    * Removed Reforged property from an item's bonus stats.
    * Removed namespace PvP and all classes within, since Blizzard has removed those APIs.
+   * Removed references to hit rating and weapon expertise in character stats.
  * Fixes:
    * Upgraded solution and projects to Visual Studio 2013 and .NET 4.5.
    * Language.EnglishEU now correctly sends en_GB.

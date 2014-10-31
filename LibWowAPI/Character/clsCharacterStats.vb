@@ -134,22 +134,6 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property CritRating As Integer
 
         ''' <summary>
-        ''' The character's additional percantage chance to hit.
-        ''' </summary>
-        ''' <value>This property gets or sets the HitPercent field.</value>
-        ''' <returns>Returns the character's additional percentage chance to hit.</returns>
-        ''' <remarks>This represents the character's additional percentage chance to hit.</remarks>
-        Public Property HitPercent As Double
-
-        ''' <summary>
-        ''' The character's hit rating.
-        ''' </summary>
-        ''' <value>This property gets or sets the HitRating field.</value>
-        ''' <returns>Returns the character's hit rating.</returns>
-        ''' <remarks>This represents the amount of hit rating the character has.</remarks>
-        Public Property HitRating As Integer
-
-        ''' <summary>
         ''' The character's percentage increase in haste.
         ''' </summary>
         ''' <value>This property gets or sets the Haste field.</value>
@@ -212,22 +196,6 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <returns>Returns the character's spell critical strike rating.</returns>
         ''' <remarks>This represents the amount of spell critical strike rating the character has.</remarks>
         Public Property SpellCritRating As Integer
-
-        ''' <summary>
-        ''' The character's additional percentage chance to hit with spells.
-        ''' </summary>
-        ''' <value>This property gets or sets the SpellHitPercent field.</value>
-        ''' <returns>Returns the character's additional percentage chance to hit with spells.</returns>
-        ''' <remarks>This represents the character's additional percentage chance to hit with spells.</remarks>
-        Public Property SpellHitPercent As Double
-
-        ''' <summary>
-        ''' The character's spell hit rating.
-        ''' </summary>
-        ''' <value>This property gets or sets the SpellHitRating field.</value>
-        ''' <returns>Returns the character's spell hit rating.</returns>
-        ''' <remarks>This represents thea mount of spell hit rating the character has.</remarks>
-        Public Property SpellHitRating As Integer
 
         ''' <summary>
         ''' The amount of mana the character regenerates out of combat every 5 seconds.
@@ -373,14 +341,6 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property MainHandDps As Double
 
         ''' <summary>
-        ''' The character's main hand weapon expertise.
-        ''' </summary>
-        ''' <value>This property gets or sets the MainHandExpertise field.</value>
-        ''' <returns>Returns the character's main hand weapon expertise.</returns>
-        ''' <remarks>This represents the character's main hand weapon expertise.</remarks>
-        Public Property MainHandExpertise As Double
-
-        ''' <summary>
         ''' The minimum damage the character does with the off hand weapon.
         ''' </summary>
         ''' <value>This property gets or sets the OffHandDmgMin field.</value>
@@ -411,14 +371,6 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <returns>Returns the character's off hand weapon DPS.</returns>
         ''' <remarks>This represents the character's off hand weapon DPS.</remarks>
         Public Property OffHandDps As Double
-
-        ''' <summary>
-        ''' The character's off hand weapon expertise.
-        ''' </summary>
-        ''' <value>This property gets or sets the OffHandExpertise field.</value>
-        ''' <returns>Returns the character's off hand weapon expertise.</returns>
-        ''' <remarks>This represents the character's off hand weapon expertise.</remarks>
-        Public Property OffHandExpertise As Double
 
         ''' <summary>
         ''' The minimum damage the character does with the ranged weapon.
@@ -453,14 +405,6 @@ Namespace roncliProductions.LibWowAPI.Character
         Public Property RangedDps As Double
 
         ''' <summary>
-        ''' The character's ranged weapon expertise.
-        ''' </summary>
-        ''' <value>This property gets or sets the RangedExpertise field.</value>
-        ''' <returns>Returns the character's ranged weapon expertise.</returns>
-        ''' <remarks>This represents the character's ranged weapon expertise.</remarks>
-        Public Property RangedExpertise As Double
-
-        ''' <summary>
         ''' The character's percentage chance to critically strike with a ranged attack.
         ''' </summary>
         ''' <value>This property gets or sets the RangedCrit field.</value>
@@ -475,22 +419,6 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <returns>Returns the character's ranged critical strike rating.</returns>
         ''' <remarks>This represents the character's ranged critical strike rating.</remarks>
         Public Property RangedCritRating As Integer
-
-        ''' <summary>
-        ''' The character's additional percentage chance to hit with a ranged attack.
-        ''' </summary>
-        ''' <value>This property gets or sets the RangedHitPercent field.</value>
-        ''' <returns>Returns the character's additional percentage chance to hit with a ranged attack.</returns>
-        ''' <remarks>This represents the character's additional percentage chance to hit with a ranged attack.</remarks>
-        Public Property RangedHitPercent As Double
-
-        ''' <summary>
-        ''' The character's ranged hit rating.
-        ''' </summary>
-        ''' <value>This property gets or sets the RangedHitRating field.</value>
-        ''' <returns>Returns the character's ranged hit rating.</returns>
-        ''' <remarks>This represents the character's ranged hit rating.</remarks>
-        Public Property RangedHitRating As Integer
 
         ''' <summary>
         ''' The character's percentage increase in ranged haste.
@@ -548,7 +476,7 @@ Namespace roncliProductions.LibWowAPI.Character
         ''' <remarks>This represents the character's PvP power healing.</remarks>
         Public Property PvpPowerHealing As Double
 
-        Friend Sub New(intHealth As Integer, ptPowerType As PowerType, intPower As Integer, intStr As Integer, intAgi As Integer, intSta As Integer, intInt As Integer, intSpr As Integer, intAttackPower As Integer, intRangedAttackPower As Integer, dblPvpResilienceBonus As Double, dblMastery As Double, intMasteryRating As Integer, dblCrit As Double, intCritRating As Integer, dblHitPercent As Double, intHitRating As Integer, dblHaste As Double, intHasteRating As Integer, dblHasteRatingPercent As Double, intExpertiseRating As Integer, intSpellPower As Integer, intSpellPen As Integer, dblSpellCrit As Double, intSpellCritRating As Integer, dblSpellHitPercent As Double, intSpellHitRating As Integer, dblMana5 As Double, dblMana5Combat As Double, dblSpellHaste As Double, intSpellHasteRating As Integer, dblSpellHasteRatingPercent As Double, intArmor As Integer, dblDodge As Double, intDodgeRating As Integer, dblParry As Double, intParryRating As Integer, dblBlock As Double, intBlockRating As Integer, dblPvpResilience As Double, intPvpResilienceRating As Integer, dblMainHandDmgMin As Double, dblMainHandDmgMax As Double, dblMainHandSpeed As Double, dblMainHandDps As Double, dblMainHandExpertise As Double, dblOffHandDmgMin As Double, dblOffHandDmgMax As Double, dblOffHandSpeed As Double, dblOffHandDps As Double, dblOffHandExpertise As Double, dblRangedDmgMin As Double, dblRangedDmgMax As Double, dblRangedSpeed As Double, dblRangedDps As Double, dblRangedExpertise As Double, dblRangedCrit As Double, intRangedCritRating As Integer, dblRangedHitPercent As Double, intRangedHitRating As Integer, dblRangedHaste As Double, intRangedHasteRating As Integer, dblRangedHasteRatingPercent As Double, dblPvpPower As Double, intPvpPowerRating As Integer, dblPvpPowerDamage As Double, dblPvpPowerHealing As Double)
+        Friend Sub New(intHealth As Integer, ptPowerType As PowerType, intPower As Integer, intStr As Integer, intAgi As Integer, intSta As Integer, intInt As Integer, intSpr As Integer, intAttackPower As Integer, intRangedAttackPower As Integer, dblPvpResilienceBonus As Double, dblMastery As Double, intMasteryRating As Integer, dblCrit As Double, intCritRating As Integer, dblHaste As Double, intHasteRating As Integer, dblHasteRatingPercent As Double, intExpertiseRating As Integer, intSpellPower As Integer, intSpellPen As Integer, dblSpellCrit As Double, intSpellCritRating As Integer, dblMana5 As Double, dblMana5Combat As Double, dblSpellHaste As Double, intSpellHasteRating As Integer, dblSpellHasteRatingPercent As Double, intArmor As Integer, dblDodge As Double, intDodgeRating As Integer, dblParry As Double, intParryRating As Integer, dblBlock As Double, intBlockRating As Integer, dblPvpResilience As Double, intPvpResilienceRating As Integer, dblMainHandDmgMin As Double, dblMainHandDmgMax As Double, dblMainHandSpeed As Double, dblMainHandDps As Double, dblOffHandDmgMin As Double, dblOffHandDmgMax As Double, dblOffHandSpeed As Double, dblOffHandDps As Double, dblRangedDmgMin As Double, dblRangedDmgMax As Double, dblRangedSpeed As Double, dblRangedDps As Double, dblRangedCrit As Double, intRangedCritRating As Integer, dblRangedHaste As Double, intRangedHasteRating As Integer, dblRangedHasteRatingPercent As Double, dblPvpPower As Double, intPvpPowerRating As Integer, dblPvpPowerDamage As Double, dblPvpPowerHealing As Double)
             Health = intHealth
             PowerType = ptPowerType
             Power = intPower
@@ -564,8 +492,6 @@ Namespace roncliProductions.LibWowAPI.Character
             MasteryRating = intMasteryRating
             Crit = dblCrit
             CritRating = intCritRating
-            HitPercent = dblHitPercent
-            HitRating = intHitRating
             Haste = dblHaste
             HasteRating = intHasteRating
             HasteRatingPercent = dblHasteRatingPercent
@@ -574,8 +500,6 @@ Namespace roncliProductions.LibWowAPI.Character
             SpellPen = intSpellPen
             SpellCrit = dblSpellCrit
             SpellCritRating = intSpellCritRating
-            SpellHitPercent = dblSpellHitPercent
-            SpellHitRating = intSpellHitRating
             Mana5 = dblMana5
             Mana5Combat = dblMana5Combat
             SpellHaste = dblSpellHaste
@@ -594,21 +518,16 @@ Namespace roncliProductions.LibWowAPI.Character
             MainHandDmgMax = dblMainHandDmgMax
             MainHandSpeed = dblMainHandSpeed
             MainHandDps = dblMainHandDps
-            MainHandExpertise = dblMainHandExpertise
             OffHandDmgMin = dblOffHandDmgMin
             OffHandDmgMax = dblOffHandDmgMax
             OffHandSpeed = dblOffHandSpeed
             OffHandDps = dblOffHandDps
-            OffHandExpertise = dblOffHandExpertise
             RangedDmgMin = dblRangedDmgMin
             RangedDmgMax = dblRangedDmgMax
             RangedSpeed = dblRangedSpeed
             RangedDps = dblRangedDps
-            RangedExpertise = dblRangedExpertise
             RangedCrit = dblRangedCrit
             RangedCritRating = intRangedCritRating
-            RangedHitPercent = dblRangedHitPercent
-            RangedHitRating = intRangedHitRating
             RangedHaste = dblRangedHaste
             RangedHasteRating = intRangedHasteRating
             RangedHasteRatingPercent = dblRangedHasteRatingPercent

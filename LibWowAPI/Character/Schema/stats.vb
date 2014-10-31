@@ -24,8 +24,6 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property masteryRating As Integer
         <DataMember()> Public Property crit As Double
         <DataMember()> Public Property critRating As Integer
-        <DataMember()> Public Property hitPercent As Double
-        <DataMember()> Public Property hitRating As Integer
         <DataMember()> Public Property haste As Double
         <DataMember()> Public Property hasteRating As Integer
         <DataMember()> Public Property hasteRatingPercent As Double
@@ -34,8 +32,6 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property spellPen As Integer
         <DataMember()> Public Property spellCrit As Double
         <DataMember()> Public Property spellCritRating As Integer
-        <DataMember()> Public Property spellHitPercent As Double
-        <DataMember()> Public Property spellHitRating As Integer
         <DataMember()> Public Property mana5 As Double
         <DataMember()> Public Property mana5Combat As Double
         <DataMember()> Public Property spellHaste As Double
@@ -54,21 +50,16 @@ Namespace roncliProductions.LibWowAPI.Character.Schema
         <DataMember()> Public Property mainHandDmgMax As Double
         <DataMember()> Public Property mainHandSpeed As Double
         <DataMember()> Public Property mainHandDps As Double
-        <DataMember()> Public Property mainHandExpertise As Double
         <DataMember()> Public Property offHandDmgMin As Double
         <DataMember()> Public Property offHandDmgMax As Double
         <DataMember()> Public Property offHandSpeed As Double
         <DataMember()> Public Property offHandDps As Double
-        <DataMember()> Public Property offHandExpertise As Double
         <DataMember()> Public Property rangedDmgMin As Double
         <DataMember()> Public Property rangedDmgMax As Double
         <DataMember()> Public Property rangedSpeed As Double
         <DataMember()> Public Property rangedDps As Double
-        <DataMember()> Public Property rangedExpertise As Double
         <DataMember()> Public Property rangedCrit As Double
         <DataMember()> Public Property rangedCritRating As Integer
-        <DataMember()> Public Property rangedHitPercent As Double
-        <DataMember()> Public Property rangedHitRating As Integer
         <DataMember()> Public Property rangedHaste As Double
         <DataMember()> Public Property rangedHasteRating As Integer
         <DataMember()> Public Property rangedHasteRatingPercent As Double
