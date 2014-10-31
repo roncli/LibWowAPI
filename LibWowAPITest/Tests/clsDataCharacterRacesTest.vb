@@ -5,7 +5,8 @@
 
 Imports System.Linq
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
-Imports roncliProductions.LibWowAPI.Auction
+Imports roncliProductions.LibWowAPI.Data.CharacterRaces
+Imports roncliProductions.LibWowAPI.Enums
 
 Namespace roncliProductions.LibWowAPITest.Tests
 
@@ -13,6 +14,25 @@ Namespace roncliProductions.LibWowAPITest.Tests
 
         Public Sub New()
             clsCommon.LoadApiKey()
+        End Sub
+
+        <TestMethod()> Public Sub DataCharacterRaces_Properties()
+            Dim crRaces = New CharacterRaces()
+            crRaces.Load()
+
+            Dim rRace = crRaces.Races.Where(Function(r) r.RaceID = 1).First()
+
+            Assert.AreEqual(rRace.Faction, Faction.Alliance)
+            Assert.AreEqual(rRace.Mask, 1)
+            Assert.AreEqual(rRace.Name, "Human")
+            Assert.AreEqual(rRace.RaceID, 1)
+        End Sub
+
+        <TestMethod()> Public Sub DataCharacterRaces_Constructor_Default()
+            Dim crRaces = New CharacterRaces()
+            crRaces.Load()
+
+            Assert.IsTrue(crRaces.Races.Count > 0)
         End Sub
 
     End Class

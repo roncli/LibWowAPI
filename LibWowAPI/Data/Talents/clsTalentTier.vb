@@ -21,22 +21,22 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
         ''' <remarks>This represents the tier the talents are on.</remarks>
         Public Property Tier As Integer
 
-        Private colTalents As Collection(Of Talent)
+        Private colTalentSlots As Collection(Of TalentSlot)
         ''' <summary>
-        ''' The possible talents for this class.
+        ''' The possible talent slots for this class.
         ''' </summary>
-        ''' <value>This property gets the Talents field.</value>
-        ''' <returns>Returns the possible talents for this class.</returns>
-        ''' <remarks>This is a <see cref="Collection(Of Talent)" /> of <see cref="Talent" /> objects that represent the possible talents for this class.</remarks>
-        Public ReadOnly Property Talents As Collection(Of Talent)
+        ''' <value>This property gets the TalentSlots field.</value>
+        ''' <returns>Returns the possible talent slots for this class.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of TalentSlot)" /> of <see cref="TalentSlot" /> objects that represent the possible talent slots for this class.</remarks>
+        Public ReadOnly Property TalentSlots As Collection(Of TalentSlot)
             Get
-                Return colTalents
+                Return colTalentSlots
             End Get
         End Property
 
-        Friend Sub New(intTier As Integer, tTalents As Collection(Of Talent))
+        Friend Sub New(intTier As Integer, tsTalentSlots As Collection(Of TalentSlot))
             Tier = intTier
-            colTalents = tTalents
+            colTalentSlots = tsTalentSlots
         End Sub
 
     End Class

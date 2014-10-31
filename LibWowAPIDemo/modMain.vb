@@ -1445,9 +1445,11 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("  Talents:")
                 For Each ttTalentTier In tTalents.TalentTiers
                     Console.WriteLine("    Tier {0}", ttTalentTier.Tier)
-                    For Each tTalent In ttTalentTier.Talents
-                        Console.WriteLine("      Column {0} - {1}", tTalent.Column, tTalent.Spell.Name)
-                        Console.WriteLine("        {0}", tTalent.Spell.Description)
+                    For Each tsTalentSlot In ttTalentTier.TalentSlots
+                        Console.WriteLine("      Column {0}", tsTalentSlot.Column)
+                        For Each tTalent In tsTalentSlot.Talents
+                            Console.WriteLine("        {0} - {1}", tTalent.Spell.Name, tTalent.Spell.Description)
+                        Next
                     Next
                 Next
                 Console.WriteLine("  Glyphs:")

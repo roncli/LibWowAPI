@@ -120,6 +120,7 @@
     <Compile Include="Character\clsAppearance.vb" />
     <Compile Include="Character\clsArenaBracket.vb" />
     <Compile Include="Character\clsCharacterBasicInfo.vb" />
+    <Compile Include="Data\Talents\clsTalentSlot.vb" />
     <Compile Include="Item\clsItemBasicInfo.vb" />
     <Compile Include="Character\clsLowLevelItems.vb" />
     <Compile Include="Character\clsEquipmentCount.vb" />

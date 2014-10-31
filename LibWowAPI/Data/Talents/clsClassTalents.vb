@@ -140,26 +140,33 @@ Namespace roncliProductions.LibWowAPI.Data.Talents
                         ).ToCollection(),
                     (
                         From ta In t.Value.talents
-                        Order By ta(0).tier
+                        Order By ta(0)(0).tier
                         Select New TalentTier(
-                            ta(0).tier,
+                            ta(0)(0).tier,
                             (
-                                From tal In ta
-                                Order By tal.column
-                                Select New Talent(
-                                    tal.tier,
-                                    tal.column,
-                                    New Spell.Spell(
-                                        tal.spell.id,
-                                        tal.spell.name,
-                                        tal.spell.subtext,
-                                        tal.spell.icon,
-                                        tal.spell.description,
-                                        tal.spell.range,
-                                        tal.spell.powerCost,
-                                        tal.spell.castTime,
-                                        tal.spell.cooldown
-                                        )
+                                From ts In ta
+                                Order By ts(0).column
+                                Select New TalentSlot(
+                                    ts(0).column,
+                                    (
+                                        From tal In ts
+                                        Order By tal.column
+                                        Select New Talent(
+                                            tal.tier,
+                                            tal.column,
+                                            New Spell.Spell(
+                                                tal.spell.id,
+                                                tal.spell.name,
+                                                tal.spell.subtext,
+                                                tal.spell.icon,
+                                                tal.spell.description,
+                                                tal.spell.range,
+                                                tal.spell.powerCost,
+                                                tal.spell.castTime,
+                                                tal.spell.cooldown
+                                                )
+                                            )
+                                        ).ToCollection()
                                     )
                                 ).ToCollection()
                             )

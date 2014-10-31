@@ -172,7 +172,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
             Assert.AreEqual(hpPet.FamilyID, 1)
             Assert.AreEqual(hpPet.FamilyName, "Wolf")
             Assert.AreEqual(hpPet.Name, "DoubleDown")
-            Assert.AreEqual(hpPet.Slot, 4)
+            Assert.IsTrue(hpPet.Slot >= 0)
             Assert.AreEqual(sSpec.BackgroundImage, "bg-deathknight-blood")
             Assert.AreEqual(sSpec.Description, "Driven by a frenzied persistence to pursue prey, these beasts stop at nothing to achieve victory; even death is temporary for these predators.")
             Assert.AreEqual(sSpec.Icon, "ability_druid_kingofthejungle")

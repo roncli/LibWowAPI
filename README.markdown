@@ -198,6 +198,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
    * Refactored Stat objects for items to be called ItemStat.
    * Refactored Stats objects for characters to be called CharacterStats.
    * Refactored Member objects for guilds to be called GuildMember.
+   * Updated Data.Talents.CharacterTalents to group the talents by slot.
 
 ## Classes
 
