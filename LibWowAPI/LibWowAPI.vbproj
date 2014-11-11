@@ -170,6 +170,10 @@
     <Compile Include="Character\Schema\feed.vb" />
     <Compile Include="Character\Schema\glyphs.vb" />
     <Compile Include="Character\Schema\instance.vb" />
+    <Compile Include="Item\Schema\bonusChance.vb" />
+    <Compile Include="Item\Schema\bonusChance_stat.vb" />
+    <Compile Include="Item\Schema\bonusChance_upgrade.vb" />
+    <Compile Include="Item\Schema\bonusSummary.vb" />
     <Compile Include="Item\Schema\itemBasicInfo.vb" />
     <Compile Include="Character\Schema\items.vb" />
     <Compile Include="Character\Schema\hunterPet.vb" />
@@ -182,12 +186,11 @@
     <Compile Include="Character\Schema\brackets.vb" />
     <Compile Include="Character\Schema\pvp.vb" />
     <Compile Include="Character\Schema\reputation.vb" />
-    <Compile Include="Item\Schema\stat.vb" />
+    <Compile Include="Item\Schema\item_stat.vb" />
     <Compile Include="Character\Schema\stats.vb" />
     <Compile Include="Character\Schema\talentSpec.vb" />
     <Compile Include="Character\Schema\title.vb" />
     <Compile Include="Item\Schema\tooltipParams.vb" />
-    <Compile Include="Item\Schema\upgrade.vb" />
     <Compile Include="clsBlizzardAPIError.vb" />
     <Compile Include="clsBlizzardAPIException.vb" />
     <Compile Include="clsCache.vb" />
@@ -258,6 +261,7 @@
     <Compile Include="Item\Schema\socket.vb" />
     <Compile Include="Item\Schema\socketInfo.vb" />
     <Compile Include="Item\Schema\type.vb" />
+    <Compile Include="Item\Schema\tooltipParams_upgrade.vb" />
     <Compile Include="Item\Schema\weaponInfo.vb" />
     <Compile Include="Data\GuildPerks\clsGuildPerks.vb" />
     <Compile Include="Data\GuildPerks\clsPerk.vb" />

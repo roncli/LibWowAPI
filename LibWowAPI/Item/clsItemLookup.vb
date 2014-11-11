@@ -80,13 +80,17 @@ Namespace roncliProductions.LibWowAPI.Item
 
         Protected Overrides ReadOnly Property CacheKey As String
             Get
-                Return String.Format(CultureInfo.InvariantCulture, "LibWowAPI.Item.{0}", Options.ItemID)
+                Return String.Format(CultureInfo.InvariantCulture, "LibWowAPI.Item.{0}.{1}.{2}", Options.ItemID, Options.Context, BonusList)
             End Get
         End Property
 
         Protected Overrides ReadOnly Property URI As Uri
             Get
-                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/item/{0}", Options.ItemID), UriKind.Relative)
+                QueryString.Clear()
+                If Options.Bonuses.Count > 0 Then
+                    QueryString.Add("realms", BonusList)
+                End If
+                Return New Uri(String.Format(CultureInfo.InvariantCulture,"/wow/item/{0}{1}",Options.ItemID,If(String.IsNullOrEmpty(Options.Context),"",String.Format(CultureInfo.InvariantCulture,"/{0}",Options.Context))), UriKind.Relative)
             End Get
         End Property
 
@@ -274,6 +278,12 @@ Namespace roncliProductions.LibWowAPI.Item
         Public ReadOnly Property Item As Item
             Get
                 Return iItem
+            End Get
+        End Property
+
+        Private ReadOnly Property BonusList As String
+            Get
+                Return String.Join(",", Options.Bonuses)
             End Get
         End Property
 

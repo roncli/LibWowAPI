@@ -19,7 +19,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property [set] As Integer()
         <DataMember()> Public Property reforge As Integer
         <DataMember()> Public Property transmogItem As Integer
-        <DataMember()> Public Property upgrade As upgrade
+        <DataMember()> Public Property upgrade As tooltipParams_upgrade
 
     End Class
 

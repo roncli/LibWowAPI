@@ -19,7 +19,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property boundZone As boundZone
         <DataMember()> Public Property allowableRaces As Integer()
         <DataMember()> Public Property itemBind As Integer
-        <DataMember()> Public Property bonusStats As stat()
+        <DataMember()> Public Property bonusStats As item_stat()
         <DataMember()> Public ReadOnly itemSpells As itemSpell()
         <DataMember()> Public Property buyPrice As Integer
         <DataMember()> Public Property itemClass As Integer
@@ -52,6 +52,10 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property nameDescriptionColor As String
         <DataMember()> Public Property upgradable As Boolean
         <DataMember()> Public Property heroicTooltip As Boolean
+        <DataMember()> Public Property context As String
+        <DataMember()> Public Property bonusLists As Integer()
+        <DataMember()> Public Property availableContexts As String()
+        <DataMember()> Public Property bonusSummary As bonusSummary
 
     End Class
 
