@@ -20,7 +20,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
             Dim grRewards = New GuildRewards()
             grRewards.Load()
 
-            Dim rReward = grRewards.Rewards.Where(Function(r) r.Achievement.AchievementID = 5035 And r.RewardItem.ItemID = 65274).First()
+            Dim rReward = grRewards.Rewards.Where(Function(r) r.Achievement IsNot Nothing AndAlso r.Achievement.AchievementID = 5035 And r.RewardItem.ItemID = 65274).First()
             Dim aAchievement = rReward.Achievement
             Dim riAchievementItem = aAchievement.RewardItems.Where(Function(r) r.ItemID = 65274).First()
             Dim cCriteria = aAchievement.Criteria.First()
