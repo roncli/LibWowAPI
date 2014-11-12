@@ -134,9 +134,7 @@ Namespace roncliProductions.LibWowAPI.Item
                         From s In ilItem.bonusStats
                         Select New ItemStat(
                             CType(s.stat, ItemStatType),
-                            s.amount,
-                            s.reforgedAmount,
-                            s.reforged
+                            s.amount
                             )
                         ).ToCollection()
                     ),
@@ -169,15 +167,12 @@ Namespace roncliProductions.LibWowAPI.Item
                 ilItem.containerSlots,
                 If(ilItem.weaponInfo Is Nothing, Nothing,
                     New WeaponInfo(
-                        (
-                            From d In ilItem.weaponInfo.damage
-                            Select New Damage(
-                                d.min,
-                                d.max,
-                                d.exactMin,
-                                d.exactMax
-                                )
-                            ).ToCollection(),
+                        New Damage(
+                            ilItem.weaponInfo.damage.min,
+                            ilItem.weaponInfo.damage.max,
+                            ilItem.weaponInfo.damage.exactMin,
+                            ilItem.weaponInfo.damage.exactMax
+                            ),
                         ilItem.weaponInfo.weaponSpeed,
                         ilItem.weaponInfo.dps
                         )

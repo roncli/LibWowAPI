@@ -167,7 +167,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
    * Added ConnectedRealms to most realm objects.
  * Removed:
    * Removed PublicKey and PrivateKey from the WowAPIData class.
-   * Removed Reforged property from an item's bonus stats.
+   * Removed all references to reforging.
    * Removed namespace PvP and all classes within, since Blizzard has removed those APIs.
    * Removed references to hit rating and weapon expertise in character stats.
  * Fixes:
@@ -201,6 +201,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
    * Refactored Stats objects for characters to be called CharacterStats.
    * Refactored Member objects for guilds to be called GuildMember.
    * Updated Data.Talents.CharacterTalents to group the talents by slot.
+   * Weapon Damage on an Item is no longer a collection.
 
 ## Classes
 

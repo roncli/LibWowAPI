@@ -9,7 +9,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
 
     <DataContract()> Friend Class weaponInfo
 
-        <DataMember()> Public Property damage As damage()
+        <DataMember()> Public Property damage As damage
         <DataMember()> Public Property weaponSpeed As Double
         <DataMember()> Public Property dps As Double
 

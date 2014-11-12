@@ -18,7 +18,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
         End Sub
 
         <TestMethod()> Public Sub GuildProfile_Properties_Basic()
-            Dim gpProfile As New GuildProfile()
+            Dim gpProfile = New GuildProfile()
             gpProfile.Options.Realm = "Lightbringer"
             gpProfile.Options.Name = "Six Minutes To Release"
             gpProfile.Load()
@@ -41,7 +41,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
         End Sub
 
         <TestMethod()> Public Sub GuildProfile_Properties_Achievements()
-            Dim gpProfile As New GuildProfile()
+            Dim gpProfile = New GuildProfile()
             gpProfile.Options.Realm = "Lightbringer"
             gpProfile.Options.Name = "Six Minutes To Release"
             gpProfile.Options.Achievements = True
@@ -62,7 +62,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
         End Sub
 
         <TestMethod()> Public Sub GuildProfile_Properties_Challenge()
-            Dim gpProfile As New GuildProfile()
+            Dim gpProfile = New GuildProfile()
             gpProfile.Options.Realm = "Lightbringer"
             gpProfile.Options.Name = "Six Minutes To Release"
             gpProfile.Options.Challenge = True
@@ -90,7 +90,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
         End Sub
 
         <TestMethod()> Public Sub GuildProfile_Properties_Members()
-            Dim gpProfile As New GuildProfile()
+            Dim gpProfile = New GuildProfile()
             gpProfile.Options.Realm = "Lightbringer"
             gpProfile.Options.Name = "Six Minutes To Release"
             gpProfile.Options.Members = True
@@ -129,7 +129,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
         End Sub
 
         <TestMethod()> Public Sub GuildProfile_Properties_News()
-            Dim gpProfile As New GuildProfile()
+            Dim gpProfile = New GuildProfile()
             gpProfile.Options.Realm = "Lightbringer"
             gpProfile.Options.Name = "Six Minutes To Release"
             gpProfile.Options.News = True
@@ -139,7 +139,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
         End Sub
 
         <TestMethod()> Public Sub GuildProfile_Constructor_Default()
-            Dim gpProfile As New GuildProfile()
+            Dim gpProfile = New GuildProfile()
             gpProfile.Options.Realm = "Lightbringer"
             gpProfile.Options.Name = "Six Minutes To Release"
             gpProfile.Load()
@@ -148,7 +148,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
         End Sub
 
         <TestMethod()> Public Sub GuildProfile_Constructor_ByRealmAndName()
-            Dim gpProfile As New GuildProfile("Lightbringer", "Six Minutes To Release")
+            Dim gpProfile = New GuildProfile("Lightbringer", "Six Minutes To Release")
 
             Assert.AreEqual(gpProfile.Guild.Battlegroup, "Cyclone")
         End Sub

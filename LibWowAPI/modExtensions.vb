@@ -60,7 +60,7 @@ Namespace roncliProductions.LibWowAPI.Extensions
         End Function
 
         <Extension()> Friend Function RgbHexToColor(strColor As String) As Color
-            Return String.Format(CultureInfo.InvariantCulture, "00{0}", strColor).ArgbHexToColor()
+            Return String.Format(CultureInfo.InvariantCulture, "FF{0}", strColor).ArgbHexToColor()
         End Function
 
         <Extension()> Friend Function GetCharacterClass(intClassID As Integer) As CharacterClass

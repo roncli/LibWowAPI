@@ -30,39 +30,9 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This represents the original amount of the stat, or the reforged amount if the item was reforged.</remarks>
         Public Property Amount As Integer
 
-        ''' <summary>
-        ''' The amount of the stat that was reforged away.
-        ''' </summary>
-        ''' <value>This property gets or sets the ReforgedAmount field.</value>
-        ''' <returns>Returns the amount of the stat that was reforged away.</returns>
-        ''' <remarks>This represents the amount of the stat that was reforged away, or 0 if this item was not reforged.</remarks>
-        Public Property ReforgedAmount As Integer
-
-        ''' <summary>
-        ''' The total amount of the stat on this item.
-        ''' </summary>
-        ''' <value>This property gets the TotalAmount field.</value>
-        ''' <returns>Returns the total amount of the stat on this item.</returns>
-        ''' <remarks>This represents the total amount of the stat on this item.</remarks>
-        Public ReadOnly Property TotalAmount As Integer
-            Get
-                Return Amount + ReforgedAmount
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' Determines whether the item has been reforged.
-        ''' </summary>
-        ''' <value>This property gets or sets the Reforged field.</value>
-        ''' <returns>Returns whether the item has been reforged.</returns>
-        ''' <remarks>This represents whether the item has been reforged.</remarks>
-        Public Property Reforged As Boolean
-
-        Friend Sub New(istStat As ItemStatType, intAmount As Integer, intReforgedAmount As Integer, blnReforged As Boolean)
+        Friend Sub New(istStat As ItemStatType, intAmount As Integer)
             Stat = istStat
             Amount = intAmount
-            ReforgedAmount = intReforgedAmount
-            Reforged = blnReforged
         End Sub
 
     End Class

@@ -11,8 +11,6 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
 
         <DataMember()> Public Property stat As Integer
         <DataMember()> Public Property amount As Integer
-        <DataMember()> Public Property reforgedAmount As Integer
-        <DataMember()> Public Property reforged As Boolean
 
     End Class
 

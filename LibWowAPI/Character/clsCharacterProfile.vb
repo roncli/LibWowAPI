@@ -185,9 +185,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.head.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.head.armor,
@@ -223,9 +221,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.neck.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.neck.armor,
@@ -261,9 +257,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.shoulder.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.shoulder.armor,
@@ -299,9 +293,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.back.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.back.armor,
@@ -337,9 +329,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.chest.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.chest.armor,
@@ -375,9 +365,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.shirt.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.shirt.armor,
@@ -413,9 +401,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.tabard.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.tabard.armor,
@@ -451,9 +437,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.wrist.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.wrist.armor,
@@ -489,9 +473,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.hands.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.hands.armor,
@@ -527,9 +509,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.waist.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.waist.armor,
@@ -565,9 +545,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.legs.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.legs.armor,
@@ -603,9 +581,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.feet.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.feet.armor,
@@ -641,9 +617,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.finger1.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.finger1.armor,
@@ -679,9 +653,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.finger2.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.finger2.armor,
@@ -717,9 +689,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.trinket1.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.trinket1.armor,
@@ -755,9 +725,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.trinket2.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.trinket2.armor,
@@ -793,9 +761,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.mainHand.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.mainHand.armor,
@@ -831,9 +797,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     From s In cpCharacter.items.offHand.stats
                                     Select New Item.ItemStat(
                                         CType(s.stat, ItemStatType),
-                                        s.amount,
-                                        s.reforgedAmount,
-                                        s.reforged
+                                        s.amount
                                         )
                                     ).ToCollection(),
                                 cpCharacter.items.offHand.armor,
@@ -1238,9 +1202,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                         From s In cpCharacter.audit.recommendedBeltBuckle.bonusStats
                                         Select New Item.ItemStat(
                                             CType(s.stat, ItemStatType),
-                                            s.amount,
-                                            s.reforgedAmount,
-                                            s.reforged
+                                            s.amount
                                             )
                                         ).ToCollection()
                                     ),
@@ -1273,15 +1235,12 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.audit.recommendedBeltBuckle.containerSlots,
                                 If(cpCharacter.audit.recommendedBeltBuckle.weaponInfo Is Nothing, Nothing,
                                     New WeaponInfo(
-                                        (
-                                            From d In cpCharacter.audit.recommendedBeltBuckle.weaponInfo.damage
-                                            Select New Damage(
-                                                d.min,
-                                                d.max,
-                                                d.exactMin,
-                                                d.exactMax
-                                                )
-                                            ).ToCollection(),
+                                        New Damage(
+                                            cpCharacter.audit.recommendedBeltBuckle.weaponInfo.damage.min,
+                                            cpCharacter.audit.recommendedBeltBuckle.weaponInfo.damage.max,
+                                            cpCharacter.audit.recommendedBeltBuckle.weaponInfo.damage.exactMin,
+                                            cpCharacter.audit.recommendedBeltBuckle.weaponInfo.damage.exactMax
+                                            ),
                                         cpCharacter.audit.recommendedBeltBuckle.weaponInfo.weaponSpeed,
                                         cpCharacter.audit.recommendedBeltBuckle.weaponInfo.dps
                                         )
@@ -1428,9 +1387,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                        From s In cpCharacter.audit.recommendedJewelcrafterGem.bonusStats
                                        Select New Item.ItemStat(
                                            CType(s.stat, ItemStatType),
-                                           s.amount,
-                                           s.reforgedAmount,
-                                           s.reforged
+                                           s.amount
                                            )
                                        ).ToCollection()
                                    ),
@@ -1461,21 +1418,19 @@ Namespace roncliProductions.LibWowAPI.Character
                                cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemClass(),
                                cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemSubclassForClass(cpCharacter.audit.recommendedJewelcrafterGem.itemSubClass),
                                cpCharacter.audit.recommendedJewelcrafterGem.containerSlots,
-                               If(cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo Is Nothing, Nothing,
-                                  New WeaponInfo(
-                                      (
-                                          From d In cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage
-                                          Select New Damage(
-                                              d.min,
-                                              d.max,
-                                              d.exactMin,
-                                              d.exactMax
-                                              )
-                                          ).ToCollection(),
-                                      cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.weaponSpeed,
-                                      cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.dps
-                                      )
-                                  ),
+                               If(
+                                   cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo Is Nothing, Nothing,
+                                   New WeaponInfo(
+                                       New Damage(
+                                           cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage.min,
+                                           cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage.max,
+                                           cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage.exactMin,
+                                           cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage.exactMax
+                                           ),
+                                       cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.weaponSpeed,
+                                       cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.dps
+                                       )
+                                   ),
                               If(cpCharacter.audit.recommendedJewelcrafterGem.gemInfo Is Nothing, Nothing,
                                  New GemInfo(
                                      New Bonus(
@@ -1751,9 +1706,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                         From s In ri.stats
                                         Select New Item.ItemStat(
                                             CType(s.stat, ItemStatType),
-                                            s.amount,
-                                            s.reforgedAmount,
-                                            s.reforged
+                                            s.amount
                                             )
                                         ).ToCollection(),
                                     ri.armor,
@@ -1818,9 +1771,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                         From s In ri.stats
                                         Select New Item.ItemStat(
                                             CType(s.stat, ItemStatType),
-                                            s.amount,
-                                            s.reforgedAmount,
-                                            s.reforged
+                                            s.amount
                                             )
                                         ).ToCollection(),
                                     ri.armor,
@@ -1879,9 +1830,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                         From s In ri.stats
                                         Select New Item.ItemStat(
                                             CType(s.stat, ItemStatType),
-                                            s.amount,
-                                            s.reforgedAmount,
-                                            s.reforged
+                                            s.amount
                                             )
                                         ).ToCollection(),
                                     ri.armor,

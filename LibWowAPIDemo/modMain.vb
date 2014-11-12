@@ -854,13 +854,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     Console.WriteLine("      {0} Armor", iItem.Armor)
                 End If
                 For Each sStat In iItem.Stats
-                    If sStat.Reforged Then
-                        Console.WriteLine("      {0} {1} (+{0} reforged)", sStat.TotalAmount, sStat.Stat)
-                    ElseIf sStat.ReforgedAmount <> 0 Then
-                        Console.WriteLine("      {0} {1} ({2} reforged)", sStat.TotalAmount, sStat.Stat, sStat.ReforgedAmount)
-                    Else
-                        Console.WriteLine("      {0} {1}", sStat.TotalAmount, sStat.Stat)
-                    End If
+                    Console.WriteLine("      {0} {1}", sStat.Amount, sStat.Stat)
                 Next
             End If
             If iItem.TooltipParams.Gems.Count > 0 Then
@@ -1973,9 +1967,7 @@ Namespace roncliProductions.LibWowAPIDemo
                 Console.WriteLine("Container slots: {0}", iItem.Item.ContainerSlots)
             End If
             If iItem.Item.WeaponInfo IsNot Nothing Then
-                For Each dDamage In iItem.Item.WeaponInfo.Damage
-                    Console.WriteLine("Damage: {0}-{1}", dDamage.ExactMin, dDamage.ExactMax)
-                Next
+                Console.WriteLine("Damage: {0}-{1}", iItem.Item.WeaponInfo.Damage.ExactMin, iItem.Item.WeaponInfo.Damage.ExactMax)
                 Console.WriteLine("Weapon Speed: {0:N1}", iItem.Item.WeaponInfo.WeaponSpeed)
                 Console.WriteLine("DPS: {0:N1}", iItem.Item.WeaponInfo.DPS)
             End If

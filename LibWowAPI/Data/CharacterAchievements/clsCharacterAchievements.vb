@@ -162,9 +162,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                             From s In ri.stats
                                             Select New Item.ItemStat(
                                                 CType(s.stat, ItemStatType),
-                                                s.amount,
-                                                s.reforgedAmount,
-                                                s.reforged
+                                                s.amount
                                                 )
                                             ).ToCollection(),
                                         ri.armor,
@@ -234,9 +232,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                             From s In ri.stats
                                             Select New Item.ItemStat(
                                                 CType(s.stat, ItemStatType),
-                                                s.amount,
-                                                s.reforgedAmount,
-                                                s.reforged
+                                                s.amount
                                                 )
                                             ).ToCollection(),
                                         ri.armor,
