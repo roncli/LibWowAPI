@@ -190,7 +190,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.head.armor
+                                cpCharacter.items.head.armor,
+                                cpCharacter.items.head.context,
+                                If(cpCharacter.items.head.bonusLists Is Nothing, Nothing, cpCharacter.items.head.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.neck Is Nothing, Nothing,
@@ -226,7 +228,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.neck.armor
+                                cpCharacter.items.neck.armor,
+                                cpCharacter.items.neck.context,
+                                If(cpCharacter.items.neck.bonusLists Is Nothing, Nothing, cpCharacter.items.neck.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.shoulder Is Nothing, Nothing,
@@ -262,7 +266,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.shoulder.armor
+                                cpCharacter.items.shoulder.armor,
+                                cpCharacter.items.shoulder.context,
+                                If(cpCharacter.items.shoulder.bonusLists Is Nothing, Nothing, cpCharacter.items.shoulder.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.back Is Nothing, Nothing,
@@ -298,7 +304,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.back.armor
+                                cpCharacter.items.back.armor,
+                                cpCharacter.items.back.context,
+                                If(cpCharacter.items.back.bonusLists Is Nothing, Nothing, cpCharacter.items.back.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.chest Is Nothing, Nothing,
@@ -334,7 +342,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.chest.armor
+                                cpCharacter.items.chest.armor,
+                                cpCharacter.items.chest.context,
+                                If(cpCharacter.items.chest.bonusLists Is Nothing, Nothing, cpCharacter.items.chest.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.shirt Is Nothing, Nothing,
@@ -370,7 +380,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.shirt.armor
+                                cpCharacter.items.shirt.armor,
+                                cpCharacter.items.shirt.context,
+                                If(cpCharacter.items.shirt.bonusLists Is Nothing, Nothing, cpCharacter.items.shirt.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.tabard Is Nothing, Nothing,
@@ -406,7 +418,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.tabard.armor
+                                cpCharacter.items.tabard.armor,
+                                cpCharacter.items.tabard.context,
+                                If(cpCharacter.items.tabard.bonusLists Is Nothing, Nothing, cpCharacter.items.tabard.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.wrist Is Nothing, Nothing,
@@ -442,7 +456,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.wrist.armor
+                                cpCharacter.items.wrist.armor,
+                                cpCharacter.items.wrist.context,
+                                If(cpCharacter.items.wrist.bonusLists Is Nothing, Nothing, cpCharacter.items.wrist.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.hands Is Nothing, Nothing,
@@ -478,7 +494,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.hands.armor
+                                cpCharacter.items.hands.armor,
+                                cpCharacter.items.hands.context,
+                                If(cpCharacter.items.hands.bonusLists Is Nothing, Nothing, cpCharacter.items.hands.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.waist Is Nothing, Nothing,
@@ -514,7 +532,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.waist.armor
+                                cpCharacter.items.waist.armor,
+                                cpCharacter.items.waist.context,
+                                If(cpCharacter.items.waist.bonusLists Is Nothing, Nothing, cpCharacter.items.waist.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.legs Is Nothing, Nothing,
@@ -550,7 +570,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.legs.armor
+                                cpCharacter.items.legs.armor,
+                                cpCharacter.items.legs.context,
+                                If(cpCharacter.items.legs.bonusLists Is Nothing, Nothing, cpCharacter.items.legs.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.feet Is Nothing, Nothing,
@@ -586,7 +608,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.feet.armor
+                                cpCharacter.items.feet.armor,
+                                cpCharacter.items.feet.context,
+                                If(cpCharacter.items.feet.bonusLists Is Nothing, Nothing, cpCharacter.items.feet.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.finger1 Is Nothing, Nothing,
@@ -622,7 +646,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.finger1.armor
+                                cpCharacter.items.finger1.armor,
+                                cpCharacter.items.finger1.context,
+                                If(cpCharacter.items.finger1.bonusLists Is Nothing, Nothing, cpCharacter.items.finger1.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.finger2 Is Nothing, Nothing,
@@ -658,7 +684,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.finger2.armor
+                                cpCharacter.items.finger2.armor,
+                                cpCharacter.items.finger2.context,
+                                If(cpCharacter.items.finger2.bonusLists Is Nothing, Nothing, cpCharacter.items.finger2.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.trinket1 Is Nothing, Nothing,
@@ -694,7 +722,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.trinket1.armor
+                                cpCharacter.items.trinket1.armor,
+                                cpCharacter.items.trinket1.context,
+                                If(cpCharacter.items.trinket1.bonusLists Is Nothing, Nothing, cpCharacter.items.trinket1.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.trinket2 Is Nothing, Nothing,
@@ -730,7 +760,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.trinket2.armor
+                                cpCharacter.items.trinket2.armor,
+                                cpCharacter.items.trinket2.context,
+                                If(cpCharacter.items.trinket2.bonusLists Is Nothing, Nothing, cpCharacter.items.trinket2.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.mainHand Is Nothing, Nothing,
@@ -766,7 +798,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.mainHand.armor
+                                cpCharacter.items.mainHand.armor,
+                                cpCharacter.items.mainHand.context,
+                                If(cpCharacter.items.mainHand.bonusLists Is Nothing, Nothing, cpCharacter.items.mainHand.bonusLists.ToCollection())
                                 )
                             ),
                         If(cpCharacter.items.offHand Is Nothing, Nothing,
@@ -802,7 +836,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                         s.reforged
                                         )
                                     ).ToCollection(),
-                                cpCharacter.items.offHand.armor
+                                cpCharacter.items.offHand.armor,
+                                cpCharacter.items.offHand.context,
+                                If(cpCharacter.items.offHand.bonusLists Is Nothing, Nothing, cpCharacter.items.offHand.bonusLists.ToCollection())
                                 )
                             )
                         )
@@ -1720,7 +1756,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                             s.reforged
                                             )
                                         ).ToCollection(),
-                                    ri.armor
+                                    ri.armor,
+                                    ri.context,
+                                    If(ri.bonusLists Is Nothing, Nothing, ri.bonusLists.ToCollection())
                                     )
                                 ).ToCollection(),
                             fFeed.achievement.icon,
@@ -1785,7 +1823,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                             s.reforged
                                             )
                                         ).ToCollection(),
-                                    ri.armor
+                                    ri.armor,
+                                    ri.context,
+                                    If(ri.bonusLists Is Nothing, Nothing, ri.bonusLists.ToCollection())
                                     )
                                 ).ToCollection(),
                             fFeed.achievement.icon,
@@ -1844,7 +1884,9 @@ Namespace roncliProductions.LibWowAPI.Character
                                             s.reforged
                                             )
                                         ).ToCollection(),
-                                    ri.armor
+                                    ri.armor,
+                                    ri.context,
+                                    If(ri.bonusLists Is Nothing, Nothing, ri.bonusLists.ToCollection())
                                     )
                                 ).ToCollection(),
                             fFeed.achievement.icon,

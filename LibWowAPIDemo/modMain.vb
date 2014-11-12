@@ -839,6 +839,12 @@ Namespace roncliProductions.LibWowAPIDemo
 
         Private Sub DisplayEquippedItem(strSlot As String, iItem As LibWowAPI.Item.ItemBasicInfo)
             Console.WriteLine("  {0}: {1} - ID {2} - Quality: {3} - iLevel: {4}", strSlot, iItem.Name, iItem.ItemID, iItem.Quality, iItem.ItemLevel)
+            If Not String.IsNullOrEmpty(iItem.Context) Then
+                Console.WriteLine("    Context: {0}", iItem.Context)
+            End If
+            If iItem.Bonuses IsNot Nothing Then
+                Console.WriteLine("    Bonus IDs: {0}", String.Join(",", iItem.Bonuses))
+            End If
             If iItem.TooltipParams.Upgrade IsNot Nothing Then
                 Console.WriteLine("    Upgraded: {0}/{1} for {2} iLevels", iItem.TooltipParams.Upgrade.Current, iItem.TooltipParams.Upgrade.Total, iItem.TooltipParams.Upgrade.ItemLevelIncrement)
             End If
@@ -1128,7 +1134,7 @@ Namespace roncliProductions.LibWowAPIDemo
                     DisplayEquippedItem("Finger2", cpCharacter.Character.Items.Finger2)
                 End If
                 If cpCharacter.Character.Items.Trinket1 IsNot Nothing Then
-                    DisplayEquippedItem("HeadTrinket1", cpCharacter.Character.Items.Trinket1)
+                    DisplayEquippedItem("Trinket1", cpCharacter.Character.Items.Trinket1)
                 End If
                 If cpCharacter.Character.Items.Trinket2 IsNot Nothing Then
                     DisplayEquippedItem("Trinket2", cpCharacter.Character.Items.Trinket2)

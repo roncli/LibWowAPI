@@ -155,7 +155,9 @@ Namespace roncliProductions.LibWowAPI.Achievement
                                     s.reforged
                                     )
                                 ).ToCollection(),
-                            ri.armor
+                            ri.armor,
+                            Nothing,
+                            Nothing
                             )
                         ).ToCollection()
                     ),

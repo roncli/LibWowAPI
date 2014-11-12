@@ -17,6 +17,8 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property tooltipParams As tooltipParams
         <DataMember()> Public Property stats As item_stat()
         <DataMember()> Public Property armor As Integer
+        <DataMember()> Public Property context As String
+        <DataMember()> Public Property bonusLists As Integer()
 
     End Class
 

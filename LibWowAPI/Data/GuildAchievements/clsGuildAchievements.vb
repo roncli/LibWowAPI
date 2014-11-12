@@ -167,7 +167,9 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                                             s.reforged
                                                             )
                                                         ).ToCollection(),
-                                                    ri.armor
+                                                    ri.armor,
+                                                    Nothing,
+                                                    Nothing
                                                     )
                                                 ).ToCollection()
                                             ),
@@ -235,7 +237,9 @@ Namespace roncliProductions.LibWowAPI.Data.GuildAchievements
                                                 s.reforged
                                                 )
                                             ).ToCollection(),
-                                        ri.armor
+                                        ri.armor,
+                                        Nothing,
+                                        Nothing
                                         )
                                     ).ToCollection()
                                 ),

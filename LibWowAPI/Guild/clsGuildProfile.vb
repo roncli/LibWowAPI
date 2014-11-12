@@ -419,7 +419,9 @@ Namespace roncliProductions.LibWowAPI.Guild
                                             s.reforged
                                             )
                                         ).ToCollection(),
-                                    ri.armor
+                                    ri.armor,
+                                    ri.context,
+                                    If(ri.bonusLists Is Nothing, Nothing, ri.bonusLists.ToCollection())
                                     )
                                 ).ToCollection(),
                             nNews.achievement.icon,
@@ -478,7 +480,9 @@ Namespace roncliProductions.LibWowAPI.Guild
                                             s.reforged
                                             )
                                         ).ToCollection(),
-                                    ri.armor
+                                    ri.armor,
+                                    ri.context,
+                                    If(ri.bonusLists Is Nothing, Nothing, ri.bonusLists.ToCollection())
                                     )
                                 ).ToCollection(),
                             nNews.achievement.icon,

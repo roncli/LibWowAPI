@@ -83,7 +83,28 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is the amount of armor on the item.</remarks>
         Public Property Armor As Integer
 
-        Friend Sub New(intItemID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, istStats As Collection(Of ItemStat), intArmor As Integer)
+        ''' <summary>
+        ''' The context the item is obtained through.
+        ''' </summary>
+        ''' <value>This property gets or sets the Context field.</value>
+        ''' <returns>Returns the context the item is obtained through.</returns>
+        ''' <remarks>This represents the context the item is obtained through.</remarks>
+        Public Property Context As String
+
+        Private Property colBonuses As Collection(Of Integer)
+        ''' <summary>
+        ''' The list of bonus IDs that can be applied to this item.
+        ''' </summary>
+        ''' <value>This property gets the Bonuses field.</value>
+        ''' <returns>Returns the list of bonus IDs that can be applied to this item.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of Integer)" /> of bonus IDs that can be applied to this item.</remarks>
+        Public ReadOnly Property Bonuses As Collection(Of Integer)
+            Get
+                Return colBonuses
+            End Get
+        End Property
+
+        Friend Sub New(intItemID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, istStats As Collection(Of ItemStat), intArmor As Integer, strContext As String, intBonuses As Collection(Of Integer))
             ItemID = intItemID
             Name = strName
             Icon = strIcon
@@ -92,6 +113,8 @@ Namespace roncliProductions.LibWowAPI.Item
             TooltipParams = tpTooltipParams
             colStats = istStats
             Armor = intArmor
+            Context = strContext
+            colBonuses = intBonuses
         End Sub
 
     End Class

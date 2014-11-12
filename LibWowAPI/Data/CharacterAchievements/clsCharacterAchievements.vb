@@ -167,7 +167,9 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                                 s.reforged
                                                 )
                                             ).ToCollection(),
-                                        ri.armor
+                                        ri.armor,
+                                        Nothing,
+                                        Nothing
                                         )
                                     ).ToCollection()
                                             ),
@@ -237,7 +239,9 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                                 s.reforged
                                                 )
                                             ).ToCollection(),
-                                        ri.armor
+                                        ri.armor,
+                                        Nothing,
+                                        Nothing
                                         )
                                     ).ToCollection()
                                 ),
