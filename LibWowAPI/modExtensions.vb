@@ -239,6 +239,17 @@ Namespace roncliProductions.LibWowAPI.Extensions
             End If
         End Function
 
+        <Extension()> Friend Function GetItemStatType(strStatId As String) As ItemStatType
+            Dim intStatTypeID As Integer = 0
+            If Integer.TryParse(strStatId, intStatTypeID) Then
+                Return CType(intStatTypeID, ItemStatType)
+            Else
+                Select Case strStatId
+                    Case "ilevel"
+                        Return ItemStatType.ILevel
+                End Select
+            End If
+        End Function
 
     End Module
 

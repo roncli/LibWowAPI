@@ -12,7 +12,7 @@ Namespace roncliProductions.LibWowAPI.Item.Schema
         <DataMember()> Public Property chanceType As String
         <DataMember()> Public Property upgrade As bonusChance_upgrade
         <DataMember()> Public Property stats As bonusChance_stat()
-        <DataMember()> Public Property sockets As socket()
+        <DataMember()> Public Property sockets As bonusChance_socket()
 
     End Class
 

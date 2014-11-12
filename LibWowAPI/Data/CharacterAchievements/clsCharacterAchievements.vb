@@ -150,7 +150,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                                 ri.tooltipParams.reforge,
                                                 ri.tooltipParams.transmogItem,
                                                 If(
-                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                                         ri.tooltipParams.upgrade.current,
                                                         ri.tooltipParams.upgrade.total,
                                                         ri.tooltipParams.upgrade.itemLevelIncrement
@@ -161,7 +161,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                         (
                                             From s In ri.stats
                                             Select New Item.ItemStat(
-                                                CType(s.stat, Enums.ItemStat),
+                                                CType(s.stat, ItemStatType),
                                                 s.amount,
                                                 s.reforgedAmount,
                                                 s.reforged
@@ -220,7 +220,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                                 ri.tooltipParams.reforge,
                                                 ri.tooltipParams.transmogItem,
                                                 If(
-                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                                         ri.tooltipParams.upgrade.current,
                                                         ri.tooltipParams.upgrade.total,
                                                         ri.tooltipParams.upgrade.itemLevelIncrement
@@ -231,7 +231,7 @@ Namespace roncliProductions.LibWowAPI.Data.CharacterAchievements
                                         (
                                             From s In ri.stats
                                             Select New Item.ItemStat(
-                                                CType(s.stat, Enums.ItemStat),
+                                                CType(s.stat, ItemStatType),
                                                 s.amount,
                                                 s.reforgedAmount,
                                                 s.reforged

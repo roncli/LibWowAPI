@@ -35,7 +35,7 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' </summary>
         ''' <value>This property gets the Bonuses field.</value>
         ''' <returns>Returns the bonuses to lookup on the item.</returns>
-        ''' <remarks>You can optionally add one or more bonus IDs into the query by adding each bonus ID into this property.  You can determine what the default Bonus ID is by checking the <see cref="Item.BonusSummary.DefaultBonuses" /> collection.  Additionally, you can determine what other possible Bonus IDs are allowed on an item by checking the <see cref="Item.BonusSummary.ChanceBonuses" /> property.</remarks>
+        ''' <remarks>You can optionally add one or more bonus IDs into the query by adding each bonus ID into this property.  You can determine what the default Bonus ID is by checking the <see cref="BonusSummary.DefaultBonuses" /> collection.  Additionally, you can determine what other possible Bonus IDs are allowed on an item by checking the <see cref="BonusSummary.ChanceBonuses" /> property.</remarks>
         Public ReadOnly Property Bonuses As Collection(Of Integer)
             Get
                 Return colBonuses

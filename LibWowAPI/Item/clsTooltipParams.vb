@@ -92,10 +92,10 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' </summary>
         ''' <value>This property gets or sets the Upgrade field.</value>
         ''' <returns>Returns information about the upgrades on the item.</returns>
-        ''' <remarks>This represents information about the upgrades on the item.</remarks>
-        Public Property Upgrade As Upgrade
+        ''' <remarks>This is a <see cref="TooltipParamsUpgrade" /> object that represents information about the upgrades on the item.</remarks>
+        Public Property Upgrade As TooltipParamsUpgrade
 
-        Friend Sub New(intGems As Collection(Of Integer), intSuffix As Integer, intSeed As Integer, intEnchant As Integer, blnExtraSocket As Boolean, intSet As Collection(Of Integer), intReforge As Integer, intTransmogItem As Integer, uUpgrade As Upgrade)
+        Friend Sub New(intGems As Collection(Of Integer), intSuffix As Integer, intSeed As Integer, intEnchant As Integer, blnExtraSocket As Boolean, intSet As Collection(Of Integer), intReforge As Integer, intTransmogItem As Integer, ttuUpgrade As TooltipParamsUpgrade)
             colGems = intGems
             Suffix = intSuffix
             Seed = intSeed
@@ -104,7 +104,7 @@ Namespace roncliProductions.LibWowAPI.Item
             colSet = intSet
             Reforge = intReforge
             TransmogItem = intTransmogItem
-            Upgrade = uUpgrade
+            Upgrade = ttuUpgrade
         End Sub
 
     End Class

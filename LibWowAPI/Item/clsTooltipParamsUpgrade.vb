@@ -9,7 +9,7 @@ Namespace roncliProductions.LibWowAPI.Item
     ''' A class containing information about an item's upgrades.
     ''' </summary>
     ''' <remarks>This class has information about an equipped item's upgrades.</remarks>
-    Public Class Upgrade
+    Public Class TooltipParamsUpgrade
 
         ''' <summary>
         ''' The current number of upgrades on the item.

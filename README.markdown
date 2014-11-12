@@ -161,6 +161,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
    * Added guild challenge modes to the guild profile lookup.
    * Added pets, pet slot, and character audit information to character profile lookup.
    * Added minimum item level to gem info for items.
+   * Added context and bonus information for items.
    * Added list of items to an item set in the items.
    * Added spell lookup. (Spell.SpellLookup)
    * Added ConnectedRealms to most realm objects.
@@ -194,7 +195,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
    * Refactored Class objects for characters to be called CharacterClass.
    * Refactored Class objects for items to be called ItemClass.  The ID field is now correctly called ClassID.
    * Refactored Subclass objects for items to be called ItemSubclass.  The ID field is now correctly called SubclassID.
-   * Renamed Stat enumeration to ItemStat.
+   * Renamed Stat enumeration to ItemStatType.
+   * ItemStatType.FeralAttackPower was removed.
    * Refactored Stat objects for items to be called ItemStat.
    * Refactored Stats objects for characters to be called CharacterStats.
    * Refactored Member objects for guilds to be called GuildMember.

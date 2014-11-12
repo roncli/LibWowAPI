@@ -397,7 +397,49 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This property is only set for items from the Cataclysm expansion or earlier.  See the <see cref="NameDescription" /> property for heroic items from Mists of Pandaria or later.</remarks>
         Public Property HeroicTooltip As Boolean
 
-        Friend Sub New(intItemID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, ccAllowableClasses As Collection(Of CharacterClass), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, isBonusStats As Collection(Of ItemStat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, icItemClass As ItemClass, isItemSubClass As ItemSubclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean)
+        ''' <summary>
+        ''' The context the item is obtained through.
+        ''' </summary>
+        ''' <value>This property gets or sets the Context field.</value>
+        ''' <returns>Returns the context the item is obtained through.</returns>
+        ''' <remarks>This represents the context the item is obtained through.</remarks>
+        Public Property Context As String
+
+        Private Property colBonuses As Collection(Of Integer)
+        ''' <summary>
+        ''' The list of bonus IDs that can be applied to this item.
+        ''' </summary>
+        ''' <value>This property gets the Bonuses field.</value>
+        ''' <returns>Returns the list of bonus IDs that can be applied to this item.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of Integer)" /> of bonus IDs that can be applied to this item.</remarks>
+        Public ReadOnly Property Bonuses As Collection(Of Integer)
+            Get
+                Return colBonuses
+            End Get
+        End Property
+
+        Private Property colAvailableContexts As Collection(Of String)
+        ''' <summary>
+        ''' The list of available contexts the item can be obtained through.
+        ''' </summary>
+        ''' <value>This property gets the AvailableContexts field.</value>
+        ''' <returns>Returns the list of available contexts the item can be obtained through.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of String)" /> of contexts through which this item can be obtained.  To view this item under a different context, pass the context through the <see cref="ItemLookupOptions.Context" /> property of <see cref="ItemLookup.Options" />.</remarks>
+        Public ReadOnly Property AvailableContexts As Collection(Of String)
+            Get
+                Return colAvailableContexts
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A summary of potential bonuses that can be applied to the item.
+        ''' </summary>
+        ''' <value>This property gets or sets the BonusSummary field.</value>
+        ''' <returns>Returns a summary of potential bonuses that can be applied to the item.</returns>
+        ''' <remarks>This is a <see cref="BonusSummary" /> object that represents a summary of potential bonuses that can be applied to the item.</remarks>
+        Public Property BonusSummary As BonusSummary
+
+        Friend Sub New(intItemID As Integer, intDisenchantingSkillRank As Integer, strDescription As String, strName As String, strIcon As String, intStackSize As Integer, ccAllowableClasses As Collection(Of CharacterClass), bzBoundZone As BoundZone, rAllowableRaces As Collection(Of Race), bItemBind As Binding, isBonusStats As Collection(Of ItemStat), isItemSpells As Collection(Of ItemSpell), intBuyPrice As Integer, icItemClass As ItemClass, isItemSubClass As ItemSubclass, intContainerSlots As Integer, wiWeaponInfo As WeaponInfo, giGemInfo As GemInfo, itInventoryType As InventoryType, blnEquippable As Boolean, intItemLevel As Integer, isItemSet As ItemSet.ItemSet, intMaxCount As Integer, intMaxDurability As Integer, intRequiredFactionID As Integer, sMinStanding As Standing, qQuality As Quality, intSellPrice As Integer, pRequiredSkill As Profession, raRequiredAbility As RequiredAbility, intRequiredLevel As Integer, intRequiredSkillRank As Integer, strSockets As Collection(Of String), strSocketBonus As String, isItemSource As ItemSource, intBaseArmor As Integer, blnHasSockets As Boolean, blnIsAuctionable As Boolean, intTotalArmor As Integer, intDisplayInfoID As Integer, strNameDescription As String, cNameDescriptionColor As Color, blnUpgradable As Boolean, blnHeroicTooltip As Boolean, strContext As String, intBonuses As Collection(Of Integer), strAvailableContexts As Collection(Of String), bsBonusSummary As BonusSummary)
             ItemID = intItemID
             DisenchantingSkillRank = intDisenchantingSkillRank
             Description = strDescription
@@ -442,6 +484,10 @@ Namespace roncliProductions.LibWowAPI.Item
             NameDescriptionColor = cNameDescriptionColor
             Upgradable = blnUpgradable
             HeroicTooltip = blnHeroicTooltip
+            Context = strContext
+            colBonuses = intBonuses
+            colAvailableContexts = strAvailableContexts
+            BonusSummary = bsBonusSummary
         End Sub
 
     End Class

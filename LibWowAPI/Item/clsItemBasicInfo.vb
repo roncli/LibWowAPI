@@ -83,14 +83,14 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This is the amount of armor on the item.</remarks>
         Public Property Armor As Integer
 
-        Friend Sub New(intItemID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, isStats As Collection(Of ItemStat), intArmor As Integer)
+        Friend Sub New(intItemID As Integer, strName As String, strIcon As String, qQuality As Quality, intItemLevel As Integer, tpTooltipParams As TooltipParams, istStats As Collection(Of ItemStat), intArmor As Integer)
             ItemID = intItemID
             Name = strName
             Icon = strIcon
             Quality = qQuality
             ItemLevel = intItemLevel
             TooltipParams = tpTooltipParams
-            colStats = isStats
+            colStats = istStats
             Armor = intArmor
         End Sub
 

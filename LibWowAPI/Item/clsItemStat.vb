@@ -19,8 +19,8 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' </summary>
         ''' <value>This property gets or sets the Stat field.</value>
         ''' <returns>Returns the type of stat.</returns>
-        ''' <remarks>This is a <see cref="Enums.ItemStat" /> enumeration that represents the type of stat.</remarks>
-        Public Property Stat As Enums.ItemStat
+        ''' <remarks>This is a <see cref="ItemStatType" /> enumeration that represents the type of stat.</remarks>
+        Public Property Stat As ItemStatType
 
         ''' <summary>
         ''' The original amount of the stat, or the reforged amount if the item was reforged.
@@ -58,8 +58,8 @@ Namespace roncliProductions.LibWowAPI.Item
         ''' <remarks>This represents whether the item has been reforged.</remarks>
         Public Property Reforged As Boolean
 
-        Friend Sub New(isStat As Enums.ItemStat, intAmount As Integer, intReforgedAmount As Integer, blnReforged As Boolean)
-            Stat = isStat
+        Friend Sub New(istStat As ItemStatType, intAmount As Integer, intReforgedAmount As Integer, blnReforged As Boolean)
+            Stat = istStat
             Amount = intAmount
             ReforgedAmount = intReforgedAmount
             Reforged = blnReforged

@@ -141,7 +141,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                                                 ri.tooltipParams.reforge,
                                                 ri.tooltipParams.transmogItem,
                                                 If(
-                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                    ri.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                                         ri.tooltipParams.upgrade.current,
                                                         ri.tooltipParams.upgrade.total,
                                                         ri.tooltipParams.upgrade.itemLevelIncrement
@@ -152,7 +152,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                                         (
                                             From s In ri.stats
                                             Select New Item.ItemStat(
-                                                CType(s.stat, Enums.ItemStat),
+                                                CType(s.stat, ItemStatType),
                                                 s.amount,
                                                 s.reforgedAmount,
                                                 s.reforged
@@ -193,7 +193,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                                 r.item.tooltipParams.reforge,
                                 r.item.tooltipParams.transmogItem,
                                 If(
-                                    r.item.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                    r.item.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                         r.item.tooltipParams.upgrade.current,
                                         r.item.tooltipParams.upgrade.total,
                                         r.item.tooltipParams.upgrade.itemLevelIncrement
@@ -204,7 +204,7 @@ Namespace roncliProductions.LibWowAPI.Data.GuildRewards
                         (
                             From s In r.item.stats
                             Select New Item.ItemStat(
-                                CType(s.stat, Enums.ItemStat),
+                                CType(s.stat, ItemStatType),
                                 s.amount,
                                 s.reforgedAmount,
                                 s.reforged

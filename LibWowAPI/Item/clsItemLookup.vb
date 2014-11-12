@@ -88,9 +88,9 @@ Namespace roncliProductions.LibWowAPI.Item
             Get
                 QueryString.Clear()
                 If Options.Bonuses.Count > 0 Then
-                    QueryString.Add("realms", BonusList)
+                    QueryString.Add("bl", BonusList)
                 End If
-                Return New Uri(String.Format(CultureInfo.InvariantCulture,"/wow/item/{0}{1}",Options.ItemID,If(String.IsNullOrEmpty(Options.Context),"",String.Format(CultureInfo.InvariantCulture,"/{0}",Options.Context))), UriKind.Relative)
+                Return New Uri(String.Format(CultureInfo.InvariantCulture, "/wow/item/{0}{1}", Options.ItemID, If(String.IsNullOrEmpty(Options.Context), "", String.Format(CultureInfo.InvariantCulture, "/{0}", Options.Context))), UriKind.Relative)
             End Get
         End Property
 
@@ -130,10 +130,10 @@ Namespace roncliProductions.LibWowAPI.Item
                 ilItem.allowableRaces.GetRaces(),
                 CType(ilItem.itemBind, Binding),
                 If(
-                    ilItem.bonusStats.Count = 0, Nothing, (
+                    ilItem.bonusStats Is Nothing OrElse ilItem.bonusStats.Count = 0, Nothing, (
                         From s In ilItem.bonusStats
                         Select New ItemStat(
-                            CType(s.stat, Enums.ItemStat),
+                            CType(s.stat, ItemStatType),
                             s.amount,
                             s.reforgedAmount,
                             s.reforged
@@ -141,7 +141,7 @@ Namespace roncliProductions.LibWowAPI.Item
                         ).ToCollection()
                     ),
                 If(
-                    ilItem.itemSpells.Count = 0, Nothing, (
+                    ilItem.itemSpells Is Nothing OrElse ilItem.itemSpells.Count = 0, Nothing, (
                         From s In ilItem.itemSpells
                         Select New ItemSpell(
                             s.spellId,
@@ -252,7 +252,40 @@ Namespace roncliProductions.LibWowAPI.Item
                 ilItem.nameDescription,
                 ilItem.nameDescriptionColor.RgbHexToColor(),
                 ilItem.upgradable,
-                ilItem.heroicTooltip
+                ilItem.heroicTooltip,
+                ilItem.context,
+                If(ilItem.bonusLists Is Nothing, Nothing, ilItem.bonusLists.ToCollection()),
+                If(ilItem.availableContexts Is Nothing, Nothing, ilItem.availableContexts.ToCollection()),
+                If(
+                    ilItem.bonusSummary Is Nothing, Nothing, New BonusSummary(
+                        If(ilItem.bonusSummary.defaultBonusLists Is Nothing, Nothing, ilItem.bonusSummary.defaultBonusLists.ToCollection()),
+                        If(ilItem.bonusSummary.chanceBonusLists Is Nothing, Nothing, ilItem.bonusSummary.chanceBonusLists.ToCollection()),
+                        If(
+                            ilItem.bonusSummary.bonusChances Is Nothing, Nothing, (
+                                From c In ilItem.bonusSummary.bonusChances
+                                Select New BonusChance(
+                                    c.chanceType,
+                                    If(c.upgrade Is Nothing, Nothing, New BonusChanceUpgrade(c.upgrade.upgradeType, c.upgrade.name, c.upgrade.id)),
+                                    If(
+                                        c.stats Is Nothing, Nothing, (
+                                            From s In c.stats
+                                            Select New BonusChanceStat(
+                                                s.statId.GetItemStatType(),
+                                                s.delta
+                                                )
+                                            ).ToCollection()
+                                        ),
+                                    If(
+                                        c.sockets Is Nothing, Nothing, (
+                                            From s In c.sockets
+                                            Select s.socketType
+                                            ).ToCollection()
+                                        )
+                                    )
+                                ).ToCollection()
+                            )
+                        )
+                    )
                 )
         End Sub
 

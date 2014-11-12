@@ -121,6 +121,11 @@
     <Compile Include="Character\clsArenaBracket.vb" />
     <Compile Include="Character\clsCharacterBasicInfo.vb" />
     <Compile Include="Data\Talents\clsTalentSlot.vb" />
+    <Compile Include="Item\bonusChance_socket.vb" />
+    <Compile Include="Item\clsBonusChance.vb" />
+    <Compile Include="Item\clsBonusChanceStat.vb" />
+    <Compile Include="Item\clsBonusChanceUpgrade.vb" />
+    <Compile Include="Item\clsBonusSummary.vb" />
     <Compile Include="Item\clsItemBasicInfo.vb" />
     <Compile Include="Character\clsLowLevelItems.vb" />
     <Compile Include="Character\clsEquipmentCount.vb" />
@@ -157,7 +162,7 @@
     <Compile Include="Character\clsTalentSpec.vb" />
     <Compile Include="Character\clsTitle.vb" />
     <Compile Include="Item\clsTooltipParams.vb" />
-    <Compile Include="Item\clsUpgrade.vb" />
+    <Compile Include="Item\clsTooltipParamsUpgrade.vb" />
     <Compile Include="Character\Schema\characterBasicInfo.vb" />
     <Compile Include="Character\Schema\lowLevelItems.vb" />
     <Compile Include="Character\Schema\audit.vb" />
@@ -258,7 +263,7 @@
     <Compile Include="Item\Schema\gemInfo.vb" />
     <Compile Include="Item\Schema\itemSource.vb" />
     <Compile Include="Item\Schema\requiredAbility.vb" />
-    <Compile Include="Item\Schema\socket.vb" />
+    <Compile Include="Item\Schema\socketInfo_socket.vb" />
     <Compile Include="Item\Schema\socketInfo.vb" />
     <Compile Include="Item\Schema\type.vb" />
     <Compile Include="Item\Schema\tooltipParams_upgrade.vb" />

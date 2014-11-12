@@ -7,10 +7,9 @@ Imports System.Runtime.Serialization
 
 Namespace roncliProductions.LibWowAPI.Item.Schema
 
-    <DataContract()> Friend Class socketInfo
+    <DataContract()> Friend Class bonusChance_socket
 
-        <DataMember()> Public Property sockets As socketInfo_socket()
-        <DataMember()> Public Property socketBonus As String
+        <DataMember()> Public Property socketType As String
 
     End Class
 

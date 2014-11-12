@@ -448,10 +448,10 @@ Namespace roncliProductions.LibWowAPI.Enums
     ''' An enumeration to describe a combat statistic type.
     ''' </summary>
     ''' <remarks>This enumeration is used by the <see cref="LibWowAPI.Item.ItemLookup" /> class to determine a type of combat statistic.</remarks>
-    Public Enum ItemStat
-        None = 0
+    Public Enum ItemStatType
+        ILevel = -1
+        Mana = 0
         Health = 1
-        Mana = 2
         Agility = 3
         Strength = 4
         Intellect = 5
@@ -485,7 +485,7 @@ Namespace roncliProductions.LibWowAPI.Enums
         ExpertiseRating = 37
         AttackPower = 38
         RangedAttackPower = 39
-        FeralAttackPower = 40
+        Versatility = 40
         SpellHealingDone = 41
         SpellDamageDone = 42
         ManaRegeneration = 43
@@ -498,10 +498,19 @@ Namespace roncliProductions.LibWowAPI.Enums
         ExtraArmor = 50
         FireResistance = 51
         FrostResistance = 52
+        HolyResistance = 53
         ShadowResistance = 54
         NatureResistance = 55
         ArcaneResistance = 56
         PvpPowerRating = 57
+        Amplify = 58
+        Multistrike = 59
+        Readiness = 60
+        Speed = 61
+        LifeSteal = 62
+        Avoidance = 63
+        Sturdiness = 64
+        Cleave = 66
     End Enum
 
     ''' <summary>

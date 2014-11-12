@@ -1830,6 +1830,8 @@ Namespace roncliProductions.LibWowAPIDemo
 
             ' First, setup some variables
             Dim intItemID As Integer
+            Dim strContext As String
+            Dim lstBonusIDs As New List(Of Integer)
 
             ' Next, get the item ID.
             Do
@@ -1844,8 +1846,38 @@ Namespace roncliProductions.LibWowAPIDemo
                 End If
             Loop
 
+            ' Next, get the context.
+            Console.WriteLine()
+            Console.WriteLine("Please enter the context for the item, or press enter to proceed.")
+            Console.Write(">")
+            strContext = Console.ReadLine
+            Console.WriteLine()
+
+            ' Next, get the list of bonus IDs.
+            Do
+                Console.WriteLine()
+                Console.WriteLine("Please enter a bonus ID number, or press enter to proceed.")
+                Console.Write(">")
+                Dim strResponse = Console.ReadLine
+                Dim intResponse As Integer
+                If String.IsNullOrEmpty(strResponse) Then
+                    Exit Do
+                End If
+                If Integer.TryParse(strResponse, intResponse) Then
+                    lstBonusIDs.Add(intResponse)
+                End If
+            Loop
+
             ' Get the Item.
-            Dim iItem As New ItemLookup(intItemID)
+            Dim iItem As New ItemLookup()
+            iItem.Options.ItemID = intItemID
+            If Not String.IsNullOrEmpty(strContext) Then
+                iItem.Options.Context = strContext
+            End If
+            For Each intBonusID In lstBonusIDs
+                iItem.Options.Bonuses.Add(intBonusID)
+            Next
+            iItem.Load()
 
             ' Show the item.
             Console.Clear()
@@ -1855,6 +1887,9 @@ Namespace roncliProductions.LibWowAPIDemo
             End If
 
             Console.WriteLine("{0} - ID: {1} - Quality: {2}", iItem.Item.Name, iItem.Item.ItemID, iItem.Item.Quality)
+            If Not String.IsNullOrEmpty(iItem.Item.Context) Then
+                Console.WriteLine("Context: {0}", iItem.Item.Context)
+            End If
             If iItem.Item.ItemBind <> Enums.Binding.NoBinding Then
                 Console.WriteLine("Binding: {0}", iItem.Item.ItemBind)
             End If
@@ -2005,7 +2040,40 @@ Namespace roncliProductions.LibWowAPIDemo
             If iItem.Item.IsAuctionable Then
                 Console.WriteLine("Is Auctionable")
             End If
-            Console.WriteLine()
+            If iItem.Item.Bonuses IsNot Nothing Then
+                Console.WriteLine("Bonus IDs: {0}", String.Join(",", iItem.Item.Bonuses))
+            End If
+            If iItem.Item.AvailableContexts IsNot Nothing Then
+                Console.WriteLine("Available Contexts: {0}", String.Join(",", iItem.Item.AvailableContexts))
+            End If
+            If iItem.Item.BonusSummary IsNot Nothing Then
+                Console.WriteLine("Bonus Summary:")
+                If iItem.Item.BonusSummary.DefaultBonuses IsNot Nothing Then
+                    Console.WriteLine("  Default Bonuses: {0}", String.Join(",", iItem.Item.BonusSummary.DefaultBonuses))
+                End If
+                If iItem.Item.BonusSummary.ChanceBonuses IsNot Nothing Then
+                    Console.WriteLine("  Chance Bonuses: {0}", String.Join(",", iItem.Item.BonusSummary.ChanceBonuses))
+                End If
+                If iItem.Item.BonusSummary.BonusChances IsNot Nothing Then
+                    Console.WriteLine("  Possible Bonuses:")
+                    For Each bcChance In iItem.Item.BonusSummary.BonusChances
+                        Console.WriteLine("    Chance Type: {0}", bcChance.ChanceType)
+                        If bcChance.Upgrade IsNot Nothing Then
+                            Console.WriteLine("      Upgrade: {0}) {1}", bcChance.Upgrade.UpgradeID, bcChance.Upgrade.Name)
+                        End If
+                        If bcChance.Stats IsNot Nothing Then
+                            For Each bcsStat In bcChance.Stats
+                                Console.WriteLine("        {0} {1}", bcsStat.Delta, bcsStat.Stat)
+                            Next
+                        End If
+                        If bcChance.Sockets IsNot Nothing Then
+                            For Each strSocket In bcChance.Sockets
+                                Console.WriteLine("        Socket: {0}", strSocket)
+                            Next
+                        End If
+                    Next
+                End If
+            End If
 
             Console.WriteLine("Press any key to continue.")
             Console.ReadKey(True)

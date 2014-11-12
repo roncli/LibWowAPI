@@ -174,7 +174,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.head.tooltipParams.reforge,
                                     cpCharacter.items.head.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.head.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.head.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.head.tooltipParams.upgrade.current,
                                             cpCharacter.items.head.tooltipParams.upgrade.total,
                                             cpCharacter.items.head.tooltipParams.upgrade.itemLevelIncrement
@@ -184,7 +184,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.head.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -210,7 +210,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.neck.tooltipParams.reforge,
                                     cpCharacter.items.neck.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.neck.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.neck.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.neck.tooltipParams.upgrade.current,
                                             cpCharacter.items.neck.tooltipParams.upgrade.total,
                                             cpCharacter.items.neck.tooltipParams.upgrade.itemLevelIncrement
@@ -220,7 +220,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.neck.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -246,7 +246,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.shoulder.tooltipParams.reforge,
                                     cpCharacter.items.shoulder.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.shoulder.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.shoulder.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.shoulder.tooltipParams.upgrade.current,
                                             cpCharacter.items.shoulder.tooltipParams.upgrade.total,
                                             cpCharacter.items.shoulder.tooltipParams.upgrade.itemLevelIncrement
@@ -256,7 +256,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.shoulder.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -282,7 +282,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.back.tooltipParams.reforge,
                                     cpCharacter.items.back.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.back.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.back.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.back.tooltipParams.upgrade.current,
                                             cpCharacter.items.back.tooltipParams.upgrade.total,
                                             cpCharacter.items.back.tooltipParams.upgrade.itemLevelIncrement
@@ -292,7 +292,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.back.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -318,7 +318,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.chest.tooltipParams.reforge,
                                     cpCharacter.items.chest.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.chest.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.chest.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.chest.tooltipParams.upgrade.current,
                                             cpCharacter.items.chest.tooltipParams.upgrade.total,
                                             cpCharacter.items.chest.tooltipParams.upgrade.itemLevelIncrement
@@ -328,7 +328,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.chest.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -354,7 +354,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.shirt.tooltipParams.reforge,
                                     cpCharacter.items.shirt.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.shirt.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.shirt.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.shirt.tooltipParams.upgrade.current,
                                             cpCharacter.items.shirt.tooltipParams.upgrade.total,
                                             cpCharacter.items.shirt.tooltipParams.upgrade.itemLevelIncrement
@@ -364,7 +364,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.shirt.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -390,7 +390,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.tabard.tooltipParams.reforge,
                                     cpCharacter.items.tabard.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.tabard.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.tabard.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.tabard.tooltipParams.upgrade.current,
                                             cpCharacter.items.tabard.tooltipParams.upgrade.total,
                                             cpCharacter.items.tabard.tooltipParams.upgrade.itemLevelIncrement
@@ -400,7 +400,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.tabard.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -426,7 +426,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.wrist.tooltipParams.reforge,
                                     cpCharacter.items.wrist.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.wrist.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.wrist.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.wrist.tooltipParams.upgrade.current,
                                             cpCharacter.items.wrist.tooltipParams.upgrade.total,
                                             cpCharacter.items.wrist.tooltipParams.upgrade.itemLevelIncrement
@@ -436,7 +436,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.wrist.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -462,7 +462,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.hands.tooltipParams.reforge,
                                     cpCharacter.items.hands.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.hands.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.hands.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.hands.tooltipParams.upgrade.current,
                                             cpCharacter.items.hands.tooltipParams.upgrade.total,
                                             cpCharacter.items.hands.tooltipParams.upgrade.itemLevelIncrement
@@ -472,7 +472,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.hands.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -498,7 +498,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.waist.tooltipParams.reforge,
                                     cpCharacter.items.waist.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.waist.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.waist.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.waist.tooltipParams.upgrade.current,
                                             cpCharacter.items.waist.tooltipParams.upgrade.total,
                                             cpCharacter.items.waist.tooltipParams.upgrade.itemLevelIncrement
@@ -508,7 +508,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.waist.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -534,7 +534,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.legs.tooltipParams.reforge,
                                     cpCharacter.items.legs.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.legs.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.legs.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.legs.tooltipParams.upgrade.current,
                                             cpCharacter.items.legs.tooltipParams.upgrade.total,
                                             cpCharacter.items.legs.tooltipParams.upgrade.itemLevelIncrement
@@ -544,7 +544,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.legs.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -570,7 +570,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.feet.tooltipParams.reforge,
                                     cpCharacter.items.feet.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.feet.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.feet.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.feet.tooltipParams.upgrade.current,
                                             cpCharacter.items.feet.tooltipParams.upgrade.total,
                                             cpCharacter.items.feet.tooltipParams.upgrade.itemLevelIncrement
@@ -580,7 +580,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.feet.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -606,7 +606,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.finger1.tooltipParams.reforge,
                                     cpCharacter.items.finger1.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.finger1.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.finger1.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.finger1.tooltipParams.upgrade.current,
                                             cpCharacter.items.finger1.tooltipParams.upgrade.total,
                                             cpCharacter.items.finger1.tooltipParams.upgrade.itemLevelIncrement
@@ -616,7 +616,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.finger1.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -642,7 +642,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.finger2.tooltipParams.reforge,
                                     cpCharacter.items.finger2.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.finger2.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.finger2.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.finger2.tooltipParams.upgrade.current,
                                             cpCharacter.items.finger2.tooltipParams.upgrade.total,
                                             cpCharacter.items.finger2.tooltipParams.upgrade.itemLevelIncrement
@@ -652,7 +652,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.finger2.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -678,7 +678,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.trinket1.tooltipParams.reforge,
                                     cpCharacter.items.trinket1.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.trinket1.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.trinket1.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.trinket1.tooltipParams.upgrade.current,
                                             cpCharacter.items.trinket1.tooltipParams.upgrade.total,
                                             cpCharacter.items.trinket1.tooltipParams.upgrade.itemLevelIncrement
@@ -688,7 +688,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.trinket1.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -714,7 +714,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.trinket2.tooltipParams.reforge,
                                     cpCharacter.items.trinket2.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.trinket2.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.trinket2.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.trinket2.tooltipParams.upgrade.current,
                                             cpCharacter.items.trinket2.tooltipParams.upgrade.total,
                                             cpCharacter.items.trinket2.tooltipParams.upgrade.itemLevelIncrement
@@ -724,7 +724,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.trinket2.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -750,7 +750,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.mainHand.tooltipParams.reforge,
                                     cpCharacter.items.mainHand.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.mainHand.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.mainHand.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.mainHand.tooltipParams.upgrade.current,
                                             cpCharacter.items.mainHand.tooltipParams.upgrade.total,
                                             cpCharacter.items.mainHand.tooltipParams.upgrade.itemLevelIncrement
@@ -760,7 +760,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.mainHand.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -786,7 +786,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.items.offHand.tooltipParams.reforge,
                                     cpCharacter.items.offHand.tooltipParams.transmogItem,
                                     If(
-                                        cpCharacter.items.offHand.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                        cpCharacter.items.offHand.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                             cpCharacter.items.offHand.tooltipParams.upgrade.current,
                                             cpCharacter.items.offHand.tooltipParams.upgrade.total,
                                             cpCharacter.items.offHand.tooltipParams.upgrade.itemLevelIncrement
@@ -796,7 +796,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                 (
                                     From s In cpCharacter.items.offHand.stats
                                     Select New Item.ItemStat(
-                                        CType(s.stat, Enums.ItemStat),
+                                        CType(s.stat, ItemStatType),
                                         s.amount,
                                         s.reforgedAmount,
                                         s.reforged
@@ -1201,7 +1201,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     cpCharacter.audit.recommendedBeltBuckle.bonusStats.Count = 0, Nothing, (
                                         From s In cpCharacter.audit.recommendedBeltBuckle.bonusStats
                                         Select New Item.ItemStat(
-                                            CType(s.stat, Enums.ItemStat),
+                                            CType(s.stat, ItemStatType),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -1320,7 +1320,40 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.audit.recommendedBeltBuckle.nameDescription,
                                 cpCharacter.audit.recommendedBeltBuckle.nameDescriptionColor.RgbHexToColor(),
                                 cpCharacter.audit.recommendedBeltBuckle.upgradable,
-                                cpCharacter.audit.recommendedBeltBuckle.heroicTooltip
+                                cpCharacter.audit.recommendedBeltBuckle.heroicTooltip,
+                                cpCharacter.audit.recommendedBeltBuckle.context,
+                                If(cpCharacter.audit.recommendedBeltBuckle.bonusLists Is Nothing, Nothing, cpCharacter.audit.recommendedBeltBuckle.bonusLists.ToCollection()),
+                                If(cpCharacter.audit.recommendedBeltBuckle.availableContexts Is Nothing, Nothing, cpCharacter.audit.recommendedBeltBuckle.availableContexts.ToCollection()),
+                                If(
+                                    cpCharacter.audit.recommendedBeltBuckle.bonusSummary Is Nothing, Nothing, New BonusSummary(
+                                        If(cpCharacter.audit.recommendedBeltBuckle.bonusSummary.defaultBonusLists Is Nothing, Nothing, cpCharacter.audit.recommendedBeltBuckle.bonusSummary.defaultBonusLists.ToCollection()),
+                                        If(cpCharacter.audit.recommendedBeltBuckle.bonusSummary.chanceBonusLists Is Nothing, Nothing, cpCharacter.audit.recommendedBeltBuckle.bonusSummary.chanceBonusLists.ToCollection()),
+                                        If(
+                                            cpCharacter.audit.recommendedBeltBuckle.bonusSummary.bonusChances Is Nothing, Nothing, (
+                                                From c In cpCharacter.audit.recommendedBeltBuckle.bonusSummary.bonusChances
+                                                Select New BonusChance(
+                                                    c.chanceType,
+                                                    If(c.upgrade Is Nothing, Nothing, New BonusChanceUpgrade(c.upgrade.upgradeType, c.upgrade.name, c.upgrade.id)),
+                                                    If(
+                                                        c.stats Is Nothing, Nothing, (
+                                                            From s In c.stats
+                                                            Select New BonusChanceStat(
+                                                                s.statId.GetItemStatType(),
+                                                                s.delta
+                                                                )
+                                                            ).ToCollection()
+                                                        ),
+                                                    If(
+                                                        c.sockets Is Nothing, Nothing, (
+                                                            From s In c.sockets
+                                                            Select s.socketType
+                                                            ).ToCollection()
+                                                        )
+                                                    )
+                                                ).ToCollection()
+                                            )
+                                        )
+                                    )
                                 )
                             ),
                         (
@@ -1350,143 +1383,177 @@ Namespace roncliProductions.LibWowAPI.Character
                                 cpCharacter.audit.recommendedJewelcrafterGem.stackable,
                                 cpCharacter.audit.recommendedJewelcrafterGem.allowableClasses.GetClasses(),
                                 If(cpCharacter.audit.recommendedJewelcrafterGem.boundZone Is Nothing, Nothing,
-                                    New BoundZone(cpCharacter.audit.recommendedJewelcrafterGem.boundZone.id, cpCharacter.audit.recommendedJewelcrafterGem.boundZone.name)
-                                    ),
-                                cpCharacter.audit.recommendedJewelcrafterGem.allowableRaces.GetRaces(),
-                                CType(cpCharacter.audit.recommendedJewelcrafterGem.itemBind, Binding),
-                                If(
-                                    cpCharacter.audit.recommendedJewelcrafterGem.bonusStats.Count = 0, Nothing, (
-                                        From s In cpCharacter.audit.recommendedJewelcrafterGem.bonusStats
-                                        Select New Item.ItemStat(
-                                            CType(s.stat, Enums.ItemStat),
-                                            s.amount,
-                                            s.reforgedAmount,
-                                            s.reforged
-                                            )
-                                        ).ToCollection()
-                                    ),
-                                If(
-                                    cpCharacter.audit.recommendedJewelcrafterGem.itemSpells.Count = 0, Nothing, (
-                                        From s In cpCharacter.audit.recommendedJewelcrafterGem.itemSpells
-                                        Select New ItemSpell(
-                                            s.spellId,
-                                            New Spell.Spell(
-                                                s.spell.id,
-                                                s.spell.name,
-                                                s.spell.subtext,
-                                                s.spell.icon,
-                                                s.spell.description,
-                                                s.spell.range,
-                                                s.spell.powerCost,
-                                                s.spell.castTime,
-                                                s.spell.cooldown
-                                                ),
-                                            s.nCharges,
-                                            s.consumable,
-                                            s.categoryId,
-                                            s.trigger.GetItemSpellTrigger()
-                                            )
-                                        ).ToCollection()
-                                    ),
-                                cpCharacter.audit.recommendedJewelcrafterGem.buyPrice,
-                                cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemClass(),
-                                cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemSubclassForClass(cpCharacter.audit.recommendedJewelcrafterGem.itemSubClass),
-                                cpCharacter.audit.recommendedJewelcrafterGem.containerSlots,
-                                If(cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo Is Nothing, Nothing,
-                                    New WeaponInfo(
-                                        (
-                                            From d In cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage
-                                            Select New Damage(
-                                                d.min,
-                                                d.max,
-                                                d.exactMin,
-                                                d.exactMax
-                                                )
-                                            ).ToCollection(),
-                                        cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.weaponSpeed,
-                                        cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.dps
-                                        )
-                                    ),
-                                If(cpCharacter.audit.recommendedJewelcrafterGem.gemInfo Is Nothing, Nothing,
-                                    New GemInfo(
-                                        New Bonus(
-                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.name,
-                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.srcItemId,
-                                            CType(cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.requiredSkillId, Enums.Profession),
-                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.requiredSkillRank,
-                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.minLevel,
-                                            cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.itemLevel
-                                            ),
-                                        cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.type.type,
-                                        cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.minItemLevel
-                                        )
-                                    ),
-                                CType(cpCharacter.audit.recommendedJewelcrafterGem.inventoryType, InventoryType),
-                                cpCharacter.audit.recommendedJewelcrafterGem.equippable,
-                                cpCharacter.audit.recommendedJewelcrafterGem.itemLevel,
-                                If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet Is Nothing, Nothing,
-                                   New ItemSet.ItemSet(
-                                       cpCharacter.audit.recommendedJewelcrafterGem.itemSet.id,
-                                       cpCharacter.audit.recommendedJewelcrafterGem.itemSet.name,
-                                       If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet.setBonuses Is Nothing, Nothing,
-                                           (
-                                               From sb In cpCharacter.audit.recommendedJewelcrafterGem.itemSet.setBonuses
-                                               Select New SetBonus(
-                                                   sb.description,
-                                                   sb.threshold
-                                                   )
-                                               ).ToCollection()
-                                           ),
-                                       cpCharacter.audit.recommendedJewelcrafterGem.itemSet.items.ToCollection()
-                                       )
+                                   New BoundZone(cpCharacter.audit.recommendedJewelcrafterGem.boundZone.id, cpCharacter.audit.recommendedJewelcrafterGem.boundZone.name)
                                    ),
-                                cpCharacter.audit.recommendedJewelcrafterGem.maxCount,
-                                cpCharacter.audit.recommendedJewelcrafterGem.maxDurability,
-                                cpCharacter.audit.recommendedJewelcrafterGem.minFactionId,
-                                CType(cpCharacter.audit.recommendedJewelcrafterGem.minReputation, Standing),
-                                CType(cpCharacter.audit.recommendedJewelcrafterGem.quality, Quality),
-                                cpCharacter.audit.recommendedJewelcrafterGem.sellPrice,
-                                CType(cpCharacter.audit.recommendedJewelcrafterGem.requiredSkill, Enums.Profession),
-                                If(cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility Is Nothing, Nothing,
-                                    New RequiredAbility(
-                                        cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.spellId,
-                                        cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.name,
-                                        cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.description
-                                        )
-                                    ),
-                                cpCharacter.audit.recommendedJewelcrafterGem.requiredLevel,
-                                cpCharacter.audit.recommendedJewelcrafterGem.requiredSkillRank,
-                                If(cpCharacter.audit.recommendedJewelcrafterGem.socketInfo Is Nothing OrElse cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.sockets.Count = 0, Nothing,
-                                    (
-                                        From s In cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.sockets
-                                        Select s.type
-                                        ).ToCollection()
-                                    ),
-                                If(cpCharacter.audit.recommendedJewelcrafterGem.socketInfo Is Nothing, Nothing, cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.socketBonus),
-                                If(cpCharacter.audit.recommendedJewelcrafterGem.itemSource Is Nothing, Nothing,
-                                    New ItemSource(
-                                        cpCharacter.audit.recommendedJewelcrafterGem.itemSource.sourceId,
-                                        cpCharacter.audit.recommendedJewelcrafterGem.itemSource.sourceType
-                                        )
-                                    ),
-                                cpCharacter.audit.recommendedJewelcrafterGem.baseArmor,
-                                cpCharacter.audit.recommendedJewelcrafterGem.hasSockets,
-                                cpCharacter.audit.recommendedJewelcrafterGem.isAuctionable,
-                                cpCharacter.audit.recommendedJewelcrafterGem.armor,
-                                cpCharacter.audit.recommendedJewelcrafterGem.displayInfoId,
-                                cpCharacter.audit.recommendedJewelcrafterGem.nameDescription,
-                                cpCharacter.audit.recommendedJewelcrafterGem.nameDescriptionColor.RgbHexToColor(),
-                                cpCharacter.audit.recommendedJewelcrafterGem.upgradable,
-                                cpCharacter.audit.recommendedJewelcrafterGem.heroicTooltip
+                               cpCharacter.audit.recommendedJewelcrafterGem.allowableRaces.GetRaces(),
+                               CType(cpCharacter.audit.recommendedJewelcrafterGem.itemBind, Binding),
+                               If(
+                                   cpCharacter.audit.recommendedJewelcrafterGem.bonusStats.Count = 0, Nothing, (
+                                       From s In cpCharacter.audit.recommendedJewelcrafterGem.bonusStats
+                                       Select New Item.ItemStat(
+                                           CType(s.stat, ItemStatType),
+                                           s.amount,
+                                           s.reforgedAmount,
+                                           s.reforged
+                                           )
+                                       ).ToCollection()
+                                   ),
+                               If(
+                                   cpCharacter.audit.recommendedJewelcrafterGem.itemSpells.Count = 0, Nothing, (
+                                       From s In cpCharacter.audit.recommendedJewelcrafterGem.itemSpells
+                                       Select New ItemSpell(
+                                           s.spellId,
+                                           New Spell.Spell(
+                                               s.spell.id,
+                                               s.spell.name,
+                                               s.spell.subtext,
+                                               s.spell.icon,
+                                               s.spell.description,
+                                               s.spell.range,
+                                               s.spell.powerCost,
+                                               s.spell.castTime,
+                                               s.spell.cooldown
+                                               ),
+                                           s.nCharges,
+                                           s.consumable,
+                                           s.categoryId,
+                                           s.trigger.GetItemSpellTrigger()
+                                           )
+                                       ).ToCollection()
+                                   ),
+                               cpCharacter.audit.recommendedJewelcrafterGem.buyPrice,
+                               cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemClass(),
+                               cpCharacter.audit.recommendedJewelcrafterGem.itemClass.GetItemSubclassForClass(cpCharacter.audit.recommendedJewelcrafterGem.itemSubClass),
+                               cpCharacter.audit.recommendedJewelcrafterGem.containerSlots,
+                               If(cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo Is Nothing, Nothing,
+                                  New WeaponInfo(
+                                      (
+                                          From d In cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.damage
+                                          Select New Damage(
+                                              d.min,
+                                              d.max,
+                                              d.exactMin,
+                                              d.exactMax
+                                              )
+                                          ).ToCollection(),
+                                      cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.weaponSpeed,
+                                      cpCharacter.audit.recommendedJewelcrafterGem.weaponInfo.dps
+                                      )
+                                  ),
+                              If(cpCharacter.audit.recommendedJewelcrafterGem.gemInfo Is Nothing, Nothing,
+                                 New GemInfo(
+                                     New Bonus(
+                                         cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.name,
+                                         cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.srcItemId,
+                                         CType(cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.requiredSkillId, Enums.Profession),
+                                         cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.requiredSkillRank,
+                                         cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.minLevel,
+                                         cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.bonus.itemLevel
+                                         ),
+                                     cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.type.type,
+                                     cpCharacter.audit.recommendedJewelcrafterGem.gemInfo.minItemLevel
+                                     )
+                                 ),
+                             CType(cpCharacter.audit.recommendedJewelcrafterGem.inventoryType, InventoryType),
+                             cpCharacter.audit.recommendedJewelcrafterGem.equippable,
+                             cpCharacter.audit.recommendedJewelcrafterGem.itemLevel,
+                             If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet Is Nothing, Nothing,
+                                New ItemSet.ItemSet(
+                                    cpCharacter.audit.recommendedJewelcrafterGem.itemSet.id,
+                                    cpCharacter.audit.recommendedJewelcrafterGem.itemSet.name,
+                                    If(cpCharacter.audit.recommendedJewelcrafterGem.itemSet.setBonuses Is Nothing, Nothing,
+                                       (
+                                           From sb In cpCharacter.audit.recommendedJewelcrafterGem.itemSet.setBonuses
+                                           Select New SetBonus(
+                                               sb.description,
+                                               sb.threshold
+                                               )
+                                           ).ToCollection()
+                                       ),
+                                   cpCharacter.audit.recommendedJewelcrafterGem.itemSet.items.ToCollection()
+                                   )
+                               ),
+                           cpCharacter.audit.recommendedJewelcrafterGem.maxCount,
+                           cpCharacter.audit.recommendedJewelcrafterGem.maxDurability,
+                           cpCharacter.audit.recommendedJewelcrafterGem.minFactionId,
+                           CType(cpCharacter.audit.recommendedJewelcrafterGem.minReputation, Standing),
+                           CType(cpCharacter.audit.recommendedJewelcrafterGem.quality, Quality),
+                           cpCharacter.audit.recommendedJewelcrafterGem.sellPrice,
+                           CType(cpCharacter.audit.recommendedJewelcrafterGem.requiredSkill, Enums.Profession),
+                           If(cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility Is Nothing, Nothing,
+                              New RequiredAbility(
+                                  cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.spellId,
+                                  cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.name,
+                                  cpCharacter.audit.recommendedJewelcrafterGem.requiredAbility.description
+                                  )
+                              ),
+                          cpCharacter.audit.recommendedJewelcrafterGem.requiredLevel,
+                          cpCharacter.audit.recommendedJewelcrafterGem.requiredSkillRank,
+                          If(cpCharacter.audit.recommendedJewelcrafterGem.socketInfo Is Nothing OrElse cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.sockets.Count = 0, Nothing,
+                             (
+                                 From s In cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.sockets
+                                 Select s.type
+                                 ).ToCollection()
+                             ),
+                         If(cpCharacter.audit.recommendedJewelcrafterGem.socketInfo Is Nothing, Nothing, cpCharacter.audit.recommendedJewelcrafterGem.socketInfo.socketBonus),
+                         If(cpCharacter.audit.recommendedJewelcrafterGem.itemSource Is Nothing, Nothing,
+                            New ItemSource(
+                                cpCharacter.audit.recommendedJewelcrafterGem.itemSource.sourceId,
+                                cpCharacter.audit.recommendedJewelcrafterGem.itemSource.sourceType
                                 )
                             ),
-                        (
-                            From e In cpCharacter.audit.missingLeatherworkerEnchants
-                            Select New EquipmentCount(CType(CInt(e.Key), EquipmentSlot), e.Value)
-                            ).ToCollection()
+                        cpCharacter.audit.recommendedJewelcrafterGem.baseArmor,
+                        cpCharacter.audit.recommendedJewelcrafterGem.hasSockets,
+                        cpCharacter.audit.recommendedJewelcrafterGem.isAuctionable,
+                        cpCharacter.audit.recommendedJewelcrafterGem.armor,
+                        cpCharacter.audit.recommendedJewelcrafterGem.displayInfoId,
+                        cpCharacter.audit.recommendedJewelcrafterGem.nameDescription,
+                        cpCharacter.audit.recommendedJewelcrafterGem.nameDescriptionColor.RgbHexToColor(),
+                        cpCharacter.audit.recommendedJewelcrafterGem.upgradable,
+                        cpCharacter.audit.recommendedJewelcrafterGem.heroicTooltip,
+                        cpCharacter.audit.recommendedJewelcrafterGem.context,
+                        If(cpCharacter.audit.recommendedJewelcrafterGem.bonusLists Is Nothing, Nothing, cpCharacter.audit.recommendedJewelcrafterGem.bonusLists.ToCollection()),
+                        If(cpCharacter.audit.recommendedJewelcrafterGem.availableContexts Is Nothing, Nothing, cpCharacter.audit.recommendedJewelcrafterGem.availableContexts.ToCollection()),
+                        If(
+                            cpCharacter.audit.recommendedJewelcrafterGem.bonusSummary Is Nothing, Nothing, New BonusSummary(
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.bonusSummary.defaultBonusLists Is Nothing, Nothing, cpCharacter.audit.recommendedJewelcrafterGem.bonusSummary.defaultBonusLists.ToCollection()),
+                                If(cpCharacter.audit.recommendedJewelcrafterGem.bonusSummary.chanceBonusLists Is Nothing, Nothing, cpCharacter.audit.recommendedJewelcrafterGem.bonusSummary.chanceBonusLists.ToCollection()),
+                                If(
+                                    cpCharacter.audit.recommendedJewelcrafterGem.bonusSummary.bonusChances Is Nothing, Nothing, (
+                                        From c In cpCharacter.audit.recommendedJewelcrafterGem.bonusSummary.bonusChances
+                                        Select New BonusChance(
+                                            c.chanceType,
+                                            If(c.upgrade Is Nothing, Nothing, New BonusChanceUpgrade(c.upgrade.upgradeType, c.upgrade.name, c.upgrade.id)),
+                                            If(
+                                                c.stats Is Nothing, Nothing, (
+                                                    From s In c.stats
+                                                    Select New BonusChanceStat(
+                                                        s.statId.GetItemStatType(),
+                                                        s.delta
+                                                        )
+                                                    ).ToCollection()
+                                                ),
+                                            If(
+                                                c.sockets Is Nothing, Nothing, (
+                                                    From s In c.sockets
+                                                    Select s.socketType
+                                                    ).ToCollection()
+                                                )
+                                            )
+                                        ).ToCollection()
+                                    )
+                                )
+                            )
                         )
-                    )
+                    ),
+                (
+                    From e In cpCharacter.audit.missingLeatherworkerEnchants
+                    Select New EquipmentCount(CType(CInt(e.Key), EquipmentSlot), e.Value)
+                    ).ToCollection()
                 )
+            )
+        )
+
         End Sub
 
 #End Region
@@ -1636,7 +1703,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                             ri.tooltipParams.reforge,
                                             ri.tooltipParams.transmogItem,
                                             If(
-                                                ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                ri.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                                     ri.tooltipParams.upgrade.current,
                                                     ri.tooltipParams.upgrade.total,
                                                     ri.tooltipParams.upgrade.itemLevelIncrement
@@ -1647,7 +1714,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     (
                                         From s In ri.stats
                                         Select New Item.ItemStat(
-                                            CType(s.stat, Enums.ItemStat),
+                                            CType(s.stat, ItemStatType),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -1701,7 +1768,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                             ri.tooltipParams.reforge,
                                             ri.tooltipParams.transmogItem,
                                             If(
-                                                ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                ri.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                                     ri.tooltipParams.upgrade.current,
                                                     ri.tooltipParams.upgrade.total,
                                                     ri.tooltipParams.upgrade.itemLevelIncrement
@@ -1712,7 +1779,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     (
                                         From s In ri.stats
                                         Select New Item.ItemStat(
-                                            CType(s.stat, Enums.ItemStat),
+                                            CType(s.stat, ItemStatType),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
@@ -1760,7 +1827,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                             ri.tooltipParams.reforge,
                                             ri.tooltipParams.transmogItem,
                                             If(
-                                                ri.tooltipParams.upgrade Is Nothing, Nothing, New Upgrade(
+                                                ri.tooltipParams.upgrade Is Nothing, Nothing, New TooltipParamsUpgrade(
                                                     ri.tooltipParams.upgrade.current,
                                                     ri.tooltipParams.upgrade.total,
                                                     ri.tooltipParams.upgrade.itemLevelIncrement
@@ -1771,7 +1838,7 @@ Namespace roncliProductions.LibWowAPI.Character
                                     (
                                         From s In ri.stats
                                         Select New Item.ItemStat(
-                                            CType(s.stat, Enums.ItemStat),
+                                            CType(s.stat, ItemStatType),
                                             s.amount,
                                             s.reforgedAmount,
                                             s.reforged
