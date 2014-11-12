@@ -1,5 +1,5 @@
 # LibWowAPI
-### Version 1.1 - Released 9/5/2012
+### Version 2.0 - Release 11/12/2014
 
 LibWowAPI is a library for the .NET framework that interfaces with the Blizzard World of Warcraft API. The [Blizzard World of Warcraft API](http://blizzard.github.com/api-wow-docs) is an online API that interfaces with World of Warcraft.
 
@@ -11,6 +11,82 @@ Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
 
 ## Version History
+
+### 2.0 - 11/12/2014
+* Summary:
+ * This is a large update, upgrading to the .NET Framework v4.5.1, keeping up with Blizzard's latest API changes, refactorization and disambiguation of many classes, and a new unit testing project.  Hence, the major version number increment.
+ * There are many breaking changes, so if your code doesn't compile, use this list of changes to determine what might have changed.
+ * Moved to use the new Mashery API.  This will require an API key.  Visit http://dev.battle.net for information on how to get a key.  Note: The China region does not have a Mashery URI right now.  Just use the API without an API key for now, until China is supported.
+ * There is a new unit testing project.  See the Unit Testing section for information on how to enable Unit Testing.
+ * Added many classes that were added since 1.0.4 that did not get added in 1.1.
+ * Fixed many broken classes that were changed by Blizzard since 1.1.
+ * Refactored many repetitive classes into a single class.  In general, the namespace used was the namespace that makes the most sense for the object.  For instance, completed achievements are in the new Achivement namespace, while talents reside in the Data.Talent namespace.
+ * Renamed some classes that may cause confusion, for example two Stats classes were renamed BattlePetStats and CharacterStats.
+ * IDs are now more descriptive.
+ * Many bug fixes, especially with processing API errors from Blizzard.
+* Details:
+ * New:
+   * Added new LibWowAPITest unit tesitng project.
+   * Added ApiKey to the WowAPIData class.  Visit http://dev.battle.net to get a Mashery API key.
+   * Added Language.Italiano to send it_IT for Italian.
+   * Added achievement lookup. (Achievement.AchievementLookup)
+   * Added faction to achievements.
+   * Added ItemLevel and Armor to achievement reward items.
+   * Added OwnerRealm, SuffixID, UniqueID, PetSpeciesID, PetBreed, PetLevel, and PetQuality to the auction data.
+   * Added battle pet ability, species, and stats lookups. (BattlePet.BattlePetAbility, BattlePet.BattlePetSpecies, and BattlePet.BattlePetStats)
+   * Added challenge mode leaderboards for realm and region. (Challenge.ChallengeRealm and Challenge.ChallengeRegion)
+   * Added TimeZone to realms.
+   * Added Guild and GuildRealm to characters displayed within the Guild class.  No, I don't understand why they added redundant information, either.
+   * Added FamilyID ans FamilyName to character's hunter pets.
+   * Added item level, upgrade information, and stats to a character's equipped items.
+   * Added LFR and Flex kills as well as most recent timestamps to all modes for progression in character profile.
+   * Added haste, spell haste, ranged haste, ranged expertise, and new PvP values to combat stats in character profile.
+   * Added class talents lookup. (Data.ClassTalents)
+   * Added pet type lookup. (Data.PetTypes)
+   * Added guild challenge modes to the guild profile lookup.
+   * Added pets, pet slot, and character audit information to character profile lookup.
+   * Added minimum item level to gem info for items.
+   * Added context and bonus information for items.
+   * Added list of items to an item set in the items.
+   * Added spell lookup. (Spell.SpellLookup)
+   * Added ConnectedRealms to most realm objects.
+ * Removed:
+   * Removed PublicKey and PrivateKey from the WowAPIData class.
+   * Removed all references to reforging.
+   * Removed namespace PvP and all classes within, since Blizzard has removed those APIs.
+   * Removed references to hit rating and weapon expertise in character stats.
+ * Fixes:
+   * Upgraded solution and projects to Visual Studio 2013 and .NET 4.5.
+   * Language.EnglishEU now correctly sends en_GB.
+   * The Auctions class no longer returns an AuctionHouse object for each faction (Alliance, Horde, and Neutral), but now it returns just one AuctionHouse for the entire realm (Auctions).
+   * Refactored Character, CharacterAchievements, GuildAchievements, GuildRewards, and Guild objects to use the various classes from the Achievements namespace for achievements, crtieria, and reward items.
+   * Achievement criteria are now sorted by their OrderIndex property.
+   * All public references to Side have been changed to Faction.
+   * Refactored Character objects to use the GuildBasicInfo and Emblem classes from the Guild namespace.
+   * PvP data for the character profile has been updated to eliminate teams and use the new brackets.
+   * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
+   * Changed the Rank field to the Subtext field in the Spell class within the Character namespace.
+   * Changed item weapon damage to show both integer and exact min and max values.
+   * Refactored Guild objects to use the CharacterBasicInfo class from the Character namespace.
+   * Refactored Character, GuildPerks, and Item objects to use the Spell class from the Spell namespace.
+   * Refactored Character, CharacterAchievements, GuildAchievements, GuildRewards, and Guild objects to use the ItemBasicInfo class from the Item namespace.
+   * Refactored Item objects to use the ItemSet and SetBonus classes from the ItemSet namespace.
+   * Refactored Achievement and Guild objects to use the new ItemBasicInfo class from the Item namespace.
+   * Refactored Character and Guild objects to use the CompletedAchievements class from the Achievement namespace.
+   * Replaced all fields named just "ID" with a more descriptive property.
+   * Refactored Character and Guild objects to use the Spec and Glyph classes from the Data.Talents namespace.
+   * Refactored Character objects to use new Talent class from the Data.Talent namespace.
+   * Refactored Auction objects to use new RealmName class from the Realm namespace.
+   * Refactored Class objects for characters to be called CharacterClass.
+   * Refactored Class objects for items to be called ItemClass.  The ID field is now correctly called ClassID.
+   * Refactored Subclass objects for items to be called ItemSubclass.  The ID field is now correctly called SubclassID.
+   * Renamed Stat enumeration to ItemStatType.
+   * ItemStatType.FeralAttackPower was removed.
+   * Refactored Stat objects for items to be called ItemStat.
+   * Refactored Stats objects for characters to be called CharacterStats.
+   * Refactored Member objects for guilds to be called GuildMember.
+   * Updated Data.Talents.CharacterTalents to group the talents by slot.
+   * Weapon Damage on an Item is no longer a collection.
 
 ### 1.1 - 9/5/2012
 * New:
@@ -127,81 +203,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 ## Planned versions
 
-### 2.0
-* Summary:
- * This is a large update, upgrading to the .NET Framework v4.5.1, keeping up with Blizzard's latest API changes, refactorization and disambiguation of many classes, and a new unit testing project.  Hence, the major version number increment.
- * There are many breaking changes, so if your code doesn't compile, use this list of changes to determine what might have changed.
- * Moved to use the new Mashery API.  This will require an API key.  Visit http://dev.battle.net for information on how to get a key.  Note: The China region does not have a Mashery URI right now.  Just use the API without an API key for now, until China is supported.
- * There is a new unit testing project.  See the Unit Testing section for information on how to enable Unit Testing.
- * Added many classes that were added since 1.0.4 that did not get added in 1.1.
- * Fixed many broken classes that were changed by Blizzard since 1.1.
- * Refactored many repetitive classes into a single class.  In general, the namespace used was the namespace that makes the most sense for the object.  For instance, completed achievements are in the new Achivement namespace, while talents reside in the Data.Talent namespace.
- * Renamed some classes that may cause confusion, for example two Stats classes were renamed BattlePetStats and CharacterStats.
- * IDs are now more descriptive.
- * Many bug fixes, especially with processing API errors from Blizzard.
-* Details:
- * New:
-   * Added new LibWowAPITest unit tesitng project.
-   * Added ApiKey to the WowAPIData class.  Visit http://dev.battle.net to get a Mashery API key.
-   * Added Language.Italiano to send it_IT for Italian.
-   * Added achievement lookup. (Achievement.AchievementLookup)
-   * Added faction to achievements.
-   * Added ItemLevel and Armor to achievement reward items.
-   * Added OwnerRealm, SuffixID, UniqueID, PetSpeciesID, PetBreed, PetLevel, and PetQuality to the auction data.
-   * Added battle pet ability, species, and stats lookups. (BattlePet.BattlePetAbility, BattlePet.BattlePetSpecies, and BattlePet.BattlePetStats)
-   * Added challenge mode leaderboards for realm and region. (Challenge.ChallengeRealm and Challenge.ChallengeRegion)
-   * Added TimeZone to realms.
-   * Added Guild and GuildRealm to characters displayed within the Guild class.  No, I don't understand why they added redundant information, either.
-   * Added FamilyID ans FamilyName to character's hunter pets.
-   * Added item level, upgrade information, and stats to a character's equipped items.
-   * Added LFR and Flex kills as well as most recent timestamps to all modes for progression in character profile.
-   * Added haste, spell haste, ranged haste, ranged expertise, and new PvP values to combat stats in character profile.
-   * Added class talents lookup. (Data.ClassTalents)
-   * Added pet type lookup. (Data.PetTypes)
-   * Added guild challenge modes to the guild profile lookup.
-   * Added pets, pet slot, and character audit information to character profile lookup.
-   * Added minimum item level to gem info for items.
-   * Added context and bonus information for items.
-   * Added list of items to an item set in the items.
-   * Added spell lookup. (Spell.SpellLookup)
-   * Added ConnectedRealms to most realm objects.
- * Removed:
-   * Removed PublicKey and PrivateKey from the WowAPIData class.
-   * Removed all references to reforging.
-   * Removed namespace PvP and all classes within, since Blizzard has removed those APIs.
-   * Removed references to hit rating and weapon expertise in character stats.
- * Fixes:
-   * Upgraded solution and projects to Visual Studio 2013 and .NET 4.5.
-   * Language.EnglishEU now correctly sends en_GB.
-   * The Auctions class no longer returns an AuctionHouse object for each faction (Alliance, Horde, and Neutral), but now it returns just one AuctionHouse for the entire realm (Auctions).
-   * Refactored Character, CharacterAchievements, GuildAchievements, GuildRewards, and Guild objects to use the various classes from the Achievements namespace for achievements, crtieria, and reward items.
-   * Achievement criteria are now sorted by their OrderIndex property.
-   * All public references to Side have been changed to Faction.
-   * Refactored Character objects to use the GuildBasicInfo and Emblem classes from the Guild namespace.
-   * PvP data for the character profile has been updated to eliminate teams and use the new brackets.
-   * Moved TotalHonorableKills to the base character data to reflect the change made in the API.
-   * Changed the Rank field to the Subtext field in the Spell class within the Character namespace.
-   * Changed item weapon damage to show both integer and exact min and max values.
-   * Refactored Guild objects to use the CharacterBasicInfo class from the Character namespace.
-   * Refactored Character, GuildPerks, and Item objects to use the Spell class from the Spell namespace.
-   * Refactored Character, CharacterAchievements, GuildAchievements, GuildRewards, and Guild objects to use the ItemBasicInfo class from the Item namespace.
-   * Refactored Item objects to use the ItemSet and SetBonus classes from the ItemSet namespace.
-   * Refactored Achievement and Guild objects to use the new ItemBasicInfo class from the Item namespace.
-   * Refactored Character and Guild objects to use the CompletedAchievements class from the Achievement namespace.
-   * Replaced all fields named just "ID" with a more descriptive property.
-   * Refactored Character and Guild objects to use the Spec and Glyph classes from the Data.Talents namespace.
-   * Refactored Character objects to use new Talent class from the Data.Talent namespace.
-   * Refactored Auction objects to use new RealmName class from the Realm namespace.
-   * Refactored Class objects for characters to be called CharacterClass.
-   * Refactored Class objects for items to be called ItemClass.  The ID field is now correctly called ClassID.
-   * Refactored Subclass objects for items to be called ItemSubclass.  The ID field is now correctly called SubclassID.
-   * Renamed Stat enumeration to ItemStatType.
-   * ItemStatType.FeralAttackPower was removed.
-   * Refactored Stat objects for items to be called ItemStat.
-   * Refactored Stats objects for characters to be called CharacterStats.
-   * Refactored Member objects for guilds to be called GuildMember.
-   * Updated Data.Talents.CharacterTalents to group the talents by slot.
-   * Weapon Damage on an Item is no longer a collection.
+None.
 
 ## Classes
 
