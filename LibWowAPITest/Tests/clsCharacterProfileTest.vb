@@ -149,7 +149,6 @@ Namespace roncliProductions.LibWowAPITest.Tests
             Assert.AreEqual(eEmblem.BorderColor, Color.FromArgb(&HFF, &HF, &H14, &H15))
             Assert.AreEqual(eEmblem.Icon, 49)
             Assert.AreEqual(eEmblem.IconColor, Color.FromArgb(&HFF, &H10, &H15, &H17))
-            'TODO: This fails! Determine if Level is ever used in GuildBasicInfo Assert.AreEqual(gbiGuild.Level, 25)
             Assert.IsTrue(gbiGuild.Members > 100)
             Assert.AreEqual(gbiGuild.Name, "Six Minutes To Release")
             Assert.AreEqual(gbiGuild.Realm, "Lightbringer")
