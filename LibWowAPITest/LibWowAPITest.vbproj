@@ -105,11 +105,11 @@
     <Compile Include="Tests\clsDataItemClassesTest.vb" />
     <Compile Include="Tests\clsGuildProfileTest.vb" />
     <Compile Include="Tests\clsItemLookupTest.vb" />
-    <Compile Include="Tests\clsPvPArenaLadderTest.vb" />
-    <Compile Include="Tests\clsPvPArenaTeamTest.vb" />
+    <Compile Include="Tests\clsLeaderboardLookupTest.vb" />
     <Compile Include="Tests\clsQuestLookupTest.vb" />
     <Compile Include="Tests\clsRealmStatusTest.vb" />
     <Compile Include="Tests\clsRecipeLookupTest.vb" />
+    <Compile Include="Tests\clsSpellLookupTest.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
