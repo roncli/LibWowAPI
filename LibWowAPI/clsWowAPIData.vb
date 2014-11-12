@@ -339,7 +339,7 @@ Namespace roncliProductions.LibWowAPI
                     If baeError Is Nothing Then
                         Throw
                     Else
-                        Throw New BlizzardAPIException(baeError.status, baeError.reason, wex)
+                        Throw New BlizzardAPIException(baeError, wex)
                     End If
                 End Try
                 hwrRequest = Nothing

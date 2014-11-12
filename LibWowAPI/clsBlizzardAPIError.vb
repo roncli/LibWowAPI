@@ -11,6 +11,9 @@ Namespace roncliProductions.LibWowAPI
 
         <DataMember()> Public Property status As String
         <DataMember()> Public Property reason As String
+        <DataMember()> Public Property code As Integer
+        <DataMember()> Public Property type As String
+        <DataMember()> Public Property detail As String
 
     End Class
 

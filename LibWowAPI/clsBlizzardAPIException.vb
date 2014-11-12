@@ -16,26 +16,8 @@ Namespace roncliProductions.LibWowAPI
     Public Class BlizzardAPIException
         Inherits Exception
 
-        ''' <summary>
-        ''' The status of the request as provided by Blizzard.
-        ''' </summary>
-        ''' <value>This property gets or sets the Status field.</value>
-        ''' <returns>Returns the status of the request as provided by Blizzard.</returns>
-        ''' <remarks>This is the status of the request as provided by Blizzard.  While this typically returns "nok", it is not known if values other than "nok" exist.</remarks>
-        Public Property Status As String
-
-        ''' <summary>
-        ''' The reason for the error as provided by Blizzard.
-        ''' </summary>
-        ''' <value>This property gets or sets the Reason field.</value>
-        ''' <returns>Returns the reason why the error occurred as provided by Blizzard.</returns>
-        ''' <remarks>This is the reason why the error occurred as provided by Blizzard.  While there is a list of possible errors at http://blizzard.github.com/api-wow-docs/#id3380043 it is neither exhaustive nor 100% accurate.</remarks>
-        Public Property Reason As String
-
-        Friend Sub New(strStatus As String, strReason As String, innerException As Exception)
-            MyBase.New(String.Format(CultureInfo.InvariantCulture, "The Blizzard API threw the following error: {0} - {1}", strStatus, strReason), innerException)
-            Status = strStatus
-            Reason = strReason
+        Friend Sub New(baeError As BlizzardAPIError, innerException As Exception)
+            MyBase.New(ErrorString(baeError), innerException)
         End Sub
 
         Private Sub New()
@@ -53,6 +35,14 @@ Namespace roncliProductions.LibWowAPI
         Protected Sub New(info As SerializationInfo, context As StreamingContext)
             MyBase.New(info, context)
         End Sub
+
+        Private Shared Function ErrorString(baeError As BlizzardAPIError) As String
+            If baeError.code = 0 Then
+                Return String.Format(CultureInfo.InvariantCulture, "The Blizzard API threw the following error: {0} - {1}", baeError.status, baeError.reason)
+            Else
+                Return String.Format(CultureInfo.InvariantCulture, "The Blizzard API threw the following error: {0} - {1} - {2}", baeError.code, baeError.type, baeError.detail)
+            End If
+        End Function
 
     End Class
 
