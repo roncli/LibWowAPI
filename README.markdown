@@ -203,7 +203,8 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 ## Planned versions
 
-None.
+### 2.0.1
+* gzip support.
 
 ## Classes
 
