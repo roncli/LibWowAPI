@@ -3,6 +3,7 @@
 '
 ' This source code is released under the GNU Lesser General Public License (LGPL) Version 3.0.
 
+Imports System.Collections.ObjectModel
 Imports roncliProductions.LibWowAPI.Realm
 
 Namespace roncliProductions.LibWowAPI.Auction
@@ -13,13 +14,18 @@ Namespace roncliProductions.LibWowAPI.Auction
     ''' <remarks>This class contains a snapshot of auctions for all auctions on a single realm.</remarks>
     Public Class Auctions
 
+        Private colRealms As Collection(Of RealmName)
         ''' <summary>
-        ''' The realm the auctions are on.
+        ''' The realms the auctions are on.
         ''' </summary>
-        ''' <value>This property gets or sets the Realm field.</value>
-        ''' <returns>Returns the realm the auctions are on.</returns>
-        ''' <remarks>This is a <see cref="RealmName" /> object that defines the realm the auctions are on.</remarks>
-        Public Property Realm As RealmName
+        ''' <value>This property gets or sets the Realms field.</value>
+        ''' <returns>Returns the realms the auctions are on.</returns>
+        ''' <remarks>This is a <see cref="Collection(Of RealmName)" /> of <see cref="RealmName" /> objects that defines the realm the auctions are on.</remarks>
+        Public ReadOnly Property Realms As Collection(Of RealmName)
+            Get
+                Return colRealms
+            End Get
+        End Property
 
         ''' <summary>
         ''' The date the auctions were last updated.
@@ -37,8 +43,8 @@ Namespace roncliProductions.LibWowAPI.Auction
         ''' <remarks>This is an <see cref="AuctionHouse" /> object that lists all of the auctions currently available on the auction house for this realm.</remarks>
         Public Property Auctions As AuctionHouse
 
-        Friend Sub New(rnRealm As RealmName, dtLastUpdated As Date, ahAuctions As AuctionHouse)
-            Realm = rnRealm
+        Friend Sub New(rnRealms As Collection(Of RealmName), dtLastUpdated As Date, ahAuctions As AuctionHouse)
+            colRealms = rnRealms
             LastUpdated = dtLastUpdated
             Auctions = ahAuctions
         End Sub

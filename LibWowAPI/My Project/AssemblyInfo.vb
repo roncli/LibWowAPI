@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("A library to easily access information from the Blizzard World of Warcraft API")> 
 <Assembly: AssemblyCompany("roncli Productions")> 
 <Assembly: AssemblyProduct("LibWowAPI")> 
-<Assembly: AssemblyCopyright("©2008-2014 roncli Productions")> 
+<Assembly: AssemblyCopyright("©2008-2015 roncli Productions")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

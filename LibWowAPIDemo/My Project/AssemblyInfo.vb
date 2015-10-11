@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("An app that demonstrates the features of LibWowAPI")> 
 <Assembly: AssemblyCompany("roncli Productions")> 
 <Assembly: AssemblyProduct("LibWowAPIDemo")> 
-<Assembly: AssemblyCopyright("©2009-2014 roncli Productions")> 
+<Assembly: AssemblyCopyright("©2009-2015 roncli Productions")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

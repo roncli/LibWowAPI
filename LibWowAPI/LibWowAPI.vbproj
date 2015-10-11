@@ -82,7 +82,6 @@
     <Compile Include="Auction\clsAuctionDataOptions.vb" />
     <Compile Include="Auction\clsFile.vb" />
     <Compile Include="Auction\Schema\auction.vb" />
-    <Compile Include="Auction\Schema\auctionHouse.vb" />
     <Compile Include="Auction\Schema\auctions.vb" />
     <Compile Include="Auction\Schema\file.vb" />
     <Compile Include="Auction\Schema\files.vb" />

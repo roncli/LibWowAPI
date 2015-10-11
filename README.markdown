@@ -1,9 +1,9 @@
 # LibWowAPI
-### Version 2.0 - Release 11/12/2014
+### Version 2.0.1 - Released 10/11/2015
 
 LibWowAPI is a library for the .NET framework that interfaces with the Blizzard World of Warcraft API. The [Blizzard World of Warcraft API](http://blizzard.github.com/api-wow-docs) is an online API that interfaces with World of Warcraft.
 
-(c)2008-2014 [Ronald M. Clifford](mailto:roncli@roncli.com)
+(c)2008-2015 [Ronald M. Clifford](mailto:roncli@roncli.com)
 
 Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 
@@ -11,6 +11,10 @@ Licensed under the [LGPL 3.0](http://www.gnu.org/licenses/lgpl.html).
 See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for more information on how to use LibWowAPI in your .NET application.
 
 ## Version History
+
+### 2.0.1 - 10/11/2015
+* Fixed a bug with the auctions that was introduced when Blizzard changed the realm list to incorporate connected realms.  Note that this is considered a breaking change: Auctions.Realm is now Auctions.Realms, and is now a collection of RealmName.
+* Fixed a bug with the auctions that was introduced after Blizzard consolidated the auction houses into one realm and restructured the JSON so that auctions is no longer a collection of auction houses, but a collection of auctions.  This is not a breaking change.
 
 ### 2.0 - 11/12/2014
 * Summary:
@@ -203,7 +207,7 @@ See the [Documentation](https://github.com/roncli/LibWowAPI/wiki/LibWowAPI) for 
 
 ## Planned versions
 
-### 2.0.1
+### 2.0.2
 * gzip support.
 
 ## Classes

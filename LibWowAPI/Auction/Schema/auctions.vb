@@ -10,8 +10,8 @@ Namespace roncliProductions.LibWowAPI.Auction.Schema
 
     <DataContract()> Friend Class auctions
 
-        <DataMember()> Public Property realm As realmName
-        <DataMember()> Public Property auctions As auctionHouse
+        <DataMember()> Public Property realms As realmName()
+        <DataMember()> Public Property auctions As auction()
 
     End Class
 

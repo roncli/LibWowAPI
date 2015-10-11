@@ -23,6 +23,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
             Dim aAuctions = adData.Auctions
 
             Assert.IsTrue(aAuctions.Count > 0)
+            Assert.IsTrue(aAuctions.First().Realms.Count > 0)
             Assert.IsTrue(aAuctions.First().Auctions.Auctions.Count > 0)
         End Sub
 
@@ -32,6 +33,7 @@ Namespace roncliProductions.LibWowAPITest.Tests
             Dim aAuctions = adData.Auctions
 
             Assert.IsTrue(aAuctions.Count > 0)
+            Assert.IsTrue(aAuctions.First().Realms.Count > 0)
             Assert.IsTrue(aAuctions.First().Auctions.Auctions.Count > 0)
         End Sub
 

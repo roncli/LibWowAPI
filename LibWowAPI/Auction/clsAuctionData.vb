@@ -134,11 +134,17 @@ Namespace roncliProductions.LibWowAPI.Auction
 
                 colAuctions.Add(
                     New Auctions(
-                        New RealmName(aAuctions.realm.name, aAuctions.realm.slug),
+                        (
+                            From r In aAuctions.realms
+                            Select New RealmName(
+                                r.name,
+                                r.slug
+                                )
+                            ).ToCollection(),
                         fFile.LastModified,
                         New AuctionHouse(
                             (
-                                From a In aAuctions.auctions.auctions
+                                From a In aAuctions.auctions
                                 Select New Auction(
                                     a.auc,
                                     a.item,
